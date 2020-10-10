@@ -1,0 +1,1 @@
+Merge sort is a divide and conquer technique in which the list breaking down into several sub-lists until each sublist consists of a single element and merging those sublists in a manner that results into a sorted list.

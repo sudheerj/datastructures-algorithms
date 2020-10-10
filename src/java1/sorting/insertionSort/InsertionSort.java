@@ -21,15 +21,15 @@ class InsertionSort {
             return array;
         }
 
-    // Prints the sorted array
-    private void printArray(int arr[])
-    {
-        System.out.println("Sorted array");
-        for (int i=0; i<arr.length; ++i){
-            System.out.print(arr[i] + " ");
+        // Prints the sorted array
+        private void printArray(int arr[])
+        {
+            System.out.println("Sorted array");
+            for (int i=0; i<arr.length; ++i){
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
         }
-        System.out.println();
-    }
 
         public static void main(String args[]) {
             InsertionSort obj = new InsertionSort();
