@@ -25,14 +25,6 @@ class LinkedList {
         return this;
     }
 
-    findMiddleNodeWithLength() {
-        let temp = this.head;
-        for(let i = 0; i < Math.floor(this.length/2); i++) {
-            temp = temp.next;
-        }
-        return temp;
-    }
-
     binaryToDecimal() {
         let current = this.head;
         let decimal = 0;
