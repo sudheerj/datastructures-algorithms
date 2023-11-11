@@ -5,11 +5,13 @@ class Node {
     }
 }
 
-class MyQueue {
-    constructor() {
-        this.first = null;
-        this.last = null;
-        this.length = 0;
+class Queue {
+    constructor(value) {
+        const newNode = new Node(value);
+
+        this.first = newNode;
+        this.last = newNode;
+        this.length = 1;
     }
 
     enqueue(value) {
@@ -26,13 +28,18 @@ class MyQueue {
     }
 
     dequeue() {
-        if(this.length === 0) {
-            return null;
+        if(this.length === 0) return undefined;
+        const temp = this.first;
+        if(this.length === 1) {
+            this.first = null;
+            this.last = null;
+        } else {
+            this.first = this.first.next;
+            temp.next = null;
         }
-        const nextQueueNode = this.first;
-        this.first = this.first.next;
+        
         this.length--;
-        return nextQueueNode;
+        return temp;
     }
 
     peek() {
@@ -44,7 +51,7 @@ class MyQueue {
     }
 }
 
-const myQueue = new MyQueue();
+const myQueue = new MyQueue("Zero");
 myQueue.enqueue("One");
 myQueue.enqueue("Two");
 myQueue.enqueue("Three");
