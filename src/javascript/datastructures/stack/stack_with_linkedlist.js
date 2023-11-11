@@ -5,31 +5,31 @@ class Node {
     }
 }
 
-class MyStack {
-    constructor() {
-        this.top = null;
-        this.length = 0;
+class Stack {
+    constructor(value) {
+        const newNode = new Node(value);
+        this.top = newNode;
+        this.length = 1;
     }
 
     push(value) {
-        let newNode = new Node(value);
+        const newNode = new Node(value);
         if(this.length === 0) {
             this.top = newNode;
         } else {
-            const topNode = this.top;
+            newNode.next = newNode;
             this.top = newNode;
-            this.top.next = topNode;
         }
         this.length++;
         return this;
     }
 
     pop() {
-        if (this.length === 0) {
-            return null;
-        }
-        const topNode = this.top;
+        if (this.length === 0) return undefined;
+        const temp = this.top;
         this.top = this.top.next;
+        temp.next = null;
+
         this.length--;
         return topNode;
     }
@@ -43,7 +43,7 @@ class MyStack {
     }
 }
 
-const myStack = new MyStack();
+const myStack = new Stack("Zero");
 myStack.push("One");
 myStack.push("Second");
 myStack.push("Third");
