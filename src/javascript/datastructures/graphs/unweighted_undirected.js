@@ -1,28 +1,56 @@
 class Graph {
     constructor() {
-        this.numberOfNodes = 0;
+        this.numberOfVertices = 0;
         this.adjacentList = {}
     }
 
-    addVertex(node) {
-        this.adjacentList[node] = [];
-        this.numberOfNodes++;
+    addVertex(vertex) {
+        if(!this.adjacentList[vertex]) {
+            this.adjacentList[vertex] = [];
+            this.numberOfVertices++;
+            return true;
+        }
+        return false;
     }
 
-    addEdge(firstNode, secondNode) {
-        this.adjacentList[firstNode].push(secondNode);
-        this.adjacentList[secondNode].push(firstNode);
+    addEdge(firstVertex, secondVertex) {
+        if(this.adjacentList[firstVertex] && this.adjacentList[secondVertex]) {
+            this.adjacentList[firstVertex].push(secondVertex);
+            this.adjacentList[secondVertex].push(firstVertex);
+            return true;
+        }
+        return false;
+    }
+
+    removeEdge(firstVertex, secondVertex) {
+        if(this.adjacentList[firstVertex] && this.adjacentList[secondVertex]) {
+            this.adjacentList[firstVertex] = this.adjacentList[firstVertex].filter((v) => v - secondVertex);
+            this.adjacentList[secondVertex] = this.adjacentList[secondVertex].filter((v) => v - firstVertex);
+            return true;
+        }
+        return false;
+    }
+
+    removeVertex(vertex) {
+        if(!this.adjacentList[vertex]) return undefined;
+        while(this.adjacentList[vertex].length) {
+            let temp = this.adjacentList[vertex].pop();
+            this.removeEdge(vertex, temp);
+        }
+        delete this.adjacentList[vertex];
+        this.numberOfVertices--;
+        return this;
     }
 
     showConnections() {
-        const allNodes = Object.keys(this.adjacentList);
-        for (let node of allNodes) {
-            const nodeConnections = this.adjacentList[node];
+        const allVertices = Object.keys(this.adjacentList);
+        for (let vertex of allVertices) {
+            const vertexConnections = this.adjacentList[vertex];
             let connections = '';
-            for (let vertex of nodeConnections) {
+            for (let vertex of vertexConnections) {
                 connections += vertex + ' ';
             }
-            console.log(node +' --> ', connections);
+            console.log(vertex +' --> ', connections);
         }
         
     }
@@ -40,6 +68,10 @@ myGraph.addEdge('1', '3');
 myGraph.addEdge('2', '3');
 myGraph.addEdge('2', '4');
 myGraph.addEdge('3', '5');
+myGraph.removeEdge('3', '5');
+myGraph.removeEdge('2', '4');
+myGraph.removeVertex('5');
+myGraph.removeVertex('4');
 myGraph.showConnections();
 
 
