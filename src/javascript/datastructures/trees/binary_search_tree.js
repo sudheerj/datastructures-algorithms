@@ -17,7 +17,7 @@ class BinarySearchTree {
             this.root = newNode;
             return this;
         } 
-            const currentNode = this.root;
+            let currentNode = this.root;
             while(true) {
                 if(value < currentNode.value) {
                     // Left
@@ -43,7 +43,7 @@ class BinarySearchTree {
         if(this.root === null) {
             return false;
         }
-        const currentNode = this.root;
+        let currentNode = this.root;
         while(true) {
             if(value < currentNode.left) {
                 currentNode = currentNode.left;
@@ -84,6 +84,54 @@ class BinarySearchTree {
             currentNode = currentNode.right;
         }
     }
+
+    BFS() {
+        let currentNode = this.root;
+        let queue = [];
+        let output = [];
+        queue.push(currentNode);
+
+        while(queue.length) {
+            currentNode = queue.shift();
+            output.push(currentNode.value);
+            if(currentNode.left) queue.push(currentNode.left);
+            if(currentNode.right) queue.push(currentNode.right);
+        }
+        return output;
+    }
+
+    DFSPreOrder() {
+        let output = [];
+        function traverse(currentNode) {
+            output.push(currentNode.value);
+            if(currentNode.left) traverse(currentNode.left);
+            if(currentNode.right) traverse(currentNode.right);
+        }
+        traverse(this.root);
+        return output;
+    }
+
+    DFSPostOrder() {
+        let output = [];
+        function traverse(currentNode) {
+            if(currentNode.left) traverse(currentNode.left);
+            if(currentNode.right) traverse(currentNode.right);
+            output.push(currentNode.value);
+        }
+        traverse(this.root);
+        return output;
+    }
+
+    DFSInOrder() {
+        let output = [];
+        function traverse(currentNode) {
+            if(currentNode.left) traverse(currentNode.left);
+            output.push(currentNode.value);
+            if(currentNode.right) traverse(currentNode.right);
+        }
+        traverse(this.root);
+        return output;
+    }
 }
 
 const tree = new BinarySearchTree();
@@ -97,3 +145,9 @@ console.log(tree.contains(100));
 console.log(tree.contains(9));
 console.log(tree.minValueNode(tree.root.left));
 console.log(tree.maxValueNode(tree.root.right));
+tree.insert(12);
+tree.insert(67);
+console.log(tree.BFS());
+console.log(tree.DFSPreOrder());
+console.log(tree.DFSPostOrder());
+console.log(tree.DFSInOrder());
