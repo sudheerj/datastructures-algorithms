@@ -44,7 +44,6 @@ class LinkedList {
     }
     
     merge(secondList) {
-        let mergedList = [];
         let secondListHead = secondList.head;
         const dummy = new Node(0);
         let current = dummy;
@@ -62,7 +61,7 @@ class LinkedList {
             current.next = this.head;
         } else {
             current.next = secondListHead;
-            this.tail = secondListHead.tail;
+            this.tail = secondList.tail;
         }
         this.head = dummy.next;
         this.length += secondList.length;
