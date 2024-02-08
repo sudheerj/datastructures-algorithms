@@ -1,3 +1,4 @@
+// TC: O(n), SC: O(n)
 import java.util.*;
 
 class TwoSum {
