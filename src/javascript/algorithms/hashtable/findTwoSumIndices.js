@@ -1,27 +1,25 @@
-function twoSumWithMap(arr, target) {
-    if(arr.length < 2) return [];
+function twoSumWithMap(nums, target) {
+    if(nums.length < 2) return [];
     let numMap = new Map();
-    for(let i=0; i < arr.length; i++) {
-        let num = arr[i];
-        let complement = target - num;
+    for(let i=0; i < nums.length; i++) {
+        let complement = target - nums[i];
         if(numMap.has(complement)) {
             return [numMap.get(complement), i];
         }
-        numMap.set(num, i);
+        numMap.set(nums[i], i);
     }
     return [];
 }
 
-function twoSumWithObject(arr, target) {
-    if(arr.length < 2) return [];
+function twoSumWithObject(nums, target) {
+    if(nums.length < 2) return [];
     let numObj = {};
-    for(let i=0; i < arr.length; i++) {
-        let num = arr[i];
-        let complement = target - num;
+    for(let i=0; i < nums.length; i++) {
+        let complement = target - nums[i];
         if(numObj.hasOwnProperty(complement)) {
             return [numObj[complement], i];
         }
-        numObj[num] = i;
+        numObj[nums[i]] = i;
     }
     return [];
 }
