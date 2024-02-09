@@ -1,4 +1,4 @@
-// TC: O(n), SC: O(1)
+// Early exist:- TC: O(n), SC: O(1)
 function containsDuplicate(nums) {
     let noDupsSet = new Set();
     for(const num of nums) {
@@ -10,7 +10,7 @@ function containsDuplicate(nums) {
     return false;
 }
 
-//Use Set size
+//Use Set size:- TC: O(n), SC: O(1)
 function containsDuplicateUsingSize(nums) {
     return new Set(nums).size !== nums.length;
 }

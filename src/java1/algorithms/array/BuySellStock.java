@@ -1,4 +1,4 @@
-//Greedy approach: TC:O(n), SC:O(1)
+//Greedy approach/Sliding window: TC:O(n), SC:O(1)
 
 class BuySellStock {
     private static int maxProfit(int[] stockPrices) {
