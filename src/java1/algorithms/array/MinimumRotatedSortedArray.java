@@ -1,3 +1,5 @@
+//TC: O(log n), SC: O(1)
+
 public class MinimumRotatedSortedArray {
     private static int minRotatedSortedArray(int[] nums) {
         if (nums.length == 1)
