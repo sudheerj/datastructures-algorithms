@@ -3,7 +3,7 @@ package java1.algorithms.strings;
 
 import java.util.HashSet;
 
-public class longestSubstringWithoutRepeatingChar {
+public class LongestSubstringWithoutRepeatingChar {
     private static int longestSubstringLengthWithoutRepeatingChar(String str) {
         HashSet<Character> hashset = new HashSet<>();
         int left = 0, max = 0;

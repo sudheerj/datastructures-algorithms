@@ -1,7 +1,7 @@
 //Sliding window: TC:O(n) SC: O(1)
 package java1.algorithms.strings;
 
-public class longestRepeatingCharReplacement {
+public class LongestRepeatingCharReplacement {
     private static int longestCharReplacement(String str, int target) {
         int[] charCount = new int[26];
         int maxLength = 0;
