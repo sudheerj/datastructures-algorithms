@@ -40,5 +40,8 @@ public class Main {
         //Reverse
         myLinkedList.reverse();
         myLinkedList.printList();
+        //Reverse recursively
+        myLinkedList.reverseLL();
+        myLinkedList.printList();
     }
 }

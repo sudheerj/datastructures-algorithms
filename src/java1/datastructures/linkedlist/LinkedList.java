@@ -12,6 +12,10 @@ public class LinkedList {
         length = 1;
     }
 
+    public Node getHead() {
+        return head;
+    }
+
     public void append(int value) {
         Node newNode = new Node(value);
         if(this.length == 0) {
@@ -116,6 +120,7 @@ public class LinkedList {
         return removedNode;
     }
 
+    //TC: O(n) SC: O(1)
     public void reverse() {
         if(length == 0) return;
         Node temp = head;
@@ -130,6 +135,23 @@ public class LinkedList {
             before = temp;
             temp = after;
         }
+    }
+
+    //Recursion: TC: O(n) SC: O(n)
+    public Node reverseLL() {
+        if(head == null || head.next == null) {
+            return head;
+        }
+        return reverseRec(head, null);
+    }
+
+    public Node reverseRec(Node head, Node newHead) {
+        if(head == null) {
+            return newHead;
+        }
+        Node next = head.next;
+        head.next = newHead;
+        return reverseRec(next, head);
     }
 
     public void printList() {
