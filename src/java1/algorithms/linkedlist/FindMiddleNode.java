@@ -3,6 +3,7 @@ package java1.algorithms.linkedlist;
 
 public class FindMiddleNode {
 
+    //Floyd's Tortoise and Hare algorithm
     private static Node findMiddleNode(Node head) {
         Node slow = head;
         Node fast = head;
