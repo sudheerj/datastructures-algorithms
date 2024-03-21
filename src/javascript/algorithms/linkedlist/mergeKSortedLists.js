@@ -1,3 +1,5 @@
+// TC: O(n log k) SC: O(1)
+
 class Node {
     constructor(value) {
         this.value = value;
@@ -9,10 +11,22 @@ class Node {
     }
 }
 
-//TC: O(m+n) SC:O(1)
+function mergeKLists(list) {
+    let length = list.length;
+    let interval = 1;
+
+    while(interval < length) {
+        for(let i=0; i+interval < length; i += 2* interval) {
+            list[i] = mergeTwoSortedLists(list[i], list[i+interval]);
+        }
+        interval *= 2;
+    }
+    return list[0];
+}
+
 function mergeTwoSortedLists(l1, l2) {
     let newHead = new Node(-1);
-    let currNode = newHead; 
+    let currNode = newHead;
 
     while(l1 != null && l2 != null) {
         if(l1.value < l2.value) {
@@ -24,21 +38,10 @@ function mergeTwoSortedLists(l1, l2) {
         }
         currNode = currNode.next;
     }
+    if(l1 === null) currNode.next = l2;
+    if(l2 === null) currNode.next = l1;
+
     return newHead.next;
-}
-
-//Recursion approach: TC: O(m+n) SC:O(m+n)
-function mergeTwoSortedListsRecursion(l1, l2){
-    if(l1 == null) return l2;
-    if(l2 == null) return l1;
-
-    if(l1.value < l2.value) {
-        l1.next = mergeTwoSortedListsRecursion(l1.next, l2);
-        return l1;
-    } else {
-        l2.next = mergeTwoSortedListsRecursion(l1, l2.next);
-        return l2;
-    }
 }
 
 function printLinkedList(head) {
@@ -63,6 +66,12 @@ let node9 = new Node(35);
 let node10 = new Node(45);
 let node11 = new Node(55);
 
+let headNode3 = new Node(7);
+let node12 = new Node(18);
+let node13 = new Node(22);
+let node14 = new Node(33);
+let node15 = new Node(44);
+let node16 = new Node(55);
 
 headNode1.setNext(node2);
 node2.setNext(node3);
@@ -76,5 +85,15 @@ node8.setNext(node9);
 node9.setNext(node10);
 node10.setNext(node11);
 
-printLinkedList(mergeTwoSortedLists(headNode1, headNode2));
-printLinkedList(mergeTwoSortedListsRecursion(headNode1, headNode2));
+headNode3.setNext(node12);
+node12.setNext(node13);
+node13.setNext(node14);
+node14.setNext(node15);
+node15.setNext(node16);
+
+let lists = [];
+lists[0] = headNode1;
+lists[1] = headNode2;
+lists[2] = headNode3;
+
+printLinkedList(mergeKLists(lists));
