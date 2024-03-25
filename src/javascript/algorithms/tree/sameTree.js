@@ -1,18 +1,20 @@
 // DFS: TC: O(n) SC: O(n)
 function isSameTree(root1, root2) {
-    if(root1 == null && root2 == null) return true;
-    if(root1 == null || root2 == null) return false;
-    if(root1.value != root2.value) return false;
+  if (root1 == null && root2 == null) return true;
+  if (root1 == null || root2 == null) return false;
+  if (root1.value != root2.value) return false;
 
-    return isSameTree(root1.left, root2.left) && isSameTree(root1.right, root2.right);
+  return (
+    isSameTree(root1.left, root2.left) && isSameTree(root1.right, root2.right)
+  );
 }
 
 class TreeNode {
-    constructor(value) {
-        this.left = null;
-        this.right = null;
-        this.value = value;
-    }
+  constructor(value) {
+    this.left = null;
+    this.right = null;
+    this.value = value;
+  }
 }
 
 let root1 = new TreeNode(0);
