@@ -9,9 +9,9 @@ function maxSumSubarray(nums) {
 }
 
 let numbers = [1, 2, 3, 4, 5, 6, 7];
-let maxSumNumbers = maxSubarray(numbers);
+let maxSumNumbers = maxSumSubarray(numbers);
 console.log("Max Subarray Sum:", maxSumNumbers);
 
 let emptyNumbers = [];
-let maxSumEmptyNumbers = maxSubarray(emptyNumbers);
+let maxSumEmptyNumbers = maxSumSubarray(emptyNumbers);
 console.log("Max Subarray Sum:", maxSumEmptyNumbers);

@@ -31,7 +31,7 @@ class Stack {
         temp.next = null;
 
         this.length--;
-        return topNode;
+        return temp;
     }
 
     peek() {
