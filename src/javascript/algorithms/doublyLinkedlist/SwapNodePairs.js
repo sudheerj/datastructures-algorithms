@@ -61,4 +61,4 @@ myDoublyLinkedList.push(4);
 myDoublyLinkedList.push(5);
 myDoublyLinkedList.push(6);
 
-myDoublyLinkedList.swapNodePairs();
+myDoublyLinkedList.swapPairs();

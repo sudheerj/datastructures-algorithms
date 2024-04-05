@@ -51,7 +51,7 @@ class Queue {
     }
 }
 
-const myQueue = new MyQueue("Zero");
+const myQueue = new Queue("Zero");
 myQueue.enqueue("One");
 myQueue.enqueue("Two");
 myQueue.enqueue("Three");
