@@ -148,7 +148,7 @@ List of Programs related to data structures and algorithms
 
    3. Swap node pairs: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/doublyLinkedlist/SwapNodePairs.js)
 
-#### Tree
+### Tree
 
    1. Maximum depth of binary tree: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/maxDepthBinaryTree.js)
 
@@ -157,3 +157,75 @@ List of Programs related to data structures and algorithms
    3. Invert or Flip binary tree: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/invertTree.js)
 
    4. Binary tree maximum path sum: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/maxPathSum.js)
+
+   5. Binary tree level order traversal: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/levelOrderTraversal.js)
+
+   6. Serialize and deserialize binary tree: [JavaScript](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/serializeDeserialize.js)
+
+   7. Subtree of another tree: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/subtree.js)
+
+   8. Construct binary tree from preorder and inorder traversal: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/buildTree.js)
+
+   9. Validate BST: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/validateBST.js)
+
+   10. Kth smalleest element in BST: [JavaScript](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/kthSmallestBST.js)
+
+   11. Lowest Common Ancestor of BST: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/lowestCommonAncestor.js)
+
+   12. Trie: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/trie.js)
+
+   13. Design and Search words Datastructure: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/wordDictionary.js)
+
+   14. Word search 2: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/wordSearch2.js)
+
+### Graph
+
+   1. Clone graph: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/graph/cloneGraph.js)
+
+   2. Course schedule: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/graph/courseSchedule.js)
+
+   3. Pacific Atlantic waterflow: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/graph/pacificAtlantic.js)
+
+   4. Number of Islands: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/graph/numberOfIslands.js)
+
+   5. Longest consequtive sequence: [JavaScript](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/graph/longestConsecutiveSequence.js)
+
+   6. Alien dictionary: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/graph/alienDictionary.js)
+
+   7. Graph valid tree: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/graph/graphValidTree.js)
+
+   8. Number of connected components in an undirected graph: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/graph/numberOfConnectedComponents.js)
+
+### Matrix
+
+   1. Set matrix zeros: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/matrix/setMatrixZeros.js)
+
+   2. Spiral matrix: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/matrix/spiralMatrix.js)
+
+   3. Rotate image: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/matrix/rotateImage.js)
+
+   4. Word search: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/matrix/wordSearch.js)
+
+### Interval
+
+   1. Insert interval: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/insertInterval.js)
+
+   2. Merge interval: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/mergeInterval.js)
+
+   3. Non-overlapping intervals: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/nonOverlappingIntervals.js)
+
+   4. Meeting rooms: [JavaScript](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms.js)
+
+   5. Meeting rooms 2: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms2.js)
+
+### Hashtable
+
+   1. Duplicates: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/duplicates.js)
+
+   2. Find two sum indices: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/findTwoSumIndices.js)
+
+   3. First non repeating character: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/firstNonRepeatingCharacter.js)
+
+   4. Group anagram: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/groupAnagrams.js)
+
+   5. Verify Common Elements: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/verifyCommonElements.js)
