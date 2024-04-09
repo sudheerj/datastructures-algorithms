@@ -3,8 +3,6 @@ List of Programs related to data structures and algorithms
 
 ## Data Strctures
 
-### Array
-
 ### Stack
    1. Stack using array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/stack_with_array.js)
 
@@ -28,6 +26,9 @@ List of Programs related to data structures and algorithms
 
    1. Unweighted undirected graph: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/graphs/unweighted_undirected.js)
 
+### HashTable
+
+   1. HashTable: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/hashtable/hashtable.js)
 
 ## Algorithms
 
@@ -229,3 +230,15 @@ List of Programs related to data structures and algorithms
    4. Group anagram: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/groupAnagrams.js)
 
    5. Verify Common Elements: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/verifyCommonElements.js)
+
+## Sorting
+
+   1. Bubble sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/bubbleSort/bubbleSort.js)
+
+   2. Selection sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/selectionSort/selectionSort.js)
+
+   3. Insertion sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/insertionSort/insertionSort.js)
+
+   4. Merge sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/mergeSort/mergeSort.js)
+
+   5. Quick sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/quickSort/quickSort.js)
