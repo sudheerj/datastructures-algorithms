@@ -1,7 +1,7 @@
 # datastructures-algorithms
 List of Programs related to data structures and algorithms
 
-## Data Strctures
+## Data Structures
 
 ### Stack
    1. Stack using array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/stack_with_array.js)
