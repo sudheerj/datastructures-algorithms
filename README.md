@@ -40,29 +40,34 @@ List of Programs related to data structures and algorithms
    
    3. Max sum subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxSubArray.js)
 
-   4. Maximum product subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxProductSubArray.js)
+   4. Minimum size subarray sum: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.md)
 
-   5. Find minimum in rotated sorted array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minRotatedSortedArray.js)
+   5. Sort Colors: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.md)
 
-   6. Maximum Circular subarray: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxCircularSubArray.js)
 
-   7. Rotate array: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/rotate.js)
+   6. Maximum product subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxProductSubArray.js)
 
-   8. Search in rotated sorted array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/searchRotatedSortedArray.js)
+   7. Find minimum in rotated sorted array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minRotatedSortedArray.js)
 
-   9. 3 sum: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/threeSum.js)
+   8. Maximum Circular subarray: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxCircularSubArray.js)
 
-   10. Container with most water: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/containerWithMostWater.js)
+   9. Rotate array: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/rotate.js)
 
-   11. Best time to buy stock and sell stock: [JavaScript]()
+   10. Search in rotated sorted array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/searchRotatedSortedArray.js)
+
+   11. 3 sum: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/threeSum.js)
+
+   12. Container with most water: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/containerWithMostWater.js)
+
+   13. Best time to buy stock and sell stock: [JavaScript]()
 
 ### String
 
-   1. Longest substring without repeating characters: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestSubstringWithoutRepeatingChar.js)
+   1. Longest substring without repeating characters: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.js) [Documentation](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.md)
 
    2. Longest repeating character replacement: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestRepeatingCharReplacement.js)
 
-   3. Minimum window substring: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/minWindowSubstring.js)
+   3. Minimum window substring: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/minWindowSubstring/minWindowSubstring.js) [Documentation](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/minWindowSubstring/minWindowSubstring.md)
 
    4. Valid anagram: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/validAnagram.js)
 
