@@ -1,8 +1,10 @@
-//Expand around center:- TC:O(n*2) SC:O(n)
-package java1.algorithms.strings;
+//Expand around center:- TC:O(n*2) SC:O(1)
+package java1.algorithms.strings.palindromicSubstrings;
 
 public class PalindromicSubstrings {
+
     private static int countSubstrings(String str) {
+
         if(str.length() < 2) return str.length();
 
         int count = 0;
@@ -14,6 +16,7 @@ public class PalindromicSubstrings {
     }
 
     private static int countPalindrome(String str, int left, int right) {
+
         int count = 0;
         while(left >=0 && right < str.length() && str.charAt(left) == str.charAt(right)) {
             count++;
@@ -29,6 +32,9 @@ public class PalindromicSubstrings {
 
         String str1 = "abc";
         System.out.println(countSubstrings(str1));
+
+        String str2 = "aaa";
+        System.out.println(countSubstrings(str2));
     }
     
 }
