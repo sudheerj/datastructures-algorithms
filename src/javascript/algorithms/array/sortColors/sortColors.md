@@ -1,5 +1,5 @@
 **Algorithmic Steps**
-This problem is solved with the help of two pointers technique. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of two pointers technique. It is also know as "Dutch National Flag problem". The algorithmic approach can be summarized as follows:
 
 
 1. Initialize left and right pointers to first(i.e, 0) and end index of the array, to keep track of the current window boundaries.

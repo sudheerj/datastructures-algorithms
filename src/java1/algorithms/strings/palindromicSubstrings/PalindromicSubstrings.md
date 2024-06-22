@@ -11,7 +11,7 @@ This problem is solved with the help of Two pointer approach(Expand around cente
 
 5. For each iteration, calculate the total count of even palindromic substrings using a separate common function(step6). This common function accepts current iteration variable `i` as left and `i+1` as right pointer values.
 
-6. The common function iterate over the given string using starting(i.e, left) and ending(i.e, right) index arguments. The left pointer is going to be decremented and right pointer is going to be incremented.
+6. The common function iterate over the given string using starting(i.e, left) and ending(i.e, right) index arguments. The left pointer is going to be decremented and right pointer is going to be incremented  whenever the respective character values are equal.
 
 7. The sum of even and odd palindromic substring count is going to be returned as total count for palindromic substrings.
 
