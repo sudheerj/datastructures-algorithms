@@ -8,6 +8,10 @@ List of Programs related to data structures and algorithms
 
    2. Stack using linkedlist: [JavaScript](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/stack_with_linkedlist.js)
 
+   3. Daily Temperatures: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/dailyTemperatures/dailyTemperatures.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/dailyTemperatures/dailyTemperatures.md)
+
+   4. Number of People See In Queue: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/numberOfPeopleSeeInQueue/numberOfPeopleSeeInQueue.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/numberOfPeopleSeeInQueue/numberOfPeopleSeeInQueue.md)
+
 ### Queue
    1. Queue using array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/queue/queue_array.js)
    2. Queue using linkedlist: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/queue/queue_with_linkedlist.js)
