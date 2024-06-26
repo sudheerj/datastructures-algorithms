@@ -1,3 +1,4 @@
+package buySellStock;
 //Greedy approach/Sliding window: TC:O(n), SC:O(1)
 
 class BuySellStock {
