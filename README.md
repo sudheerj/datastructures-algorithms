@@ -8,10 +8,6 @@ List of Programs related to data structures and algorithms
 
    2. Stack using linkedlist: [JavaScript](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/stack_with_linkedlist.js)
 
-   3. Daily Temperatures: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/dailyTemperatures/dailyTemperatures.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/dailyTemperatures/dailyTemperatures.md)
-
-   4. Number of People See In Queue: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/numberOfPeopleSeeInQueue/numberOfPeopleSeeInQueue.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/numberOfPeopleSeeInQueue/numberOfPeopleSeeInQueue.md)
-
 ### Queue
    1. Queue using array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/queue/queue_array.js)
    2. Queue using linkedlist: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/queue/queue_with_linkedlist.js)
@@ -44,9 +40,9 @@ List of Programs related to data structures and algorithms
    
    3. Max sum subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxSubArray.js)
 
-   4. Minimum size subarray sum: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.md)
+   4. Minimum size subarray sum: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.md)
 
-   5. Sort Colors: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.md)
+   5. Sort Colors: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.md)
 
 
    6. Maximum product subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxProductSubArray.js)
@@ -63,17 +59,17 @@ List of Programs related to data structures and algorithms
 
    12. Container with most water: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/containerWithMostWater.js)
 
-   13. First missing positive number: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/firstMissingPositive/firstMissingPositive.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/firstMissingPositive/firstMissingPositive.md)
+   13. First missing positive number: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/firstMissingPositive/firstMissingPositive.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/firstMissingPositive/firstMissingPositive.md)
 
-   13. Best time to buy stock and sell stock: [JavaScript]()
+   14. Best time to buy stock and sell stock: [JavaScript]()
 
 ### String
 
-   1. Longest substring without repeating characters: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.js) [Documentation](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.md)
+   1. Longest substring without repeating characters: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.md)
 
    2. Longest repeating character replacement: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestRepeatingCharReplacement.js)
 
-   3. Minimum window substring: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/minWindowSubstring/minWindowSubstring.js) [Documentation](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/minWindowSubstring/minWindowSubstring.md)
+   3. Minimum window substring: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/minWindowSubstring/minWindowSubstring.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/minWindowSubstring/minWindowSubstring.md)
 
    4. Valid anagram: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/validAnagram.js)
 
@@ -126,6 +122,18 @@ List of Programs related to data structures and algorithms
    4. Missing number: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/binary/missingNumber.js)
 
    5. Reverse Bits: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/binary/reverseBits.js)
+
+### Stack
+
+   1. Sort Stack: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/stack/sortStack.js) 
+   <!--[Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/stack/sortStack.md) -->
+
+   2. Balanced Brackets: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/stack/balancedBrackets.js) 
+   <!--[Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/stack/balancedBrackets.md)-->
+
+   3. Daily Temperatures: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/stack/dailyTemperatures/dailyTemperatures.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/stack/dailyTemperatures/dailyTemperatures.md)
+
+   4. Number of People See In Queue: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/stack/numberOfPeopleSeeInQueue/numberOfPeopleSeeInQueue.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/stack/numberOfPeopleSeeInQueue/numberOfPeopleSeeInQueue.md)
 
 ### LinkedList
 
