@@ -63,6 +63,8 @@ List of Programs related to data structures and algorithms
 
    12. Container with most water: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/containerWithMostWater.js)
 
+   13. First missing positive number: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/firstMissingPositive/firstMissingPositive.js) [Documentation](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/firstMissingPositive/firstMissingPositive.md)
+
    13. Best time to buy stock and sell stock: [JavaScript]()
 
 ### String
