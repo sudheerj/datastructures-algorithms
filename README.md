@@ -36,7 +36,7 @@ List of Programs related to data structures and algorithms
     
    1. Contains duplicates :  [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/containsDuplicate.js
     )
-   2. Product of array except self: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/productExceptSelf.js)
+   2. Product of array except self: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/productExceptSelf/productExceptSelf.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/productExceptSelf/productExceptSelf.md)
    
    3. Max sum subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxSubArray.js)
 

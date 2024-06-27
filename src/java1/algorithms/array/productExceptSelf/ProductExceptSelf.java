@@ -1,3 +1,5 @@
+package productExceptSelf;
+
 import java.util.Arrays;
 
 public class ProductExceptSelf {
