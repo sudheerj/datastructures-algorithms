@@ -242,7 +242,7 @@ List of Programs related to data structures and algorithms
 
    1. Duplicates: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/duplicates.js)
 
-   2. Find two sum indices: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/findTwoSumIndices.js)
+   2. Two sum: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/twoSum/twoSum.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/twoSum/twoSum.md)
 
    3. First non repeating character: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/hashtable/firstNonRepeatingCharacter.js)
 
