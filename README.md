@@ -6,7 +6,7 @@ List of Programs related to data structures and algorithms
 ### Stack
    1. Stack using array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/stack_with_array.js)
 
-   2. Stack using linkedlist: [JavaScript](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/stack_with_linkedlist.js)
+   2. Stack using linkedlist: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/stack/stack_with_linkedlist.js)
 
 ### Queue
    1. Queue using array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/queue/queue_array.js)
