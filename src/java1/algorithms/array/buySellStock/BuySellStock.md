@@ -1,7 +1,7 @@
 **Algorithmic Steps**
 This problem is solved with the help of sliding window approach to calculate the maximum profit(as known as **greedy algorithm**). The algorithmic approach can be summarized as follows:
 
-1. Write a preliminary case by returning profit as `0` if the number of stock prices are less than  2.
+1. Write a preliminary case by returning profit as `0` if the number of stock prices are less than 2.
 
 2. Initialize `maxProfit` variable as 0 to indicate maximum profit for buying and selling the stock at different days. 
 

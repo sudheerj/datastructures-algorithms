@@ -1,4 +1,4 @@
-package java1.algorithms.interval;
+package java1.algorithms.interval.insertInterval;
 import java.util.*;
 
 public class InsertInterval {
