@@ -228,7 +228,7 @@ List of Programs related to data structures and algorithms
 
 ### Interval
 
-   1. Insert interval: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/insertInterval.js) 
+   1. Insert interval: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/insertInterval/insertInterval.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/insertInterval/insertInterval.js) [Documentation](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/insertInterval/insertInterval.md) 
 
    2. Merge interval: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/mergeInterval/mergeInterval.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/mergeInterval/mergeInterval.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/mergeInterval/mergeInterval.md)
 
