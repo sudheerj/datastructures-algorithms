@@ -1,9 +1,9 @@
-package java1.algorithms.interval;
+package java1.algorithms.interval.nonOverlappingIntervals;
 
 import java.util.Arrays;
 
 public class NonOverlappingIntervals {
-    //Greedy approach: TC: O(n logn + n), SC: O(1)
+    //Greedy approach: TC: O(n logn) + O(n), SC: O(1)
     private static int eraseOverlappingIntervals(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> a[0]-b[0]);
         int minRemove = 0;

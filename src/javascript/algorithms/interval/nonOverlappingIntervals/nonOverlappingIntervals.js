@@ -1,6 +1,7 @@
-//Greedy approach: TC: O(n logn + n), SC: O(1)
+//Greedy approach: TC: O(n logn) + O(n), SC: O(1)
 
 function eraseOverlappingIntervals(intervals) {
+    intervals.sort((a, b) => a[0]-b[0]);
     let minRemoveCount = 0;
     let prevEnd = intervals[0][1];
 
