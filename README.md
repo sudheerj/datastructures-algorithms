@@ -236,7 +236,8 @@ List of Programs related to data structures and algorithms
 
    4. Meeting rooms: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms/meetingRooms.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms/meetingRooms.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms/meetingRooms.md)
 
-   5. Meeting rooms 2: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms2.js)
+   5. Meeting rooms 2: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms2/meetingRooms2.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms2/meetingRooms2.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms2/meetingRooms2.md)
+
 
 ### Hashtable
 

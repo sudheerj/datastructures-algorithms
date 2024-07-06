@@ -1,4 +1,4 @@
-package java1.algorithms.interval;
+package java1.algorithms.interval.meetingRooms2;
 import java.util.*;
 
 class Interval {
@@ -9,7 +9,7 @@ class Interval {
     }
 }
 public class meetingRooms2 {
-    //Two pointer TC: O(n logn + n) SC: O(n)
+    //Two pointer TC: O(n logn) + O(n) ~= O(n), SC: O(n)
     private static int minMeetingRooms1(List<Interval> intervals) {
         int length = intervals.size();
         int[] startTimes = new int[length];
@@ -20,10 +20,11 @@ public class meetingRooms2 {
             startTimes[i] = intervals.get(i).start;
             endTimes[i] = intervals.get(i).end;
         }
+
         Arrays.sort(startTimes);
         Arrays.sort(endTimes);
 
-        int startIndex =0, endIndex = 0;
+        int startIndex = 0, endIndex = 0;
 
         while(startIndex < intervals.size()) {
             if(startTimes[startIndex] < endTimes[endIndex]) {
@@ -57,14 +58,18 @@ public class meetingRooms2 {
     }
 
     public static void main(String[] args) {
-        List<Interval> intervals = new ArrayList<>();
-        intervals.add(new Interval(2, 7));
-        intervals.add(new Interval(3, 5));
-        intervals.add(new Interval(3, 9));
-        intervals.add(new Interval(5, 12));
-        intervals.add(new Interval(8, 15));
-        intervals.add(new Interval(9, 14));
-        System.out.println(minMeetingRooms1(intervals));
-        System.out.println(minMeetingRooms2(intervals));
+        List<Interval> intervals1 = new ArrayList<>();
+        intervals1.add(new Interval(2, 7));
+        intervals1.add(new Interval(3, 5));
+        intervals1.add(new Interval(3, 9));
+        intervals1.add(new Interval(5, 12));
+        intervals1.add(new Interval(8, 15));
+        intervals1.add(new Interval(9, 14));
+
+        List<Interval> intervals2 = new ArrayList<>();
+        intervals2.add(new Interval(1, 5));
+
+        System.out.println(minMeetingRooms1(intervals1));
+        System.out.println(minMeetingRooms2(intervals2));
     }
 }
