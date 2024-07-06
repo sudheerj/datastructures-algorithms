@@ -234,7 +234,7 @@ List of Programs related to data structures and algorithms
 
    3. Non-overlapping intervals: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/nonOverlappingIntervals/nonOverlappingIntervals.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/nonOverlappingIntervals/nonOverlappingIntervals.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/nonOverlappingIntervals/nonOverlappingIntervals.md)
 
-   4. Meeting rooms: [JavaScript](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms.js)
+   4. Meeting rooms: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms/meetingRooms.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms/meetingRooms.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms/meetingRooms.md)
 
    5. Meeting rooms 2: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/interval/meetingRooms2.js)
 
