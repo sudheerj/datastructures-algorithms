@@ -1,22 +1,22 @@
-
 public class BubbleSort {
-    /* Swap an array */
-    private void swap(int arr[], int firstIndex, int secondIndex) {
-        int temp = arr[firstIndex];
-        arr[firstIndex] = arr[secondIndex];
-        arr[secondIndex] = temp;
-    }
 
     // Logic of bubble sort
     private void bubbleSort(int arr[]) {
         int len = arr.length;
-        for (int i = len - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
+        for (int i = 0; i < len-1; i++) {
+            for (int j = 0; j < len-i-1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
                 }
             }
         }
+    }
+
+    /* Swap an array */
+    private void swap(int arr[], int firstIndex, int secondIndex) {
+        int temp = arr[firstIndex];
+        arr[firstIndex] = arr[secondIndex];
+        arr[secondIndex] = temp;
     }
 
     // Prints the sorted array

@@ -1,9 +1,3 @@
-function swap(array, firstIndex, secondIndex){
-    const temp = array[firstIndex];
-    array[firstIndex] = array[secondIndex];
-    array[secondIndex] = temp;
-}
-
 function bubbleSort(array){
     const len = array.length;
     let i, j;
@@ -15,6 +9,12 @@ function bubbleSort(array){
         }
     }
     return array;
+}
+
+function swap(array, firstIndex, secondIndex){
+    const temp = array[firstIndex];
+    array[firstIndex] = array[secondIndex];
+    array[secondIndex] = temp;
 }
 
 console.log(bubbleSort([40, 50, 20, 0, -10, 30, 10]));
