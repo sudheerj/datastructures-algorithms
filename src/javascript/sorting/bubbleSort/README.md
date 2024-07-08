@@ -11,4 +11,4 @@ It is named because elements tend to move up into the correct order like bubbles
 
 | Best            | Average             | Worst               | Space (Memory)    | Stable    | Advantage  |
 | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: | :-------- |
-|  O(n)               | O(n<sup>2</sup>)       | O(n<sup>2</sup>)       | 1         | Yes       |   Simplicity        |
+|  O(n)               | O(n<sup>2</sup>)       | O(n<sup>2</sup>)       | O(1)         | Yes       |   Simplicity        |

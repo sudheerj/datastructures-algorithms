@@ -8,4 +8,4 @@ Selection sort is an algorithm that selects the smallest(or minimum) element fro
 
 | Best            | Average             | Worst               | Space (Memory)    | Stable    | Advantage  |
 | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: | :-------- |
-|  O(n<sup>2</sup>)                | O(n<sup>2</sup>)       | O(n<sup>2</sup>)       | 1         | Yes       |   Works well with small list        |
+|  O(n<sup>2</sup>)                | O(n<sup>2</sup>)       | O(n<sup>2</sup>)       |  O(1)         | Yes       |   Works well with small list        |

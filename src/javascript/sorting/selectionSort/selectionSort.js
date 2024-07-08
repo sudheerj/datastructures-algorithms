@@ -1,17 +1,10 @@
-function swap(array, firstIndex, secondIndex){
-    const temp = array[firstIndex];
-    array[firstIndex] = array[secondIndex];
-    array[secondIndex] = temp;
-}
-
 function selectionSort(arr) {
     const len = arr.length;
+
     for (let i = 0; i < len - 1; i++) {
         let minIndex = i;
-        for (let j = i + 1; j < len; j++)
-        {
-            if (arr[j] < arr[minIndex])
-            {
+        for (let j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {
                 minIndex = j;
             }
         }
@@ -21,6 +14,13 @@ function selectionSort(arr) {
         }
     }
     return arr;
+}
+
+/* Swap an array */
+function swap(array, firstIndex, secondIndex){
+    const temp = array[firstIndex];
+    array[firstIndex] = array[secondIndex];
+    array[secondIndex] = temp;
 }
 
 console.log(selectionSort([ 40, 50, 20, 0, -10, 30, 10]));
