@@ -15,3 +15,6 @@ public class ToggleIthBit {
         System.out.println("The result after toggling the " + B + "th bit of " + A + " is: " + result);
     }
 }
+
+// Time Complexity - O(1)
+// Space Complexity - O(1)

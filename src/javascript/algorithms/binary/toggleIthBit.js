@@ -13,3 +13,6 @@ const A = 5; // Binary: 101
 const B = 1; // Toggle the 1st bit
 const result = toogleIthBit(A, B);
 console.log(`The result after toggling the ${B}th bit of ${A} is: ${result}`);
+
+// Time Complexity - O(1)
+// Space Complexity - O(1)

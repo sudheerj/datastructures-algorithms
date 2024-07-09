@@ -22,3 +22,6 @@ const A = 5;
 const B = [0, 1, 0, 1, 1];
 const result = subarraysWithBitwiseOR1(A, B);
 console.log(`Total subarrays with bitwise OR 1: ${result}`);
+
+// Time Complexity - O(A)
+// Space Complexity - O(1)

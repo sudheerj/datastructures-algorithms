@@ -28,3 +28,6 @@ public class SubarraysWithBitwiseOR1 {
     }
 
 }
+
+// Time Complexity - O(A)
+// Space Complexity - O(1)

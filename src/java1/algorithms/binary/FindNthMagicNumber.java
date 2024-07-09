@@ -25,3 +25,6 @@ public class FindNthMagicNumber {
         System.out.println("The " + n + "rd magic number is: " + nthMagicNumber);
     }
 }
+
+// Time Complexity - O(logn)
+// Space Complexity - O(1)

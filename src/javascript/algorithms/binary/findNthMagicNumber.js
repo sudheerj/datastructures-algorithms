@@ -21,3 +21,6 @@ function findNthMagicNumber(n) {
 const n = 3;
 const nthMagicNumber = findNthMagicNumber(n);
 console.log(`The ${n}rd magic number is: ${nthMagicNumber}`);
+
+// Time Complexity - O(logn)
+// Space Complexity - O(1)
