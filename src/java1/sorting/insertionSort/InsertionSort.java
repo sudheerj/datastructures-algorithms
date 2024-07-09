@@ -3,20 +3,18 @@ package java1.sorting.insertionSort;
 class InsertionSort {
 
         private int[] insertionSort(int array[]) {
-            int size = array.length;
 
-            for (int i = 1; i < size; i++) {
-                int key = array[i];
+            for (int i = 1; i < array.length; i++) {
+                int temp = array[i];
                 int j = i - 1;
 
                 // Compare key with each element on the left of it until an element is smaller than it
-                while (j >= 0 && key < array[j]) {
+                for (; j > -1 && array[j] > temp; j--) {
                     array[j + 1] = array[j];
-                    --j;
                 }
 
-                // Place key at after the element just smaller than it.
-                array[j + 1] = key;
+                // Place temp at after the element just smaller than it.
+                array[j + 1] = temp;
             }
             return array;
         }
