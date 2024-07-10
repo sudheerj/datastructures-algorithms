@@ -5,8 +5,6 @@ The pass through the list is repeated until no swaps are needed, which indicates
 
 It is named because elements tend to move up into the correct order like bubbles rising to the surface.
 
-##
-
 ## Complexity
 
 | Best            | Average             | Worst               | Space (Memory)    | Stable    | Advantage  |
