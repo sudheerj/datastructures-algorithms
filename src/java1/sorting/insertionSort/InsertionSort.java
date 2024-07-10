@@ -8,7 +8,7 @@ class InsertionSort {
                 int temp = array[i];
                 int j = i - 1;
 
-                // Compare key with each element on the left of it until an element is smaller than it
+                // Compare temp with each element on the left of it until an element is smaller than it
                 for (; j > -1 && array[j] > temp; j--) {
                     array[j + 1] = array[j];
                 }
