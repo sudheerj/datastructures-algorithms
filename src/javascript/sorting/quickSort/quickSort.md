@@ -12,4 +12,4 @@ QuickSort is a sorting algorithm based on **Divide and Conquer technique** that 
 
 | Best            | Average             | Worst               | Space (Memory)    | Stable    | Advantage  |
 | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: | :-------- |
-|  Ω(n log(n))               | θ(n log(n))       | O(n<sup>2</sup>)       | O(1)         | Yes       |   Efficient alogorithm except for almost sorted arrays        |
+|  Ω(n log(n))               | θ(n log(n))       | O(n<sup>2</sup>)       | O(log n)           | Yes       |   Efficient alogorithm except for almost sorted arrays        |

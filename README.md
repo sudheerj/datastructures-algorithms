@@ -253,12 +253,14 @@ List of Programs related to data structures and algorithms
 
 ## Sorting
 
-   1. Bubble sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/bubbleSort/bubbleSort.js)
+   1. Bubble sort: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/bubbleSort/bubbleSort.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/bubbleSort/bubbleSort.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/bubbleSort/bubbleSort.md)
 
-   2. Selection sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/selectionSort/selectionSort.js)
+   2. Selection sort: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/selectionSort/selectionSort.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/selectionSort/selectionSort.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/selectionSort/selectionSort.md)
 
-   3. Insertion sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/insertionSort/insertionSort.js)
+   3. Insertion sort: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/insertionSort/insertionSort.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/insertionSort/insertionSort.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/insertionSort/insertionSort.md)
 
-   4. Merge sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/mergeSort/mergeSort.js)
+   4. Merge sort: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/mergeSort/mergeSort.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/mergeSort/mergeSort.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/mergeSort/mergeSort.md)
 
-   5. Quick sort: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/quickSort/quickSort.js)
+   5. Quick sort: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/quickSort/quickSort.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/quickSort/quickSort.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/quickSort/quickSort.md)
+
+   6. Heap sort: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/heapSort/heapSort.js) [Playground](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/heapSort/heapSort.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/sorting/heapSort/heapSort.md)
