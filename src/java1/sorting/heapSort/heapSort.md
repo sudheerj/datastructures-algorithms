@@ -10,4 +10,4 @@ HeapSort is an in-place comparison based sorting algorithm that uses **binary he
 
 | Best            | Average             | Worst               | Space (Memory)    | Stable    | Advantage  |
 | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: | :-------- |
-|  Ω(n log(n))               | θ(n log(n))       | O(n log(n))       | O(1)         | Yes       |   Sort efficiently large data sets        |
+|  Ω(n log(n))               | θ(n log(n))       | O(n log(n))       | O(1)         | No       |   Sort efficiently large data sets        |
