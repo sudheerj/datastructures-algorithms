@@ -17,6 +17,6 @@ This problem is solved in a one pass with the help of HashMap data structure. Th
 8. Return an empty array if there are no indices present in an array.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of O(n) because we are traversing the array only once. Remember that checking an element existence in a map or adding an element to a map takes a constant time(i.e, O(1)).
+This algorithm has a time complexity of O(n) because we are traversing the array only once. Remember that checking an element existence in a map or fetching or adding an element to a map takes a constant time(i.e, O(1)).
 
 Also, it takes requires space complexity of O(n) because we are using map data structure. In the worst case, when there are no indices, you need to insert all the elements of an array into map.
