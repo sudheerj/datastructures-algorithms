@@ -1,6 +1,5 @@
 package twoSum2;
-
-import java.util.Arrays;
+import java.util.*;
 
 public class TwoSum2 {
 
