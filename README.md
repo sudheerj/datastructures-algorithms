@@ -34,8 +34,8 @@ List of Programs related to data structures and algorithms
 
 ### Array
     
-   1. Contains duplicates :  [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/containsDuplicate/containsDuplicate.js) [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/containsDuplicate/containsDuplicate.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/containsDuplicate/containsDuplicate.md)
-   
+   1. Contains duplicates :  [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/1.containsDuplicate/containsDuplicate.js) [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/1.containsDuplicate/containsDuplicate.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/1.containsDuplicate/containsDuplicate.md)
+
    2. Product of array except self: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/productExceptSelf/productExceptSelf.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/productExceptSelf/productExceptSelf.md)
    
    3. Max sum subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxSubArray.js)
