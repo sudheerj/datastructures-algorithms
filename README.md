@@ -48,7 +48,8 @@ List of Programs related to data structures and algorithms
    5. Max sum subarray: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/5.maxSumSubarray/maxSumSubarray.js) 
    [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/5.maxSumSubarray/maxSumSubarray.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/5.maxSumSubarray/maxSumSubarray.md)
 
-   6. Minimum size subarray sum: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.md)
+   6. Minimum size subarray sum: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/6.minimumSizeSubarraySum/minSizeSubarraySum.js) 
+   [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/6.minimumSizeSubarraySum/minSizeSubarraySum.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/6.minimumSizeSubarraySum/minSizeSubarraySum.md)
 
    7. Sort Colors: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.md)
 
