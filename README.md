@@ -45,7 +45,8 @@ List of Programs related to data structures and algorithms
    4. Product of array except self: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/4.productExceptSelf/productExceptSelf.js) 
    [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/4.productExceptSelf/productExceptSelf.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/4.productExceptSelf/productExceptSelf.md)
    
-   5. Max sum subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxSubArray.js)
+   5. Max sum subarray: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/5.maxSumSubarray/maxSumSubarray.js) 
+   [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/5.maxSumSubarray/maxSumSubarray.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/5.maxSumSubarray/maxSumSubarray.md)
 
    6. Minimum size subarray sum: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minimumSizeSubarraySum/minSizeSubarraySum.md)
 

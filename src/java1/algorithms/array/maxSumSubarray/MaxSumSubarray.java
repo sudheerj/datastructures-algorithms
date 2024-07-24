@@ -1,4 +1,6 @@
-public class MaxSumSubArray {
+package maxSumSubarray;
+
+public class MaxSumSubarray {
     private static int maxSumSubArray(int[] nums) {
         if(nums.length == 0) return 0;
 

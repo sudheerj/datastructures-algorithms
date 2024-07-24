@@ -8,7 +8,7 @@ function maxSumSubarray(nums) {
     return globalMaxSum;
 }
 
-let numbers = [1, 2, 3, 4, 5, 6, 7];
+let numbers = [-7, -2, 3, 4, -5, 6, 7, -2];
 let maxSumNumbers = maxSumSubarray(numbers);
 console.log("Max Subarray Sum:", maxSumNumbers);
 
