@@ -51,8 +51,8 @@ List of Programs related to data structures and algorithms
    6. Minimum size subarray sum: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/6.minimumSizeSubarraySum/minSizeSubarraySum.js) 
    [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/6.minimumSizeSubarraySum/minSizeSubarraySum.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/6.minimumSizeSubarraySum/minSizeSubarraySum.md)
 
-   7. Sort Colors: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/sortColors/sortColors.md)
-
+   7. Sort Colors: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/7.sortColors/sortColors.js) 
+   [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/7.sortColors/sortColors.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/7.sortColors/sortColors.md)
 
    8. Maximum product subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxProductSubArray.js)
 

@@ -31,8 +31,8 @@ public class SortColors {
     }
 
     public static void main(String[] args) {
-        int[] nums1 = {2,0,2,1,1,0};
-        int[] nums2 = {2,0,1};
+        int[] nums1 = {2,1,0,1,2,0};
+        int[] nums2 = {2,1,0};
         System.out.println(Arrays.toString(sortColors(nums1)));
         System.out.println(Arrays.toString(sortColors(nums2)));
 

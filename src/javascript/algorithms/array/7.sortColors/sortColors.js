@@ -26,8 +26,8 @@ function swap(nums, one, two) {
     nums[two] = temp;
 }
 
-let nums1 = [2,0,2,1,1,0];
+let nums1 = [2,1,0,1,2,0];
 console.log(sortColors(nums1));
 
-let nums2 = [2,0,1];
+let nums2 = [2,1,0];
 console.log(sortColors(nums2));
