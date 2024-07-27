@@ -2,10 +2,11 @@ function maxProductSubArray(nums) {
     let result = nums[0];
     let currentMax = currentMin = 1;
 
-    for(let n of nums) {
-        let tempMaxProduct = currentMax * n;
-        currentMax = Math.max(Math.max(tempMaxProduct, currentMin *n), n);
-        currentMin = Math.min(Math.min(tempMaxProduct, currentMin *n), n);
+    for(let num of nums) {
+        let tempMaxProduct = currentMax * num;
+        let tempMinProduct = currentMin * num;
+        currentMax = Math.max(Math.max(tempMaxProduct, tempMinProduct), num);
+        currentMin = Math.min(Math.min(tempMaxProduct, tempMinProduct), num);
         result = Math.max(result, currentMax);
     }
     return result;

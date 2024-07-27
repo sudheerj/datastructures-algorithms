@@ -54,7 +54,8 @@ List of Programs related to data structures and algorithms
    7. Sort Colors: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/7.sortColors/sortColors.js) 
    [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/7.sortColors/sortColors.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/7.sortColors/sortColors.md)
 
-   8. Maximum product subarray: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxProductSubArray.js)
+   8. Maximum product subarray: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/8.maxProductSubarray/maxProductSubarray.js) 
+   [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/8.maxProductSubarray/maxProductSubarray.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/8.maxProductSubarray/maxProductSubarray.md)
 
    9. Find minimum in rotated sorted array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minRotatedSortedArray.js)
 

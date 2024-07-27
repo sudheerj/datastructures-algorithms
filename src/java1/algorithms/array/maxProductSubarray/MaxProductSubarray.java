@@ -1,11 +1,14 @@
-public class MaxProductSubArray {
+package maxProductSubarray;
+
+public class MaxProductSubarray {
     private static int maxProductSubArray(int[] nums) {
         int result = nums[0];
         int currentMax = 1, currentMin = 1;
-        for(int n: nums) {
-            int tempMaxProduct = currentMax * n;
-            currentMax = Math.max(Math.max(tempMaxProduct, currentMin * n), n);
-            currentMin = Math.min(Math.min(tempMaxProduct, currentMin * n), n);
+        for(int num: nums) {
+            int tempMaxProduct = currentMax * num;
+            int tempMinProduct = currentMin * num;
+            currentMax = Math.max(Math.max(tempMaxProduct, tempMinProduct), num);
+            currentMin = Math.min(Math.min(tempMaxProduct, tempMinProduct), num);
             result = Math.max(currentMax, result);
         }
         return result;
@@ -17,5 +20,8 @@ public class MaxProductSubArray {
 
         int[] numbers2 = {2, 7,-4, 0, 3, 3};
         System.out.println(maxProductSubArray(numbers2));
+
+        int[] numbers3 = {-2, 0, -2};
+        System.out.println(maxProductSubArray(numbers3));
     }
 }
