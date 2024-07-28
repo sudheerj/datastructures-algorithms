@@ -63,7 +63,8 @@ List of Programs related to data structures and algorithms
    10. Maximum Circular subarray: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/10.maxSumCircularSubArray/maxSumCircularSubArray.js) 
    [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/10.maxSumCircularSubArray/maxSumCircularSubArray.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/10.maxSumCircularSubArray/maxSumCircularSubArray.md)
 
-   11. Rotate array: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/rotate.js)
+   11. Rotate array: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/11.rotateArray/rotateArray.js) 
+   [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/11.rotateArray/rotateArray.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/11.rotateArray/rotateArray.md)
 
    12. Search in rotated sorted array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/searchRotatedSortedArray.js)
 
