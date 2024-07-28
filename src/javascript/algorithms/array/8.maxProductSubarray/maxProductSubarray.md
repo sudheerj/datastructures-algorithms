@@ -20,7 +20,7 @@ This problem is solved with the help of Kadane's algorithm(dynamic programming t
 
 2. Initialize two variables named `currentMax` and `currentMin` to `1`. They are used to keep track of the running maximum and minimum products.
 
-3. Iterate over the entire input array using for-each loop
+3. Iterate over the entire input array using for-of loop
 
 4. Find the temporary maximum and minimum products for each current element.
 

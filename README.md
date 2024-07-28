@@ -57,7 +57,8 @@ List of Programs related to data structures and algorithms
    8. Maximum product subarray: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/8.maxProductSubarray/maxProductSubarray.js) 
    [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/8.maxProductSubarray/maxProductSubarray.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/8.maxProductSubarray/maxProductSubarray.md)
 
-   9. Find minimum in rotated sorted array: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/minRotatedSortedArray.js)
+   9. Find minimum in rotated sorted array: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/9.minRotatedSortedarray/minRotatedSortedarray.js) 
+   [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/9.minRotatedSortedarray/minRotatedSortedarray.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/9.minRotatedSortedarray/minRotatedSortedarray.md)
 
    10. Maximum Circular subarray: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxCircularSubArray.js)
 
