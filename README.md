@@ -60,7 +60,8 @@ List of Programs related to data structures and algorithms
    9. Find minimum in rotated sorted array: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/9.minRotatedSortedarray/minRotatedSortedarray.js) 
    [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/9.minRotatedSortedarray/minRotatedSortedarray.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/9.minRotatedSortedarray/minRotatedSortedarray.md)
 
-   10. Maximum Circular subarray: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/maxCircularSubArray.js)
+   10. Maximum Circular subarray: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/10.maxSumCircularSubArray/maxSumCircularSubArray.js) 
+   [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/10.maxSumCircularSubArray/maxSumCircularSubArray.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/10.maxSumCircularSubArray/maxSumCircularSubArray.md)
 
    11. Rotate array: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/rotate.js)
 
