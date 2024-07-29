@@ -31,7 +31,7 @@ This problem is solved with the help of two pointers, which is used to reverse s
 
 **Time and Space complexity:**
 
-This algorithm has a time complexity of `O(n)`, where `n` is the number of elements. This is because we are performing three reversal operations on subarrays and each reversal operation takes O(n). So the overall time complexity is O(n). 
+This algorithm has a time complexity of `O(n)`, where `n` is the number of elements. This is because we are performing three reversal operations on subarrays and each reversal operation takes `O(n)`. So the overall time complexity is `O(n)`. 
 
-Here, we don't use any additional datastructure due to in-place rotation. Hence, the space complexity will be O(1).
+Here, we don't use any additional datastructure due to in-place rotation. Hence, the space complexity will be `O(1)`.
 

@@ -1,3 +1,4 @@
+package searchRotatedSortedArray;
 // TC: O(log n), SC: O(1)
 public class SearchRotatedSortedArray {
     private static int searchRotatedSortedArray(int[] nums, int target) {
@@ -26,10 +27,10 @@ public class SearchRotatedSortedArray {
     }
 
     public static void main(String[] args) {
-        int[] nums = {3, 4, 5, 6, 7, 0, 1, 2};
-        System.out.println(searchRotatedSortedArray(nums, 7));
-
         int[] nums1 = {3, 4, 5, 6, 7, 0, 1, 2};
-        System.out.println(searchRotatedSortedArray(nums1, 9));
+        System.out.println(searchRotatedSortedArray(nums1, 7));
+
+        int[] nums2 = {3, 4, 5, 6, 7, 0, 1, 2};
+        System.out.println(searchRotatedSortedArray(nums2, 9));
     }
 }
