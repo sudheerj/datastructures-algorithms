@@ -74,7 +74,7 @@ List of Programs related to data structures and algorithms
 
    14. First missing positive number: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/14.firstMissingPositive/firstMissingPositive.js) [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/14.firstMissingPositive/firstMissingPositive.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/14.firstMissingPositive/firstMissingPositive.md)
 
-   15. Best time to buy stock and sell stock: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/buySellStock/buySellStock.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/buySellStock/buySellStock.md)
+   15. Best time to buy stock and sell stock: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/15.buySellStock/buySellStock.js) [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/15.buySellStock/buySellStock.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/15.buySellStock/buySellStock.md)
 
 ### String
 
