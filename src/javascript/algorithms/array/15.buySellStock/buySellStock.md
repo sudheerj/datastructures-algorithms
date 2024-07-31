@@ -7,6 +7,7 @@ Example 1:
 Input: prices = [8, 3, 6, 4, 7, 5]
 Output: 4
 
+Example 2:
 Input: prices = [7, 6, 5, 4, 3, 2, 1]
 Output: 0
 
@@ -26,5 +27,5 @@ This problem is solved with the help of sliding window approach to calculate the
 6. Return `maxProfit` which represents best time(or max proft scenario) to buy and sell stock prices.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of `O(n)`, where ``n is the number of stock prices. This is because we are traversing the array at most once. 
+This algorithm has a time complexity of `O(n)`, where `n` is the number of stock prices. This is because we are traversing the array at most once. 
 Here, we don't use any additional datastructure other than two pointers. Hence, the space complexity will be `O(1)`.
