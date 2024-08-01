@@ -77,10 +77,10 @@ List of Programs related to data structures and algorithms
    15. Best time to buy stock and sell stock: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/15.buySellStock/buySellStock.js) [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/15.buySellStock/buySellStock.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/15.buySellStock/buySellStock.md)
 
    16. Two missing numbers: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/16.twoMissingNumbers/twoMissingNumbers.js) [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/16.twoMissingNumbers/twoMissingNumbers.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/array/16.twoMissingNumbers/twoMissingNumbers.md)
-   
+
 ### String
 
-   1. Longest substring without repeating characters: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.md)
+   1. Longest substring without repeating characters: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/1.longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.js) [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/1.longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/1.longestSubstringWithoutRepeatingChars/longestSubstringWithoutRepeatingChars.md)
 
    2. Longest repeating character replacement: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestRepeatingCharReplacement.js)
 

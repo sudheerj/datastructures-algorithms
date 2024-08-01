@@ -1,15 +1,15 @@
 // Sliding window: TC: O(n), SC: O(n)
-function longestSubstringLengthWithoutRepeatingChar(string) {
+function longestSubstringLengthWithoutRepeatingChar(str) {
 
     let charSet = new Set();
     let left = right = maxLength = 0;
 
-    while(right < string.length) {
-        while(charSet.has(string[right])) {
-            charSet.delete(string[left]);
+    while(right < str.length) {
+        while(charSet.has(str[right])) {
+            charSet.delete(str[left]);
             left++;
         }
-        charSet.add(string[right]);
+        charSet.add(str[right]);
         right++;
         maxLength = Math.max(maxLength, charSet.size); 
     }
