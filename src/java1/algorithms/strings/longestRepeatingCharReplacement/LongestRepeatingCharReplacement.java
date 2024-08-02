@@ -1,5 +1,5 @@
 //Sliding window: TC:O(n) SC: O(1)
-package java1.algorithms.strings;
+package java1.algorithms.strings.longestRepeatingCharReplacement;
 
 public class LongestRepeatingCharReplacement {
     private static int longestCharReplacement(String str, int target) {
@@ -20,7 +20,9 @@ public class LongestRepeatingCharReplacement {
     }
 
     public static void main(String[] args) {
-        String str = "AAABABBAA";
-        System.out.println(longestCharReplacement(str, 2));
+        String str1 = "AAABABBAA";
+        System.out.println(longestCharReplacement(str1, 2));
+        String str2 = "BBBB";
+        System.out.println(longestCharReplacement(str2, 2));
     }
 }
