@@ -5,7 +5,7 @@ function minWindowSubstring(windowStr, subStr) {
     let subStrCount = new Map();
 
     let minLength = Number.MAX_VALUE;
-    let leftIndex = rightIndex = -1;
+    let subStrboundaries = [-1, -1];
 
     for(const ch of subStr) {
         subStrCount.set(ch, (subStrCount.get(ch) || 0) + 1);
@@ -15,10 +15,10 @@ function minWindowSubstring(windowStr, subStr) {
     let left = 0;
 
     for(let right = 0; right < windowStr.length; right++) {
-        let rightChar = windowStr.charAt(right);
+        let rightChar = windowStr[right];
 
         if(subStrCount.has(rightChar)) {
-            windowStrCount.set(rightChar, (windowStrCount.get(right) || 0) +1);
+            windowStrCount.set(rightChar, (windowStrCount.get(rightChar) || 0) +1);
             if(subStrCount.get(rightChar) === windowStrCount.get(rightChar)) {
                 having++;
             }
@@ -27,11 +27,11 @@ function minWindowSubstring(windowStr, subStr) {
         while(required === having) {
             if(minLength > right-left+1) {
                 minLength = right-left+1;
-                leftIndex = left;
-                rightIndex = right;
+                subStrboundaries[0] = left;
+                subStrboundaries[1] = right;
             }
 
-            let leftChar = windowStr.charAt(left);
+            let leftChar = windowStr[left];
             if(subStrCount.has(leftChar)) {
                 windowStrCount.set(leftChar, windowStrCount.get(leftChar)-1);
                 if(windowStrCount.get(leftChar) < subStrCount.get(leftChar)) {
@@ -41,12 +41,8 @@ function minWindowSubstring(windowStr, subStr) {
             left++;
         }
     }
-    if(leftIndex === -1 || rightIndex === -1) {
-        return "";
-    } else {
-        return windowStr.substring(leftIndex, rightIndex+1);
-    }
 
+    return minLength === Number.MAX_VALUE ? "" : windowStr.substring(subStrboundaries[0], subStrboundaries[1]+1);
 }
 
 let s1 ="ADOBECODEBANC", t1= "ABC";

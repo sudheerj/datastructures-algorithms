@@ -1,5 +1,5 @@
 package java1.algorithms.strings.minWindowSubstring;
-// Sliding window: TC: O(m) + O(n) SC: O(m) + O(n)
+// Sliding window: TC: O(m) + O(n), SC: O(m) + O(n)
 
 import java.util.HashMap;
 
@@ -13,10 +13,9 @@ public class MinWindowSubstring {
         HashMap<Character, Integer> windowStrCount = new HashMap<>();
 
         int minLength = Integer.MAX_VALUE;
-        int leftIndex = -1, rightIndex = -1;
+        int[] subStrBoundaries = new int[]{-1, -1};
 
-        for(int i=0; i< subStr.length(); i++) {
-            char ch = subStr.charAt(i);
+        for(char ch: subStr.toCharArray()) {
             subStrCount.put(ch, subStrCount.getOrDefault(ch, 0) + 1);
         }
 
@@ -27,7 +26,7 @@ public class MinWindowSubstring {
             
             if(subStrCount.containsKey(rightChar)) {
                 windowStrCount.put(rightChar, windowStrCount.getOrDefault(rightChar, 0) + 1);
-                if(subStrCount.get(rightChar).intValue() == windowStrCount.get(rightChar).intValue()) {
+                if(subStrCount.get(rightChar) == windowStrCount.get(rightChar)) {
                     having++;
                 } 
             }
@@ -35,26 +34,22 @@ public class MinWindowSubstring {
             while(required == having) {
                 if(minLength > right-left+1) {
                     minLength = right-left+1;
-                    leftIndex = left;
-                    rightIndex = right;
+                    subStrBoundaries[0] = left;
+                    subStrBoundaries[1] = right;
                 }
+                
                 char leftChar = windowStr.charAt(left);
-
                 if(subStrCount.containsKey(leftChar)) {
                     windowStrCount.put(leftChar, windowStrCount.get(leftChar)-1);
-                    if(windowStrCount.get(leftChar).intValue() < subStrCount.get(leftChar).intValue()) {
+                    if(windowStrCount.get(leftChar) < subStrCount.get(leftChar)) {
                         having--;
                     }
                 }
                 left++;
             }
         }
-        if(leftIndex == -1 || rightIndex == -1) {
-            return "";
-        } else {
-            return windowStr.substring(leftIndex, rightIndex+1);
-        }
 
+        return minLength == Integer.MAX_VALUE ? "" : windowStr.substring(subStrBoundaries[0], subStrBoundaries[1]+1);
     }
 
     public static void main(String[] args) {
