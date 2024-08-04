@@ -1,4 +1,4 @@
-package java1.algorithms.strings;
+package java1.algorithms.strings.groupAnagrams;
 
 import java.util.*;
 

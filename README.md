@@ -86,9 +86,9 @@ List of Programs related to data structures and algorithms
 
    3. Minimum window substring: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/3.minWindowSubstring/minWindowSubstring.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/3.minWindowSubstring/minWindowSubstring.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/3.minWindowSubstring/minWindowSubstring.md)
 
-   4. Valid anagram: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/validAnagram.js)
+   4. Valid anagram: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/4.validAnagram/validAnagram.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/4.validAnagram/validAnagram.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/4.validAnagram/validAnagram.md)
 
-   5. Group anagrams: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/groupAnagrams.js)
+   5. Group anagrams: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/5.groupAnagrams/groupAnagrams.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/5.groupAnagrams/groupAnagrams.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/5.groupAnagrams/groupAnagrams.md)
 
    6. Valid parentheses: [JavaScript]()
 
