@@ -90,17 +90,15 @@ List of Programs related to data structures and algorithms
 
    5. Group anagrams: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/5.groupAnagrams/groupAnagrams.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/5.groupAnagrams/groupAnagrams.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/5.groupAnagrams/groupAnagrams.md)
 
-   6. Valid parentheses: [JavaScript]()
+   6. Valid palindrome: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/6.validPalindrome/validPalindrome.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/6.validPalindrome/validPalindrome.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/6.validPalindrome/validPalindrome.md)
 
-   7. Valid palindrome: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/validPalindrome.js)
+   7. Longest palindromic substring: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestPalindromicSubstring.js)
 
-   8. Longest palindromic substring: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestPalindromicSubstring.js)
+   8. Palindromic substrings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/palindromicStrings.js)
 
-   9. Palindromic substrings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/palindromicStrings.js)
+   9. Encode and decode strings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/encodeDecodeStrings.js)
 
-   10. Encode and decode strings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/encodeDecodeStrings.js)
-
-   11. Greatest common devisor of strings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/greatestCommonDivisor.js)
+   10. Greatest common devisor of strings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/greatestCommonDivisor.js)
 
 ### Dynamic programming
 

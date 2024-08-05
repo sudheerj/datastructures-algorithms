@@ -1,25 +1,25 @@
 // Two pointer:- TC:O(n) SC:O(1)
-package java1.algorithms.strings;
+package java1.algorithms.strings.validPalindrome;
 
 public class ValidPalindrome {
 
     private static boolean isValidPalindrome(String str) {
         if(str.length() <=1) return true;
 
-        int p1=0, p2= str.length()-1;
-        while(p1 <= p2) {
+        int left=0, right= str.length()-1;
+        while(left <= right) {
 
-            char ch1 = str.charAt(p1);
-            char ch2 = str.charAt(p2);
+            char ch1 = str.charAt(left);
+            char ch2 = str.charAt(right);
 
-            if(Character.isLetterOrDigit(ch1) == false) p1++;
-            else if(Character.isLetterOrDigit(ch2) == false) p2--;
+            if(!Character.isLetterOrDigit(ch1)) left++;
+            else if(!Character.isLetterOrDigit(ch2)) right--;
             else {
                 if(Character.toLowerCase(ch1) != Character.toLowerCase(ch2)) {
                     return false;
                 }
-                p1++;
-                p2--;
+                left++;
+                right--;
             }
         }
         return true;
@@ -28,19 +28,19 @@ public class ValidPalindrome {
     private static boolean isValidPalindrome1(String str) {
         if(str.length() <=1) return true;
         
-        int p1=0, p2= str.length()-1;
-        while(p1<=p2) {
-            char ch1 = str.charAt(p1);
-            char ch2 = str.charAt(p2);
+        int left=0, right= str.length()-1;
+        while(left<=right) {
+            char ch1 = str.charAt(left);
+            char ch2 = str.charAt(right);
 
-            if(!isAlphanumeric(ch1)) p1++;
-            else if(!isAlphanumeric(ch2)) p2--;
+            if(!isAlphanumeric(ch1)) left++;
+            else if(!isAlphanumeric(ch2)) right--;
             else {
                 if(Character.toLowerCase(ch1) != Character.toLowerCase(ch2)) {
                     return false;
                 }
-                p1++;
-                p2--;
+                left++;
+                right--;
             }
         }
         return true;

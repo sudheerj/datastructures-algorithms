@@ -1,5 +1,5 @@
 //Two pointer:- TC:O(n) SC: O(n)
-function isValidPalindrome(str) {
+function isValidPalindrome1(str) {
     if(str.length <=1) return true;
 
     let left = 0, right = str.length -1;
@@ -21,7 +21,7 @@ function isValidPalindrome(str) {
 }
 
 //Two pointer without regex:- TC:O(n) SC: O(n)
-function isValidPalindrome1(str) {
+function isValidPalindrome2(str) {
     if(str.length <=1) return true;
 
     let left = 0, right = str.length -1;
@@ -51,8 +51,8 @@ function isAlphanumeric1(char) {
 }
 
 let str1 ="A man, a plan, a canal: Panama";
-console.log(isValidPalindrome(str1));
 console.log(isValidPalindrome1(str1));
+console.log(isValidPalindrome2(str1));
 let str2 ="Hello World";
-console.log(isValidPalindrome(str2));
 console.log(isValidPalindrome1(str2));
+console.log(isValidPalindrome2(str2));
