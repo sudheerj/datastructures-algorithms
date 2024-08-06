@@ -92,7 +92,7 @@ List of Programs related to data structures and algorithms
 
    6. Valid palindrome: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/6.validPalindrome/validPalindrome.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/6.validPalindrome/validPalindrome.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/6.validPalindrome/validPalindrome.md)
 
-   7. Longest palindromic substring: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/longestPalindromicSubstring.js)
+   7. Longest palindromic substring: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/7.longestPalindromicSubstring/longestPalindromicSubstring.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/7.longestPalindromicSubstring/longestPalindromicSubstring.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/7.longestPalindromicSubstring/longestPalindromicSubstring.md)
 
    8. Palindromic substrings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/palindromicStrings.js)
 
