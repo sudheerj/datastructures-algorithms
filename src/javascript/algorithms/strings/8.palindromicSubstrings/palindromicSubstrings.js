@@ -1,6 +1,6 @@
 //Expand around center:- TC:O(n*2) SC:O(1)
 
-function countPalindromicStrings(str) {
+function countPalindromicSubstrings(str) {
 
     if(str.length < 2) return str.length;
 
@@ -23,10 +23,10 @@ function countPalindromes(str, left, right) {
 }
 
 let str = "baaab";
-console.log(countPalindromicStrings(str));
+console.log(countPalindromicSubstrings(str));
 
-let str1 = "abc";
-console.log(countPalindromicStrings(str1));
+let str1 = "abcd";
+console.log(countPalindromicSubstrings(str1));
 
 let str2 = "aaa";
-console.log(countPalindromicStrings(str2));
+console.log(countPalindromicSubstrings(str2));

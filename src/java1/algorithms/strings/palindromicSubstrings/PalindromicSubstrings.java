@@ -9,13 +9,13 @@ public class PalindromicSubstrings {
 
         int count = 0;
         for(int i=0; i < str.length(); i++) {
-            count += countPalindrome(str, i, i);
-            count += countPalindrome(str, i, i+1);
+            count += countPalindromes(str, i, i);
+            count += countPalindromes(str, i, i+1);
         }
         return count;
     }
 
-    private static int countPalindrome(String str, int left, int right) {
+    private static int countPalindromes(String str, int left, int right) {
 
         int count = 0;
         while(left >=0 && right < str.length() && str.charAt(left) == str.charAt(right)) {
@@ -30,7 +30,7 @@ public class PalindromicSubstrings {
         String str = "baaab";
         System.out.println(countSubstrings(str));
 
-        String str1 = "abc";
+        String str1 = "abcd";
         System.out.println(countSubstrings(str1));
 
         String str2 = "aaa";

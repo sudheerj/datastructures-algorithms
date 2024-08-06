@@ -94,7 +94,7 @@ List of Programs related to data structures and algorithms
 
    7. Longest palindromic substring: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/7.longestPalindromicSubstring/longestPalindromicSubstring.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/7.longestPalindromicSubstring/longestPalindromicSubstring.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/7.longestPalindromicSubstring/longestPalindromicSubstring.md)
 
-   8. Palindromic substrings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/palindromicStrings.js)
+   8. Palindromic substrings: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/8.palindromicSubstrings/palindromicSubstrings.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/8.palindromicSubstrings/palindromicSubstrings.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/8.palindromicSubstrings/palindromicSubstrings.md)
 
    9. Encode and decode strings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/encodeDecodeStrings.js)
 

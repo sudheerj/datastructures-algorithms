@@ -5,11 +5,11 @@ Given a string `str`, return the longest palindromic substring of `str`.
 
 ### Examples
 Example 1:
-Input: s = "ababd"
+Input: str = "ababd"
 Output: "aba"
 
 Example 2:
-Input: s = "dbbc"
+Input: str = "dbbc"
 Output: "bb"
 
 **Algorithmic Steps**
