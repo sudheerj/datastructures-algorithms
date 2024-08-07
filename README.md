@@ -98,7 +98,7 @@ List of Programs related to data structures and algorithms
 
    9. Encode and decode strings: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/9.encodeDecodeStrings/encodeDecodeStrings.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/9.encodeDecodeStrings/encodeDecodeStrings.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/9.encodeDecodeStrings/encodeDecodeStrings.md)
 
-   10. Greatest common devisor of strings: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/greatestCommonDivisor.js)
+   10. Greatest common devisor of strings: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/10.greatestCommonDivisor/greatestCommonDivisor.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/10.greatestCommonDivisor/greatestCommonDivisor.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/10.greatestCommonDivisor/greatestCommonDivisor.md)
 
 ### Dynamic programming
 
