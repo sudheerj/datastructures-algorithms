@@ -14,7 +14,7 @@ Output: 3
 
 
 **Algorithmic Steps**
-This problem is solved with the help of **Expand around center** approach. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **Expanding around center** approach. The algorithmic approach can be summarized as follows:
 
 1. Write a preliminary check by just returning the input string length when its size is less than 2.
 
