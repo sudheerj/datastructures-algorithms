@@ -100,6 +100,8 @@ List of Programs related to data structures and algorithms
 
    10. Greatest common devisor of strings: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/10.greatestCommonDivisor/greatestCommonDivisor.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/10.greatestCommonDivisor/greatestCommonDivisor.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/10.greatestCommonDivisor/greatestCommonDivisor.md)
 
+   11. Reverse words in string: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/11.reverseWordsInString/reverseWordsInString.js)  [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/11.reverseWordsInString/reverseWordsInString.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/strings/11.reverseWordsInString/reverseWordsInString.md)
+
 ### Dynamic programming
 
    1. Climbing stairs: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/dynamicProgramming/climbingStairs.js)

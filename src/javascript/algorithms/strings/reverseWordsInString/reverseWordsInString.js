@@ -1,6 +1,19 @@
 //TC: O(n) SC: O(n)
 function reverseWordsInString1(str) {
-  let words = str.trim().split("/s+/");
+  let words = str.trim().split(/\s+/);
+  let i = 0, j = words.length - 1;
+
+  while (i <= j) {
+    [words[i], words[j]] = [words[j], words[i]];
+    i++;
+    j--;
+  }
+  return words.join(' ');
+}
+
+//TC: O(n) SC: O(n)
+function reverseWordsInString2(str) {
+  let words = str.trim().split(/\s+/);
   let result = "";
 
   for (let i = words.length - 1; i >= 0; i--) {
@@ -10,22 +23,8 @@ function reverseWordsInString1(str) {
   return result.slice(0, result.length - 1);
 }
 
-//TC: O(n) SC: O(1)
-function reverseWordsInString2(str) {
-  let words = str.trim().split("/\s+/");
-  let i = 0, j = str.length - 1;
-
-  while (i <= j) {
-    [words[i], words[j]] = [words[j], words[i]];
-    i++;
-    j--;
-  }
-
-  return words.join("");
-}
-
-let str1 = "the sky is blue";
-let str2 = "  hello world  ";
+let str1 = "It is fun to learn DSA";
+let str2 = "  hello DSA  ";
 console.log(reverseWordsInString1(str1));
 console.log(reverseWordsInString1(str2));
 
