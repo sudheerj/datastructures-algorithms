@@ -12,7 +12,7 @@ Output: 0
 
 **Algorithmic Steps:**
 
-This problem is solved with the help of Kadane's algorithm(dynamic programming technique). The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **Kadane's algorithm**(dynamic programming technique). The algorithmic approach can be summarized as follows:
 
 1. Initialize the maximum product subarray(`result`) with a first number. 
 

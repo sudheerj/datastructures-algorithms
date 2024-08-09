@@ -14,7 +14,7 @@ Output: 0
 
 **Algorithmic Steps:**
 
-This problem is solved with the help of Kadane's algorithm(dynamic programming technique). The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **Kadane's algorithm**(dynamic programming technique). The algorithmic approach can be summarized as follows:
 
 1. Add a preliminary check for empty array and return sum `0` as early exit.
 

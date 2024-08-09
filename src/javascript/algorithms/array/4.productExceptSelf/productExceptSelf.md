@@ -16,7 +16,7 @@ Output: [0,0,0,72,0]
 
 **Algorithmic Steps:**
 
-This problem is solved with the help of prefix and postfix pattern which includes elements multiplication. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **prefix and postfix pattern** which includes elements multiplication. The algorithmic approach can be summarized as follows:
 
 1. Initialize an empty `result` array variable to store the elements products at each index position. 
 

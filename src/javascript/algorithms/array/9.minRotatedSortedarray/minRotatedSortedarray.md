@@ -14,7 +14,7 @@ Output: 0
 
 **Algorithmic Steps:**
 
-This problem is solved with the help of binary search technique. Since it is a rotated sorted array, there will be two subararys of elements in an ascending order. Once you find the correct subarray, the left most element is the minimum value. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **binary search** technique. Since it is a rotated sorted array, there will be two subararys of elements in an ascending order. Once you find the correct subarray, the left most element is the minimum value. The algorithmic approach can be summarized as follows:
 
 1. Initialize the minimum value(`result`) to first element of an array.
 

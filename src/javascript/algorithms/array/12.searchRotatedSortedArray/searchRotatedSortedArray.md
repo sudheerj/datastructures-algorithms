@@ -14,7 +14,7 @@ Input: nums = [3, 4, 5, 6, 7, 0, 1, 2], target = 9
 Output: -1
 
 **Algorithmic Steps:**
-This problem is solved with the help of binary search technique. Since it is a rotated sorted array, there will be two subararys of elements in an ascending order. You can decide the presence of target element by verifying either in left side subarray or right side subarray. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **binary search** technique. Since it is a rotated sorted array, there will be two subararys of elements in an ascending order. You can decide the presence of target element by verifying either in left side subarray or right side subarray. The algorithmic approach can be summarized as follows:
 
 1. Initialize left(`left`) and right pointers(`right`) to the beginning and ending index of an array.
 

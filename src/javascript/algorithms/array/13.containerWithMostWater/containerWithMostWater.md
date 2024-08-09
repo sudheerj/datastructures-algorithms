@@ -11,7 +11,7 @@ Input: height = [1,1]
 Output: 1
 
 **Algorithmic Steps:**
-This problem is solved with the help of two pointer technique on opposite ends. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **two pointers** technique on opposite ends. The algorithmic approach can be summarized as follows:
 
 1. Initialize maximum capacity of the container(i.e, `maxCapacity`) to zero.
 

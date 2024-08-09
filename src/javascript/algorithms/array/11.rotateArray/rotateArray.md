@@ -13,7 +13,7 @@ Input: nums = [-10, 4, 5, -1], n = 2
 Output: [5, -1, -10, 4]
 
 **Algorithmic Steps:**
-This problem is solved with the help of two pointers, which is used to reverse subarrays. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **two pointers** technique, which is used to reverse subarrays. The algorithmic approach can be summarized as follows:
 
 1. Initialize `length` variable to store length of an input array.
 

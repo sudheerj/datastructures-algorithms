@@ -9,7 +9,7 @@ Output: [2,5]
 Explanation: The sum of 7 and 9 is 16. Therefore index1 = 2, index2 = 5.
 
 **Algorithmic Steps:**
-This problem is solved with the help of two pointer technique. The algorithmic approach can be summarized as follows: 
+This problem is solved with the help of **two pointers** technique. The algorithmic approach can be summarized as follows: 
 
 1. Initialize `left` and `right` pointers to `0` and last index(`length-1`) of the input array.
 

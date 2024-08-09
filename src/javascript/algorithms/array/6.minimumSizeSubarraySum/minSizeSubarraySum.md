@@ -13,7 +13,7 @@ Input: target = 15, nums = [2, 2, 2, 2, 2]
 Output: 0
 
 **Algorithmic Steps:**
-This problem is solved with the help of sliding window approach without using any special data structure. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **sliding window** approach without using any special data structure. The algorithmic approach can be summarized as follows:
 
 1. Initialize left and right pointers to 0, to keep track of the substring window boundaries.
 

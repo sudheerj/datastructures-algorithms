@@ -15,7 +15,7 @@ Output: -2
 
 **Algorithmic Steps:**
 
-This problem is solved with the help of Kadane's algorithm(dynamic programming technique), in which one time for finding the maximum subarray sum, and another time for finding the minimum subarray sum. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **Kadane's algorithm**(dynamic programming technique), in which one time for finding the maximum subarray sum, and another time for finding the minimum subarray sum. The algorithmic approach can be summarized as follows:
 
 1. Add a preliminary check for empty array and return 0 as a maximum sum.
 
