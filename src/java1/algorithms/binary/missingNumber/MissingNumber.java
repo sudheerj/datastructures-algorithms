@@ -1,7 +1,7 @@
-//TC: O(n) SC: O(1)
-package java1.algorithms.binary;
+package java1.algorithms.binary.missingNumber;
 
 public class MissingNumber {
+    //Using XOR operation - TC: O(n) SC: O(1)
     private static int missingNumber1(int[] nums) {
         int missingNumber = nums.length;
         for(int i=0; i< nums.length; i++) {
@@ -10,7 +10,7 @@ public class MissingNumber {
         return missingNumber;
     }
 
-    // non-binary solution
+    // non-binary solution TC: O(n) SC: O(1)
     private static int missingNumber2(int[] nums) {
         int missingNumber = nums.length;
         for(int i=0; i< nums.length; i++) {
@@ -20,9 +20,13 @@ public class MissingNumber {
     }
 
     public static void main(String[] args) {
-        int[] nums = {3, 1, 0};
-        System.out.println(missingNumber1(nums)); 
-        System.out.println(missingNumber2(nums)); 
+        int[] nums1 = {3, 1, 0};
+        int[] nums2 = {5, 9, 7, 1, 2, 4, 0, 6, 8, 3};
+        System.out.println(missingNumber1(nums1)); 
+        System.out.println(missingNumber2(nums1)); 
+
+        System.out.println(missingNumber1(nums2)); 
+        System.out.println(missingNumber2(nums2)); 
     }
 }
 
