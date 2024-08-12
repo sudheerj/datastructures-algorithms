@@ -16,8 +16,8 @@ public class ReverseBits {
         int reverseBits = 0;
         for(int i=0; i< 32; i++) {
             reverseBits <<= 1;
-            reverseBits = reverseBits | (1 & n);
-            n = n >> 1;
+            reverseBits |= (1 & n);
+            n >>= 1;
         }
         return reverseBits;
     }

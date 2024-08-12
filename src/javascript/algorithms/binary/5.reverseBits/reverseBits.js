@@ -15,8 +15,8 @@ function reverseBits2(num) {
     let reverseBitResult = 0;
     for(let i=0; i< 32; i++) {
         reverseBitResult <<= 1;
-        reverseBitResult = reverseBitResult | (1 & num);
-        num = num >> 1;
+        reverseBitResult |= (1 & num);
+        num >>= 1;
     }
     return reverseBitResult;
 }
