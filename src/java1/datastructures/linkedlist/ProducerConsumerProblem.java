@@ -107,7 +107,7 @@ public class ProducerConsumerProblem
                     while (list.size()==0)
                         wait();
 
-                    //to retrive the ifrst job in the list
+                    //to retrieve the ifrst job in the list
                     int val = list.removeFirst();
 
                     System.out.println("Consumer consumed-"

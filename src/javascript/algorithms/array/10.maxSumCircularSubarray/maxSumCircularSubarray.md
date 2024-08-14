@@ -29,7 +29,7 @@ This problem is solved with the help of **Kadane's algorithm**(dynamic programmi
 
 5. Iterate over an input array to calculate the maximum value.
 
-6. Calculate the maximum and minimum sum at each element positon. The minimum sum is required to derive maximum value incase of cirucular subarray contains maximum value.
+6. Calculate the maximum and minimum sum at each element positon. The minimum sum is required to derive maximum value incase of circular subarray contains maximum value.
 
 7. Find the total sum of all the numbers and store it in
 

@@ -4,7 +4,7 @@ import java.util.*;
 
 public class AlienDictionary {
 
-    //BFS(Topological sorting through Kahn's alogirthm):- TC: O(m*n) SC:O(m*n)
+    //BFS(Topological sorting through Kahn's algorithm):- TC: O(m*n) SC:O(m*n)
     private static String alienOrder(String[] words) {
         if(words == null || words.length == 0) return null;
 

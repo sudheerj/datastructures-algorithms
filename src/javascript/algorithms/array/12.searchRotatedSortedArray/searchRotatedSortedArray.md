@@ -35,6 +35,6 @@ This problem is solved with the help of **binary search** technique. Since it is
 
 **Time and Space complexity:**
 
-This algorithm has a time complexity of `O(log n)`, where `n` is the number of elements. This is because we divide the array into two subarrays each time and find the index of target element using binary search alogorithm. 
+This algorithm has a time complexity of `O(log n)`, where `n` is the number of elements. This is because we divide the array into two subarrays each time and find the index of target element using binary search algorithm. 
 
 Here, we don't use any additional datastructure other than two left pointer variables. Hence, the space complexity will be O(1).

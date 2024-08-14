@@ -3,7 +3,7 @@ This problem is solved with the help of monotonic decreasing stack. The algorith
 
 1. Initialize the length variable which indicates number of people in the queue.
 
-2. Initialize a `visiblityCount` array with the same length of input `heights` array, filled with zeros.
+2. Initialize a `visibilityCount` array with the same length of input `heights` array, filled with zeros.
 
 3. Initialize a monotonic stack named `stack` which stores the heights of persons.
 
@@ -16,7 +16,7 @@ to the current person.
 
 6. Add the current taller person height to the stack.
 
-7. Return the visiblity count array which indicate number of persions of visible at each position.
+7. Return the visibility count array which indicate number of persions of visible at each position.
 
 **Time and Space complexity:**
 This algorithm has a time complexity of O(n), where n is the number of people a person can see. This is because we are iterating the array only once. However, each element performs multiple comparisons along with pop operations from the stack until a higher height is found. In the worst, each element will be pushed and popped from the stack once, leads to time complexity of O(n). So the overall time complexity is O(n).

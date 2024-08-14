@@ -31,7 +31,7 @@ This problem is solved with the help of two pointer technique on opposite ends. 
 
 8. Repeat steps 4-7 until all the elements traversed.
 
-9. Return the maximum capcity of the container.
+9. Return the maximum capacity of the container.
 
 **Time and Space complexity:**
 This algorithm has a time complexity of `O(n)`, where `n` is the number of elements. This is because the left or right pointer moved towards the other until they meet in each iteration, the elements are traversed once. 

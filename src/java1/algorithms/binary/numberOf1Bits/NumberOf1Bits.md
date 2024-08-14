@@ -21,7 +21,7 @@ This problem is solved with the help of **Brian Kernighans** technique. The main
 
 3. Iterate the number until it became zero. 
    
-4. Update the number by multiplying the number itself with number which is substracted by 1. It helps to invert the right most bit everytime.
+4. Update the number by multiplying the number itself with number which is subtracted by 1. It helps to invert the right most bit everytime.
 
 5. Update the counter by one for each iteration.
    

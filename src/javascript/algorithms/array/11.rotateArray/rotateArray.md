@@ -21,9 +21,9 @@ This problem is solved with the help of **two pointers** technique, which is use
 
 3. Create a helper function to reverse elements of an array using swap operation with the help left and right pointers(i.e, `left` and `right`). The left pointer needs to be incremented and right pointer needs to decremented for each iteration.
 
-4. Invoke reversal operation for entire array of elements(i.e, from the beggining to end of an array).
+4. Invoke reversal operation for entire array of elements(i.e, from the beginning to end of an array).
 
-5. Invoke reversal operation for first `n` number of elements(i.e, from the beggining to n-1).
+5. Invoke reversal operation for first `n` number of elements(i.e, from the beginning to n-1).
 
 6. Invoke reversal operation for remaining number of elements(i.e, from `n-1` to end of an array).
 

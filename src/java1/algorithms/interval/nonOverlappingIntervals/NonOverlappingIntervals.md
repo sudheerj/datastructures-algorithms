@@ -3,7 +3,7 @@ This problem is solved with the help of greedy approach. The algorithmic approac
 
 1. First, sort the list of intervals based on their start times. This step helps to keep the overlapping intervals next to each other in the list.
 
-2. Initialize a minimum removal of intervals varaible `minRemove` to 0, which is used to hold the minimum number of intervals to be removed to make non-overlapping intervals. 
+2. Initialize a minimum removal of intervals variable `minRemove` to 0, which is used to hold the minimum number of intervals to be removed to make non-overlapping intervals. 
 
 3. Initialize previous end value of an interval `prevEnd` with first interval end value. i.e, Here, first interval is considered as non-overlapping interval by default.
 

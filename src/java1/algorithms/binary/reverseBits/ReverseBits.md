@@ -11,7 +11,7 @@ Input: num = 8
 Output: 268435456
 
 **Algorithmic Steps:**
-This problem is solved with the help of **Bitwise operations**. The main intution of this algorithm is to retrieve each bit individually from least significant bit to the most significant bit and place that bit in the reversed position of a new number. As a result, the least signicant bits moved to most significant bit side and vice-versa. The algorithmic approach can be summarized as follows: 
+This problem is solved with the help of **Bitwise operations**. The main intution of this algorithm is to retrieve each bit individually from least significant bit to the most significant bit and place that bit in the reversed position of a new number. As a result, the least significant bits moved to most significant bit side and vice-versa. The algorithmic approach can be summarized as follows: 
 
 1. Get the number `num` as input parameter.
 

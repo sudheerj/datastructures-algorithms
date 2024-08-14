@@ -23,7 +23,7 @@ This problem is solved with the help of greedy approach. The algorithmic approac
 
     **Note:** Remember that the main idea behind this solution is to verify that each meeting ends before the next meeting starts.
 
-3. If the start time is less than the end time of the previous interval, then there is an overlap between the intervals. In this case, a person cannot attend all meetings. So you need to return `false` immeidately.
+3. If the start time is less than the end time of the previous interval, then there is an overlap between the intervals. In this case, a person cannot attend all meetings. So you need to return `false` immediately.
 
 4. If the start time is greater than the previous interval's end time, then there is no overlap between the intervals. In this case, you need to proceed with next set of intervals to find any overlap between the meetings. 
 

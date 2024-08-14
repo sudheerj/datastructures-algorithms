@@ -1,6 +1,6 @@
 # QuickSort
 
-QuickSort is a sorting algorithm based on **Divide and Conquer technique** that picks any one element(last, first, middle or random element) which can be choosen as a pivot and partitions the given array around the picked pivot by keeping the pivot in its correct position in the sorted array. The elements less than pivot are kept on the left side and elements greater than pivot are on the right side of the pivot.
+QuickSort is a sorting algorithm based on **Divide and Conquer technique** that picks any one element(last, first, middle or random element) which can be chosen as a pivot and partitions the given array around the picked pivot by keeping the pivot in its correct position in the sorted array. The elements less than pivot are kept on the left side and elements greater than pivot are on the right side of the pivot.
 
 ## How it works
 1. Choose any value in the array as pivot element.
@@ -12,4 +12,4 @@ QuickSort is a sorting algorithm based on **Divide and Conquer technique** that 
 
 | Best            | Average             | Worst               | Space (Memory)    | Stable    | Advantage  |
 | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: | :-------- |
-|  Ω(n log(n))               | θ(n log(n))       | O(n<sup>2</sup>)       | O(log n)           | Yes       |   Efficient alogorithm except for almost sorted arrays        |
+|  Ω(n log(n))               | θ(n log(n))       | O(n<sup>2</sup>)       | O(log n)           | Yes       |   Efficient algorithm except for almost sorted arrays        |

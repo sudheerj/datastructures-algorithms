@@ -8,7 +8,7 @@ This problem is solved in a one pass with the help of map data structure. The al
 
 4. Iterate over the input array using index pointer until the end of the array. 
 
-5. Find the complement by substracting the target and current number. If the complement already exists in the map, return the indices of complement and current number as output.
+5. Find the complement by subtracting the target and current number. If the complement already exists in the map, return the indices of complement and current number as output.
 
 6. If the complement doesn't exist in our indexMap, just add the current number and its index to the map.
 
@@ -32,7 +32,7 @@ This problem is solved in a one pass with the help of object. The algorithmic ap
 
 4. Iterate over the input array using index pointer until the end of the array. 
 
-5. Find the complement by substracting the target and current number. If the complement already exists in the object, return the indices of complement and current number as output.
+5. Find the complement by subtracting the target and current number. If the complement already exists in the object, return the indices of complement and current number as output.
 
 6. If the complement doesn't exist in our indexObj, just add the current number as value and its index as property name to the object.
 

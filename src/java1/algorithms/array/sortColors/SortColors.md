@@ -30,11 +30,11 @@ This problem is solved with the help of **two pointers** technique. It is also k
 
 5. If the current character is equals to 2, swap the character values at right pointer and index pointer. Also, decrement the right pointer. 
 
-6. If the chracter is neither `0` or `2`, then just increment the index pointer.
+6. If the character is neither `0` or `2`, then just increment the index pointer.
 
 7. Repeat steps 4–6 until the index pointer reaches the end of the array.
 
-8. Return the updated in-place array where chracters are sorted.
+8. Return the updated in-place array where characters are sorted.
 
 **Time and Space complexity:**
 This algorithm takes a time complexity of `O(n)` because we are traversing the array only once. Also, it requires space complexity of `O(1)` because we are updating the array in-place without using an additional data structure.

@@ -7,9 +7,9 @@ This problem is solved with the help of monotonic decreasing stack. The algorith
 
 3. Iterate over the input array using an iteration variable `currDay`(from 0 to length of array).
 
-4. For each iteration, create nested iteration to shrink the stack until the stack is not empty and current temparature is greater than previous day temperation.
+4. For each iteration, create nested iteration to shrink the stack until the stack is not empty and current temperature is greater than previous day temperation.
 
-5. As part of the nested iteration, the top element of stack needs to be poped-out and number of days(current day index - previous day index) to wait for warmer temparature stores in previous day's index.
+5. As part of the nested iteration, the top element of stack needs to be poped-out and number of days(current day index - previous day index) to wait for warmer temperature stores in previous day's index.
 
 6. If the current day temperature is less than previous day, the respective current day index is stored in the stack.
 

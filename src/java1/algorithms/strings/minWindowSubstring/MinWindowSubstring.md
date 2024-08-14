@@ -26,7 +26,7 @@ This problem is solved with the help of **sliding window** approach using two ha
 
 3. Initialize `minLength` variable with maximum integer value, which is used to store the length of the minimum window substring.
 
-4. Initialize substring boundaries(`subStrBoudaries`) variable to [-1, -1], which is used to keep track of the minimum substring window boundaries.
+4. Initialize substring boundaries(`subStrBoundaries`) variable to [-1, -1], which is used to keep track of the minimum substring window boundaries.
 
 5. Iterate over the second substring and count the character count using respective hashmap. 
 

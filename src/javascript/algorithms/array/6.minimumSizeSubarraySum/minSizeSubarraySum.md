@@ -25,7 +25,7 @@ This problem is solved with the help of **sliding window** approach without usin
 
 5. Calculate the total value by adding array value at respective right pointer.
 
-6. If the total value is greather or equal to target, find the minimum of subarray sum and shrink the current window total and left pointer value. This step need to be repeated until there are no subarray exists to meet the target criteria.
+6. If the total value is greater or equal to target, find the minimum of subarray sum and shrink the current window total and left pointer value. This step need to be repeated until there are no subarray exists to meet the target criteria.
 
 7. Increment the right pointer to find the next subarray.
 

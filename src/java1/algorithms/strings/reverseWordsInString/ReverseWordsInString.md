@@ -25,9 +25,9 @@ This problem is solved with the help of basic string and array operations. The a
 
 6. Repeat steps 4-5 until the iteration condition failed.
 
-7. Join the reversed words with a space delimitor and return the result.
+7. Join the reversed words with a space delimiter and return the result.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of `O(n)` where `n` is the length of first string. This is because we need to traverse the string at once for spliting the string based on a space, reversing the string, and joining the words back to a string. All these operations requires `O(n)`. Since all these operations performed sequentially, the overall time complexity combining these operations doesn't exceed `O(n)`.
+This algorithm has a time complexity of `O(n)` where `n` is the length of first string. This is because we need to traverse the string at once for splitting the string based on a space, reversing the string, and joining the words back to a string. All these operations requires `O(n)`. Since all these operations performed sequentially, the overall time complexity combining these operations doesn't exceed `O(n)`.
 
 Also, it takes space complexity of `O(n)` due to storing all the characters in an array.

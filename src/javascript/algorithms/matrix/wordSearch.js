@@ -19,7 +19,7 @@
      // If the entire word has been found in the board
     if(word.length === curr) return true;
 
-    // Verfiy out of bounds or mismatched letter
+    // Verify out of bounds or mismatched letter
     if(r <0 || r>= board.length || c<0 || c>= board[0].length || board[r][c] !== word[curr] || board[r][c] === '*') return false;
 
     //Mark the current word as visited

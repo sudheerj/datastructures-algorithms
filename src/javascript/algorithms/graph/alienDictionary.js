@@ -1,4 +1,4 @@
-//BFS(Topological sorting through Kahn's alogirthm):- TC: O(m*n) SC:O(m*n)
+//BFS(Topological sorting through Kahn's algorithm):- TC: O(m*n) SC:O(m*n)
 
 function alienOrder(words) {
     let adjList = {};

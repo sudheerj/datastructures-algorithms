@@ -38,6 +38,6 @@ This problem is solved with the help of binary search technique. Since it is a r
 
 **Time and Space complexity:**
 
-This algorithm has a time complexity of `O(log n)`, where `n` is the number of elements. This is because we divide the array into two subarray each time and find the minimum element in the correct subarray using binary search alogorithm. 
+This algorithm has a time complexity of `O(log n)`, where `n` is the number of elements. This is because we divide the array into two subarray each time and find the minimum element in the correct subarray using binary search algorithm. 
 
 Here, we don't use any additional datastructure other than the result variable. Hence, the space complexity will be O(1).

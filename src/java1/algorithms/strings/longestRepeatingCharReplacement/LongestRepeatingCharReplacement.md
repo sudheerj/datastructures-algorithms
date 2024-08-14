@@ -16,9 +16,9 @@ Output: 4
 **Algorithmic Steps**
 This problem is solved with the help of **sliding window** approach using two pointer variables. The algorithmic approach can be summarized as follows:
 
-1. Initialize character count varaible(i.e, `charCount`) to store the number of times a capital letter appears.
+1. Initialize character count variable(i.e, `charCount`) to store the number of times a capital letter appears.
 
-2. Initialize maximum length of the substring(`maxLength`), maximum chracter frequency(`maxCharFrequency`), left and right pointers(`left` & `right`) to 0.
+2. Initialize maximum length of the substring(`maxLength`), maximum character frequency(`maxCharFrequency`), left and right pointers(`left` & `right`) to 0.
 
 3. Iterate over the input string using right pointer.
 
@@ -30,7 +30,7 @@ This problem is solved with the help of **sliding window** approach using two po
 
 7. Calculate the maximum substring length by taking maximum between maximum itself and substring length.
 
-8. Return `maxLength` to indicate the longest repeating chracter replacement substring.
+8. Return `maxLength` to indicate the longest repeating character replacement substring.
 
 
 **Time and Space complexity:**

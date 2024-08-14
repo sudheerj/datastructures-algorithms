@@ -31,7 +31,7 @@ This problem is solved with the help of basic string and array built-in operatio
 
 4. Create a temporary variable(`j`) which is assigned to index variable.
 
-5. Skip the prefix related to each string's length until the character reaches special(`#`) symbol. The number of characters ignored are indicated by incremental value of `j`. The next character position(`j+1`) indicates the beggining of a string.
+5. Skip the prefix related to each string's length until the character reaches special(`#`) symbol. The number of characters ignored are indicated by incremental value of `j`. The next character position(`j+1`) indicates the beginning of a string.
 
 6. Calculate the word length followed by substring using the index variables.
 

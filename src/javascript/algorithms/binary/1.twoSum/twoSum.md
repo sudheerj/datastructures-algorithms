@@ -15,7 +15,7 @@ This problem is solved with the help of **bitwise operators** technique. The add
 
 1. Get the two numbers `a` and `b` as input parameters.
 
-2. Iterate the bitwise opeations until `b` is not zero. 
+2. Iterate the bitwise operations until `b` is not zero. 
    
 3. Calculate the carry of the two numbers using Bitwise AND operation. Also, shift the carry to the left 1. The can be store in a `temp` variable.
 
