@@ -71,7 +71,7 @@ List of Programs related to data structures and algorithms
 
 ### Dynamic programming
 
-   1. Climbing stairs: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/dynamicProgramming/climbingStairs.js)
+   1. Climbing stairs: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/dynamicProgramming/1.climbingStairs/climbingStairs.js)
 
    2. Coin change: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/dynamicProgramming/coinsChange.js)
 
