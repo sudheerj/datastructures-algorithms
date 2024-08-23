@@ -54,7 +54,7 @@ function longestPalindromicSubstring2(str) {
                 longestSubstrLen = right-left+1;
             }
             left--;
-            right;
+            right++;
         }
     }
     return longestSubstr;
