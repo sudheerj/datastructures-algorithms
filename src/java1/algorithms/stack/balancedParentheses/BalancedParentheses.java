@@ -1,5 +1,5 @@
 //Hashmap:- TC:O(n) SC:O(n)
-package java1.algorithms.stack;
+package java1.algorithms.stack.balancedParentheses;
 
 import java.util.*;
 

@@ -32,19 +32,19 @@ class MyStack {
 
     printStack() {
         let data = "";
-        for (let i = 0; i < this.array.length; i++)
-            data += this.array[i] + " ";
+        for (let el of this.array)
+            data += el + " ";
         return data;
     }
 
 }
 
-function isBalancedParentheses(parentheses) {
-    const myStack = new Stack();
-    if(parentheses.length === 0) return true;
-    if(parentheses.length === 1 || parentheses.length % 2 !== 0) return false;
+function hasBalancedParentheses(characters) {
+    const myStack = new MyStack();
+    if(characters.length === 0) return true;
+    if(characters.length === 1 || characters.length % 2 !== 0) return false;
     
-    for(const ch of parentheses) {
+    for(const ch of characters) {
         switch(ch) {
             case '{':
             case '(':
@@ -85,25 +85,14 @@ function isBalancedParentheses(parentheses) {
     if(myStack.isEmpty()) return true;
 }
 
+let str1 = '()[]{}<>';
+let str2 = '[({<>})]';
+let str3 = '([)]';
 
-function useStack() {
-    let myStack = new MyStack();
+console.log(hasBalancedParentheses(str1));
+console.log(hasBalancedParentheses(str2));
+console.log(hasBalancedParentheses(str3));
 
-    console.log(myStack.isEmpty()); // false
-    console.log(myStack.pop()); // Underflow
 
-    myStack.push(1);
-    myStack.push(2);
-    myStack.push(3);
-
-    console.log(myStack.printStack()); // 1 2 3
-    console.log(myStack.peek()); // 3
-
-    console.log(myStack.pop()); // 3
-
-    console.log(myStack.printStack()); // 1 2
-}
-
-useStack();
 
 

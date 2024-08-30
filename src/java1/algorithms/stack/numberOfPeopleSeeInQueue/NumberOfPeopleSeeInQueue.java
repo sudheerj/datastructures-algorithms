@@ -10,9 +10,8 @@ public class NumberOfPeopleSeeInQueue {
         int[] visibilityCount = new int[length];
         Stack<Integer> stack = new Stack<>();
 
-
         for(int i=length-1; i>-1; i--) {
-            while(!stack.isEmpty() && stack.peek() < heights[i]) {
+            while(!stack.isEmpty() && heights[i] > stack.peek()) {
                 stack.pop();
                 ++visibilityCount[i];
             }

@@ -6,10 +6,9 @@ class Node {
 }
 
 class Stack {
-    constructor(value) {
-        const newNode = new Node(value);
-        this.top = newNode;
-        this.length = 1;
+    constructor() {
+        this.top = null;
+        this.length = 0;
     }
 
     push(value) {
@@ -17,7 +16,7 @@ class Stack {
         if(this.length === 0) {
             this.top = newNode;
         } else {
-            newNode.next = newNode;
+            newNode.next = this.top;
             this.top = newNode;
         }
         this.length++;
@@ -43,11 +42,12 @@ class Stack {
     }
 }
 
-const myStack = new Stack("Zero");
+const myStack = new Stack();
+console.log(myStack.isEmpty());
 myStack.push("One");
 myStack.push("Second");
 myStack.push("Third");
-myStack.peek();
-myStack.isEmpty();
-myStack.pop();
-myStack.pop();
+console.log(myStack.peek());
+console.log(myStack.isEmpty());
+console.log(myStack.pop());
+console.log(myStack.pop());

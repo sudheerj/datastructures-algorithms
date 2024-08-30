@@ -12,8 +12,8 @@ function dailyTemperatures(temperatures) {
     return days;
 }
 
-let temperatures1 = [73,74,75,71,69,72,76,73];
+let temperatures1 = [72,73,74,70,68,71,75,72];
 console.log(dailyTemperatures(temperatures1));
 
-let temperatures2 = [30,40,50,60,70];
+let temperatures2 = [10, 20, 30,40,50,60,70];
 console.log(dailyTemperatures(temperatures2));

@@ -32,8 +32,8 @@ class MyStack {
 
     printStack() {
         let data = "";
-        for (let i = 0; i < this.array.length; i++)
-            data += this.array[i] + " ";
+        for (let num of this.array)
+            data += num + " ";
         return data;
     }
 
@@ -42,7 +42,7 @@ class MyStack {
 function useStack() {
     let myStack = new MyStack();
 
-    console.log(myStack.isEmpty()); // false
+    console.log(myStack.isEmpty()); // true
     console.log(myStack.pop()); // Underflow
 
     myStack.push(1);

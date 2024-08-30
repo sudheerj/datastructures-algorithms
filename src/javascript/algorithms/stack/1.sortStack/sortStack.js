@@ -1,4 +1,4 @@
-class Stack {
+class MyStack {
 
     constructor() {
         this.array = []; // Array is used to implement stack
@@ -50,30 +50,43 @@ class Stack {
 
 function sortStack(stack) {
     if(stack.size() < 1) return;
-    let tempStack = new Stack();
-    while(stack.size() > 0) {
+    let tempStack = new MyStack();
+    while(stack.size() > 0) { 
         let temp = stack.pop();
-        while(tempStack.size() > 0 && tempStack.peek() < temp) {
+        while(tempStack.size() > 0 && tempStack.peek() > temp) {
             let top = tempStack.pop();
             stack.push(top);
         }
-        tempStack.push(temp);
+        tempStack.push(temp); 
     }
     stack.array = tempStack.array;
 }
 
 
-    let myStack = new Stack();
+    let myStack1 = new MyStack();
+    myStack1.push(8);
+    myStack1.push(2);
+    myStack1.push(4);
+    myStack1.push(1);
+    myStack1.push(5);
+    myStack1.push(3);
 
-    myStack.push(4);
-    myStack.push(2);
-    myStack.push(3);
-    myStack.push(5);
-    myStack.push(1);
+    let myStack2 = new MyStack();
+    myStack2.push(6);
+    myStack2.push(5);
+    myStack2.push(4);
+    myStack2.push(3);
+    myStack2.push(2);
+    myStack2.push(1);
+  
 
-    console.log(myStack.printStack()); // 4 2 3 5 1
-    sortStack(myStack);  
-    console.log(myStack.printStack()); // 5 4 3 2 1
+    console.log(myStack1.printStack()); 
+    sortStack(myStack1);  
+    console.log(myStack1.printStack());
+
+    console.log(myStack2.printStack()); 
+    sortStack(myStack2);  
+    console.log(myStack2.printStack());
 
 
 

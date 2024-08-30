@@ -1,3 +1,17 @@
+**Description:**
+Given an array of integers `temperatures`, which represents the daily temperatures in a city. For each temperature, calculate how many days one would have to wait for a warmer temperature than the current day. i.e, Find an array `answer` such that `answer[i]` represents the number of days you have to wait after the `i`th day to get a warmer temperature.
+
+**Note:** If there is no future day with a warmer temparature, just return 0.
+
+## Examples:
+Example 1
+Input:  temperatures1 = [72,73,74,70,68,71,75,72]
+Output: [1, 1, 4, 2, 1, 1, 0, 0]
+
+Example 2
+Input: temperatures2 = [10, 20, 30,40,50,60,70]
+Output: [1, 1, 1, 1, 1, 1, 0]
+
 **Algorithmic Steps**
 This problem is solved with the help of monotonic decreasing stack. The algorithmic approach can be summarized as follows:
 

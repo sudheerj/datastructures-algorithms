@@ -4,7 +4,7 @@ function canSeePersonsCount(heights) {
     let stack = [];
 
     for(let i = length-1; i>-1; i--) {
-        while(stack.length && stack[stack.length-1] < heights[i]) {
+        while(stack.length && heights[i] > stack[stack.length-1]) {
             stack.pop();
             ++visibilityCount[i];
         }
