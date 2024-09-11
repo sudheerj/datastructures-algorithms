@@ -2,14 +2,13 @@ package java1.datastructures.linkedlist;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList myLinkedList = new LinkedList(2);
+        LinkedList myLinkedList = new LinkedList();
         //Append
         myLinkedList.append(3);
         myLinkedList.append(4);
 
         myLinkedList.printList();
         //RemoveLast
-        System.out.println(myLinkedList.removeLast().value);
         System.out.println(myLinkedList.removeLast().value);
         System.out.println(myLinkedList.removeLast().value);
         System.out.println(myLinkedList.removeLast());
@@ -38,10 +37,12 @@ public class Main {
         System.out.println(myLinkedList.remove(2).value);
         myLinkedList.printList();
         //Reverse
+        System.out.println("Reversed linkedlist");
         myLinkedList.reverse();
         myLinkedList.printList();
         //Reverse recursively
-        myLinkedList.reverseLL();
+        System.out.println("Reversed linkedlist");
+        myLinkedList.reverseLL(myLinkedList.getHead());
         myLinkedList.printList();
     }
 }

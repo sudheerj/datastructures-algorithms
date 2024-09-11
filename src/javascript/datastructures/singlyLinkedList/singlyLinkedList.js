@@ -1,11 +1,7 @@
 class Node {
-  constructor(value, next) {
+  constructor(value) {
     this.value = value;
-    this.next = next;
-  }
-
-  toString(callback) {
-    return callback ? callback(this.value) : `${this.value}`;
+    this.next = null;
   }
 }
 
@@ -117,6 +113,8 @@ class LinkedList {
   }
 
   reverse() {
+    if(length == 0) return undefined;
+    
     let temp = this.head;
     this.head = this.tail;
     this.tail = temp;

@@ -1,4 +1,4 @@
-package java1.datastructures.linkedlist;
+package java1.algorithms.linkedlist;
 
 // Java program to implement solution of producer
 // consumer problem.
