@@ -37,7 +37,6 @@ class BinarySearchTree {
                     return this;
                 }
             }
-        return this;
     }
     lookup(value) {
         if(this.root === null) {
@@ -53,7 +52,6 @@ class BinarySearchTree {
                 return true;
             }
         }
-        return false;
     }
 
     contains(value) {
