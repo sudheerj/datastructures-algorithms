@@ -13,8 +13,8 @@ List of Programs related to data structures and algorithms
    2. Queue using linkedlist: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/queue/queue_with_linkedlist.js)
    3. Queue using stack: [JavaScript]()
 
-### Linkedlist
-   1. Linkedlist implementation: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/linkedlist/class/linkedList.js)
+### SinglyLinkedlist
+   1. SinglyLinkedlist implementation: [Source](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/singlyLinkedList/singlyLinkedList.js) [Playground](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/singlyLinkedList/singlyLinkedList.js) [Documentation](https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/singlyLinkedList/singlyLinkedList.md)
     
 ### DoublyLinkedlist
    1. DoublyLinkedlist implementation: [JavaScript](https://livecodes.io/?console=open&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/datastructures/doublyLinkedlist/class/doublyLinkedlist.js)
