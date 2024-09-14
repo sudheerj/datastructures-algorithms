@@ -113,7 +113,7 @@ class LinkedList {
   }
 
   reverse() {
-    if(length == 0) return undefined;
+    if(this.length === 0) return undefined;
     
     let temp = this.head;
     this.head = this.tail;
@@ -131,6 +131,7 @@ class LinkedList {
 }
 
 const myLinkedList = new LinkedList();
+console.log(myLinkedList.push(1));
 console.log(myLinkedList.push(2));
 console.log(myLinkedList.push(3));
 

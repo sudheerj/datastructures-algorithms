@@ -6,12 +6,10 @@ class Node {
 }
 
 class LinkedList {
-    constructor(value) {
-        const newNode = new Node(value);
-        this.head = newNode;
-        this.head = newNode;
-        this.tail = newNode;
-        this.length = 1;
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
 
     push(value) {
@@ -27,19 +25,49 @@ class LinkedList {
         return this;
     }
 
-    reverseBetween(m, n) {
+    reverseBetween1(left, right) {
+        if(!this.head || this.head.next !== null || left === right) return this.head;
+
+        let dummy = new Node(0);
+        dummy.next = this.head;
+
+        let leftPrev = dummy;
+        let current = this.head;
+
+        for (let i = 0; i < left-1; i++) {
+           leftPrev = current;
+           current = current.next;
+        }
+
+        let prev = null;
+        for (let i = 0; i < right-left+1; i++) {
+            let temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+
+        leftPrev.next.next = current;
+        leftPrev.next = prev;
+
+        this.head = dummy.next;
+
+        return this.head;
+    }
+
+    reverseBetween2(left, right) {
         if (this.head === null) return;
  
         const dummy = new Node(0);
         dummy.next = this.head;
         let prev = dummy;
  
-        for (let i = 0; i < m; i++) {
+        for (let i = 0; i < left-1; i++) {
             prev = prev.next;
         }
  
         let current = prev.next;
-        for (let i = 0; i < n - m; i++) {
+        for (let i = 0; i < right - left; i++) {
             const temp = current.next;
             current.next = temp.next;
             temp.next = prev.next;
@@ -47,9 +75,12 @@ class LinkedList {
         }
  
         this.head = dummy.next;
+
+        return this.head;
     }
 
-    reverseBetweenUsingReverseList(m, n) {
+    //UsingReverseList
+    reverseBetween3(left, right) {
         if(!this.head) return;
         
         let current = this.head;
@@ -59,14 +90,14 @@ class LinkedList {
         let revEndNext = null;
         let i = 0;
         
-        while(current && i <= n) {
-            if(i < m) {
+        while(current && i <= right) {
+            if(i < left) {
                 revPrev = current;
             }
-            if(i === m) {
+            if(i === left) {
                 revBegin = current;
             }
-            if(i === n) {
+            if(i === right) {
                 revEnd = current;
                 revEndNext = current.next;
             }
@@ -100,12 +131,19 @@ class LinkedList {
 
 }
 
-const myLinkedList = new LinkedList(1);
+const myLinkedList = new LinkedList();
+myLinkedList.push(1);
 myLinkedList.push(2);
 myLinkedList.push(3);
 myLinkedList.push(4);
 myLinkedList.push(5);
+myLinkedList.push(6);
 
-myLinkedList.reverseBetween(2, 4);
-myLinkedList.reverseBetweenUsingReverseList(1, 3);
+const myLinkedList1 = new LinkedList();
+myLinkedList1.push(4);
+
+console.dir(myLinkedList.reverseBetween1(2, 5), {depth: null});
+console.dir(myLinkedList.reverseBetween2(2, 5), {depth: null});
+console.dir(myLinkedList.reverseBetween3(1, 3), {depth: null});
+console.dir(myLinkedList1.reverseBetween1(1, 1));
 

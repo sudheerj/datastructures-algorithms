@@ -109,7 +109,7 @@ List of Programs related to data structures and algorithms
 
 ### LinkedList
 
-   1. Reverse substring: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/linkedlist/reverseSubstring.js)
+   1. Reverse substring: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/linkedlist/1.reverseSublist/reverseSublist.js)
 
    2. Detect cycle in a linkedlist: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/linkedlist/detectLoop.js)
 
