@@ -1,10 +1,17 @@
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
 class DoublyLinkedList {
 
-    constructor(value) {
-        const newNode = new Node(value);
-        this.head = newNode;
-        this.tail = this.head;
-        this.length = 1;
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
 
     push(value) {
@@ -92,8 +99,8 @@ class DoublyLinkedList {
 
     insert(index, value) {
         if(index < 0 || index > this.length) return false;
-        if(index === 0) return this.unshift(value);
-        if(index === this.length) return this.push(value);
+        if(index === 0) return !!this.unshift(value);
+        if(index === this.length) return !!this.push(value);
         
         const newNode = new Node(value);
         const before = this.get(index-1);
@@ -127,48 +134,54 @@ class DoublyLinkedList {
     reverse() {
         if(this.length <=1) return;
         let current = this.head;
-        let temp = null;
+        let prev = null;
         
         while(current !== null) {
-            temp = current.prev;
+            prev = current.prev;
             current.prev = current.next;
-            current.next = temp;
+            current.next = prev;
             current = current.prev;
         }
         
-        temp = this.head;
+        prev = this.head;
         this.head = this.tail;
-        this.tail = temp;   
+        this.tail = prev;  
+        
+        return this;
     }
 
 }
 
-const myDoublyLinkedList = new DoublyLinkedList(1);
-myDoublyLinkedList.push(2);
-myDoublyLinkedList.push(3);
-myDoublyLinkedList.push(4);
+const myDoublyLinkedList = new DoublyLinkedList();
+console.dir(myDoublyLinkedList.push(1),{depth: null});
+console.dir(myDoublyLinkedList.push(2),{depth: null});
+console.dir(myDoublyLinkedList.push(3),{depth: null});
+console.dir(myDoublyLinkedList.push(4),{depth: null});
 
-myDoublyLinkedList.pop(); //4
-myDoublyLinkedList.pop(); //3
+console.dir(myDoublyLinkedList.pop(),{depth: null}); 
+console.dir(myDoublyLinkedList.pop(),{depth: null}); 
 
-myDoublyLinkedList.unshift(0);
-myDoublyLinkedList.unshift(-1);
+console.dir(myDoublyLinkedList.unshift(0),{depth: null});
+console.dir(myDoublyLinkedList.unshift(-1),{depth: null});
 
-myDoublyLinkedList.shift(); //0
-myDoublyLinkedList.shift(); //-1
+console.dir(myDoublyLinkedList.shift(),{depth: null}); 
+console.dir(myDoublyLinkedList.shift(),{depth: null});
 
-myDoublyLinkedList.get(1); //2
-myDoublyLinkedList.get(0); //1
+console.dir(myDoublyLinkedList.get(1),{depth: null});
+console.dir(myDoublyLinkedList.get(0),{depth: null}); 
 
-myDoublyLinkedList.set(0, 100); //true
-myDoublyLinkedList.set(10, 200); //false
+console.dir(myDoublyLinkedList.set(0, 100),{depth: null});
+console.dir(myDoublyLinkedList.set(10, 200),{depth: null});
 
-myDoublyLinkedList.insert(0, 100); //true
-myDoublyLinkedList.insert(2, 300); //true
-myDoublyLinkedList.insert(-1, 50); //false
+console.dir(myDoublyLinkedList.insert(0, 100),{depth: null});
+console.dir(myDoublyLinkedList.insert(2, 300),{depth: null});
+console.dir(myDoublyLinkedList.insert(-1, 50),{depth: null});
 
-myDoublyLinkedList.remove(2); //300
-myDoublyLinkedList.remove(-10); //undefined
+console.dir(myDoublyLinkedList.remove(2),{depth: null});
+console.dir(myDoublyLinkedList.remove(-10),{depth: null});
+
+console.dir(myDoublyLinkedList.reverse(),{depth: null});
+console.dir(myDoublyLinkedList.reverse(),{depth: null});
 
 
 

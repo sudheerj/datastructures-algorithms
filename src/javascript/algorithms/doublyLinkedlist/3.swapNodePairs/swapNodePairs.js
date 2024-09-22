@@ -9,10 +9,9 @@ class Node {
 class DoublyLinkedList {
 
     constructor(value) {
-        const newNode = new Node(value);
-        this.head = newNode;
-        this.tail = this.head;
-        this.length = 1;
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
 
     push(value) {
@@ -54,11 +53,29 @@ class DoublyLinkedList {
 
 }
 
-let myDoublyLinkedList = new DoublyLinkedList(1);
-myDoublyLinkedList.push(2);
-myDoublyLinkedList.push(3);
-myDoublyLinkedList.push(4);
-myDoublyLinkedList.push(5);
-myDoublyLinkedList.push(6);
+let myDoublyLinkedList1 = new DoublyLinkedList();
+myDoublyLinkedList1.push(1);
+myDoublyLinkedList1.push(2);
+myDoublyLinkedList1.push(3);
+myDoublyLinkedList1.push(4);
+myDoublyLinkedList1.push(5);
+myDoublyLinkedList1.push(6);
 
-myDoublyLinkedList.swapPairs();
+let myDoublyLinkedList2 = new DoublyLinkedList();
+myDoublyLinkedList2.push(1);
+myDoublyLinkedList2.push(2);
+myDoublyLinkedList2.push(3);
+myDoublyLinkedList2.push(4);
+myDoublyLinkedList2.push(5);
+
+console.log("Before swap node pairs")
+console.dir(myDoublyLinkedList1, {depth: null});
+console.log("After swap node pairs")
+myDoublyLinkedList1.swapPairs();
+console.dir(myDoublyLinkedList1, {depth: null});
+
+console.log("Before swap node pairs")
+console.dir(myDoublyLinkedList2, {depth: null});
+console.log("After swap node pairs")
+myDoublyLinkedList2.swapPairs();
+console.dir(myDoublyLinkedList2, {depth: null});

@@ -8,11 +8,10 @@ class Node {
 
 class DoublyLinkedList {
 
-    constructor(value) {
-        const newNode = new Node(value);
-        this.head = newNode;
-        this.tail = this.head;
-        this.length = 1;
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
 
     push(value) {
@@ -45,16 +44,19 @@ class DoublyLinkedList {
 
 }
 
-let myDoublyLinkedList = new DoublyLinkedList(1);
-myDoublyLinkedList.push(2);
-myDoublyLinkedList.push(3);
-myDoublyLinkedList.push(2);
-myDoublyLinkedList.push(1);
-
-let myDoublyLinkedList1 = new DoublyLinkedList(1);
+let myDoublyLinkedList1 = new DoublyLinkedList();
+myDoublyLinkedList1.push(1);
 myDoublyLinkedList1.push(2);
 myDoublyLinkedList1.push(3);
-myDoublyLinkedList1.push(4);
-myDoublyLinkedList1.push(5);
+myDoublyLinkedList1.push(2);
+myDoublyLinkedList1.push(1);
 
-myDoublyLinkedList.isPalindrome();
+let myDoublyLinkedList2 = new DoublyLinkedList();
+myDoublyLinkedList2.push(1);
+myDoublyLinkedList2.push(2);
+myDoublyLinkedList2.push(3);
+myDoublyLinkedList2.push(4);
+myDoublyLinkedList2.push(5);
+
+console.log(myDoublyLinkedList1.isPalindrome());
+console.log(myDoublyLinkedList2.isPalindrome());

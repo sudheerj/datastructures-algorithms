@@ -8,11 +8,10 @@ class Node {
 
 class DoublyLinkedList {
 
-    constructor(value) {
-        const newNode = new Node(value);
-        this.head = newNode;
-        this.tail = this.head;
-        this.length = 1;
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
 
     push(value) {
@@ -38,11 +37,16 @@ class DoublyLinkedList {
 
 }
 
-let myDoublyLinkedList = new DoublyLinkedList(1);
+let myDoublyLinkedList = new DoublyLinkedList();
+myDoublyLinkedList.push(1);
 myDoublyLinkedList.push(2);
 myDoublyLinkedList.push(3);
 myDoublyLinkedList.push(4);
 myDoublyLinkedList.push(5);
-myDoublyLinkedList.push(6);
 
+console.log("Before swap elements");
+console.dir(myDoublyLinkedList, {depth: null});
+
+console.log("After swap elements");
 myDoublyLinkedList.swapFirstLast();
+console.dir(myDoublyLinkedList, {depth: null});
