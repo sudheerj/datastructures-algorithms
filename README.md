@@ -136,7 +136,7 @@ List of Programs related to data structures and algorithms
 
 ### Tree
 
-   1. Maximum depth of binary tree: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/maxDepthBinaryTree.js)
+   1. Maximum depth of binary tree: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/1.maxDepthBinaryTree/maxDepthBinaryTree.js)
 
    2. Same tree: [JavaScript](https://livecodes.io/?console&x=https://github.com/sudheerj/datastructures-algorithms/blob/master/src/javascript/algorithms/tree/sameTree.js)
 
