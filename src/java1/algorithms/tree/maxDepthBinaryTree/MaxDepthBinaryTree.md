@@ -11,7 +11,7 @@ Output: 3
 
 ![Screenshot](../../../../images/max-depth-tree.png)
 
-Example1:
+Example2:
 
 Input: root = [0, null, 1]
 Output: 2
