@@ -1,6 +1,6 @@
-//TC: O(rows*cols) SC:O(1)
+//TC: O(m*n) SC:O(1)
 
-function setZeros(matrix) {
+function setZeroes(matrix) {
     let rows = matrix.length, cols = matrix[0].length;
     let rowZero = false;
 
@@ -25,8 +25,8 @@ function setZeros(matrix) {
         }
     }
 
-    if(matrix[0][0]) {
-        for(let r=0; r<rows; r++) {
+    if(matrix[0][0] === 0) {
+        for(let r=1; r<rows; r++) {
             matrix[r][0] = 0;
         }
     }
@@ -38,6 +38,9 @@ function setZeros(matrix) {
     }
 }
 
-let matrix = [[1, 0, 1], [1, 0, 1], [0, 1, 1]]
-setZeros(matrix);
-console.log(matrix);
+let matrix1 = [[1, 0, 1], [1, 0, 1], [0, 1, 1]];
+let matrix2 = [[1, 2, 3], [4, 0, 6], [7, 8, 9]];
+setZeroes(matrix1);
+console.log(matrix1);
+setZeroes(matrix2);
+console.log(matrix2);

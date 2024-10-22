@@ -1,4 +1,4 @@
-// TC: O(n*2) SC: O(1)
+// TC: O(n^2) SC: O(1)
 
 function rotateImage(matrix) {
     let left = 0, right = matrix[0].length-1;
@@ -27,11 +27,25 @@ function rotateImage(matrix) {
     }
 }
 
-let matrix = [
+let matrix1 = [
+    [1, 2],
+    [3, 4]
+];
+let matrix2 = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+];
+let matrix3 = [
     [1, 2, 3, 4], 
     [5, 6, 7, 8],
     [9, 10, 11, 12], 
     [13, 14, 15, 16]
 ];
-rotateImage(matrix);
-console.log(matrix);
+
+rotateImage(matrix1);
+rotateImage(matrix2);
+rotateImage(matrix3);
+console.log(matrix1);
+console.log(matrix2);
+console.log(matrix3);

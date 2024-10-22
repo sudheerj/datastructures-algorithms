@@ -1,6 +1,6 @@
 class HashTable {
     constructor(size = 7) {
-        this.map = new Array(size);
+        this.map = Array(size);
     }
    
     _hash(key) {
@@ -55,12 +55,13 @@ class HashTable {
 
 let myHashTable = new HashTable();
 
-myHashTable.set("apples", 30);
-myHashTable.set("banana", 10);
-myHashTable.set("oranges", 75);
-myHashTable.set("cherries", 35);
-myHashTable.set("avocodo", 60);
+myHashTable.set("bolts", 70);
+myHashTable.set("nails", 120);
+myHashTable.set("paint", 40);
+myHashTable.set("tile", 60);
+myHashTable.set("lumber", 90);
 
-console.log(myHashTable.get("oranges"));
-console.log( myHashTable.keys() );
+console.log(myHashTable.get("nails"));
+console.log(myHashTable.keys());
+myHashTable.printHashTable();
   

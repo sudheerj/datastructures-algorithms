@@ -1,4 +1,4 @@
- // DFS Backtracking:- TC(row * col * 3 Sides) SC:O(1)
+ // DFS Backtracking:- TC: O(m * n * 4^L) SC:O(L)
 
  function isWordExist(board, word) {
     let rows = board.length, cols = board[0].length;
@@ -6,7 +6,7 @@
     for(let r=0; r<rows; r++) {
         for(let c=0; c<cols; c++) {
             //Start dfs with first letter in the board
-            if(dfs(board, word, r, c, 0)) {
+            return dfs(board, word, r, c, 0)) {
                 return true;
             }
         }
@@ -26,7 +26,7 @@
     let temp = board[r][c];
     board[r][c] = '*';
 
-    //Explore neighbour letter for the next letter in word
+    //Explore neighbour letter of current word for the next letter in a word
     let top = dfs(board, word, r-1, c, curr+1);
     let left = dfs(board, word, r, c-1, curr+1);
     let bottom = dfs(board, word, r+1, c, curr+1);
@@ -37,8 +37,14 @@
     return top || left || bottom || right;
  }
 
-let board = [
-    ['A','B','C','E'], ['S','F','C','S'], ['A','D','E','E']
+let board1 = [
+    ['A','B','C','D'], ['W','M','G','O'], ['B','D','C','N']
 ];
-let word = "SEED";
-console.log(isWordExist(board, word));
+let board2 = [
+    ['A','B','C','D'], ['w','A','G','O'], ['B','T','C','N']
+];
+
+let word1 = "DOG";
+let word2 = "CAT";
+console.log(isWordExist(board1, word1));
+console.log(isWordExist(board2, word2));

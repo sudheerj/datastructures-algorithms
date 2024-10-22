@@ -1,7 +1,7 @@
-package java1.algorithms.matrix;
+package java1.algorithms.matrix.wordSearch;
 
 public class WordSearch {
-    // DFS Backtracking:- TC(row * col * 3 Sides) SC:O(1)
+    // DFS Backtracking:- TC: O(m * n * 4^L) SC:O(L)
     private static boolean isWordExist(char[][] board, String word) {
         int rows = board.length, cols = board[0].length;
         for(int r=0; r<rows; r++) {
@@ -27,7 +27,7 @@ public class WordSearch {
         char temp = board[r][c];
         board[r][c] = '*';
 
-        //Explore neighbour letter for the next letter in word
+        //Explore neighbour letter of current word for the next letter in a word
         boolean top = dfs(board, word, r-1, c, curr+1);
         boolean left = dfs(board, word, r, c-1, curr+1);
         boolean bottom = dfs(board, word, r+1, c, curr+1);
@@ -40,10 +40,15 @@ public class WordSearch {
     }
 
     public static void main(String[] args) {
-        char[][] board = {
-            {'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}
+        char[][] board1 = {
+            {'A','B','C','D'}, {'W','M','G','O'}, {'B','D','C','N'}
         };
-        String word = "SEED";
-        System.out.println(isWordExist(board, word));
+        char[][] board2 = {
+            {'A','B','C','D'}, {'W','M','G','O'}, {'B','D','C','N'}
+        };
+        String word1 = "DOG";
+        String word2 = "CAT";
+        System.out.println(isWordExist(board1, word1));
+        System.out.println(isWordExist(board2, word2));
     }
 }

@@ -1,9 +1,9 @@
-package java1.algorithms.matrix;
+package java1.algorithms.matrix.rotateImage;
 
 import java.util.Arrays;
 
 public class RotateImage {
-    // TC: O(n*2) SC: O(1)
+    // TC: O(n^2) SC: O(1)
     private static void rotate(int[][] matrix) {
         int left =0, right = matrix[0].length-1;
 
@@ -32,13 +32,26 @@ public class RotateImage {
     }
 
     public static void main(String[] args) {
-        int[][] matrix = {
+        int[][] matrix1 = {
+            {1, 2},
+            {3, 4}
+        };
+        int[][] matrix2 = {
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+        };
+        int[][] matrix3 = {
             {1, 2, 3, 4}, 
             {5, 6, 7, 8},
             {9, 10, 11, 12}, 
             {13, 14, 15, 16}
         };
-        rotate(matrix);
-        System.out.println(Arrays.deepToString(matrix));
+        rotate(matrix1);
+        rotate(matrix2);
+        rotate(matrix3);
+        System.out.println(Arrays.deepToString(matrix1));
+        System.out.println(Arrays.deepToString(matrix2));
+        System.out.println(Arrays.deepToString(matrix3));
     }
 }
