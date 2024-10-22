@@ -19,7 +19,7 @@ This problem is solved with the help of two pointer technique. The algorithmic a
 
 4. If the total is greater than target, decrement the right pointer to decrease the total value as per given target.
 
-5. If the total is less than target, increment the right pointer to increase the total value as per given target.
+5. If the total is less than target, increment the left pointer to increase the total value as per given target.
 
 6. Repeat 2-5 steps until the two numbers sum is equal to the target.
 
