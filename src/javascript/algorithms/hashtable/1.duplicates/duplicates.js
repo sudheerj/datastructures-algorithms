@@ -3,9 +3,12 @@ function findDuplicatesWithMap(arr) {
     let duplicates = [];
     for(const num of arr) {
         numCounts.set(num, (numCounts.get(num) || 0) + 1);
-        if(numCounts.get(num) > 1 && !duplicates.includes(num)) {
-            duplicates.push(num);
-        }
+    }
+
+    for(const [key, value] of numCounts.entries()){
+        if(value > 1) {
+            duplicates.push(key);
+        } 
     }
     
     return duplicates;
@@ -16,9 +19,12 @@ function findDuplicatesWithObject(arr) {
     let duplicates = [];
     for(const num of arr) {
         numCounts[num] = (numCounts[num] || 0) + 1;
-        if(numCounts[num] > 1 && !duplicates.includes(num)) {
-            duplicates.push(num);
-        }
+    }
+
+    for(const key in numCounts){
+        if(numCounts[key] > 1) {
+            duplicates.push(key);
+        } 
     }
     
     return duplicates;

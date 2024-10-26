@@ -1,3 +1,29 @@
+**Problem statement:**
+Given an array of integers `nums` and an integer `target`, return the two indices `i` and `j` such that `nums[i] + nums[j] == target` and `i != j`.
+
+**Note:** You may assume that each input has exactly one pair of indices `i` and `j` that satisfy the two sum conditions. Return the indices pair in any order.
+
+## Examples:
+Example 1:
+
+Input: nums = [3, 4, 9, 14], target=12
+Output: [0, 2]
+
+Example 2: 
+
+Input: nums = [5, 7, 4, 7], target=14
+Output: [1, 3]
+
+Example 3: 
+
+Input: nums = [7, 1, 13, 1], target=10
+Output: []
+
+Example 4: 
+
+Input: nums = [-5, -4, -3, -1, -2], target=-10
+Output: []
+
 **Approach1 algorithmic Steps**
 This problem is solved in a one pass with the help of map data structure. The algorithmic approach can be summarized as follows:
 
@@ -17,9 +43,9 @@ This problem is solved in a one pass with the help of map data structure. The al
 8. Return an empty array if there are no indices present in an array.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of O(n) because we are traversing the array only once. Remember that checking an element existence in a map or adding an element to a map takes a constant time(i.e, O(1)).
+This algorithm has a time complexity of `O(n)` because we are traversing the array only once. Remember that checking an element existence in a map or adding an element to a map takes a constant time(i.e, `O(1)`).
 
-Also, it takes requires space complexity of O(n) because we are using map data structure. In the worst case, when there are no indices, you need to insert all the elements of an array into map.
+Also, it takes requires space complexity of `O(n)` because we are using map data structure. In the worst case, when there are no indices, you need to insert all the elements of an array into map.
 
 ----------------------------------------------------------------------------------------------------------------------------
 **Approach2 algorithmic Steps**
@@ -41,6 +67,6 @@ This problem is solved in a one pass with the help of object. The algorithmic ap
 8. Return an empty array if there are no indices present in an array.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of O(n) because we are traversing the array only once. Remember that checking an element existence in an object or adding an element to an object takes a constant time(i.e, O(1)).
+This algorithm has a time complexity of `O(n)` because we are traversing the array only once. Remember that checking an element existence in an object or adding an element to an object takes a constant time(i.e, `O(1)`).
 
-Also, it takes requires space complexity of O(n) because we are using object. In the worst case, when there are no indices, you need to insert all the elements of an array into map.
+Also, it takes requires space complexity of `O(n)` because we are using object. In the worst case, when there are no indices, you need to insert all the elements of an array into map.

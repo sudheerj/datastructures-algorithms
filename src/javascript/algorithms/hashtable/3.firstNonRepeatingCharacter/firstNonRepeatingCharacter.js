@@ -55,5 +55,5 @@ console.log("---------------");
     Empty String
     --------------- */
 console.log("Input: ''");
-console.log("Output: ", firstNonRepeatingMap(''));
+console.log("Output: ", firstNonRepeatingCharWithMap(''));
 console.log("---------------");
