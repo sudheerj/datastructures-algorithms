@@ -14,7 +14,7 @@ Example 2:
 Input: nums = [2, 2, 2, 2],
 Output: 6
 
-Example 2:
+Example 3:
 
 Input: nums = [1, 2, 3, 4],
 Output: 0
