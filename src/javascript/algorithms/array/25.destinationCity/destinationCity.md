@@ -26,7 +26,7 @@ This problem is solved with the help of array traversal and hash set for storing
    
 2. Initialize a `fromCities` set variale to store the list of from cities in paths. The given paths array is traversed and `fromCities` is populated with all from city values. 
    
-3. Iterate over given array(`path`) agin, return the toCity value as destination city if that city doesn't exist inside `fromCities`. This is because only destination city cannot have a outgoing path.
+3. Iterate over given array(`path`) again, return the toCity value as destination city if that city doesn't exist inside `fromCities`. This is because only destination city cannot have a outgoing path.
 
 **Time and Space complexity:**
 This algorithm has a time complexity of `O(n)`, where `n` is the number of path elements in an array. This is because we need to iterate over all the elements at most twice for finding the destination city.
