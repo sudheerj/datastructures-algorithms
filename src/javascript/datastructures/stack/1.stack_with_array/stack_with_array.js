@@ -21,7 +21,12 @@ class MyStack {
     }
 
     peek() {
-        return this.array[this.array.length - 1]; // return top most element from the stack without removing the element
+        // Check if the stack is empty
+        if (this.isEmpty()) {
+        throw new Error("Stack Underflow: Cannot peek from an empty stack");
+        }
+        // Return the top most element from the stack without removing it
+        return this.array[this.array.length - 1];
     }
 
     // List of helper functions
