@@ -4,10 +4,17 @@ public class BubbleSort {
     private void bubbleSort(int arr[]) {
         int len = arr.length;
         for (int i = 0; i < len-1; i++) {
+            boolean swapped = false; // Track if any swaps occur in this iteration
             for (int j = 0; j < len-i-1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
+                    swapped = true; // Mark when there is a swap
                 }
+            }
+
+            //Early exit if there were no swaps made. That means, the array is already sorted if this condition satisfies
+            if(!swapped) {
+                break;
             }
         }
     }
