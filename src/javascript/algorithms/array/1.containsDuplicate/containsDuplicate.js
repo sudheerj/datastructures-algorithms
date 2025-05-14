@@ -1,66 +1,68 @@
-// Early exit using set:- TC: O(n), SC: O(n)
+// Using Set for early exit: TC: O(n), SC: O(n)
 function containsDuplicate(nums) {
-    let noDupsSet = new Set();
-    for(const num of nums) {
-        if(noDupsSet.has(num)) {
-            return true;
+    const seen = new Set();
+    for (const num of nums) {
+        if (seen.has(num)) {
+            return true; // Duplicate found
         }
-        noDupsSet.add(num);
+        seen.add(num);
     }
-    return false;
+    return false; // No duplicates
 }
 
-// Early exit using object:- TC: O(n), SC: O(n)
+// Using Object for early exit: TC: O(n), SC: O(n)
 function containsDuplicateUsingObject(nums) {
-    let noDupsObj = {};
-    for(const num of nums) {
-        if(noDupsObj[num]) {
-            return true;
+    const seen = {};
+    for (const num of nums) {
+        if (seen[num]) {
+            return true; // Duplicate found
         }
-        noDupsObj[num] = true;
+        seen[num] = true;
     }
-    return false;
+    return false; // No duplicates
 }
 
-//Use Set size:- TC: O(n), SC: O(n)
+// Using Set size comparison: TC: O(n), SC: O(n)
 function containsDuplicateUsingSize(nums) {
     return new Set(nums).size !== nums.length;
 }
 
-//Using sort and iteration:- TC: O(n log n), SC: O(n)
+// Using sort and iteration: TC: O(n log n), SC: O(1) (modifies input array)
 function containsDuplicateUsingSort(nums) {
-    nums.sort((a, b) => a-b);
-    for(let i =1; i< nums.length; i++) {
-        if(nums[i] === nums[i-1]) {
-            return true;
+    nums.sort((a, b) => a - b); // Sort the array
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] === nums[i - 1]) {
+            return true; // Duplicate found
         }
     }
-    return false;
+    return false; // No duplicates
 }
 
-//Using naive/Brute force:- TC: O(n^2), SC: O(1)
+// Using brute-force: TC: O(n^2), SC: O(1) (inefficient for large arrays)
 function containsDuplicateUsingBruteforce(nums) {
-    for(let i =0; i< nums.length-1; i++) {
-        for (let j = i+1; j < nums.length; j++) {
-            if(nums[i] == nums[j]) {
-                return true;
-            }           
+    for (let i = 0; i < nums.length - 1; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] === nums[j]) {
+                return true; // Duplicate found
+            }
         }
     }
-    return false;
+    return false; // No duplicates
 }
 
+// Test cases
 console.log("-----Has duplicates----");
-let nums1 = [8, 6, 4, 2, 6];
-console.log(containsDuplicate(nums1));
-console.log(containsDuplicateUsingObject(nums1));
-console.log(containsDuplicateUsingSize(nums1));
-console.log(containsDuplicateUsingSort(nums1));
-console.log(containsDuplicateUsingBruteforce(nums1));
+const numsWithDuplicates = [8, 6, 4, 2, 6];
+console.log(containsDuplicate(numsWithDuplicates));
+console.log(containsDuplicateUsingObject(numsWithDuplicates));
+console.log(containsDuplicateUsingSize(numsWithDuplicates));
+console.log(containsDuplicateUsingSort([...numsWithDuplicates])); // Spread to avoid modifying original
+console.log(containsDuplicateUsingBruteforce(numsWithDuplicates));
+
 console.log("-----No duplicates----");
-let nums2 = [1, 3, 5, 7, 9];
-console.log(containsDuplicate(nums2));
-console.log(containsDuplicateUsingObject(nums2));
-console.log(containsDuplicateUsingSize(nums2));
-console.log(containsDuplicateUsingSort(nums2));
-console.log(containsDuplicateUsingBruteforce(nums2));
+const numsWithoutDuplicates = [1, 3, 5, 7, 9];
+console.log(containsDuplicate(numsWithoutDuplicates));
+console.log(containsDuplicateUsingObject(numsWithoutDuplicates));
+console.log(containsDuplicateUsingSize(numsWithoutDuplicates));
+console.log(containsDuplicateUsingSort([...numsWithoutDuplicates])); // Spread to avoid modifying original
+console.log(containsDuplicateUsingBruteforce(numsWithoutDuplicates));
