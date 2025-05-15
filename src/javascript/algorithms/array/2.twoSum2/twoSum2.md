@@ -1,31 +1,47 @@
-**Description:**
+# Two Sum II - Algorithm Explanation
+
+## **Problem Description**
 Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
 
-The function twoSum should return indices of the two numbers such that they add up to the target, where `index1` must be less than `index2`.
+The function `twoSum` should return the indices of the two numbers such that they add up to the target, where `index1` must be less than `index2`.
 
-## Example:
-Input: numbers = [2,7,11,15,9], target = 16
-Output: [2,5]
-Explanation: The sum of 7 and 9 is 16. Therefore index1 = 2, index2 = 5.
+---
 
-**Algorithmic Steps:**
-This problem is solved with the help of **two pointers** technique. The algorithmic approach can be summarized as follows: 
+## **Example**
+### Input: 
+```plaintext
+numbers = [2, 7, 11, 15, 9], target = 16
+```
 
-1. Initialize `left` and `right` pointers to `0` and last index(`length-1`) of the input array.
+## **Algorithmic Steps**
+The problem is solved using the **two pointers** technique. The algorithm can be summarized as follows:
 
-2. Iterate over input array and find the `total` of left and right elements each time.
+1. **Initialize Pointers:**
+   - Set the `left` pointer to the start of the array (index `0`).
+   - Set the `right` pointer to the last index of the array (`length - 1`).
 
-3. If the total is equal to the target, return the left and right indexes incremented by one. By default, left and right variables indexed with zero where the output needs to be 1 index based.
+2. **Iterate and Calculate:**
+   - Compute the `total` by summing the elements at the `left` and `right` pointers.
 
-4. If the total is greater than target, decrement the right pointer to decrease the total value as per given target.
+3. **Check Conditions:**
+   - If `total == target`:
+     - Return the indices `[left + 1, right + 1]` (convert 0-based indices to 1-based).
+   - If `total > target`:
+     - Decrement the `right` pointer to reduce the `total`.
+   - If `total < target`:
+     - Increment the `left` pointer to increase the `total`.
 
-5. If the total is less than target, increment the left pointer to increase the total value as per given target.
+4. **Repeat:**
+   - Continue steps 2 and 3 until the two numbers sum up to the `target`.
 
-6. Repeat 2-5 steps until the two numbers sum is equal to the target.
+5. **Handle Edge Cases:**
+   - If no such numbers exist that sum to the `target`, return `[-1, -1]`.
 
-7. Return `[-1, -1]` incase of no matching numbers whose sum not equal to the target.
+---
 
-**Time and Space complexity:**
-This algorithm takes a time complexity of O(n), where n is the number of elements in an array. This is because we are traversing the array at most once. 
+## **Time and Space Complexity**
+- **Time Complexity:** 
+  - The algorithm runs in **O(n)**, where `n` is the number of elements in the array. This is because we traverse the array at most once.
 
-Here, we don't use any additional datastructure other than two constant pointer variables. Hence, the space complexity will be O(1).
+- **Space Complexity:** 
+  - The space complexity is **O(1)**, as only two pointer variables are used, and no additional data structures are required.
