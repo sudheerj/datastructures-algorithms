@@ -8,10 +8,8 @@ function maxSumSubarray(nums) {
     return globalMaxSum;
 }
 
-let numbers = [-7, -2, 3, 4, -5, 6, 7, -2];
-let maxSumNumbers = maxSumSubarray(numbers);
-console.log("Max Subarray Sum:", maxSumNumbers);
-
-let emptyNumbers = [];
-let maxSumEmptyNumbers = maxSumSubarray(emptyNumbers);
-console.log("Max Subarray Sum:", maxSumEmptyNumbers);
+// Test cases
+const numbers = [-7, -2, 3, 4, -5, 6, 7, -2];
+const emptyNumbers = [];
+console.log("Max Subarray Sum (numbers):", maxSumSubarray(numbers));
+console.log("Max Subarray Sum (emptyNumbers):", maxSumSubarray(emptyNumbers));
