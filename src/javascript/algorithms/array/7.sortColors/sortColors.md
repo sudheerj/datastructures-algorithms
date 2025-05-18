@@ -1,7 +1,14 @@
-**Description:**
-Given an array `nums` with `n` objects colored red, white, where each object is color coded as integer: blue, 0 for red, 1 for white, and 2 for blue. We need to sort them in-place so that objects of the same color are grouped together, with the colors in the order red, white, and blue.
+# Sort Colors (Dutch National Flag Problem)
 
-This problem needs to be solved without using the library's sort function.
+## Description
+
+Given an array `nums` containing `n` integers where each integer is `0` (red), `1` (white), or `2` (blue), sort the array **in-place** so that elements of the same color are adjacent and in the order: red (0), white (1), and blue (2).
+
+**Constraints:**
+- Must not use any built-in sorting functions.
+- Must use constant space (`O(1)`).
+
+---
 
 ### Examples
 
@@ -15,26 +22,40 @@ Example 2:
 Input: nums = [2,1,0]
 Output: [0,1,2]
 
-**Algorithmic Steps:**
+---
 
-This problem is solved with the help of **two pointers** technique. It is also know as **"Dutch National Flag problem"**. The algorithmic approach can be summarized as follows:
+## Algorithmic Steps (Two-Pointer / Dutch National Flag)
 
+We use a **two-pointer** approach with three indices:
 
-1. Initialize both left and right pointers to first index(i.e, `0`) and end index(i.e, `nums.length-1`) of the array respectively, to keep track of the current window boundaries.
+- `left`: the position where the next `0` should be placed.
+- `right`: the position where the next `2` should be placed.
+- `i`: the current index we are evaluating.
 
-2. Initialize current index pointer(i.e, `i`) to 0, to keep track of the current character while iterating the array.
+### Steps:
 
-3. Iterate over the input array using index pointer until the end of the array. 
+1. Initialize `left = 0`, `i = 0`, and `right = nums.length - 1`.
 
-4. If the current character is equals to 0, swap the character values at left pointer and index pointer. Also, increment the left pointer and index pointer.
+2. Traverse the array while `i <= right`:
+   - If `nums[i] == 0`:
+     - Swap `nums[i]` and `nums[left]`
+     - Increment both `i` and `left`
+   - If `nums[i] == 2`:
+     - Swap `nums[i]` and `nums[right]`
+     - Decrement `right` (do **not** increment `i` here)
+   - If `nums[i] == 1`:
+     - Just increment `i`
 
-5. If the current character is equals to 2, swap the character values at right pointer and index pointer. Also, decrement the right pointer. 
+3. The array will be sorted in one pass.
 
-6. If the character is neither `0` or `2`, then just increment the index pointer.
+---
 
-7. Repeat steps 4–6 until the index pointer reaches the end of the array.
+## Time and Space Complexity
 
-8. Return the updated in-place array where characters are sorted.
+- **Time Complexity:** `O(n)`  
+  Each element is processed at most once.
 
-**Time and Space complexity:**
-This algorithm takes a time complexity of `O(n)` because we are traversing the array only once. Also, it requires space complexity of `O(1)` because we are updating the array in-place without using an additional data structure.
+- **Space Complexity:** `O(1)`  
+  Sorting is done in-place without any additional data structures.
+
+---

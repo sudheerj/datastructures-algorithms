@@ -3,25 +3,29 @@
 function minSizeSubarraySum(nums, target) {
     
     let left = right = total = 0;
-    let result = Infinity;
+    let minLength = Infinity;
 
     while(right < nums.length) {
         total += nums[right];
         while(total >= target) {
-            result = Math.min(right - left + 1, result);
+            minLength = Math.min(right - left + 1, minLength);
             total -= nums[left++];
         }
         right++;
     }
 
-    return result === Infinity ? 0 : result;
+    return minLength === Infinity ? 0 : minLength;
 }
 
-let target1 = 7, nums1 = [2,4,1,2,4,3];
-let target2 = 5, nums2 = [1, 5, 5, 5];
-let target3 = 15, nums3 = [2, 2, 2, 2, 2];
-
-console.log(minSizeSubarraySum(nums1, target1));
-console.log(minSizeSubarraySum(nums2, target2));
-console.log(minSizeSubarraySum(nums3, target3));
+// Test Cases
+  const testCases = [
+    { target: 7, nums: [2, 4, 1, 2, 4, 3] },
+    { target: 5, nums: [1, 5, 5, 5] },
+    { target: 15, nums: [2, 2, 2, 2, 2] }
+  ];
+  
+  for (const { target, nums } of testCases) {
+    console.log(`Input: target = ${target}, nums = [${nums}]`);
+    console.log(`Output: ${minSizeSubarraySum(nums, target)}\n`);
+  }
 

@@ -12,26 +12,30 @@ Output: 2
 Input: target = 15, nums = [2, 2, 2, 2, 2]
 Output: 0
 
-**Algorithmic Steps:**
-This problem is solved with the help of **sliding window** approach without using any special data structure. The algorithmic approach can be summarized as follows:
 
-1. Initialize left and right pointers to 0, to keep track of the substring window boundaries.
+---
 
-2. Initialize total variable to 0, to store the sum of the subarray values to meet the target criteria.
+### Algorithmic Steps
 
-3. Initialize result variable to max integer value to indicate that there is no subarray to meet target value.
+This problem is efficiently solved using the **sliding window** technique without requiring any special data structures. The approach can be summarized as follows:
 
-4. Iterate over the input array using right pointer until the end of the string. 
+1. Initialize two pointers, `left` and `right`, both at `0`. These represent the current window boundaries.
+2. Initialize a variable `total` to `0` to keep track of the sum of the current window.
+3. Initialize `minLength` to a very large number (e.g., infinity) to represent the length of the smallest valid subarray found so far.
+4. Iterate through the array with the `right` pointer:
+   - Add `nums[right]` to `total`.
+   - While `total` is greater than or equal to `target`:
+     - Update `minLength` to the smaller value between the current `minLength` and the window size (`right - left + 1`).
+     - Subtract `nums[left]` from `total` and move the `left` pointer forward to try and find a smaller valid window.
+5. Continue until the `right` pointer reaches the end of the array.
+6. If `minLength` is still infinity (meaning no valid subarray was found), return `0`. Otherwise, return `minLength`.
 
-5. Calculate the total value by adding array value at respective right pointer.
+---
 
-6. If the total value is greater or equal to target, find the minimum of subarray sum and shrink the current window total and left pointer value. This step need to be repeated until there are no subarray exists to meet the target criteria.
+### Time and Space Complexity
 
-7. Increment the right pointer to find the next subarray.
-
-8. Repeat steps 4–7 until the right pointer reaches the end of the array.
-
-9. Return 0 if the result is still a maximum integer which indicates no valid subarray otherwise return the calculated minimum subarray value.
-
-**Time and Space complexity:**
-This algorithm has a time complexity of O(n) because we are traversing the array only twice at max. Since it doens't require any datastructure, the space complexity will be O(1).
+- **Time Complexity:** `O(n)`  
+  The array is traversed at most twice (once by each pointer), resulting in linear time complexity.
+  
+- **Space Complexity:** `O(1)`  
+  No additional data structures are used; only a fixed number of variables are maintained.
