@@ -1,7 +1,7 @@
 **Description:**
 Given a sorted array `nums` of length `n` with all unique elements, in which the array is rotated between 1 and n times. Return the minimum element of this array.
 
-**Note:** You need to write an algorithm that runs in O(log n) time.
+**Note:** You need to write an algorithm that runs in `O(log n)` time.
 
 ### Examples
 Example 1:
@@ -14,27 +14,36 @@ Output: 0
 
 **Algorithmic Steps:**
 
-This problem is solved with the help of **binary search** technique. Since it is a rotated sorted array, there will be two subararys of elements in an ascending order. Once you find the correct subarray, the left most element is the minimum value. The algorithmic approach can be summarized as follows:
+This problem can be efficiently solved using the **binary search** technique. Because the array is a rotated version of a sorted array, it consists of two ascending subarrays. By identifying which subarray contains the minimum element, we can narrow down the search. The minimum value will always be the leftmost element of the correctly identified subarray. The algorithmic approach can be summarized as follows:
 
-1. Initialize the minimum value(`result`) to first element of an array.
 
-2. Add preliminary checks by returning the first element if the length of array is one, or minimum of first two values if the length of an array is two.
+1. **Initialize the Result:**
+   - Set the initial minimum value `result` to the first element of the array.
 
-3. Initialize left and right pointers(`left` and `right`) to first index and last index of an array.
+2. **Handle Base Cases:**
+   - If the array length is `1`, return the only element.
+   - If the array length is `2`, return the smaller of the two elements.
 
-4. Iterate over an input array using while loop with the condition of left pointer is less than or equal to right pointer.
+3. **Set Search Boundaries:**
+   - Initialize two pointers: `left` at the start (index 0), and `right` at the end (index `n - 1`) of the array.
 
-5. If the left element is less than or equal to right element, update the result value and break the while loop to return the minimum value.
+4. **Iterate Using Binary Search:**
+   - While `left < right`:
+     - Check if the subarray between `left` and `right` is already sorted:
+       - If `nums[left] < nums[right]`, return `nums[left]` as the minimum.
+     - Compute the middle index: `mid = Math.floor((left + right) / 2)`.
 
-6. Calculate the middle index of an array to separate the sorted subarrays.
+5. **Decide Which Half to Search:**
+   - If `nums[mid] > nums[right]`:
+     - The minimum lies in the **right half**.
+     - Move `left` pointer to `mid + 1`.
+   - Otherwise:
+     - The minimum lies in the **left half** (including `mid`).
+     - Move `right` pointer to `mid`.
 
-7. If the middle value is greater than right most element, the minimum value exists with in the right side subarray. So the left pointer will be updated to next element of middle element.
+6. **Return Minimum:**
+   - After the loop ends, `nums[left]` holds the minimum element in the rotated sorted array.
 
-8. If the middle value is less than or equal to left most element, the minimum value exists with in the left side subarray. So the right pointer will be updated to the middle element.
-
-9. Repeat steps 4-7 until you find the left most value which is minimum in the entire input array.
-
-10. Return the result element after the end of an iteration.
 
 **Time and Space complexity:**
 

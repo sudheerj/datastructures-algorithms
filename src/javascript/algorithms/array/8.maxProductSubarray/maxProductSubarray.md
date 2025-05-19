@@ -7,35 +7,51 @@ Input: nums = [6, 7,-4, 5, 8, ]
 Output: 6
 
 Example 2:
-Input: nums = [-2,0,-2]
+Input: nums = [-2, 0, -2]
 Output: 0
 
-**Algorithmic Steps:**
+## Algorithmic Steps
 
-This problem is solved with the help of **Kadane's algorithm**(dynamic programming technique). The algorithmic approach can be summarized as follows:
+This problem is efficiently solved using a variation of **Kadane's Algorithm** tailored for products. It tracks both the **maximum** and **minimum** product ending at each position, due to the behavior of negative numbers.
 
-1. Initialize the maximum product subarray(`result`) with a first number. 
+1. **Initialize** three variables with the first element of the array `nums[0]`:
+   - `result`: Holds the maximum product found so far.
+   - `currentMax`: Tracks the maximum product ending at the current index.
+   - `currentMin`: Tracks the minimum product ending at the current index.
 
- **Note:** It is not suggested to assign the value to either 0 or 1 because the maximum value can be less than or equal to 0.
+   > **Note:** We initialize all three with the first element instead of 1 or 0 to properly account for arrays with negative or single values.
 
-2. Initialize two variables named `currentMax` and `currentMin` to `1`. They are used to keep track of the running maximum and minimum products.
+2. **Iterate** over the array starting from the second element to last element:
 
-3. Iterate over the entire input array using for-of loop
+3. For each element `num`:
+   - Compute temporary products using the previous `currentMax` and `currentMin`:
+     - `tempMax = currentMax * num`
+     - `tempMin = currentMin * num`
 
-4. Find the temporary maximum and minimum products for each current element.
+4. **Update** `currentMax` by taking the maximum among:
+   - `num` (start new subarray)
+   - `tempMax`
+   - `tempMin`  
+   This ensures that the current maximum product is correctly tracked.
 
-5. Calculate the maximum value between maximum and minimum values of step4, and this calculated maximum result needs to be compared with current element to find the final current maximum product.
+5. **Update** `currentMin` by taking the minimum among:
+   - `num`
+   - `tempMax`
+   - `tempMin`  
+   This is crucial for handling negative values, which could turn a future product into a maximum.
 
-  **Note:** Since an array contain both positive and negative integers, the product of current element with minimum product calculated so far may result into maximum value. That is the reason why we took maximum of current maximum and current minimum proucts.
+6. **Update** the global `result` by taking the maximum of:
+   - `result`
+   - `currentMax`  
+   This ensures the highest product is captured across the entire array.
 
-6. Calculate the minimum value between maximum and minimum values of step4, and this calculated minimum result needs to be compared with current element to find the final current minimum product. This current minimum product is useful to calculate the maximum value for the next iteration.
+7. After the loop completes, **return** the `result`, which contains the maximum product of any contiguous subarray.
 
-7. Update the global maximum product by taking the maximum of current maximum product and global maximum product of previous iteration.
+---
 
-8. Return the global maximum `result` after the end of for-each iteration.
+## Time and Space Complexity
 
-**Time and Space complexity:**
+- **Time Complexity**: `O(n)` — We traverse the input array once.
+- **Space Complexity**: `O(1)` — No extra space is used except for a few variables.
 
-This algorithm has a time complexity of `O(n)`, where `n` is the number of elements. This is because we iterate the array at most once. 
-
-Here, we don't use any additional datastructure other than the two sum variables. Hence, the space complexity will be O(1).
+---

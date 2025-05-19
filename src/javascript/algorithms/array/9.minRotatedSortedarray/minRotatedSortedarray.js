@@ -1,29 +1,32 @@
-function minRotatedSortedArray(nums) {
-    let result = nums[0];
+function minRotatedSortedarray(nums) {
     if(nums.length === 1) return nums[0];
     if(nums.length === 2) return Math.min(nums[0], nums[1]);
 
-    let left = 0, right = nums.length - 1;     
+    let left = 0;
+    let right = nums.length - 1;
 
-    while(left < right) {
-        if(nums[left] < nums[right]) {
-            result = nums[left];
-            break;
-        }
+    while (left < right) {
+        // If the array is already sorted
+        if (nums[left] < nums[right]) return nums[left];
 
-        let mid = left + (right - left)/2;
+        const mid = Math.floor((left + right) / 2);
 
-        if(nums[mid] > nums[right]) {
+        if (nums[mid] > nums[right]) {
+            // Minimum is in the right half
             left = mid + 1;
         } else {
+            // Minimum is in the left half (including mid)
             right = mid;
         }
     }
-    return result;
+
+    return nums[left]; // or arr[right], both are the same here
 }
 
+
+
 let sortedArray = [3, 4, 5, 6, 7, 1, 2];
-console.log(minRotatedSortedArray(sortedArray));
+console.log(minRotatedSortedarray(sortedArray));
 
 let sortedArray1 = [0, 1, 2, 4, 5, 6, 7, 8];
-console.log(minRotatedSortedArray(sortedArray1));
+console.log(minRotatedSortedarray(sortedArray1));
