@@ -7,25 +7,28 @@ function maxSumCircularSubarray(nums) {
 
     for (const num of nums) {
         currentMaxSum = Math.max(currentMaxSum + num, num);
+        globalMaxSum = Math.max(currentMaxSum, globalMaxSum);
+
         currentMinSum = Math.min(currentMinSum + num, num);
+        globalMinSum = Math.min(currentMinSum, globalMinSum);
 
         totalSum += num;
-
-        globalMaxSum = Math.max(currentMaxSum, globalMaxSum);
-        globalMinSum = Math.min(currentMinSum, globalMinSum);
     }
 
+    // If all numbers are negative, total - globalMinSum would be 0 or less
     return globalMaxSum > 0 ? Math.max(globalMaxSum, (totalSum-globalMinSum)) : globalMaxSum;
 }
 
-let numbers = [9, -9, 6, 11, -6, -10, 15, 1];
-console.log("Max circular subarray Sum:", maxSumCircularSubarray(numbers));
+// Test Cases
+// ---------------------------
+const testCases = [
+    { input: [9, -9, 6, 11, -6, -10, 15, 1], expected: 'Varies' },
+    { input: [6, -2, 6], expected: 12 },
+    { input: [-6, -2, -6], expected: -2 },
+    { input: [], expected: 0 }
+];
 
-let numbers1 = [6,-2,6];
-console.log("Max circular subarray Sum:", maxSumCircularSubarray(numbers1));
-
-let numbers2 = [-6,-2,-6];
-console.log("Max circular subarray Sum:", maxSumCircularSubarray(numbers2));
-
-let emptyNumbers = [];
-console.log("Max circular subarray Sum:", maxSumCircularSubarray(emptyNumbers));
+for (const { input, expected } of testCases) {
+    const result = maxSumCircularSubarray(input);
+    console.log(`Input: ${JSON.stringify(input)} => Max Circular Subarray Sum: ${result} (Expected: ${expected})`);
+}

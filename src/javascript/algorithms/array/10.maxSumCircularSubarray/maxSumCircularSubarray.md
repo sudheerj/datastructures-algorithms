@@ -13,34 +13,45 @@ Output: 12
 Input: nums = [-6,-2,-6]
 Output: -2
 
-**Algorithmic Steps:**
+#### Algorithm Overview
 
-This problem is solved with the help of **Kadane's algorithm**(dynamic programming technique), in which one time for finding the maximum subarray sum, and another time for finding the minimum subarray sum. The algorithmic approach can be summarized as follows:
+This problem is solved using a **dual application of Kadane’s algorithm**, a dynamic programming technique commonly used to find the maximum subarray sum in linear time.
 
-1. Add a preliminary check for empty array and return 0 as a maximum sum.
+In a circular array, the maximum subarray sum is either:
 
-2. Initialize overall maximum and minimum sum(i.e, `globalMaxSum` and `globalMinSum`) to first value of an input array.
+1.  The **maximum subarray sum** using the standard (non-circular) Kadane's algorithm.
+2.  The **total array sum minus the minimum subarray sum** (which effectively gives the maximum sum of a wrapped subarray).
 
-  **Note:** You shouldn't initialize global maximum and minimum values to zero because it results in wrong output for all negative elements usecase.
+We compute both, and return the larger value.
 
-3. Initialize current maximum and minimum values(i.e, `currMaxSum` and `currMinSum`) of each iteration to zero.
+#### Algorithm Steps
 
-4. Initialize total sum(`totalSum`) of all the elements to zero.
+1.  **Edge Case Check**  
+    If the input array is empty, return `0`.
+2.  **Initialization**
+    
+    *   `globalMaxSum` and `globalMinSum` are both initialized to the first element of the array.
+    *   `currentMaxSum` and `currentMinSum` (used during iteration) are initialized to the same value.
+    *   `totalSum` is initialized to the first element of the array.
+    
+    > ⚠️ _Note:_ Initializing `globalMaxSum` or `globalMinSum` to 0 instead of the first element would give incorrect results for arrays with all negative numbers.
+    
+3.  **Traverse the Array**  
+    For each element in the array (starting from the second one):
+    *   Update `currentMaxSum = max(currentMaxSum + num, num)`
+    *   Update `globalMaxSum = max(globalMaxSum, currentMaxSum)`
+    *   Update `currentMinSum = min(currentMinSum + num, num)`
+    *   Update `globalMinSum = min(globalMinSum, currentMinSum)`
+    *   Accumulate `totalSum += num`
+4.  **Final Result**
+    *   If all elements are negative, `globalMaxSum` will be the correct answer (since `totalSum - globalMinSum` would be 0).
+    *   Otherwise, return the maximum of:
+        *   `globalMaxSum` (standard Kadane’s)
+        *   `totalSum - globalMinSum` (circular case)
 
-5. Iterate over an input array to calculate the maximum value.
+#### Time and Space Complexity
 
-6. Calculate the maximum and minimum sum at each element positon. The minimum sum is required to derive maximum value incase of circular subarray contains maximum value.
-
-7. Find the total sum of all the numbers and store it in
-
-8. Calculate the maximum and minimum sum found so far(`globalMaxSum` and `globalMinSum`) by comparing with current maximum and  current minimum values.
-
-9. Repeat steps 6-8 until all the elements traversed.
-
-10. Return maximum of global maximum Sum and difference of total sum and globalMinSum, in case there are atleast one positive element. Otherwise return global maximum sum itself.
-
-**Time and Space complexity:**
-
-This algorithm has a time complexity of `O(n)`, where `n` is the number of elements. This is because we iterate the array at most once. 
-
-Here, we don't use any additional datastructure other than the few sum variables. Hence, the space complexity will be O(1).
+*   **Time Complexity:** `O(n)`  
+    We iterate over the array exactly once.
+*   **Space Complexity:** `O(1)`  
+    The algorithm uses a constant amount of extra space for tracking sums.
