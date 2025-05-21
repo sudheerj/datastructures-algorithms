@@ -1,37 +1,57 @@
 **Description**
-Given an integer array `nums`, rotate the array to the right by `n` steps, where `n` is non-negative number.
+Given an integer array `nums`, rotate the array to the right by `n` steps, where `n` is a non-negative number. The rotation is performed **in-place**, meaning no additional array is used for the operation.
 
 ### Examples
 Example 1:
 
 Input: nums = [1,2,3,4,5,6,7], n = 4
-Output: [5,6,7,1,2,3,4]
+Output: [4,5,6,7,1,2,3]
 
 Example 2:
 
 Input: nums = [-10, 4, 5, -1], n = 2
 Output: [5, -1, -10, 4]
 
-**Algorithmic Steps:**
-This problem is solved with the help of **two pointers** technique, which is used to reverse subarrays. The algorithmic approach can be summarized as follows:
+**Algorithm overview:**
+This algorithm leverages the **reversal technique** (a two-pointer approach) to efficiently rotate the array in-place.
 
-1. Initialize `length` variable to store length of an input array.
+To rotate the array to the right by `n` steps:
 
-2. Update the number of times rotation(i.e, `n`) to `n % length` incase of number of rotations greater than length of an array.
+1.  Reverse the entire array.
+2.  Reverse the first `n` elements.
+3.  Reverse the remaining `length - n` elements.
 
-3. Create a helper function to reverse elements of an array using swap operation with the help left and right pointers(i.e, `left` and `right`). The left pointer needs to be incremented and right pointer needs to decremented for each iteration.
+#### Detailed steps:
 
-4. Invoke reversal operation for entire array of elements(i.e, from the beginning to end of an array).
+1. **Calculate Array Length**  
+   Initialize a variable `length` to store the total number of elements in the array.
 
-5. Invoke reversal operation for first `n` number of elements(i.e, from the beginning to n-1).
+2. **Edge case**
+   No rotation is required when the given array is empty and number of rotations is equals to the length of an array. This condition is helpful for early exit.
+   
+3. **Normalize the Rotation Count**  
+   Update the rotation count by taking `n % length` to handle cases where `n` exceeds the array size. This ensures we perform only the necessary rotations.
 
-6. Invoke reversal operation for remaining number of elements(i.e, from `n-1` to end of an array).
+4. **Define a Reversal Helper Function**  
+   Implement a helper function that reverses elements between two indices (`left` and `right`) in the array using a two-pointer technique. Swap the elements at `left` and `right`, then increment `left` and decrement `right` in each iteration until both pointers meet.
 
-7. Return in-place rotated array as output.
+5. **Reverse the Entire Array**  
+   Apply the reversal function to the full array (from index `0` to `length - 1`). This step brings the elements that need to be rotated to the front, but in reverse order.
 
-**Time and Space complexity:**
+6. **Reverse the First `n` Elements**  
+   Reverse the first `n` elements (from index `0` to `n - 1`) to restore them to the correct order.
 
-This algorithm has a time complexity of `O(n)`, where `n` is the number of elements. This is because we are performing three reversal operations on subarrays and each reversal operation takes `O(n)`. So the overall time complexity is `O(n)`. 
+7. **Reverse the Remaining Elements**  
+   Reverse the remaining elements (from index `n` to `length - 1`) to place the original beginning of the array back in the correct order.
 
-Here, we don't use any additional datastructure due to in-place rotation. Hence, the space complexity will be `O(1)`.
+8. **Return the Rotated Array**  
+   The array has now been successfully rotated in-place and is ready for use.
+
+## Time and Space Complexity
+
+- **Time Complexity:** `O(n)`  
+  The algorithm performs three reverse operations, each taking `O(n)` time in total.
+
+- **Space Complexity:** `O(1)`  
+  The rotation is done in-place, using only a constant amount of extra space regardless of input size.
 
