@@ -1,40 +1,66 @@
 **Description:**
-Given a sorted array `nums` in an ascending order, which is rotated at some known pivot index. You need to search for a given `target` value, if found in the array return it's index otherwise return -1.
+Given a sorted array `nums` in ascending order that has been rotated at an unknown pivot point, search for a target value. If the target is found in the array, return its index; otherwise, return -1.
 
-**Note:** There are no duplicate values exist. The runtime complexity should be O(log n).
+**Note:** The array contains no duplicate values. The solution should have a runtime complexity of O(log n).
 
 ### Examples
-
 Example 1:
+
 Input: nums = [3, 4, 5, 6, 7, 0, 1, 2], target = 7
 Output: 4
 
 Example 2:
+
 Input: nums = [3, 4, 5, 6, 7, 0, 1, 2], target = 9
 Output: -1
 
-**Algorithmic Steps:**
-This problem is solved with the help of **binary search** technique. Since it is a rotated sorted array, there will be two subararys of elements in an ascending order. You can decide the presence of target element by verifying either in left side subarray or right side subarray. The algorithmic approach can be summarized as follows:
+Example 3 (Edge Case):
 
-1. Initialize left(`left`) and right pointers(`right`) to the beginning and ending index of an array.
+Input: nums = [1], target = 1
+Output: 0
 
-2. Iterate over input array until either left pointer reaches right pointer or target element found.
+**Algorithm overview:**
+This problem is solved using a modified **binary search** technique. In a rotated sorted array, there are two sorted subarrays. The key insight is to determine which subarray is sorted and then check if the target lies within that sorted portion.
 
-3. Calculate the middle index of the array to divide into two equal subarrays.
+#### Detailed steps:
 
-4. If the middle element is equals to target, return the middle element index as output.
+1. **Initialize Pointers**  
+   Set `left` pointer to the beginning (index 0) and `right` pointer to the end (index length-1) of the array.
 
-5. If the left element is less than or equal to middle element(i.e, `nums[left] <= nums[mid]`), the left portion of input array is sorted. In this case, if the target element exists between left and middle elements, update the right pointer to the element before the middle element(`right = mid-1`). This logic indicates that target exists with in first subarray. Otherwise update the left pointer to the element just after the middle element(`left = mid+1`) to indicate the target exists with in second subarray.
+2. **Binary Search Loop**  
+   Continue searching while `left` pointer is less than or equal to `right` pointer.
 
-6. In the same way, if the right element is greater than or equal to right element(i.e, `nums[mid] <= nums[right]`), the right portion of input array is sorted. In this case, if the target element exists between right and middle elements, update the left pointer to the element after the middle element(`left = mid+1`). This logic indicates that target exists with in second subarray. Otherwise update the right pointer to the element just before the middle element(`right = mid-1`) to indicate the target exists with in first subarray.
+3. **Find Middle Element**  
+   Calculate the middle index using `mid = Math.floor((left + right) / 2)`.
 
-7. Repeat steps 4-6 element found or until end of array reached.
+4. **Check for Target Match**  
+   If the middle element equals the target (`nums[mid] === target`), return the middle index immediately.
 
-8. Return -1, if the target doesn't exist with in input array.
+5. **Determine Which Half is Sorted**  
+   - If `nums[left] <= nums[mid]`, the left half is sorted.
+   - Otherwise, the right half is sorted.
 
+6. **Search in Sorted Half**  
+   - If the left half is sorted:
+     - Check if the target is within the range `nums[left]` to `nums[mid-1]`.
+     - If yes, search the left half by setting `right = mid - 1`.
+     - If no, search the right half by setting `left = mid + 1`.
 
-**Time and Space complexity:**
+   - If the right half is sorted:
+     - Check if the target is within the range `nums[mid+1]` to `nums[right]`.
+     - If yes, search the right half by setting `left = mid + 1`.
+     - If no, search the left half by setting `right = mid - 1`.
 
-This algorithm has a time complexity of `O(log n)`, where `n` is the number of elements. This is because we divide the array into two subarrays each time and find the index of target element using binary search algorithm. 
+7. **Repeat or Return**  
+   Repeat steps 3-6 until either the target is found or the search space is exhausted.
 
-Here, we don't use any additional datastructure other than two left pointer variables. Hence, the space complexity will be O(1).
+8. **Not Found Case**  
+   If the loop terminates without finding the target, return -1.
+
+## Time and Space Complexity
+
+- **Time Complexity:** `O(log n)`  
+  The algorithm uses a binary search approach, dividing the search space in half with each iteration. Even though the array is rotated, we can still determine which half to search in constant time.
+
+- **Space Complexity:** `O(1)`  
+  The algorithm uses only a constant amount of extra space regardless of input size, as it only requires a few variables (`left`, `right`, and `mid`) to track the search space.
