@@ -1,39 +1,59 @@
 **Description:**
-Given an integer array `height` of length `n`. There are `n` vertical lines drawn such that the two endpoints of the `ith` line are `(i, 0)` and `(i, height[i])`. You have to find two lines that together with the x-axis form a container, such that the container contains the most water. Return the maximum amount of water a container can store.
+Given an integer array `heights` of length `n`. There are `n` vertical lines drawn such that the two endpoints of the `ith` line are `(i, 0)` and `(i, heights[i])`. You need to find two lines that together with the x-axis form a container, such that the container contains the most water. Return the maximum amount of water a container can store.
 
 ### Examples
 Example 1:
-Input: height = [3,9,4,1,5,4,7,1,7]
+
+Input: heights = [3, 9, 4, 1, 5, 4, 7, 1, 7]
 Output: 49
 
 Example 2:
-Input: height = [1,1]
+
+Input: heights = [1, 1]
 Output: 1
 
-**Algorithmic Steps:**
-This problem is solved with the help of **two pointers** technique on opposite ends. The algorithmic approach can be summarized as follows:
+Example 3 (Edge Case):
 
-1. Initialize maximum capacity of the container(i.e, `maxCapacity`) to zero.
+Input: heights = [5]
+Output: 0 (Need at least two lines to form a container)
 
-2. Initialize two pointers(i.e, `left` and `right`) to represent both ends of an array.
+**Algorithm overview:**
+This problem is solved using the **two pointers** technique, starting from opposite ends of the array. The key insight is that the area of water is determined by the shorter of the two lines and the distance between them.
 
-3. Iterate an input array until left is less than right pointer.
+#### Detailed steps:
 
-4. Calculate the current container capacity(i.e, `area`) by the multiplication of width(difference between two indexes) and height(minimum height of two container heights).
+1. **Initialize Variables**  
+   - Set `maxArea` to 0 to track the maximum water container capacity
+   - Set `left` pointer to the beginning (index 0) of the array
+   - Set `right` pointer to the end (index length-1) of the array
 
-    **Note:** The minimum height is considered because water more than minimum of container heights spill the water.
+2. **Two-Pointer Traversal**  
+   Continue while the `left` pointer is less than the `right` pointer.
 
-5. Find the maximum capacity of the container by taking the maximum between maximum capacity so far and the current area.
+3. **Calculate Current Area**  
+   - Find the height of the container as the minimum of the two heights at current pointers: `height = Math.min(heights[left], heights[right])`
+   - Calculate the width as the distance between pointers: `width = right - left`
+   - Compute the area: `area = height * width`
 
-6. If the left side height is less than right side height, increment the left pointer to result in maximum capacity.
+4. **Update Maximum Area**  
+   Update `maxArea` if the current area is larger: `maxArea = Math.max(maxArea, area)`
 
-7. If the right side height is less than left side height, decrement the right pointer to result in maximum capacity.
+5. **Move Pointers Strategically**  
+   - If the left height is shorter than the right height, increment the `left` pointer
+   - Otherwise, decrement the `right` pointer
 
-8. Repeat steps 4-7 until all the elements traversed.
+   **Note:** We always move the pointer pointing to the shorter line because:
+   - The container's height is limited by the shorter line
+   - Moving the pointer at the shorter line gives a chance to find a taller line that might increase the area
+   - Moving the pointer at the taller line would only decrease the width without the possibility of increasing the height
 
-9. Return the maximum capacity of the container.
+6. **Return Result**  
+   After the pointers meet, return the `maxArea` as the maximum water container capacity.
 
-**Time and Space complexity:**
-This algorithm has a time complexity of `O(n)`, where `n` is the number of elements. This is because the left or right pointer moved towards the other until they meet in each iteration, the elements are traversed once. 
+## Time and Space Complexity
 
-Here, we don't use any additional datastructure other than two left pointer variables. Hence, the space complexity will be O(1).
+- **Time Complexity:** `O(n)`  
+  The algorithm makes a single pass through the array with the two pointers, examining each element at most once.
+
+- **Space Complexity:** `O(1)`  
+  The algorithm uses only a constant amount of extra space regardless of input size, as it only requires a few variables (`maxArea`, `left`, `right`, etc.) to track the state.

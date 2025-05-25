@@ -1,67 +1,61 @@
 class MyStack {
-
     constructor() {
-        this.array = []; // Array is used to implement stack
+        this.items = [];
     }
 
-    // List of main functions of stack data structure
-
+    // Core stack operations
     push(value) {
-        // push an element into the array
-        this.array.push(value);
+        this.items.push(value);
     }
 
     pop() {
-        // Underflow if stack is empty
         if (this.isEmpty()) {
-            return "Underflow";
+            throw new Error("Stack Underflow: Cannot pop from an empty stack.");
         }
-
-        return this.array.pop(); // return top most element from the stack and removes the same element
+        return this.items.pop();
     }
 
     peek() {
-        // Check if the stack is empty
         if (this.isEmpty()) {
-        throw new Error("Stack Underflow: Cannot peek from an empty stack");
+            throw new Error("Stack Underflow: Cannot peek from an empty stack.");
         }
-        // Return the top most element from the stack without removing it
-        return this.array[this.array.length - 1];
+        return this.items[this.items.length - 1];
     }
 
-    // List of helper functions
-
+    // Helper functions
     isEmpty() {
-        return this.array.length === 0; // return true if stack is empty
+        return this.items.length === 0;
+    }
+
+    size() {
+        return this.items.length;
     }
 
     printStack() {
-        let data = "";
-        for (let num of this.array)
-            data += num + " ";
-        return data;
+        return this.items.join(' ');
     }
-
 }
 
+// Usage example
 function useStack() {
-    let myStack = new MyStack();
+    const stack = new MyStack();
 
-    console.log(myStack.isEmpty()); // true
-    console.log(myStack.pop()); // Underflow
+    console.log("Is empty?", stack.isEmpty()); // true
 
-    myStack.push(1);
-    myStack.push(2);
-    myStack.push(3);
+    try {
+        stack.pop(); // Should throw
+    } catch (e) {
+        console.error(e.message);
+    }
 
-    console.log(myStack.printStack()); // 1 2 3
-    console.log(myStack.peek()); // 3
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
 
-    console.log(myStack.pop()); // 3
-
-    console.log(myStack.printStack()); // 1 2
+    console.log("Stack contents:", stack.printStack()); // 1 2 3
+    console.log("Top element:", stack.peek()); // 3
+    console.log("Popped element:", stack.pop()); // 3
+    console.log("Stack after pop:", stack.printStack()); // 1 2
 }
 
 useStack();
-
-
