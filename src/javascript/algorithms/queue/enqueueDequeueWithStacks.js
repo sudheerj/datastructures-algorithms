@@ -1,35 +1,45 @@
-class Stack {
+class MyStack {
     constructor() {
-        this.array = [];
+        this.items = [];
     }
 
-    isEmpty() {
-        return this.array.length === 0;
+    // Core stack operations
+    push(value) {
+        this.items.push(value);
+    }
+
+    pop() {
+        if (this.isEmpty()) {
+            throw new Error("Stack Underflow: Cannot pop from an empty stack.");
+        }
+        return this.items.pop();
     }
 
     peek() {
         if (this.isEmpty()) {
-            return null;
-        } else {
-            return this.array[this.array.length - 1];
+            throw new Error("Stack Underflow: Cannot peek from an empty stack.");
         }
+        return this.items[this.items.length - 1];
     }
 
-    push(value) {
-        this.array.push(value);
+    // Helper functions
+    isEmpty() {
+        return this.items.length === 0;
     }
 
-    pop() {
-        if (this.isEmpty()) return null;
-        return this.array.pop();
+    size() {
+        return this.items.length;
     }
-    
+
+    printStack() {
+        return this.items.join(' ');
+    }
 }
 
 class MyQueue {
     constructor() {
-        this.stack1 = new Stack();
-        this.stack2 = new Stack();
+        this.stack1 = new MyStack();
+        this.stack2 = new MyStack();
     }
     
     peek() {
