@@ -1,35 +1,48 @@
-**Description:**
-Given an array of integers `temperatures`, which represents the daily temperatures in a city. For each temperature, calculate how many days one would have to wait for a warmer temperature than the current day. i.e, Find an array `answer` such that `answer[i]` represents the number of days you have to wait after the `i`th day to get a warmer temperature.
+# Daily Temperatures
 
-**Note:** If there is no future day with a warmer temparature, just return 0.
+The Daily Temperatures problem is a classic algorithm challenge that uses a stack to efficiently track and calculate waiting times for warmer temperatures. This problem demonstrates the power of monotonic stacks in solving problems that involve finding the next greater element.
 
-## Examples:
-Example 1
-Input:  temperatures1 = [72,73,74,70,68,71,75,72]
-Output: [1, 1, 4, 2, 1, 1, 0, 0]
+## Problem Statement
 
-Example 2
-Input: temperatures2 = [10, 20, 30,40,50,60,70]
-Output: [1, 1, 1, 1, 1, 1, 0]
+Given an array of integers `temperatures` representing daily temperatures, calculate for each day how many days you would have to wait until a warmer temperature. If there is no future day with a warmer temperature, return 0 for that day.
 
-**Algorithmic Steps**
-This problem is solved with the help of monotonic decreasing stack. The algorithmic approach can be summarized as follows:
+**Note:** The output array should have the same length as the input array, where each element represents the number of days to wait for a warmer temperature.
 
-1. Initialize a days array with the same length of input temperatures array, filled with zeros.
+## Examples
 
-2. Initialize a monotonic stack which stores the indices of temperature values.
+**Example 1**  
+Input: `temperatures = [72, 73, 74, 70, 68, 71, 75, 72]`  
+Output: `[1, 1, 4, 2, 1, 1, 0, 0]`  
+Explanation:
+- Day 0 (72°F): Wait 1 day for a warmer temperature (73°F on day 1)
+- Day 1 (73°F): Wait 1 day for a warmer temperature (74°F on day 2)
+- Day 2 (74°F): Wait 4 days for a warmer temperature (75°F on day 6)
+- Day 3 (70°F): Wait 2 days for a warmer temperature (71°F on day 5)
+- Day 4 (68°F): Wait 1 day for a warmer temperature (71°F on day 5)
+- Day 5 (71°F): Wait 1 day for a warmer temperature (75°F on day 6)
+- Day 6 (75°F): No future warmer temperature, so 0 days
+- Day 7 (72°F): No future warmer temperature, so 0 days
 
-3. Iterate over the input array using an iteration variable `currDay`(from 0 to length of array).
+**Example 2**  
+Input: `temperatures = [10, 20, 30, 40, 50, 60, 70]`  
+Output: `[1, 1, 1, 1, 1, 1, 0]`  
+Explanation: Each day (except the last) has a warmer temperature the next day.
 
-4. For each iteration, create nested iteration to shrink the stack until the stack is not empty and current temperature is greater than previous day temperation.
+## Algorithm
 
-5. As part of the nested iteration, the top element of stack needs to be poped-out and number of days(current day index - previous day index) to wait for warmer temperature stores in previous day's index.
+This problem is solved using **a monotonic decreasing stack** to efficiently find the next warmer day for each temperature. The approach is as follows:
 
-6. If the current day temperature is less than previous day, the respective current day index is stored in the stack.
+1. Initialize an array `days` of the same length as the input array, filled with zeros. This will store our results.
+2. Initialize an empty stack to store indices of days with temperatures that haven't found a warmer day yet.
+3. Iterate through each day in the temperatures array:
+   - While the stack is not empty and the current day's temperature is warmer than the temperature at the index at the top of the stack:
+     - Pop the top index from the stack (this is a previous day that now found a warmer day).
+     - Calculate the number of days to wait (current day index - previous day index) and store it in the result array.
+   - Push the current day's index onto the stack.
+4. Return the result array.
 
-7. Return the days array which indicate elements of number of days to get a warmer temperature
 
-**Time and Space complexity:**
-This algorithm has a time complexity of O(n)(i.e, O(n + n)), where n is the number of days in the temperatures list. This is because each element is processed by pushing an element into a stack and then processed again when the element is popped-out. Here, each element is pushed and popped at most once with a linear time. 
+## Complexity
 
-Also, it takes space complexity of O(n) with the use of stack data structure. In the worst case(all temperatures in decreasing order), the stack will contain all temperature indices.
+- **Time Complexity:** O(n), where n is the number of days in the temperatures array. Although there is a nested loop, each element is pushed and popped at most once, resulting in amortized O(n) time.
+- **Space Complexity:** O(n) in the worst case (when temperatures are in decreasing order), as the stack might need to store all indices.

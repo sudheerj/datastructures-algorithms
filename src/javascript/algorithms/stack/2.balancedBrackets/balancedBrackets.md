@@ -1,44 +1,46 @@
-**Description:**
-Given a string `str` which contains the characters '(', ')', '{', '}', '[' and ']'. Determine whether an input string is valid or not by following the below conditions,
+# Balanced Brackets
 
-1. Open brackets must be closed by the same type of brackets in the correct order.
-2. Each close bracket has a respective open bracket of the same type.
+Balanced brackets is a classic problem that checks whether every opening bracket in a string has a corresponding and correctly ordered closing bracket. This is commonly used in parsing expressions, validating code, and more.
 
-## Examples:
-Example 1
-Input:  str = [()[]{}<>] 
-Output: true
+The problem supports the following bracket types: `()`, `{}`, `[]`, `<>`.
+
+## Problem Statement
+
+Given a string `str` containing the characters '(', ')', '{', '}', '[', ']', '<', and '>', determine whether the input string is valid. A string is valid if:
+
+1. Every open bracket is closed by the same type of bracket.
+2. Brackets are closed in the correct order.
+
+## Examples
+
+**Example 1**  
+Input: `str = "()[]{}<>"`  
+Output: `true`
+
+**Example 2**  
+Input: `str = "[({<>})]"`  
+Output: `true`
+
+**Example 3**  
+Input: `str = "([)]"`  
+Output: `false`
+
+## Algorithm
+
+This problem is solved using stack operations(**push and pop**) to track opening brackets and ensure they are closed in the correct order.
+
+1. If the string is empty, return `true`.
+2. If the string has an odd length, return `false` (since brackets must come in pairs).
+3. Initialize an empty stack.
+4. Iterate over each character in the string:
+    - If the character is an opening bracket (`(`, `{`, `[`, `<`), push it onto the stack.
+    - If the character is a closing bracket (`)`, `}`, `]`, `>`):
+        - If the stack is empty or the top of the stack does not match the corresponding opening bracket, return `false`.
+        - Otherwise, pop the top element from the stack.
+5. After processing all characters, return `true` if the stack is empty (all brackets matched); otherwise, return `false`.
 
 
-Example 2
-Input: str = '[({<>})]'
-Output: true
+## Complexity
 
-Example 3
-Input: str = '([)]'
-Output: false
-
-
-**Algorithmic Steps:**
-
-This problem is solved with the help of **stack push and pop** operations to determine the string has valid brackets or not. The algorithmic approach can be summarized as follows:
-
-1. Add preliminary conditions for empty strings, string with one character and odd length. Return `true` if the string is empty and return `false` if the string has one character or length of the string is odd.
-   
-2. Create a stack implementation(i.e, `myStack`) based on array. It includes push, pop and peek operations.
-   
-3. Iterate over the input string `characters` and verify each character with the conditions of switch block.
-   
-4. If the character is an opening bracket(`([{<`), push it to the stack. 
-
-5. If the character is a closing bracket(`>}])`), verify the top element of stack equals to respective opening bracket or not. If so, remove/pop the element to indicate the match. Otherwise, return `false` indicating that the given string is not a balanced.
-
-6. Repeat steps 4-5 until the end of the string.
-
-7. Return `false` if the stack is not empty. That means, there are still few characters which are not balanced.
-
-**Time and Space complexity:**
-
-This algorithm has a time complexity of `O(n)`, where `n` is the number of characters in a string. This is because traversal over the characters in a string at most once. 
-
-Here, we used stack data structure store the opening brackets. In the worst case, the input string may contain only opening brackets. Hence, the space complexity will be O(n).
+- **Time Complexity:** O(n), where n is the length of the string. This is because of traversal over the characters in a string at most once.
+- **Space Complexity:** O(n), for the stack in the worst case (all opening brackets).

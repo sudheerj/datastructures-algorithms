@@ -1,39 +1,38 @@
-**Description:**
+# Sort Stack
+
+Sorting a stack means arranging its elements in ascending order (smallest on top) using only stack operations and an auxiliary stack. This is a classic problem that demonstrates stack manipulation and algorithmic thinking.
+The stack is sorted using another temporary stack, without using any other data structures like arrays or linked lists.
+
+
+## Problem Statement
+
 Given a stack of integers `nums`, sort it in ascending order using another temporary stack.
 
-## Examples:
-Example 1
-Input: [8, 2, 4, 1, 5, 3] 
+## Examples
+
+**Example 1**  
+Input: [8, 2, 4, 1, 5, 3]  
 Output: [1, 2, 3, 4, 5, 8]
 
-Example 2
-Input: [6, 5, 4, 3, 2, 1] 
+**Example 2**  
+Input: [6, 5, 4, 3, 2, 1]  
 Output: [1, 2, 3, 4, 5, 6]
 
-**Algorithmic Steps:**
+## Algorithm
 
-This problem is solved with the help of **stack push & pop** to sort the elements in a particular order. The algorithmic approach can be summarized as follows:
+This problem is solved using stack push and pop operations to sort the elements. The approach is as follows:
 
-1. Accept the input stack as an argument to sort its elements.
-   
-2. Add a preliminary check by verifying the size of the stack less than one or not. If it is, just return from the function.
-   
-3. Create a stack implementation(i.e, `myStack`) based on array. It includes push, pop and peek operations.
+1. If the stack has less than one element, return immediately.
+2. Create a temporary stack (`tempStack`) to store intermediate results.
+3. While the input stack is not empty:
+    - Pop the top element from the input stack and store it in a variable `temp`.
+    - While `tempStack` is not empty and its top element is greater than `temp`:
+        - Pop from `tempStack` and push it back to the input stack.
+    - Push `temp` onto `tempStack`.
+4. Once done, transfer all elements from `tempStack` back to the input stack so that they are sorted in ascending order.
 
-4. Create a temporary stack(`tempStack`) for storing the intermediate results inorder to calculate the sorted stack.
-   
-5. Iterate over the input stack `stack` until the elements exists in input stack.
-   
-6. For each iteration,
-   1. Get the top value of input stack and store it in `temp` variable.
-   2. Iterate over the temporary stack until it's size is greater than zero and the top value of temporary stack is greater than temp value.
-   3. For each above nested iteration, get the top element from temporary stack and push it to the input stack. This step helps to move higher values from temporary stack to insert lower values at the beginning.
-   4. If the condition of step2 is not satisfied, push the element to the temporary stack.
 
-7. Update the input stack with the elements of temporary stack to sort the elements in an ascending order.
+## Complexity
 
-**Time and Space complexity:**
-
-This algorithm has a time complexity of `O(n*2)`, where `n` is the number of elements in an array. This is because of traversal over the characters in a stack and temporary stack. 
-
-Here, we used stack data structure store the sorted elements in a temporary stack. Hence, the space complexity will be `O(n)`.
+- **Time Complexity:** O(n²) in the worst case, due to nested stack operations.
+- **Space Complexity:** O(n), for the auxiliary stack.

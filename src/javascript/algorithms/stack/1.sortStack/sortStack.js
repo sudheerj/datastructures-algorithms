@@ -1,51 +1,39 @@
 class MyStack {
-
     constructor() {
-        this.array = []; // Array is used to implement stack
+        this.items = [];
     }
 
-    // List of main functions of stack data structure
-
+    // Core stack operations
     push(value) {
-        // push an element into the array
-        this.array.push(value);
+        this.items.push(value);
     }
 
     pop() {
-        // Return null if stack is empty
         if (this.isEmpty()) {
-            return null;
+            throw new Error("Stack Underflow: Cannot pop from an empty stack.");
         }
-
-        return this.array.pop(); // return top most element from the stack and removes the same element
+        return this.items.pop();
     }
 
     peek() {
-        // Return null if stack is empty
         if (this.isEmpty()) {
-            return null;
+            throw new Error("Stack Underflow: Cannot peek from an empty stack.");
         }
-    
-        return this.array[this.array.length - 1]; // return top most element from the stack without removing the element
+        return this.items[this.items.length - 1];
     }
 
-    // List of helper functions
-
+    // Helper functions
     isEmpty() {
-        return this.array.length === 0; // return true if stack is empty
+        return this.items.length === 0;
     }
 
     size() {
-        return this.array.length;
+        return this.items.length;
     }
 
     printStack() {
-        let data = "";
-        for (let i = 0; i < this.array.length; i++)
-            data += this.array[i] + " ";
-        return data;
+        return this.items.join(' ');
     }
-
 }
 
 function sortStack(stack) {
@@ -57,7 +45,7 @@ function sortStack(stack) {
             let top = tempStack.pop();
             stack.push(top);
         }
-        tempStack.push(temp); 
+        tempStack.push(temp);
     }
     stack.array = tempStack.array;
 }

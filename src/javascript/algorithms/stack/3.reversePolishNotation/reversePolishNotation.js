@@ -1,46 +1,43 @@
 class MyStack {
-
     constructor() {
-        this.array = []; // Array is used to implement stack
+        this.items = [];
     }
 
-    // List of main functions of stack data structure
-
+    // Core stack operations
     push(value) {
-        // push an element into the array
-        this.array.push(value);
+        this.items.push(value);
     }
 
     pop() {
-        // Underflow if stack is empty
         if (this.isEmpty()) {
-            return "Underflow";
+            throw new Error("Stack Underflow: Cannot pop from an empty stack.");
         }
-
-        return this.array.pop(); // return top most element from the stack and removes the same element
+        return this.items.pop();
     }
 
     peek() {
-        return this.array[this.array.length - 1]; // return top most element from the stack without removing the element
+        if (this.isEmpty()) {
+            throw new Error("Stack Underflow: Cannot peek from an empty stack.");
+        }
+        return this.items[this.items.length - 1];
     }
 
-    // List of helper functions
-
+    // Helper functions
     isEmpty() {
-        return this.array.length === 0; // return true if stack is empty
+        return this.items.length === 0;
+    }
+
+    size() {
+        return this.items.length;
     }
 
     printStack() {
-        let data = "";
-        for (let el of this.array)
-            data += el + " ";
-        return data;
+        return this.items.join(' ');
     }
-
 }
 
 
-function reversePolishNotation(tokens){
+function reversePolishNotation1(tokens){
     let myStack = new MyStack();
     for (const token of tokens) {
         switch (token) {
@@ -68,15 +65,48 @@ function reversePolishNotation(tokens){
                 myStack.push(Number.parseInt(firstPrev/secondPrev));
                 break; 
             }
-            default:
+            default: {
                 myStack.push(Number.parseInt(token));
                 break;
+            }
         }
+    }
+    return myStack.pop();
+}
+
+function reversePolishNotation2(tokens) {
+    const myStack = new MyStack();
+    const operators = new Set(['+', '-', '*', '/']);
+
+    for (const token of tokens) {
+        if (!operators.has(token)) {
+            myStack.push(Number(token));
+        } else {
+            const b = myStack.pop();
+            const a = myStack.pop();
+            let result;
+            switch (token) {
+                case '+': result = a + b; break;
+                case '-': result = a - b; break;
+                case '*': result = a * b; break;
+                case '/': result = Math.trunc(a / b); break; // Truncate toward zero
+            }
+            myStack.push(result);
+        }
+    }
+    if (myStack.isEmpty()) {
+        throw new Error("Invalid RPN expression.");
     }
     return myStack.pop();
 }
 
 let tokens1 = ["1","3","+","4","*"];
 let tokens2 = ["5","4","3","2","+","-10","*","/","*","10","+","4","+"];
-console.log(reversePolishNotation(tokens1));
-console.log(reversePolishNotation(tokens2));
+console.log(reversePolishNotation1(tokens1));
+console.log(reversePolishNotation1(tokens2));
+
+console.log("--------------------------------");
+
+console.log(reversePolishNotation2(tokens1));
+console.log(reversePolishNotation2(tokens2));
+
