@@ -1,37 +1,41 @@
 **Description:**
 Given a string `str`, find the length of the longest substring without repeating characters.
 
-### Examples
+## Examples
 
-Example 1:
-Input: s = "abcabcbbaa"
-Output: 3
+**Example 1:**  
+Input: `s = "abcabcbbaa"`  
+Output: `3`  
+Explanation: The longest substring is `"abc"`.
 
-Example 2:
-Input: s = "aaaaaaa"
-Output: 1
+**Example 2:**  
+Input: `s = "aaaaaaa"`  
+Output: `1`  
+Explanation: The longest substring is `"a"`.
 
-**Algorithmic Steps**
-This problem is solved with the help of **sliding window** approach using a set datastructure. The algorithmic approach can be summarized as follows:
+**Example 3:**  
+Input: `s = "pwwkew"`  
+Output: `3`  
+Explanation: The longest substring is `"wke"`.
 
-1. Initialize an empty character Set(i.e, `char`) to store unique characters within the current window.
+## Visualization
 
-2. Initialize left and right pointers(i.e, `left` and `right`) to 0, to keep track of the substring window boundaries.
+![Screenshot](../../../../images/longest_substring_sliding_window.png)
 
-3. Initialize `maxLength` variable to 0, to store the length of the longest substring without repeating characters.
+## Algorithm
 
-4. Iterate over the input string using right pointer until the end of the string. 
+This problem is efficiently solved using the **sliding window** technique with a Set to track unique characters in the current window.
 
-5. If a repeating character is found, remove the repeated character from the char set and move the left pointer to the right side(i.e, increment left pointer) to shrink the window. This step need to be repeated until there are no repeated characters in the set.
+1. Initialize an empty Set to store unique characters.
+2. Use two pointers, `left` and `right`, to represent the current window.
+3. Move the `right` pointer through the string:
+    - If the character at `right` is not in the Set, add it and update the maximum length.
+    - If the character is already in the Set, remove characters from the left of the window (increment `left` and remove from Set) until the duplicate is removed.
+4. Continue until the end of the string.
+5. The maximum window size found is the answer.
 
-6. If the new character doesn't exist in the char set, add the character to the set and move the right pointer(i.e, increment right pointer) to expand the window.
-
-7. Update the maxLength variable if the current window length is greater than the previous maxLength.
-
-8. Repeat steps 5–7 until the right pointer reaches the end of the string.
-
-9. Return the maxLength variable which indicates the longest substring length.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of `O(n)` because we are traversing the string only once. 
-Also, it requires space complexity of `O(n)` due to Set data structure.
+
+- **Time Complexity:** O(n), where n is the length of the string (each character is visited at most twice).
+- **Space Complexity:** O(min(n, m)), where m is the size of the character set (e.g., 26 for lowercase English letters).
