@@ -48,3 +48,4 @@ console.log("Stack after pop:", stack.printStack()); // 1 2
 | Access | Search | Insertion | Deletion | Space (Memory) |
 | :----: | :----: | :-------: | :------: | :------------: |
 |  O(n)  |  O(n)  |   O(1)    |   O(1)   |      O(n)      |
+

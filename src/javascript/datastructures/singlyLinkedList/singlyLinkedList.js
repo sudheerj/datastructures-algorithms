@@ -1,10 +1,19 @@
+/**
+ * Node class for singly linked list.
+ */
 class Node {
+  /**
+   * @param {*} value
+   */
   constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
 
+/**
+ * Singly Linked List implementation.
+ */
 class LinkedList {
   constructor() {
     this.head = null;
@@ -12,6 +21,11 @@ class LinkedList {
     this.length = 0;
   }
 
+  /**
+   * Adds a new node with the given value at the end of the list.
+   * @param {*} value
+   * @returns {LinkedList}
+   */
   push(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -25,8 +39,12 @@ class LinkedList {
     return this;
   }
 
+  /**
+   * Removes the last node from the list and returns it.
+   * @returns {Node|undefined}
+   */
   pop() {
-    if (this.length === 0) return undefined;
+    if (!this.head) return undefined;
     let current = this.head;
     let newTail = this.head;
     while (current.next) {
@@ -43,6 +61,11 @@ class LinkedList {
     return current;
   }
 
+  /**
+   * Adds a new node with the given value at the start of the list.
+   * @param {*} value
+   * @returns {LinkedList}
+   */
   unshift(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -56,6 +79,10 @@ class LinkedList {
     return this;
   }
 
+  /**
+   * Removes the first node from the list and returns it.
+   * @returns {Node|undefined}
+   */
   shift() {
     if (!this.head) return undefined;
     let currentHead = this.head;
@@ -68,6 +95,11 @@ class LinkedList {
     return currentHead;
   }
 
+  /**
+   * Returns the node at the given index.
+   * @param {number} index
+   * @returns {Node|undefined}
+   */
   get(index) {
     if (index < 0 || index >= this.length) return undefined;
     let current = this.head;
@@ -77,15 +109,27 @@ class LinkedList {
     return current;
   }
 
+  /**
+   * Updates the value of the node at the given index.
+   * @param {number} index
+   * @param {*} value
+   * @returns {boolean}
+   */
   set(index, value) {
-    let foundNode = this.get(index);
-    if (foundNode) {
-      foundNode.value = value;
+    const node = this.get(index);
+    if (node) {
+      node.value = value;
       return true;
     }
     return false;
   }
 
+  /**
+   * Inserts a new node with the given value at the specified index.
+   * @param {number} index
+   * @param {*} value
+   * @returns {boolean}
+   */
   insert(index, value) {
     if (index < 0 || index > this.length) return false;
     if (index === 0) return !!this.unshift(value);
@@ -99,6 +143,11 @@ class LinkedList {
     return true;
   }
 
+  /**
+   * Removes the node at the specified index and returns it.
+   * @param {number} index
+   * @returns {Node|undefined}
+   */
   remove(index) {
     if (index < 0 || index >= this.length) return undefined;
     if (index === 0) return this.shift();
@@ -112,9 +161,13 @@ class LinkedList {
     return removedNode;
   }
 
+  /**
+   * Reverses the linked list in place.
+   * @returns {LinkedList}
+   */
   reverse() {
     if(this.length === 0) return undefined;
-    
+
     let temp = this.head;
     this.head = this.tail;
     this.tail = temp;
@@ -128,32 +181,62 @@ class LinkedList {
     }
     return this;
   }
+
+  /**
+   * Converts the linked list to an array.
+   * @returns {Array}
+   */
+  toArray() {
+    const arr = [];
+    let current = this.head;
+    while (current) {
+      arr.push(current.value);
+      current = current.next;
+    }
+    return arr;
+  }
+
+  /**
+   * Prints the linked list as a string.
+   * @returns {string}
+   */
+  printList() {
+    return this.toArray().join(" -> ");
+  }
 }
 
-const myLinkedList = new LinkedList();
-console.log(myLinkedList.push(1));
-console.log(myLinkedList.push(2));
-console.log(myLinkedList.push(3));
+// Usage example
+const list = new LinkedList();
+list.push(1).push(2).push(3);
+console.log("List:", list.printList());
 
-console.log(myLinkedList.pop());
-console.log(myLinkedList.pop());
+console.log("Pop:", list.pop());
+console.log("Pop:", list.pop());
+console.log("After pop:", list.printList());
 
-console.log(myLinkedList.unshift(2));
-console.log(myLinkedList.unshift(3));
+list.unshift(2);
+list.unshift(3);
+console.log("After unshift:", list.printList());
 
-console.log(myLinkedList.shift());
+console.log(list.shift());
+console.log("After shift:", list.printList());
 
-console.log(myLinkedList.get(1));
-console.log(myLinkedList.get(0));
+console.log(list.get(1));
+console.log(list.get(0));
 
-console.log(myLinkedList.set(0, 1));
-console.log(myLinkedList.set(1, 3));
+console.log(list.set(0, 1));
+console.log(list.set(1, 3));
+console.log("After set:", list.printList());
 
-console.log(myLinkedList.insert(1, 2));
-console.log(myLinkedList.insert(3, 4));
+list.insert(1, 2);
+list.insert(3, 4);
+console.log("After insert:", list.printList());
 
-console.log(myLinkedList.remove(3));
-console.log(myLinkedList.remove(2));
+console.log(list.remove(3));
+console.log(list.remove(2));
+console.log("After Remove:", list.printList());
 
-console.log(myLinkedList.reverse());
-console.log(myLinkedList.reverse());
+list.reverse();
+console.log("After reverse:", list.printList());
+list.reverse();
+console.log("After reverse:", list.printList());

@@ -2,7 +2,7 @@ A linked list is a linear data structure that consists of a series of elements c
 
 Each element of a linked list is a node, which has a value and a reference to next node. If the node is a tail, it's next value points to null.
 
-The array data strcuture can be expensive for data insertion and deletion operations. Since linkedlist has dynamic size, it is easy to perform insertion and deletion. Unlike arrays, the elements in linked list doesn't have indexes in order, which doesn't allow random access.
+A singly linked list is a linear data structure consisting of nodes, where each node contains a value and a reference to the next node. The list maintains `head`, `tail`, and `length` properties.
 
 There are different types of linked list exists, 
 
@@ -14,7 +14,7 @@ The structure of single linked list looks like below,
 
    ![Screenshot](singlylinkedlist.png)
 
-The linked list can have the following functionalities,
+The linked list can have the following functionalities.
 
 1. **Push:** You can push a new node into the end of list. First, you need to create a new node using a given value. If the list is empty, assign the head and tail to the new node. Otherwise, the tail's next node points to new node and current tail node assigned to new node as a new tail. Finally, increment the size of the list.
 
@@ -36,6 +36,6 @@ The linked list can have the following functionalities,
 
 ## Complexity
 
-| Access            | Search             | Insertion | Deletion               | Space (Memory)    |
-| :-------------: | :-----------------: | :-----------------: | :-------: | :-------: |
-|  O(n)               | O(n)       | O(1)       | O(1)         | O(n)       | 
+| Access | Search | Insertion | Deletion | Space (Memory) |
+| :----: | :----: | :-------: | :------: | :------------: |
+|  O(n)  |  O(n)  |   O(1)    |   O(1)   |      O(n)      |
