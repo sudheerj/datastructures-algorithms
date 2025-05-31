@@ -1,42 +1,61 @@
-//Character count:- TC:O(m * n) OC: O(m * n)
-function groupAnagram1(strs) {
-    let groupAnagramObj = {};
+/**
+ * Groups anagrams using character count as the key.
+ * Time: O(m * n), Space: O(m * n)
+ * @param {string[]} strs
+ * @returns {string[][]}
+ */
+function groupAnagramByCount(strs) {
+  const  groupAnagramObj = {};
 
-    for(let str of strs) {
-        const charFrequency = new Array(26).fill(0);
-        for(let i=0; i<str.length; i++) {
-            const charIndex = str.charCodeAt(i) - 97;
-            charFrequency[charIndex]++;
-        }
-        const key = charFrequency.join("#");
-        if(groupAnagramObj[key]) {
-            groupAnagramObj[key].push(str);
-        } else {
-            groupAnagramObj[key] = [str];
-        }
+  for (const str of strs) {
+    // Assumes lowercase a-z. For Unicode, use a Map instead of array.
+    const charFrequency = new Array(26).fill(0);
+    for (const ch of str) {
+      charFrequency[ch.charCodeAt(0) - 97]++;
     }
-    return Object.values(groupAnagramObj);
+    const key = charFrequency.join("#");
+    if(groupAnagramObj[key]) {
+      groupAnagramObj[key].push(str);
+    } else {
+      groupAnagramObj[key] = [str];
+    }
+  }
+  return Object.values(groupAnagramObj);
 }
 
-//Using object and sort:- TC: O(m * n log n) OC: O(m * n)
-function groupAnagram2(strs) {
-    let groupAnagramObj = {};
+/**
+ * Groups anagrams by sorting each string.
+ * Time: O(m * n log n), Space: O(m * n)
+ * @param {string[]} strs
+ * @returns {string[][]}
+ */
+function groupAnagramBySort(strs) {
+  let groupAnagramObj = {};
 
-    for(let str of strs) {
-        const sortedString = str.split("").sort().join("");
-        if(groupAnagramObj[sortedString]) {
-            groupAnagramObj[sortedString].push(str);
-        } else {
-            groupAnagramObj[sortedString] = [str];
-        }
+  for (const str of strs) {
+    const key = str.split("").sort().join("");
+    if(groupAnagramObj[key]) {
+      groupAnagramObj[key].push(str);
+    } else {
+      groupAnagramObj[key] = [str];
     }
-    return Object.values(groupAnagramObj);
+  }
+  return Object.values(groupAnagramObj);
 }
 
-let strs1 = ["eat","tea","tan","ate","nat","bat"];    
-console.log(groupAnagram1(strs1));   
-console.log(groupAnagram2(strs1));   
+// Test cases
+const testCases = [
+  ["eat", "tea", "tan", "ate", "nat", "bat"],
+  ["hello"],
+  ["", ""],
+  ["abc", "bca", "cab", "bac", "acb", "cba"],
+  ["a"],
+  ["ab", "ba", "abc", "cab", "bac", "bca", "cba"],
+];
 
-let strs2 = ["hello"];    
-console.log(groupAnagram1(strs2));
-console.log(groupAnagram2(strs2));
+for (const strs of testCases) {
+  console.log("Input:", strs);
+  console.log("By Count:", groupAnagramByCount(strs));
+  console.log("By Sort:", groupAnagramBySort(strs));
+  console.log("---");
+}
