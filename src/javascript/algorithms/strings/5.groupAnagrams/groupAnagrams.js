@@ -5,7 +5,7 @@
  * @returns {string[][]}
  */
 function groupAnagramByCount(strs) {
-  const  groupAnagramObj = {};
+  const groupAnagramObj = {};
 
   for (const str of strs) {
     // Assumes lowercase a-z. For Unicode, use a Map instead of array.
@@ -14,7 +14,7 @@ function groupAnagramByCount(strs) {
       charFrequency[ch.charCodeAt(0) - 97]++;
     }
     const key = charFrequency.join("#");
-    if(groupAnagramObj[key]) {
+    if (groupAnagramObj[key]) {
       groupAnagramObj[key].push(str);
     } else {
       groupAnagramObj[key] = [str];
@@ -34,7 +34,7 @@ function groupAnagramBySort(strs) {
 
   for (const str of strs) {
     const key = str.split("").sort().join("");
-    if(groupAnagramObj[key]) {
+    if (groupAnagramObj[key]) {
       groupAnagramObj[key].push(str);
     } else {
       groupAnagramObj[key] = [str];
