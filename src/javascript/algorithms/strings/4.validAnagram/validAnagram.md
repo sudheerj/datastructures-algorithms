@@ -13,23 +13,40 @@ Input: str1 = "rat", str2 = "cat"
 Output: false
 
 **Algorithmic Steps**
-This problem is solved with the help of **frequency counting** approach using an array. The algorithmic approach can be summarized as follows:
+This problem is solved with the help of **frequency counting** approach using an array. 
 
-1. Add a preliminary check whether both string lengths are equal or not. If they are not equal, return `false` because they cannot be anagrams anymore.
+#### 1. Frequency Array (for lowercase a-z)
 
-2. Create an array named `charcharFrequencyArr` to hold the alphabetic(i.e, a-z) letter frequencies. By default, their count is initialized with 0.
+1. If the strings are not the same length, return `false`.
+2. Create an array of size 26 to count letter frequencies.
+3. For each character in both strings, increment for `str1` and decrement for `str2`.
+4. If all counts are zero, the strings are anagrams.
 
-3. Iterate any of the input string to find the unicode of each character.
+Note:There are other approaches as well to validate anagrams
 
-4. Find the unicode for each index in both the strings.
+#### 2. Hash Map (for any characters)
 
-5. Calculate the index position of frequency array by substring the letter's ASCII value from unicode. Increment the frequency for first string and decrement the frequency for second string to balance the frequencies.
+1. If the strings are not the same length, return `false`.
+2. Count the frequency of each character in `str1` using a map.
+3. Decrement the count for each character in `str2`.
+4. If any count goes negative or a character is missing, return `false`.
+5. If the map is empty at the end, the strings are anagrams.
 
-6. Repeat steps 4-5 until there are no more characters in the string.
+#### 3. Sort and Compare
 
-7. Return `true` if every element's frequency is zero. Otherwise return `false` indicating that those two strings are not anagrams.
+1. If the strings are not the same length, return `false`.
+2. Sort both strings and compare them.
+
 
 **Time and Space complexity:**
 This algorithm takes a time complexity of `O(n)`, where `n` represents length of the string. This is because we are traversing the string at most once. 
 
 Also, it requires space complexity of `O(1)`(i.e, `O(26)`) due to no other data structure used except fixed 26 letter array for the character frequencies.
+
+The complexity of all approaches can be summarized as below,
+
+| Approach         | Time Complexity | Space Complexity |
+|------------------|----------------|-----------------|
+| Frequency Array  | O(n)           | O(1)            |
+| Hash Map         | O(n)           | O(n)            |
+| Sort & Compare   | O(n log n)     | O(n)            |

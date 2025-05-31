@@ -1,4 +1,10 @@
-// Using array:- TC:O(n) SC:O(1)
+/**
+ * Checks if two strings are anagrams using a frequency array (lowercase a-z only).
+ * TC: O(n), SC: O(1)
+ * @param {string} str1
+ * @param {string} str2
+ * @returns {boolean}
+ */
 function validAnagram1(str1, str2) {
     if(str1.length !== str2.length) return false;
 
@@ -14,7 +20,13 @@ function validAnagram1(str1, str2) {
     return charFrequencyArr.every((n) => n === 0);
 }
 
-// Using Map:- TC:O(n) SC: O(n)
+/**
+ * Checks if two strings are anagrams using a Map (works for any characters).
+ * TC: O(n), SC: O(n)
+ * @param {string} str1
+ * @param {string} str2
+ * @returns {boolean}
+ */
 function validAnagram2(str1, str2) {
     if(str1.length != str2.length) return false;
 
@@ -36,24 +48,34 @@ function validAnagram2(str1, str2) {
     return charMap.size === 0;
 }
 
-// Sort and compare:- TC: O(n logn) SC: O(n)
+/**
+ * Checks if two strings are anagrams by sorting and comparing.
+ * TC: O(n log n), SC: O(n)
+ * @param {string} str1
+ * @param {string} str2
+ * @returns {boolean}
+ */
 function validAnagram3(str1, str2) {
     if(str1.length !== str2.length) return false;
 
-    return reorderStr(str1) === reorderStr(str2);
+    return [...str1].sort().join('') === [...str2].sort().join('');
 }
 
-const reorderStr = (str) => 
-            str.split("")
-            .sort((a, b) => a.localeCompare(b))
-            .join("");
 
 
-let a1="anagram", a2="nagaram";
-console.log(validAnagram1(a1, a2));
-console.log(validAnagram2(a1, a2));
-console.log(validAnagram3(a1, a2));
-let b1="cat", b2="rat";
-console.log(validAnagram1(b1, b2));
-console.log(validAnagram2(b1, b2));
-console.log(validAnagram3(b1, b2));
+// Test cases
+const testCases = [
+    { str1: "anagram", str2: "nagaram", expected: true },
+    { str1: "rat", str2: "cat", expected: false },
+    { str1: "Listen", str2: "Silent", expected: true },
+    { str1: "aabbcc", str2: "abcabc", expected: true },
+    { str1: "aabbcc", str2: "aabbc", expected: false },
+    { str1: "123", str2: "321", expected: true },
+    { str1: "a!b@c", str2: "c!b@a", expected: true },
+];
+
+for (const { str1, str2, expected } of testCases) {
+    console.log(
+        `Input: "${str1}", "${str2}" | Array: ${validAnagram1(str1, str2)} | Map: ${validAnagram2(str1, str2)} | Sort: ${validAnagram3(str1, str2)} | Expected: ${expected}`
+    );
+}

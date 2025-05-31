@@ -6,48 +6,48 @@
  * @returns {string} The minimum window substring, or "" if no such window exists.
  */
 function minWindowSubstring(str, subStr) {
-    let windowStrCount = new Map();
-    let subStrCount = new Map();
+  let windowStrCount = new Map();
+  let subStrCount = new Map();
 
-    let minLength = Number.MAX_VALUE;
-    let subStrboundaries = [-1, -1];
+  let minLength = Number.MAX_VALUE;
+  let subStrboundaries = [-1, -1];
 
-    for(const ch of subStr) {
-        subStrCount.set(ch, (subStrCount.get(ch) || 0) + 1);
+  for(const ch of subStr) {
+    subStrCount.set(ch, (subStrCount.get(ch) || 0) + 1);
+  }
+
+  let having = 0, required = subStrCount.size;
+  let left = 0;
+
+  for(let right = 0; right < str.length; right++) {
+    let rightChar = str[right];
+
+    if(subStrCount.has(rightChar)) {
+      windowStrCount.set(rightChar, (windowStrCount.get(rightChar) || 0) +1);
+      if(subStrCount.get(rightChar) === windowStrCount.get(rightChar)) {
+        having++;
+      }
     }
 
-    let having = 0, required = subStrCount.size;
-    let left = 0;
+    while(required === having) {
+      if(minLength > right-left+1) {
+        minLength = right-left+1;
+        subStrboundaries[0] = left;
+        subStrboundaries[1] = right;
+      }
 
-    for(let right = 0; right < str.length; right++) {
-        let rightChar = str[right];
-
-        if(subStrCount.has(rightChar)) {
-            windowStrCount.set(rightChar, (windowStrCount.get(rightChar) || 0) +1);
-            if(subStrCount.get(rightChar) === windowStrCount.get(rightChar)) {
-                having++;
-            }
+      let leftChar = str[left];
+      if(subStrCount.has(leftChar)) {
+        windowStrCount.set(leftChar, windowStrCount.get(leftChar)-1);
+        if(windowStrCount.get(leftChar) < subStrCount.get(leftChar)) {
+          having--;
         }
-
-        while(required === having) {
-            if(minLength > right-left+1) {
-                minLength = right-left+1;
-                subStrboundaries[0] = left;
-                subStrboundaries[1] = right;
-            }
-
-            let leftChar = str[left];
-            if(subStrCount.has(leftChar)) {
-                windowStrCount.set(leftChar, windowStrCount.get(leftChar)-1);
-                if(windowStrCount.get(leftChar) < subStrCount.get(leftChar)) {
-                    having--;
-                }
-            }
-            left++;
-        }
+      }
+      left++;
     }
+  }
 
-    return minLength === Number.MAX_VALUE ? "" : str.substring(subStrboundaries[0], subStrboundaries[1]+1);
+  return minLength === Number.MAX_VALUE ? "" : str.substring(subStrboundaries[0], subStrboundaries[1]+1);
 }
 
 // Test cases
@@ -63,6 +63,6 @@ const testCases = [
 for (const { str, subStr, expected } of testCases) {
   const result = minWindowSubstring(str, subStr);
   console.log(
-    `Input: str="${str}", subStr="${subStr}" | Output: "${result}" | Expected: "${expected}"`
+      `Input: str="${str}", subStr="${subStr}" | Output: "${result}" | Expected: "${expected}"`
   );
 }
