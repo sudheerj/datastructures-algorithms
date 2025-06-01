@@ -1,68 +1,61 @@
-//Expanding around center:- TC:O(n) SC:O(n)
+/**
+ * Finds the longest palindromic substring in a given string using expand-around-center.
+ * @param {string} str
+ * @returns {string}
+ */
+function longestPalindromicSubstring(str) {
+  if (!str || str.length <= 1) return str;
 
-function longestPalindromicSubstring1(str) {
-    if(str.length <= 1) return str;
+  let left = 0,
+    right = 0;
 
-    let maxPalindromicSubstr = str.substring(0, 1);
+  for (let i = 0; i < str.length; i++) {
+    // Odd length palindrome
+    let [left1, right1] = expandAroundCenter(str, i, i);
+    // Even length palindrome
+    let [left2, right2] = expandAroundCenter(str, i, i + 1);
 
-    for (let i = 0; i < str.length; i++) {
-        let maxOddPalindromicSubstr = expandAroundCenter(str, i, i);
-        let maxEvenPalindromicSubstr =  expandAroundCenter(str, i, i+1);    
-
-        if(maxOddPalindromicSubstr.length > maxPalindromicSubstr.length) {
-            maxPalindromicSubstr = maxOddPalindromicSubstr;
-        }
-        if(maxEvenPalindromicSubstr.length > maxPalindromicSubstr.length) {
-            maxPalindromicSubstr = maxEvenPalindromicSubstr;
-        }
+    if (right1 - left1 > right - left) {
+      left = left1;
+      right = right1;
     }
-
-    return maxPalindromicSubstr;
+    if (right2 - left2 > right - left) {
+      left = left2;
+      right = right2;
+    }
+  }
+  return str.substring(left, right + 1);
 }
 
+/**
+ * Expands around the given center and returns the bounds of the palindrome.
+ * @param {string} str
+ * @param {number} left
+ * @param {number} right
+ * @returns {[number, number]}
+ */
 function expandAroundCenter(str, left, right) {
-    while(left >=0 && right < str.length && str[left] === str[right]) {
-        left--;
-        right++;
-    }
-
-    return str.substring(left+1, right);
+  while (left >= 0 && right < str.length && str[left] === str[right]) {
+    left--;
+    right++;
+  }
+  return [left + 1, right - 1];
 }
 
-//Expanding around center using redundant code block:- TC:O(n) SC:O(n)
-function longestPalindromicSubstring2(str) {
-    let longestSubstr ="";
-    let longestSubstrLen = 0;
-    let left = 0, right = 0;
+// Test cases
+const testCases = [
+  { str: "ababd", expected: "aba" },
+  { str: "dbbc", expected: "bb" },
+  { str: "babad", expected: "bab" }, // or "aba"
+  { str: "cbbd", expected: "bb" },
+  { str: "a", expected: "a" },
+  { str: "ac", expected: "a" }, // or "c"
+  { str: "", expected: "" },
+];
 
-    for(let i=0; i< str.length; i++) {
-        //Odd length
-        left = i; right = i;
-        while(left >=0 && right < str.length && str[left] === str[right]) {
-            if(right-left+1 > longestSubstrLen) {
-                longestSubstr = str.substring(left, right+1);
-                longestSubstrLen = right-left+1;
-            }
-            left--;
-            right++;
-        }
-        //Even length
-        left = i; right = i+1;
-        while(left >=0 && right < str.length && str[left] === str[right]) {
-            if(right-left+1 > longestSubstrLen) {
-                longestSubstr = str.substring(left, right+1);
-                longestSubstrLen = right-left+1;
-            }
-            left--;
-            right++;
-        }
-    }
-    return longestSubstr;
+for (const { str, expected } of testCases) {
+  const result = longestPalindromicSubstring(str);
+  console.log(
+    `Input: "${str}" | Output: "${result}" | Expected: "${expected}"`
+  );
 }
-
-let str1 = "ababd";
-let str2 = "dbbc";
-console.log(longestPalindromicSubstring1(str1));
-console.log(longestPalindromicSubstring1(str2));
-console.log(longestPalindromicSubstring2(str1));
-console.log(longestPalindromicSubstring2(str2));
