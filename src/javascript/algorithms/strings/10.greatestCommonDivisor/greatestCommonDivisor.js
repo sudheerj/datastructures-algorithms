@@ -1,53 +1,68 @@
-//1. GCD using Euclidean's algorithm TC: O(n+m)(i.e, O(n + m + log(min(n, m)))), SC: O(n+m)
-function gcdOfStrings1(string1, string2){
-    //Verify whether GCD strings exists or not
-    if(!(string1+string2 === string2+string1)) {
-        return false;
-    }
-
-    let gcdLength = gcd(string1.length, string2.length);
-    return string1.substring(0, gcdLength);
+/**
+ * Returns the greatest common divisor string of two input strings using Euclidean's algorithm.
+ * @param {string} str1
+ * @param {string} str2
+ * @returns {string}
+ */
+function gcdOfStrings(str1, str2) {
+  // If concatenation in both orders is not equal, no common divisor string exists
+  if (str1 + str2 !== str2 + str1) return "";
+  // GCD of lengths gives the length of the common divisor string
+  const gcdLength = gcd(str1.length, str2.length);
+  return str1.substring(0, gcdLength);
 }
 
+/**
+ * Returns the greatest common divisor of two numbers.
+ * @param {number} x
+ * @param {number} y
+ * @returns {number}
+ */
 function gcd(x, y) {
-    if(y === 0) {
-        return x;
-    }
-    return gcd(y, x%y);
+  if (y !== 0) {
+    return x;
+  }
+  return gcd(y, x%y);
 }
 
-// 2. BrutForce (Time complexity: O(min(m,n) . (m+n)), Space complexity: O(min(m,n)))
-function gcdOfStrings2(string1, string2) {
-    let l1 = string1.length;
-    let l2 = string2.length;
-
-    for(let i= Math.min(l1,l2); i >= 1; i--) {
-        if(hasGcdString(string1, string2, i)) {
-            return string1.substring(0, i);
-        }
+/**
+ * Brute-force approach to find the greatest common divisor string.
+ * @param {string} str1
+ * @param {string} str2
+ * @returns {string}
+ */
+function gcdOfStringsBruteForce(str1, str2) {
+  const minLen = Math.min(str1.length, str2.length);
+  for (let len = minLen; len > 0; len--) {
+    if (str1.length % len === 0 && str2.length % len === 0) {
+      const candidate = str1.substring(0, len);
+      if (
+        candidate.repeat(str1.length / len) === str1 &&
+        candidate.repeat(str2.length / len) === str2
+      ) {
+        return candidate;
+      }
     }
-
-    return "";
+  }
+  return "";
 }
 
-function hasGcdString(string1, string2, k) {
-    let l1 = string1.length;
-    let l2 = string2.length;
+// Test cases
+const testCases = [
+  { str1: "AB", str2: "AB", expected: "AB" },
+  { str1: "ABCABCABC", str2: "ABCABC", expected: "ABC" },
+  { str1: "ABABAB", str2: "AB", expected: "AB" },
+  { str1: "LEET", str2: "CODE", expected: "" },
+  { str1: "AAAAAA", str2: "AA", expected: "AA" },
+  { str1: "XYZ", str2: "XYZXYZ", expected: "XYZ" },
+  { str1: "A", str2: "A", expected: "A" },
+  { str1: "", str2: "", expected: "" },
+];
 
-    if(l1%k > 0 || l2%k >0) {
-        return false;
-    }
-
-    let f1= l1/k, f2 = l2/k;
-    let base = string1.substring(0, k);
-    return base.repeat(f1) === string1 && base.repeat(f2) === string2;
+for (const { str1, str2, expected } of testCases) {
+  const result = gcdOfStrings(str1, str2);
+  const brute = gcdOfStringsBruteForce(str1, str2);
+  console.log(
+    `Input: "${str1}", "${str2}" | GCD: "${result}" | Brute: "${brute}" | Expected: "${expected}"`
+  );
 }
-
-
-console.log(gcdOfStrings1("AB", "AB"));
-console.log(gcdOfStrings1("ABCABCABC", "ABCABC"));
-console.log(gcdOfStrings1("ABABAB", "AB"));
-
-console.log(gcdOfStrings2("AB", "AB"));
-console.log(gcdOfStrings2("ABCABCABC", "ABCABC"));
-console.log(gcdOfStrings2("ABABAB", "AB"));

@@ -1,35 +1,36 @@
-**Description:**
-Given two strings `str1` and `str2`, return the largest string `x` such that it divides both `str1` and `str2`.
+# Greatest Common Divisor of Strings
 
-**Note:** For any two strings `a` and `b`, we say "b divides a" if and only if `a = b + b +... + a`.
+Given two strings `str1` and `str2`, return the largest string `x` such that `x` divides both `str1` and `str2`.
 
-### Examples
-Example 1:
-Input: ["AB", "AB"]
-Output: ["AB"]
+**Note:** For any two strings `a` and `b`, we say "b divides a" if and only if `a = b + b + ... + b` (one or more times).
 
-Example 2:
-Input: ["ABCABCABC", "ABCABC"]
-Output: ["ABCABC"]
+## Examples
 
-Example 3:
-Input: ["ABABAB", "AB"]
-Output: ["AB"]
+**Example 1:**  
+Input: `str1 = "AB", str2 = "AB"`  
+Output: `"AB"`
 
+**Example 2:**  
+Input: `str1 = "ABCABCABC", str2 = "ABCABC"`  
+Output: `"ABC"`
 
-**Algorithmic Steps**
-This problem is solved with the help of basic string operations and **Euclidean's** algorithm. The algorithmic approach can be summarized as follows:
+**Example 3:**  
+Input: `str1 = "ABABAB", str2 = "AB"`  
+Output: `"AB"`
 
-1. Add a preliminary check if the two strings can be constructed from a common substring. It can be verified by comparing `str1+str2` with `str2+str1`. If they are not equal, there is no chanced of GCD.
+**Example 4:**  
+Input: `str1 = "LEET", str2 = "CODE"`  
+Output: `""`
 
-2. Implement a gcd of two string lengths using Euclidean's algorithm.
+## Algorithm
 
-3. Invoke the method created in step2 and assign to a variable `gcdLength`.
+This problem is efficiently solved using **Euclidean's algorithm** for GCD:
 
-4. Return a substring on either of strings( `str1` or `str2`) using 0 as first argument and `gcdLength` as second argument.
+1. If `str1 + str2 !== str2 + str1`, return `""` (no common divisor string exists).
+2. Compute the GCD of the lengths of `str1` and `str2`.
+3. The substring of length GCD from either string is the answer.
 
+## Complexity
 
-**Time and Space complexity:**
-This algorithm has a time complexity of `O(n+m)` where `n` is the length of first string and `m` is the length of second string. This is because both the string concatenation and comparison takes will time complexity of `O(n+m)` individually. Also, Euclid's algorithm takes time complexity of `O(log(min(n, m)))`. So, the overall time complexity combining these operations resulting in `O(n + m + log(min(n, m))) ~= O(n+m)`.
-
-Also, it takes space complexity of `O(n+m)` due to additional space required for concatenated strings.
+- **Time Complexity:** O(n + m), where n and m are the lengths of the two strings (for concatenation and comparison), plus O(log(min(n, m))) for the GCD calculation.
+- **Space Complexity:** O(n + m), for the concatenated strings.
