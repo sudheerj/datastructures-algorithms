@@ -1,38 +1,75 @@
+# Longest Increasing Subsequence (LIS)
+
 **Description:**
-Given an array of integers `nums`, find the length of the longest increasing subsequence.
+Given an array of integers `nums`, find the length of the longest strictly increasing subsequence.
+
+**Constraints:**
+- `1 <= nums.length <= 2500`
+- `-10^4 <= nums[i] <= 10^4`
 
 ## Examples:
 Example 1:
 
-Input: nums = [9,7,1,4,2,6,10,12]
-Output: 4
+Input: nums = [9, 7, 1, 4, 2, 6, 10, 12]
+Output: 5
 
-Example 2: 
+Example 2:
 
-Input: nums = [5,4,3,2,1]
+Input: nums = [5, 4, 3, 2, 1]
 Output: 1
 
-**Algorithmic Steps(Approach 1&2)**
-This problem is solved efficiently using **dynamic programming** approach by avoiding the recomputations of same subproblems. The algorithmic approach can be summarized as follows: 
+Example 3:
 
-1. Create an array(`dp`) to hold the longest increasing sequence(`LHS`) for each number of input array. Initialize the array values with `1` considering the minimum possible longest sequence with each letter.
-   
-2. Initialize the maximum length of substring found so far(`maxLength`) with `1`.
-   
-3. Iterate each element from last to beginning of an input array using an index variable(`i`). Here, we are following bottom to top dynamic programming approach.
+Input: nums = [1, 3, 4, 6, 7, 8]
+Output: 6
 
-4. Add a nested loop to iterate the elements which exists next to outer index position. i.e, `j = i+ 1`
+Example 4:
 
-5. Compare the outer index position value with nested index position value. If the outer index position value is less than nested position value, find the maximum value between outer index position value and nested index position value incremented by one. The maximum value needs to be stored in the particular position of `LHS` array.
+Input: nums = [2, 2, 2, 2]
+Output: 1
 
-6. Repeat step 5 for each outer index position.
-   
-7. Update the maximum sequence by calculating the maximum of current maximum and longest sequence stored for each outer index position.
+Example 5:
 
-8. Return `maxLength` after the outer loop which indicates longest increasing sequence.
+Input: nums = []
+Output: 0
 
+#### Visualization
+![Screenshot](../../../../images/lis.png)
+### Approaches
+
+#### 1. Dynamic Programming (O(n^2))
+- For each element, look at all following elements to build up the length of the LIS ending at that element.
+
+**Steps:**
+
+1. Create an array `dp` of the same length as `nums`, initialized to 1 (each element is an LIS of length 1 by itself).
+2. For each index `i` from the end to the start:
+    - For each index `j` from `i+1` to the end:
+        - If `nums[i] < nums[j]`, set `dp[i] = max(dp[i], 1 + dp[j])`.
+3. The answer is the maximum value in `dp`.
+
+#### 2. Patience Sorting / Binary Search (O(n log n))
+- Use a list to keep track of the smallest possible tail of all increasing subsequences of different lengths.
+
+**Steps:**
+1. Initialize an empty array `tails`.
+2. For each number in `nums`:
+    - Use binary search to find the leftmost index in `tails` where the number is not less than the current number.
+    - If such an index exists, replace `tails[index]` with the number; otherwise, append the number to `tails`.
+3. The length of `tails` is the length of the LIS.
+
+| Approach      | Time Complexity | Space Complexity | Notes              |
+| ------------- | --------------- | ---------------- | ------------------ |
+| DP (O(n^2))   | O(n^2)          | O(n)             | Simple, clear      |
+| Binary Search | O(n log n)      | O(n)             | Fastest, preferred |
+
+#### Edge Cases
+- Empty array: Should return 0.
+- All elements equal: Should return 1.
+- Strictly decreasing: Should return 1.
+- Strictly increasing: Should return length of array.
+- Invalid input (not an array): Should throw an error.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of `O(n * 2)`, where `n` is the number of elements in a given array. This is because we are traversing all the elements and finding the longest sequence for each element. 
-
-Here, we will use array datastructure to store the longest increasing sequence for each element. Hence, the space complexity will be `O(n)`.
+- The dynamic programming approach has a time complexity of `O(n^2)`, where `n` is the number of elements in the array, because for each element we may compare it to every other element after it. The space complexity is `O(n)` due to the `dp` array.
+- The patience sorting (binary search) approach has a time complexity of `O(n log n)` and a space complexity of `O(n)`, as it maintains a list of tails for the subsequences.
