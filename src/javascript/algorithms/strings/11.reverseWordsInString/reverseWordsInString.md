@@ -1,33 +1,31 @@
 **Description:**
-Given an input string `str`, Return a string of the words in reverse order concatenated by a single space without having extra spaces.
+Given an input string `str`, return a string of the words in reverse order, concatenated by a single space, without extra spaces.
 
-### Examples
-Example 1:
-Input: "It is fun to learn DSA"
-Output: "DSA learn to fun is It"
+## Examples
 
-Example 2:
-Input: "hello DSA"
-Output: "DSA hello"
+**Example 1:**  
+Input: `"It is fun to learn DSA"`  
+Output: `"DSA learn to fun is It"`
 
-**Algorithmic Steps**
-This problem is solved with the help of basic string and array operations. The algorithmic approach can be summarized as follows:
+**Example 2:**  
+Input: `"hello DSA"`  
+Output: `"DSA hello"`
 
-1. Split the input sentence `str` into array of words based on a space separator(one or more spaces). Store the result into `words` variable.
+**Example 3:**  
+Input: `"   "`  
+Output: `""`
 
-2. Initialize two pointers (`left` and `right`) pointing to the beginning and ending index of the sentence.
+## Algorithm
 
-3. Iterate over the input sentence until left pointer is less than or equal to right pointer.
+This problem is efficiently solved using basic string and array operations:
 
-4. Swap the words indexed with left and right pointers.
+1. Trim the input string to remove leading and trailing spaces.
+2. Split the string into an array of words using a regular expression that matches one or more spaces.
+3. Reverse the array of words.
+4. Join the reversed words with a single space.
+5. Return the result.
 
-5. Shrink the window by incrementing left pointer and decrementing the right pointer.
+## Complexity
 
-6. Repeat steps 4-5 until the iteration condition failed.
-
-7. Join the reversed words with a space delimiter and return the result.
-
-**Time and Space complexity:**
-This algorithm has a time complexity of `O(n)` where `n` is the length of first string. This is because we need to traverse the string at once for splitting the string based on a space, reversing the string, and joining the words back to a string. All these operations requires `O(n)`. Since all these operations performed sequentially, the overall time complexity combining these operations doesn't exceed `O(n)`.
-
-Also, it takes space complexity of `O(n)` due to storing all the characters in an array.
+- **Time Complexity:** O(n), where n is the length of the string (for splitting, reversing, and joining).
+- **Space Complexity:** O(n), for storing the array of words.
