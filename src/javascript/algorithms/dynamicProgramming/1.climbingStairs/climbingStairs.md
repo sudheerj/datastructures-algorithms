@@ -1,38 +1,63 @@
+# Climbing Stairs
+
 **Description:**
-You are required to climb a staircase that consists of `n` individual steps. Determine the total number of distinct ways to reach the top of the staircase.
+Given a staircase with `n` steps, each time you can climb either 1 or 2 steps. Return the number of distinct ways to reach the top.
 
-**Note:** Each time you can either climb 1 or 2 steps.
+**Constraints:**
+- `0 <= n <= 100`
+- Input must be a non-negative integer.
 
-## Examples:
-Example 1:
+#### Examples
+| n   | Output | Explanation           |
+| --- | ------ | --------------------- |
+| 0   | 0      | No steps to climb     |
+| 1   | 1      | Only one way (1)      |
+| 2   | 2      | (1+1), (2)            |
+| 3   | 3      | (1+1+1), (1+2), (2+1) |
+| 5   | 8      |                       |
+| 6   | 13     |                       |
 
-Input: n = 5
-Output: 8
+### Approaches
 
-Example 2: 
+#### 1. Recursive with Memoization
+- Recursively compute the number of ways for `n-1` and `n-2` steps, memoizing results to avoid recomputation.
 
-Input: n = 6
-Output: 13
+**Steps:**
+1. If `n` is 0 or 1 or 2, return `n` (base cases: 0 ways for 0 steps, 1 way for 1 step, 2 ways for 2 steps).
+2. Use a memoization object (or array) to store results for each value of `n` to avoid redundant calculations.
+3. For each call, check if the result for `n` is already in the memo. If so, return it.
+4. Otherwise, recursively calculate the number of ways for `n-1` and `n-2` steps.
+5. Store the result in the memo and return the sum.
 
-**Algorithmic Steps(Approach 1&2)**
-This problem is solved efficiently using **dynamic programming** approach by avoiding the recomputations of same subproblems. The algorithmic approach can be summarized as follows: 
+#### 2. Dynamic Programming (Bottom-Up Array)
+- Build up the solution from 0 to n using an array.
 
-1. Add a preliminary check like if the step value is less than or equal to 2, return the possible ways to reach them as step's value.
+**Steps:**
+1. If `n` is 0 or 1 or 2, return `n` (base cases).
+2. Create an array `dp` of size `n+1` to store the number of ways to reach each step.
+3. Initialize `dp[0] = 1` (1 way to stay at the bottom) and `dp[1] = 1` (1 way to reach the first step).
+4. Iterate from step 2 to `n`:
+    - For each step `i`, set `dp[i] = dp[i-1] + dp[i-2]` (ways to reach current step is sum of ways to reach previous step and two steps before).
+5. Return `dp[n]` as the answer.
 
-2. Create two variables(`first` and `second`) to store the possible ways to reach the current step and the next step. Since the first step takes one possible way and second step takes two possible ways, those varaibles needs to be  initialized to 1 & 2 respectively.
+#### 3. Optimized Dynamic Programming (Fibonacci)
+- Only keep track of the last two results, reducing space to O(1).
 
-3. Iterate `n-1` times to calculate the next step until `n`th step is reached.
+**Steps:**
+1. If `n` is 0 or 1 or 2, return `n` (base cases).
+2. Initialize two variables: `first = 1` (ways to reach step 0), `second = 1` (ways to reach step 1).
+3. Iterate from step 2 to `n`:
+    - For each step, calculate the new number of ways as `first + second`.
+    - Update `first` to `second`, and `second` to the new value.
+4. After the loop, `second` contains the number of ways to reach the top.
 
-4. The number of possible ways to reach next step is the combination of previous two steps possibilities. Because any particular step is reached either through 1 step or 2 steps.
+| Approach       | Time Complexity | Space Complexity | Notes                |
+| -------------- | --------------- | ---------------- | -------------------- |
+| Recursive+Memo | O(n)            | O(n)             | Elegant, not fastest |
+| DP Array       | O(n)            | O(n)             | Simple, clear        |
+| Optimized DP   | O(n)            | O(1)             | Best for large n     |
 
-5. Calculate the sum of first and second pointers in a temporary variable(`temp`). Assign the second pointer variable to first and update the second pointer variable to temporary variable.
-
-6. Repeat steps 4-5 until the nth step is reached.
-
-7. Return second pointer value which indicates the possible ways to reach top stair.
-
-
-**Time and Space complexity:**
-This algorithm has a time complexity of `O(n)`, where `n` is the number of steps. This is because we are traversing all the steps to calculate the possible ways for nth step. 
-
-Here, we don't use any additional datastructure other than two variables. Hence, the space complexity will be `O(1)`.
+### Edge Cases
+- `n = 0`: No steps, 0 ways.
+- `n = 1`: Only one way.
+- Negative or non-integer input: Should throw an error.
