@@ -1,36 +1,48 @@
 **Description:**
-Given an integer array `nums` where `nums[i]` represents the amount of money in the `ith` house. Calculate the maximum amount of money you can rob from the houses. Remember that you cannot rob two adjacent houses because the security system will automatically alert the police if two adjacent houses were broken into on the same night.
 
-## Examples:
-Example 1:
+Given an integer array `nums` representing the amount of money stashed at each house, return the maximum amount of money you can rob tonight without alerting the police (i.e., you cannot rob two adjacent houses).
 
-Input: nums1 = [1,5,7,2,4]
+**Edge Cases:**
+- Empty array: should return 0.
+- Single house: should return the value of that house.
+- All houses have 0 money.
+
+## Examples
+
+**Example 1:**
+```
+Input: nums = [1, 5, 7, 2, 4]
 Output: 12
+Explanation: Rob houses 1, 3, and 5 (1 + 7 + 4 = 12).
+```
 
-Example 2: 
-
-Input: nums2 = [8, 1, 2, 9]
+**Example 2:**
+```
+Input: nums = [8, 1, 2, 9]
 Output: 17
+Explanation: Rob houses 1 and 4 (8 + 9 = 17).
+```
 
-**Algorithmic Steps(Approach 1&2)**
-This problem is solved efficiently using **Fibonacci pattern bottom-up dynamic programming** approach by avoiding the recomputations of same subproblems. The algorithmic approach can be summarized as follows: 
+**Example 3 (Edge):**
+```
+Input: nums = []
+Output: 0
+```
 
-1. Initialize first(`rob1`) and second(`rob2`) houses money with zero.
-   
-2. Iterate over all the houses and get the money at each `i`th house.
+**Example 4 (Edge):**
+```
+Input: nums = [0, 0, 0]
+Output: 0
+```
 
-3. Find the maximum possible money which can be robbed at each house. This is calculated by taking the maximum between sum of current house with second previous house and previous house money. This maximum money can be stored in a temporary varaible(`newRob`).
-   
-4. Move `rob1` pointing to next house(`rob2`). i.e, `rob1 = rob2`.
-      
-5. Update `rob2` pointing to current house(`newRob`) where the maximum possible money which can robbed at night is stored.
+## Algorithm steps
+This problem is solved **Fibonacci pattern bottom-up dynamic programming** approach by avoiding the recomputations of same subproblems.
 
-6. Repeat steps 3-5 until all the houses visited.
+1. If `nums` is empty, return 0. If it has one element, return that element.
+2. Use two variables (`rob1`, `rob2`) to keep track of the max money robbed up to the previous two houses.
+3. For each house, calculate the max of (current house + `rob1`) and `rob2`.
+4. Update `rob1` and `rob2` as you iterate.
+5. Return the final value of `rob2`.
 
-7. Return `rob2` which contains the maximum possible money which you can rob in the sequence of houses
-
-
-**Time and Space complexity:**
-This algorithm has a time complexity of `O(n)`, where `n` is the number of houses with money stashed. This is because we need to traverse over each house to find the maximum money. 
-
-Here, we are not using any additonal datastructure other than two variables to store money. Hence, the space complexity will be `O(1)`.
+**Time Complexity:** This algorithm has a time complexity of `O(n)`, where `n` is the number of houses with money stashed. This is because we need to traverse over each house to find the maximum money.
+**Space Complexity:** We are not using any additonal data structure other than two variables to store money. Hence, the space complexity will be `O(1)`.

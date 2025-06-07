@@ -1,13 +1,15 @@
-//TC: O(2n) ~O(n), SC:O(1)
+// House Robber II (Circular Houses)
+// TC: O(n), SC: O(1)
+function houseRobber2(nums) {
+  if (nums.length === 0) return 0;
+  if (nums.length === 1) return nums[0];
 
-function rob(nums){
-    if(nums.length === 0) return 0;
-    if(nums.length === 1) return nums[0];
-
-    return Math.max(robHelper(nums, 0, nums.length-2), robHelper(nums, 1, nums.length-1));
+  // Exclude first or last house
+    return Math.max(robLinear(nums, 0, nums.length-2), robLinear(nums, 1, nums.length-1));
 }
 
-function robHelper(nums, start, end) {
+// Helper to rob linear houses
+function robLinear(nums, start, end) {
     let rob1 = 0, rob2 = 0;
     for(let i=start; i<= end; i++) {
         let newRob = Math.max(nums[i]+rob1, rob2);
@@ -17,7 +19,19 @@ function robHelper(nums, start, end) {
     return rob2;
 }
 
-let nums1 = [1, 5, 7, 2, 4], nums2=[1, 2, 3], nums3=[3];
-console.log(rob(nums1));
-console.log(rob(nums2));
-console.log(rob(nums3));
+// Test cases
+let testCases = [
+  [],
+  [5],
+  [2, 1],
+  [1, 5, 7, 2, 4],
+  [1, 2, 3],
+  [3],
+  [2, 3, 2],
+  [0, 0, 0],
+];
+for (const nums of testCases) {
+  console.log(
+    `Input: ${JSON.stringify(nums)} | Robber2: ${houseRobber2(nums)}`
+  );
+}

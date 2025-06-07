@@ -1,44 +1,50 @@
 **Description:**
-Given a string `str` and a dictionary of strings `wordDict`,  determine if the string `str` can be split into a sequence of one or more words that exist in the dictionary.
+Given a string `str` and a dictionary of strings `wordDict`, determine if `str` can be segmented into a space-separated sequence of one or more dictionary words. Each word in the dictionary can be reused any number of times.
 
 **Note:** A word from the dictionary can be used multiple times if required.
 
-## Examples:
-Example 1:
+**Edge Cases:**
+- Empty string: should return `true` (an empty string can be segmented trivially).
+- Empty dictionary: should return `false` unless the string is also empty.
+- String cannot be segmented: e.g., `str = "catsandog"`, `wordDict = ["cats","dog","sand","and","cat"]`.
+- String can be segmented in multiple ways: e.g., `str = "applepenapple"`, `wordDict = ["apple", "pen"]`.
 
-Input: str1 = 'applepenapple', wordDict1 = ["pen", "apple"]
+#### Examples
+
+**Example 1:**
+```
+Input: str = "applepenapple", wordDict = ["apple", "pen"]
 Output: true
+Explanation: "applepenapple" can be segmented as "apple pen apple".
+```
 
-Example 2: 
-
-Input: str2 = "catsandog", wordDict2 = ["cats","dog","sand","and","cat"]
+**Example 2:**
+```
+Input: str = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
 Output: false
+Explanation: The string cannot be segmented.
+```
 
-**Algorithmic Steps(Approach 1&2)**
-This problem is solved efficiently using **bottom-up dynamic programming** approach by avoiding the recomputations of same subproblems. The algorithmic approach can be summarized as follows: 
+**Example 3 (Edge):**
+```
+Input: str = "", wordDict = ["a"]
+Output: true
+```
 
-1. Create an array(`dp`) with the size of `length+1`, where `length` is the number of characters in a string. This array is used to hold true/false values based on a condition that dictionary words exists in a sentence or not at a particular position. By default, all values are initialized to `false`.
-   
-2. The main intution of this algorithm is based on bottom up dynamic programming. So the given string is traversed in a reversed order.
-   
-3. The last element of an array points to out of bounds position in a string. This position is considered as a base case by initializing its value to `true` because empty string always exist in the dictionary.
-      
-4. Iterate given string(`str`) element from last character to first using an index variable(`i`).
+**Example 4 (Edge):**
+```
+Input: str = "a", wordDict = []
+Output: false
+```
 
-5. For each iteration of step4, verify the existance of each word from dictionary in the given string. i.e, Run another loop to iterate the words from dictionary.
+#### Algorithm steps
+This problem is efficiently solved using bottom-up dynamic programming approach by avoiding the recomputations of same subproblems.
 
-6. If the below two conditions satisfied, update the `dp` value of respective index position(`i`) with preivously calculated word value(`dp[i+word.length]`).
-    1. Sum of index variable(`i`) and word length is less than string's length, 
-    2. And the substring of a given string exists in dictionary 
+1. Create a boolean array `dp` of size `str.length + 1`, where `dp[i]` means `str[i:]` can be segmented. Initialize all to `false` except `dp[str.length] = true` (empty string is always segmentable).
+2. Iterate `i` from `str.length - 1` down to `0`:
+    - For each word in `wordDict`, check if `str` starts with that word at position `i`.
+    - If it does, and `dp[i + word.length]` is `true`, set `dp[i] = true` and break.
+3. Return `dp[0]`.
 
-7. If the array value at index position `i` is `true`(i.e, there is a word exists in the dictionary), just break from the current iteration to continue with next word.
-
-8. Repeat steps 5-7 until the end of given string.
-   
-9. Return boolean value at first index position `dp[0]`, which indicates whether all the split words exists in the dictionary or not.
-
-
-**Time and Space complexity:**
-This algorithm has a time complexity of `O(n^2 * m)`, where `n` is the number of characters in a string and `m` is the number of words with in a dictionary. This is because for each character we are comparing the word exists in a string. 
-
-Here, we will use an array datastructure to store true/false value for each index position. Hence, the space complexity will be `O(n)`.
+**Time Complexity:** `O(n * m * k)` where `n` is the string length, `m` is the number of words, and `k` is the average word length.
+**Space Complexity:** `O(n)`. We will use an array data structure to store true/false value for each index position. Hence, the space complexity will be `O(n)`.

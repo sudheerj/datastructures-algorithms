@@ -1,43 +1,64 @@
 **Description:**
-Given a string `str` that consists only of digits. The string can be decoded into a set of alphabet letters where '1' can be indicated as 'A', '2' as 'B', ... , '26' as 'Z'. Calculate the number of different ways the given digit string can be decoded into alphabets.
+Given a string `str` containing only digits, return the number of ways to decode it, where 'A' = 1, 'B' = 2, ..., 'Z' = 26. Each digit or pair of digits can be mapped to a letter if it forms a valid code.
 
-## Examples:
-Example 1:
+**Edge Cases:**
+- Empty string: should return 0.
+- String starts with '0': should return 0.
+- String contains invalid '0' placements (e.g., '100').
 
-Input: str1 = "221"
+## Examples
+
+**Example 1:**
+```
+Input: str = "221"
 Output: 3
+Explanation: "221" can be decoded as "BBA", "U A", or "B U".
+```
 
-Example 2: 
-
-Input: str2 = "09"
+**Example 2:**
+```
+Input: str = "09"
 Output: 0
+Explanation: No valid decoding starts with '0'.
+```
 
-**Algorithmic Steps(Approach 1&2)**
-This problem is solved efficiently using **Dynamic programming** approach by avoiding the recomputations of same subproblems. The algorithmic approach can be summarized as follows: 
+**Example 3 (Edge):**
+```
+Input: str = "12"
+Output: 2
+Explanation: "AB" (1 2) and "L" (12).
+```
 
-   
-1. Add base case conditions for empty and one digit strings. If either length of the string or first character is zero(`str.length === 0 || str[0] === '0'`), return zero as number of possible ways to decode. In case there is only one character(`str.length === 1`), return the one possible way as output.
-   
-2. Initialize two variables(`prevCount1` and `prevCount2`) which represent number of ways to decode single character and two character digits to 1. This is because there will be only way to decode empty string and one character digit.
-   
-3. Iterate over each digit starting from second character to end of the string using index variable `i`.
+**Example 4 (Edge):**
+```
+Input: str = "0"
+Output: 0
+```
 
-4. For each iteration, calculate the single digit and two digit characters for each character.
-   
-5. Create a temporary variable(`count=0`) to store the number of possible ways for each digit.
+**Example 5 (Edge):**
+```
+Input: str = "10"
+Output: 1
+Explanation: Only "J" (10).
+```
 
-6. If the single digit is greater than or equal to 1, update the `count` value by adding single digit possible ways(i.e, `prevCount1`).
-   
-7. If the double digit is between 10 and 26, update the `count` value by adding two digit possible ways(i.e, `prevCount2`).
-      
-8. Move `prevCount1` to `prevCount2` and update `prevCount2` to latest `count` value to proceed with next character.
+---
 
-9.   Repeat steps 4-8 until all digits traversed.
+#### Algorithm (Dynamic Programming)
+This problem is solved using dynamic programming:
 
-10. Return `prevCount2` which holds the total possible ways to decode the given string. 
+1. If the string is empty or starts with '0', return 0.
+2. Use two variables (or a DP array) to keep track of the number of ways to decode up to the previous one and two characters.
+3. For each character, check:
+    - If the current digit is greater than or equal to '0', add the number of ways up to the previous character.
+    - If the two-digit number formed with the previous character is between 10 and 26, add the number of ways up to two characters before.
+4. Return the final count.
+
+#### Time and Space complexity:**
+
+**Time Complexity:** `O(n)` - This algorithm has a time complexity of `O(n)`, where `n` is the number of digits in the given string. This is because we need to traverse each character at most once to find the possible ways to decode.
+
+**Space Complexity:** `O(1)` (or `O(n)` if using a DP array) - Here, we are not using any additional data structure other than two variables to store number of ways. Hence, the space complexity will be `O(1)`.
 
 
-**Time and Space complexity:**
-This algorithm has a time complexity of `O(n)`, where `n` is the number of digits in the given string. This is because we need to traverse each character at most once to find the possible ways to decode. 
 
-Here, we are not using any additonal datastructure other than two variables to store number of ways. Hence, the space complexity will be `O(1)`.
