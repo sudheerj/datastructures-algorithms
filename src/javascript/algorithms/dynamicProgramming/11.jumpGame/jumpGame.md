@@ -1,40 +1,65 @@
 **Description:**
-Given an integer array `nums` where each element `nums[i]` indicates your maximum jump length at that position. Return `true` if you can reach the last position starting from first position, or `false` otherwise.
 
-**Note:** If the jump value is 0, then you cannot move forward from that position.
+Given an array `nums` where each element represents your maximum jump length at that position, return `true` if you can reach the last index starting from the first index, or `false` otherwise.
 
-## Examples:
-Example 1:
+**Edge Cases:**
+- Single element: Always true.
+- First element is 0 and length > 1: False.
+- All zeros except first: Only true if length is 1.
+- Large arrays: Use greedy for efficiency.
 
-Input: nums = [3,2,1,1,4]
+## Examples
+
+**Example 1:**
+```
+Input: nums = [2,3,1,1,4]
 Output: true
+Explanation: You can reach the end.
+```
 
-Example 2: 
-
-Input: nums = [3,2,1,0,5]
+**Example 2:**
+```
+Input: nums = [3,2,1,0,4]
 Output: false
+Explanation: Stuck at index 3.
+```
 
-**Algorithmic Steps(Approach 1&2)**
-This problem is solved efficiently using **Dynamic programming** approach by avoiding the recomputations of same subproblems. The algorithmic approach can be summarized as follows: 
+**Example 3 (Edge):**
+```
+Input: nums = [0]
+Output: true
+```
 
-1. Calculate the length of input array `nums` in a variable `length`.
-   
-2. Add base case conditions by returning `true` if the length of the array is one and return `false` if the first character is zero when there are more than one character. This is because if the length is one, you already reached the destination. Also, there is no way to reach the destionation if the first character is zero.
+**Example 4 (Edge):**
+```
+Input: nums = [1,2,0,1]
+Output: true
+```
 
-3. Initialize an array(`dp`) with the same length of an input array. By default, all values are assigned to `false`. However, the first value is initialized to `true` because you can reach the destination without any jumps.
-   
-4. Iterate over all the elements starting from second position to last position using index variable `i`.
-   
-5. For each iteration `i`, 
-    1. Iterate over all the elements using index variable `j` until before the outer index varaible(`i`) .
-        1. For each iteration `j`, update the jump status for index `i` to true when the jump status on index `j` is `true` and sum of index position and it's value greater than or equal to outer index variable.
-        2. Exit from the nested iteration once the previous step conditions are statified. i.e, You can able to jump to specific position of the outer index.
-   
-6. Repeat step5 until all the last element.
-7. Return the jump status of last index position(`dp[length-1]`) which indicates whether you can jump to end or not.
+## Algorithm steps
+This problem can be solved using **dynamic programming** or a more efficient **greedy** approach.
 
+#### 1. Dynamic Programming (DP)
+
+1. (DP) Use a boolean array `dp` where `dp[i]` is true if index `i` is reachable.
+2. For each index, check if it can be reached from any previous index with a valid jump.
+3. Return `dp[nums.length - 1]`.
+
+#### 2. Greedy Approach
+
+1. Track the furthest index you can reach.
+2. For each index, if it's within the furthest reach, update the reach.
+3. If you reach or pass the last index, return true.
+4. If you finish the loop without reaching the end, return false.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of `O(n ^ 2)`, where `n` is the number of elements. This is because we need to traverse each element and find the jump status from the starting position. 
+This algorithm has a time complexity of `O(n ^ 2)`, where `n` is the number of elements. This is because we need to traverse each element and find the jump status from the starting position.
 
 Here, we are using `dp` array to store the jump status for each element. Hence, the space complexity will be `O(n)`.
+
+
+| Approach | Time Complexity | Space Complexity | Notes                |
+| -------- | --------------- | ---------------- | -------------------- |
+| DP       | O(n^2)          | O(n)             | Simple, not optimal  |
+| Greedy   | O(n)            | O(1)             | Best for large input |
+

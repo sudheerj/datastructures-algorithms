@@ -50,7 +50,7 @@ This problem is solved using dynamic programming:
 1. If the string is empty or starts with '0', return 0.
 2. Use two variables (or a DP array) to keep track of the number of ways to decode up to the previous one and two characters.
 3. For each character, check:
-    - If the current digit is greater than or equal to '0', add the number of ways up to the previous character.
+    - If the current digit is greater than or equal to '1', add the number of ways up to the previous character.
     - If the two-digit number formed with the previous character is between 10 and 26, add the number of ways up to two characters before.
 4. Return the final count.
 

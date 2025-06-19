@@ -1,5 +1,5 @@
 //Greedy:- TC:O(n) SC:O(1)
-function canJump1(nums) {
+function canJumpGreedy(nums) {
     let goalPost = nums.length-1;
 
     for(let i = nums.length-1; i>=0; i--) {
@@ -11,8 +11,8 @@ function canJump1(nums) {
     return goalPost === 0;
 }
 
-//DP:- TC:O(n*2) SC:O(n)
-function canJump2(nums) {
+// Dynamic Programming Approach: TC: O(n^2), SC: O(n)
+function canJumpDP(nums) {
     let length = nums.length;
 
     if(length === 1) return true;
@@ -25,7 +25,7 @@ function canJump2(nums) {
         for(let j=0; j<i; j++) {
             if(dp[j] && j + nums[j] >=i) {
                 dp[i] = true;
-                break;
+                break; // No need to check further if we already found a valid jump
             }
         }
     }
@@ -34,7 +34,7 @@ function canJump2(nums) {
 
 let nums1 = [3,2,1,1,4];
 let nums2 = [3,2,1,0,5];
-console.log(canJump1(nums1));
-console.log(canJump1(nums2));
-console.log(canJump2(nums1));
-console.log(canJump2(nums2));
+console.log(canJumpGreedy(nums1));
+console.log(canJumpGreedy(nums2));
+console.log(canJumpDP(nums1));
+console.log(canJumpDP(nums2));
