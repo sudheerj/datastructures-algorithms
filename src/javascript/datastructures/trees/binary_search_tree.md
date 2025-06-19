@@ -1,58 +1,152 @@
-A Binary Search Tree (BST) is a binary tree where every node in the left subtree is less than the root, and every node in the right subtree is of a value greater than the root. This datastructure is mainly used for operations like search, delete, and insert. These operations are fast and efficient without shifting values in memory.
+# Binary Search Tree (BST)
 
-**Note:** Each left and right subtrees must also be Binary Search Tree.
+A Binary Search Tree (BST) is a hierarchical data structure where each node has at most two children, and the values are organized in a specific order: all values in the left subtree are less than the root, and all values in the right subtree are greater than the root.
 
-### Types of BSTs:
+## Properties
+- **Left Subtree**: All nodes have values less than the parent node
+- **Right Subtree**: All nodes have values greater than the parent node
+- **No Duplicates**: Each value appears only once (in this implementation)
+- **Recursive Structure**: Each subtree is also a BST
 
-1. **Full Binary Search Tree:**  Each node will have either 0 or 2 children
-2. **Complete Binary Search Tree:** All the levels of the tree are filled completely except possibly the lowest level nodes which are filled from the left.
-3. **Perfect Binary Search Tree:** It is both full and complete BST. In which, all the leaf nodes are at the same depth, and all non-leaf nodes have two children.
+## Types of BSTs
 
-The structure of binary search tree looks like below,
+1. **Full Binary Search Tree**: Each node has either 0 or 2 children
+2. **Complete Binary Search Tree**: All levels are filled except possibly the last level, which is filled from left to right
+3. **Perfect Binary Search Tree**: Both full and complete, with all leaf nodes at the same depth
 
-   ![Screenshot](../../../images/bst.png)
+## Structure
+![Screenshot](../../../images/bst.png)
 
-The tree can have the following functionalities,
+## Methods
 
-1. **Insert:** This method is used to insert a new node inside BST based on node's value. If the root node is null, update the root node with newnode and return the tree. Otherwise, you need to traverse the tree using a loop and insert the new node based on its value. i.e, First, assign the root node as current node. If the node value is less than current node, the node needs to be inserted on left subtree. Otherwise, the new node needs to be inserted on right subtree. The iteration continues until the node is inserted or already exists.
-   
-2. **Lookup:** The lookup method finds a node in tree. If the root is null, just return false. Otherwise traverse the tree starting from root node. If the given value is less than current node' value, the left subtree needs to traversed. If not, the right subtree needs to be traversed to find the value. In case, the value is equal to particular node value, return true to indicate that the value exists.
-   
-3. **Min value node**: The minimum value of a particular tree is identified on left subtree. If the left node doesn't exists, the current value will become the minimum value node.
-   
-4. **Max value node**: The maximum value of a particular tree is identified on right subtree. If the right node doesn't exists, the current value will become the maximum value node.
-   
-5. **BFS traversal:** BSF begins with a particular node, and then first traverses all its adjacent. Once all adjacent are visited, then their adjacent are traversed. i.e, It visits the nodes level by level. 
+### 1. Insert
+**Description**: Inserts a new value into the BST while maintaining the BST property.
 
-   ![Screenshot](../../../images/bfs-traversal.png)
-   
-    The BFS traversal is implemented in the below step by step manner.
-   
-   1. Initially, the current node(`current`) is set to the root of the binary tree to indicate the starting point of the traversal.
+**Algorithm**:
+1. If the tree is empty, create a new root node
+2. Compare the new value with the current node
+3. If the value is less than the current node, go to the left subtree
+4. If the value is greater than the current node, go to the right subtree
+5. If the value is equal, do nothing (duplicate handling)
+6. Repeat until finding an empty position and insert the new node
 
-   2. An empty array `output` is initialized to store the node values in the order they are visited.
+**Time Complexity**: O(h) where h is the height of the tree
+- Best case: O(log n) for balanced trees
+- Worst case: O(n) for skewed trees
 
-   3. An empty array `queue` is initialized to perform the breadth-first traversal of the tree. The root node is added to the queue.
+### 2. Lookup
+**Description**: Searches for a value in the BST and returns true if found, false otherwise.
 
-   4. Iterate using a while loop until there are nodes in the queue. For each iteration,
-   
-        1. Remove the first node from the queue and assign it to `currentNode`.
-        2. Add the currentNode value to the `output` array.
-        3. If the currentNode has a left child, add it to the queue.
-        4.  If the currentNode has a right child, add it to the queue.
+**Algorithm**:
+1. Start from the root
+2. Compare the target value with the current node
+3. If the value is less than the current node, go to the left subtree
+4. If the value is greater than the current node, go to the right subtree
+5. If the value is equal, return true
+6. If we reach a null node, return false
 
-    5. Once the while loop is completed, all nodes in the binary tree have been visited. Return `output` array containing the node values in breadth-first order.
-   
-6. **DFS traversal:** It begins at the root node and then it explores each branch before backtracking. This is implemented using stacks and recursion stacks helpful to backtrack.
+**Time Complexity**: O(h) where h is the height of the tree
+- Best case: O(log n) for balanced trees
+- Worst case: O(n) for skewed trees
 
-   i. **PreOrder** In pre-order traversal of a binary tree, first traverse the root node, then the left subtree and then finally the right subtree.
+### 3. Min Value Node
+**Description**: Finds the node with the minimum value in a subtree.
 
-   ![Screenshot](../../../images/dfs-preorder.png)
+**Algorithm**:
+1. Start from the given node
+2. Keep traversing to the left child until reaching a node with no left child
+3. Return that node
 
-   ii. **PostOrder** In post-order traversal of a binary tree, first traverses the left subtree, then the right subtree and then finally the root node.
+**Time Complexity**: O(h) where h is the height of the subtree
 
-   ![Screenshot](../../../images/dfs-postorder.png)
+### 4. Max Value Node
+**Description**: Finds the node with the maximum value in a subtree.
 
-   iii. **InOrder** In-order traversal of a binary tree, first traverses the left subtree, then the root node and finally the right subtree.
+**Algorithm**:
+1. Start from the given node
+2. Keep traversing to the right child until reaching a node with no right child
+3. Return that node
 
-   ![Screenshot](../../../images/dfs-inorder.png)
+**Time Complexity**: O(h) where h is the height of the subtree
+
+### 5. Breadth-First Search (BFS)
+**Description**: Traverses the tree level by level, visiting all nodes at the current level before moving to the next level.
+
+![Screenshot](../../../images/bfs-traversal.png)
+
+**Algorithm**:
+1. Use a queue to keep track of nodes to visit
+2. Start with the root node in the queue
+3. While the queue is not empty:
+   - Remove the first node from the queue
+   - Add its value to the result
+   - Add its left and right children to the queue (if they exist)
+
+**Time Complexity**: O(n) where n is the number of nodes
+
+**Space Complexity**: O(w) where w is the maximum width of the tree
+
+**Example Output**: [20, 15, 25, 12, 16, 22, 30, 10, 14, 28, 35]
+
+### 6. Depth-First Search (DFS)
+
+#### Pre-Order Traversal
+**Description**: Visits nodes in the order: Root → Left → Right
+
+![Screenshot](../../../images/dfs-preorder.png)
+
+**Algorithm**:
+1. Visit the current node
+2. Recursively traverse the left subtree
+3. Recursively traverse the right subtree
+
+**Time Complexity**: O(n)
+
+**Example Output**: [20, 15, 12, 10, 14, 16, 25, 22, 30, 28, 35]
+
+#### In-Order Traversal
+**Description**: Visits nodes in the order: Left → Root → Right
+
+![Screenshot](../../../images/dfs-inorder.png)
+
+**Algorithm**:
+1. Recursively traverse the left subtree
+2. Visit the current node
+3. Recursively traverse the right subtree
+
+**Time Complexity**: O(n)
+
+**Example Output**: [10, 12, 14, 15, 16, 20, 22, 25, 28, 30, 35]
+
+#### Post-Order Traversal
+**Description**: Visits nodes in the order: Left → Right → Root
+
+![Screenshot](../../../images/dfs-postorder.png)
+
+**Algorithm**:
+1. Recursively traverse the left subtree
+2. Recursively traverse the right subtree
+3. Visit the current node
+
+**Time Complexity**: O(n)
+
+**Example Output**: [10, 14, 12, 16, 15, 22, 28, 35, 30, 25, 20]
+
+
+## Advantages
+- Fast search, insert, and delete operations (O(log n) average case)
+- Maintains sorted order
+- Efficient for range queries
+- Memory efficient
+
+## Disadvantages
+- Performance degrades to O(n) for skewed trees
+- No built-in balancing mechanism
+- Complex deletion operation (not implemented in this version)
+
+## Applications
+- Database indexing
+- File system organization
+- Symbol tables in compilers
+- Priority queues
+- Range queries

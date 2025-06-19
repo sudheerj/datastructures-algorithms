@@ -8,90 +8,85 @@ class Node {
 
 class BinarySearchTree {
     constructor() {
-        this.root = null
+        this.root = null;
     }
 
     insert(value) {
         const newNode = new Node(value);
-        if(this.root === null) {
+        if (!this.root) {
             this.root = newNode;
-            return this;
-        } 
-            let currentNode = this.root;
-            while(true) {
-                if(value < currentNode.value) {
-                    // Left
-                    if(currentNode.left ===  null) {
-                        currentNode.left = newNode;
-                        return this;
-                    }
-                    currentNode = currentNode.left
-                } else if (value > currentNode.value){
-                    // Right
-                    if(currentNode.right === null) {
-                        currentNode.right = newNode;
-                        return this;
-                    }
-                    currentNode = currentNode.right;
-                }  else {
-                    return this;
+            return;
+        }
+        let currentNode = this.root;
+        while (true) {
+            if (value < currentNode.value) {
+                // Left
+                if (!currentNode.left) {
+                    currentNode.left = newNode;
+                    break;
                 }
+                currentNode = currentNode.left;
+            } else if (value > currentNode.value) {
+                // Right
+                if (!currentNode.right) {
+                    currentNode.right = newNode;
+                    break;
+                }
+                currentNode = currentNode.right;
+            } else {
+                break; // Duplicate value, do nothing
             }
+        }
     }
 
     lookup(value) {
-        if(this.root === null) {
-            return false;
-        }
         let currentNode = this.root;
-        while(currentNode) {
-            if(value < currentNode.value) {
+        while (currentNode) {
+            if (value < currentNode.value) {
                 currentNode = currentNode.left;
-            } else if(value > currentNode.value) {
+            } else if (value > currentNode.value) {
                 currentNode = currentNode.right;
             } else {
                 return true;
             }
         }
-
         return false;
     }
-    
+
     minValueNode(currentNode) {
-        while(true) {
-            if(!currentNode.left) return currentNode;
+        while (currentNode && currentNode.left) {
             currentNode = currentNode.left;
         }
+        return currentNode;
     }
 
     maxValueNode(currentNode) {
-        while(true) {
-            if(!currentNode.right) return currentNode;
+        while (currentNode && currentNode.right) {
             currentNode = currentNode.right;
         }
+        return currentNode;
     }
 
     bfs() {
-        let currentNode = this.root;
-        let queue = [];
+        if (!this.root) return [];
+        let queue = [this.root];
         let output = [];
-        queue.push(currentNode);
-
-        while(queue.length) {
-            currentNode = queue.shift();
+        while (queue.length) {
+            let currentNode = queue.shift();
             output.push(currentNode.value);
-            if(currentNode.left) queue.push(currentNode.left);
-            if(currentNode.right) queue.push(currentNode.right);
+            if (currentNode.left) queue.push(currentNode.left);
+            if (currentNode.right) queue.push(currentNode.right);
         }
         return output;
     }
 
     dfsPreOrder() {
         let output = [];
-        function traverse(currentNode) {
-            output.push(currentNode.value);
-            if(currentNode.left) traverse(currentNode.left);
-            if(currentNode.right) traverse(currentNode.right);
+        function traverse(node) {
+            if (!node) return;
+            output.push(node.value);
+            traverse(node.left);
+            traverse(node.right);
         }
         traverse(this.root);
         return output;
@@ -99,10 +94,11 @@ class BinarySearchTree {
 
     dfsPostOrder() {
         let output = [];
-        function traverse(currentNode) {
-            if(currentNode.left) traverse(currentNode.left);
-            if(currentNode.right) traverse(currentNode.right);
-            output.push(currentNode.value);
+        function traverse(node) {
+            if (!node) return;
+            traverse(node.left);
+            traverse(node.right);
+            output.push(node.value);
         }
         traverse(this.root);
         return output;
@@ -110,29 +106,22 @@ class BinarySearchTree {
 
     dfsInOrder() {
         let output = [];
-        function traverse(currentNode) {
-            if(currentNode.left) traverse(currentNode.left);
-            output.push(currentNode.value);
-            if(currentNode.right) traverse(currentNode.right);
+        function traverse(node) {
+            if (!node) return;
+            traverse(node.left);
+            output.push(node.value);
+            traverse(node.right);
         }
         traverse(this.root);
         return output;
     }
 }
 
+// Usage example
 const tree = new BinarySearchTree();
-tree.insert(20);
-tree.insert(15);
-tree.insert(25);
-tree.insert(12);
-tree.insert(16);
-tree.insert(22);
-tree.insert(30);
-tree.insert(10);
-tree.insert(14);
-tree.insert(28);
-tree.insert(35);
-console.dir(tree, {depth: null});
+[20, 15, 25, 12, 16, 22, 30, 10, 14, 28, 35].forEach(v => tree.insert(v));
+
+console.dir(tree, { depth: null });
 
 console.log(tree.lookup(25));
 console.log(tree.lookup(7));
