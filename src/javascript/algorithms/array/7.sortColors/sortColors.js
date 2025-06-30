@@ -2,7 +2,7 @@
 
 function sortColors(nums) {
 
-    let left = i = 0, right = nums.length-1;
+    let left = 0, i = 0, right = nums.length-1;
 
     while(i <= right) {
         if(nums[i] === 0) {
@@ -21,9 +21,7 @@ function sortColors(nums) {
 }
 
 function swap(nums, one, two) {
-    let temp = nums[one];
-    nums[one] = nums[two];
-    nums[two] = temp;
+    [nums[one], nums[two]] = [nums[two], nums[one]];
 }
 
 let nums1 = [2,1,0,1,2,0];

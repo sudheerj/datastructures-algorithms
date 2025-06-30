@@ -1,15 +1,17 @@
 function maxProductSubArray(nums) {
-    let result = nums[0], currentMax = nums[0], currentMin = nums[0];
+    let globaMax = nums[0], currentMax = nums[0], currentMin = nums[0];
 
     for(let i=1; i < nums.length; i++) {
         const num = nums[i];
-        const tempMaxProduct = currentMax * num;
-        const tempMinProduct = currentMin * num;
-        currentMax = Math.max(num, tempMaxProduct, tempMinProduct);
-        currentMin = Math.min(num, tempMaxProduct, tempMinProduct);
-        result = Math.max(result, currentMax);
+
+        if(num < 0) [currentMin, currentMax] = [currentMax, currentMin];
+
+        currentMax = Math.max(num, currentMax * num);
+        currentMin = Math.min(num, currentMin * num);
+
+        globaMax = Math.max(globaMax, currentMax);
     }
-    return result;
+    return globaMax;
 }
 
 let numbers1 = [6, 7,-4, 5, 8, 1];

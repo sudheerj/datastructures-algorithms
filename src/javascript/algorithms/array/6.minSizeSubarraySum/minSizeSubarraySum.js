@@ -2,7 +2,7 @@
 
 function minSizeSubarraySum(nums, target) {
     
-    let left = right = total = 0;
+    let left = 0, right = 0, total = 0;
     let minLength = Infinity;
 
     while(right < nums.length) {

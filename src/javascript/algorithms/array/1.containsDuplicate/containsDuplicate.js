@@ -38,6 +38,11 @@ function containsDuplicateUsingSort(nums) {
     return false; // No duplicates
 }
 
+// Using some() + indexOf: TC: O(n^2), SC:O(1) - Not recommended for large arrays
+function containsDuplicateUsingSomeIndexOf(nums) {
+    return nums.some((num, index) => nums.indexOf(num) !== index);
+}
+
 // Using brute-force: TC: O(n^2), SC: O(1) (inefficient for large arrays)
 function containsDuplicateUsingBruteforce(nums) {
     for (let i = 0; i < nums.length - 1; i++) {
@@ -57,6 +62,7 @@ console.log(containsDuplicate(numsWithDuplicates));
 console.log(containsDuplicateUsingObject(numsWithDuplicates));
 console.log(containsDuplicateUsingSize(numsWithDuplicates));
 console.log(containsDuplicateUsingSort([...numsWithDuplicates])); // Spread to avoid modifying original
+console.log(containsDuplicateUsingSomeIndexOf(numsWithDuplicates));
 console.log(containsDuplicateUsingBruteforce(numsWithDuplicates));
 
 console.log("-----No duplicates----");
@@ -65,4 +71,5 @@ console.log(containsDuplicate(numsWithoutDuplicates));
 console.log(containsDuplicateUsingObject(numsWithoutDuplicates));
 console.log(containsDuplicateUsingSize(numsWithoutDuplicates));
 console.log(containsDuplicateUsingSort([...numsWithoutDuplicates])); // Spread to avoid modifying original
+console.log(containsDuplicateUsingSomeIndexOf(numsWithoutDuplicates));
 console.log(containsDuplicateUsingBruteforce(numsWithoutDuplicates));

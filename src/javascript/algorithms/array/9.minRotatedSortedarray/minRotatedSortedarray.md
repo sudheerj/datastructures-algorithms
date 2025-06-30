@@ -1,5 +1,5 @@
 **Description:**
-Given a sorted array `nums` of length `n` with all unique elements, in which the array is rotated between 1 and n times. Return the minimum element of this array.
+Given a sorted array `nums` of length `n` with all unique elements, in which the array is rotated between `1` and `n` times. Return the minimum element of this array.
 
 **Note:** You need to write an algorithm that runs in `O(log n)` time.
 

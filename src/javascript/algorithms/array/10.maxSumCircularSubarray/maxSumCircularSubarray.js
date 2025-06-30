@@ -15,7 +15,7 @@ function maxSumCircularSubarray(nums) {
         totalSum += num;
     }
 
-    // If all numbers are negative, total - globalMinSum would be 0 or less
+    // If all numbers are negative, totalSum - globalMinSum would be 0 or less. So we should return global maximum sum in this case.
     return globalMaxSum > 0 ? Math.max(globalMaxSum, (totalSum-globalMinSum)) : globalMaxSum;
 }
 

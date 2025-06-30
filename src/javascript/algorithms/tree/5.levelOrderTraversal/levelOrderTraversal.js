@@ -1,36 +1,42 @@
-//BFS: TC: O(n) SC: O(n)
-
+// BFS: TC: O(n) SC: O(n)
 function levelOrder(root) {
-    let traversal = [];
-    let queue = [];
-    queue.push(root);
-
-    while(queue.length) {
-        let len = queue.length;
-        let currLevel = [];
-
-        while(len >0){
-            let node = queue.shift();
-            if(node != null) {
-                currLevel.push(node.value);
-                if(node.left !== null) queue.push(node.left);
-                if(node.right !== null) queue.push(node.right);
-            }
-            len--;
-        }
-        if(currLevel.length >0) {
-            traversal.push(currLevel);
-        }   
+  if (!root) return [];
+  let traversal = [];
+  let queue = [root];
+  while (queue.length) {
+    let len = queue.length;
+    let currLevel = [];
+    for (let i = 0; i < len; i++) {
+      let node = queue.shift();
+      currLevel.push(node.value);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
     }
-    return traversal;
+    traversal.push(currLevel);
+  }
+  return traversal;
+}
+
+// Recursive solution
+function levelOrderRecursive(root) {
+  let result = [];
+  function traverse(node, level) {
+    if (!node) return;
+    if (result.length === level) result.push([]);
+    result[level].push(node.value);
+    traverse(node.left, level + 1);
+    traverse(node.right, level + 1);
+  }
+  traverse(root, 0);
+  return result;
 }
 
 class TreeNode {
-    constructor(value) {
-        this.left = null;
-        this.right = null;
-        this.value = value;
-    }
+  constructor(value) {
+    this.left = null;
+    this.right = null;
+    this.value = value;
+  }
 }
 
 let root1 = new TreeNode(1);
@@ -46,3 +52,6 @@ let root2 = new TreeNode(3);
 console.log(levelOrder(root1));
 console.log(levelOrder(root2));
 console.log(levelOrder(null));
+console.log(levelOrderRecursive(root1));
+console.log(levelOrderRecursive(root2));
+console.log(levelOrderRecursive(null));

@@ -20,7 +20,7 @@ function minRotatedSortedarray(nums) {
         }
     }
 
-    return nums[left]; // or arr[right], both are the same here
+    return nums[left]; // or nums[right], both are the same here
 }
 
 

@@ -1,28 +1,29 @@
 //DFS: TC:O(m * n) SC: O(m)
 
 function isSubtree(root, subRoot) {
-    if(!subRoot) return true;
-    if(!root) return false;
-
-    return isSametree(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+  if (!subRoot) return true;
+  if (!root) return false;
+  return (
+    isSameTree(root, subRoot) ||
+    isSubtree(root.left, subRoot) ||
+    isSubtree(root.right, subRoot)
+  );
 }
 
-function isSametree(root1, root2) {
-    if(!root1 && !root2) return true;
-
-    if(root1 && root2 && root1.value === root2.value) {
-        return isSametree(root1.left, root2.left) && isSametree(root1.right, root2.right);
-    }
-
-    return false;
+function isSameTree(root1, root2) {
+  if (!root1 && !root2) return true;
+  if (!root1 || !root2 || root1.value !== root2.value) return false;
+  return (
+    isSameTree(root1.left, root2.left) && isSameTree(root1.right, root2.right)
+  );
 }
 
 class TreeNode {
-    constructor(value) {
-      this.left = null;
-      this.right = null;
-      this.value = value;
-    }
+  constructor(value) {
+    this.left = null;
+    this.right = null;
+    this.value = value;
+  }
 }
 
 let root1 = new TreeNode(0);
@@ -44,4 +45,3 @@ root3.right = new TreeNode(6);
 
 console.log(isSubtree(root1, root2));
 console.log(isSubtree(root1, root3));
-

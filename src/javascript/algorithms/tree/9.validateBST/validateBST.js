@@ -1,23 +1,43 @@
 // DFS: TC:O(n) SC: O(n)
 
 function isValidBST(root) {
-    return dfs(root, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY);
+  if (!root) return true;
+  return dfs(root, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY);
 }
 
 function dfs(node, min, max) {
-    if(node === null) return true;
+  if (node === null) return true;
 
-    if(!(min < node.value && node.value < max)) return false;
+  if (!(min < node.value && node.value < max)) return false;
 
-    return dfs(node.left, min, node.value) && dfs(node.right, node.value, max);
+  return dfs(node.left, min, node.value) && dfs(node.right, node.value, max);
+}
+
+// Iterative solution using stack
+function isValidBSTIterative(root) {
+  if (!root) return true;
+  let stack = [];
+  let prev = null;
+  let curr = root;
+  while (curr || stack.length) {
+    while (curr) {
+      stack.push(curr);
+      curr = curr.left;
+    }
+    curr = stack.pop();
+    if (prev !== null && curr.value <= prev) return false;
+    prev = curr.value;
+    curr = curr.right;
+  }
+  return true;
 }
 
 class TreeNode {
-    constructor(value) {
-      this.left = null;
-      this.right = null;
-      this.value = value;
-    }
+  constructor(value) {
+    this.left = null;
+    this.right = null;
+    this.value = value;
+  }
 }
 
 let root1 = new TreeNode(2);
@@ -32,3 +52,5 @@ root2.right.right = new TreeNode(6);
 
 console.log(isValidBST(root1));
 console.log(isValidBST(root2));
+console.log(isValidBSTIterative(root1));
+console.log(isValidBSTIterative(root2));
