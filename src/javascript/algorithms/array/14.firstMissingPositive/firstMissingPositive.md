@@ -1,4 +1,4 @@
-**Description:**
+**Description:*Given an unsorted integer array, find the smallest missing positive integer. The algorithm should run in O(n) time and use constant extra space.
 
 **Algorithmic Steps**
 This problem is solved with the help of in-place input array using its index as hash key. This is known as **in-place hashing** technique. The algorithmic approach can be summarized as follows:

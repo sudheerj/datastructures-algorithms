@@ -1,21 +1,9 @@
-// Recursive DFS: TC: O(n) SC: O(n)
+// DFS: TC: O(n) SC: O(n)
 function isSameTree(a, b) {
   if (a == null && b == null) return true;
   if (a == null || b == null || a.value != b.value) return false;
-  return isSameTree(a.left, b.left) && isSameTree(a.right, b.right);
-}
 
-// Iterative DFS using stack
-function isSameTreeIterative(a, b) {
-  let stack = [[a, b]];
-  while (stack.length) {
-    let [node1, node2] = stack.pop();
-    if (!node1 && !node2) continue;
-    if (!node1 || !node2 || node1.value !== node2.value) return false;
-    stack.push([node1.left, node2.left]);
-    stack.push([node1.right, node2.right]);
-  }
-  return true;
+  return isSameTree(a.left, b.left) && isSameTree(a.right, b.right);
 }
 
 class TreeNode {
@@ -52,5 +40,3 @@ root4.right = new TreeNode(2);
 
 console.log(isSameTree(root1, root2));
 console.log(isSameTree(root3, root4));
-console.log(isSameTreeIterative(root1, root2));
-console.log(isSameTreeIterative(root3, root4));

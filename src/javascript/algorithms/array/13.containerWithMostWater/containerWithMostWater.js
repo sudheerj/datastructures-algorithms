@@ -22,7 +22,7 @@ function mostWater(heights) {
 
 // Test cases
 let waterHeights1 = [3, 9, 4, 1, 5, 4, 7, 1, 7];
-console.log(mostWater(waterHeights1)); // Output: 28
+console.log(mostWater(waterHeights1)); // Output: 49
 
 let waterHeights2 = [1, 1];
 console.log(mostWater(waterHeights2)); // Output: 1

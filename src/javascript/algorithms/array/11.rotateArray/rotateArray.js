@@ -71,12 +71,14 @@ console.log("Before rotate (reversal):", [...rotate1]);
 rotate(rotate1, 4);
 console.log("After rotate (reversal):", rotate1);
 rotateLeft(rotate1, 4);
+console.log("After left rotate (reversal):", rotate1);
 
 let rotate2 = [-10, 4, 5, -1];
 console.log("Before rotate (brute force):", [...rotate2]);
 rotateBruteForce(rotate2, 2);
 console.log("After rotate (brute force):", rotate2);
 rotateBruteForceLeft(rotate2, 2);
+console.log("After left rotate (brute force):", rotate2);
 
 // Edge case
 let rotate3 = [1];
@@ -84,3 +86,4 @@ console.log("Before rotate (single element):", [...rotate3]);
 rotate(rotate3, 10);
 console.log("After rotate (single element):", rotate3);
 rotateLeft(rotate3, 10);
+console.log("After left rotate (single element):", rotate3);
