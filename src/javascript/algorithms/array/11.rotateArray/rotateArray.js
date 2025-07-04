@@ -24,7 +24,17 @@ function reverse(arr, start, end) {
     }
 }
 
-// 2. Rotate Array Using Brute Force with pop() and unshift() (Inefficient: O(n^2) time)
+//2.Using additional array and arithmetic operation: TC:O(n), SC:O(n)
+function rotateUsingArray(nums, n) {
+    const length = nums.length;
+    const resultArray = Array(nums);
+
+    for(let i = 0; i < length; i++) {
+        resultArray[(i+n)%length] = nums[i];
+    }
+}
+
+// 3. Rotate Array Using Brute Force with pop() and unshift() (Inefficient: O(n^2) time), SC: O(1)
 function rotateBruteForce(nums, n) {
     const length = nums.length;
     if (length === 0) return;
@@ -35,7 +45,7 @@ function rotateBruteForce(nums, n) {
     }
 }
 
-// 3. Rotate Array in left direction Using Reversal Algorithm (Efficient O(n) time, O(1) space)
+// 4. Rotate Array in left direction Using Reversal Algorithm (Efficient O(n) time, O(1) space)
 function rotateLeft(nums, n) {
     const length = nums.length;
     if (length === 0 || n % length === 0) return nums; // No rotation needed
@@ -52,7 +62,17 @@ function rotateLeft(nums, n) {
     return nums;
 }
 
-// 4. Rotate Array left Using Brute Force with shift() and push() (Inefficient: O(n^2) time)
+//5.Using additional array and arithmetic operation: TC:O(n), SC:O(n)
+function rotateLeftUsingArray(nums, n) {
+    const length = nums.length;
+    const resultArray = Array(nums);
+
+    for(let i = 0; i < length; i++) {
+        resultArray[(i-n+length)%length] = nums[i];
+    }
+}
+
+// 6. Rotate Array left Using Brute Force with shift() and push() (Inefficient: O(n^2) time), SC: O(1)
 function rotateBruteForceLeft(nums, n) {
     const length = nums.length;
     if (length === 0) return;

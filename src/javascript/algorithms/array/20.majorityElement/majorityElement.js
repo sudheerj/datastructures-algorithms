@@ -1,3 +1,4 @@
+// TC: O(n), SC: O(1)
 function majorityElement(nums){
     let count = 0;
     let candidate = null;

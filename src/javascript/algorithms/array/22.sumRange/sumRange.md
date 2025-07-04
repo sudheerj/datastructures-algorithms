@@ -1,8 +1,6 @@
 **Description:**
 Given an integer array `nums`, find the sum of the elements of `nums` between indices `left` and `right` inclusive where `left <= right`. 
 
-**Note:** The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right. If the index is on the left edge of an array, the left sum becomes `0` because there are no left elements. It also applies to the right edge of an array. Return -1, if no such index found.
-
 ### Examples
 Example 1:
 

@@ -1,6 +1,6 @@
 function pivotIndex1(nums){
     const totalSum = nums.reduce((acc, num) => acc+num, 0);
-    let leftSum, rightSum = 0;
+    let leftSum = 0, rightSum = 0;
 
     for (let i = 0; i < nums.length; i++) {
         rightSum = totalSum - leftSum - nums[i];
