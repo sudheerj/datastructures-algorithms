@@ -79,7 +79,7 @@ function hasBalancedParentheses1(characters) {
                 break;
         }
     }
-    if(myStack.isEmpty()) return true;
+    return myStack.isEmpty();
 }
 
 function hasBalancedParentheses2(input) {

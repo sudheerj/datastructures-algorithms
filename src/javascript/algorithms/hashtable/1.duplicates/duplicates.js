@@ -1,8 +1,9 @@
+//TC: O(n), SC: O(n)
 function findDuplicatesWithMap(arr) {
-    let numCounts = new Map();
-    let duplicates = [];
+    const numCounts = new Map();
+    const duplicates = [];
     for(const num of arr) {
-        numCounts.set(num, (numCounts.get(num) || 0) + 1);
+        numCounts.set(num, (numCounts.get(num) ?? 0) + 1);
     }
 
     for(const [key, value] of numCounts.entries()){
@@ -14,11 +15,12 @@ function findDuplicatesWithMap(arr) {
     return duplicates;
 }
 
+//TC: O(n), SC: O(n)
 function findDuplicatesWithObject(arr) {
-    let numCounts = {};
-    let duplicates = [];
+    const numCounts = {};
+    const duplicates = [];
     for(const num of arr) {
-        numCounts[num] = (numCounts[num] || 0) + 1;
+        numCounts[num] = (numCounts[num] ?? 0) + 1;
     }
 
     for(const key in numCounts){

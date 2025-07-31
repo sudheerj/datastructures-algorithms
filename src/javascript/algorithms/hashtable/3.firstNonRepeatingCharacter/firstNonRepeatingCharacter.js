@@ -1,8 +1,8 @@
 function firstNonRepeatingCharWithMap(inputStr) {
     if(inputStr.length === 0) return null;
-    let charCountsMap = new Map();
+    const charCountsMap = new Map();
     for(let ch of inputStr) {
-        charCountsMap.set(ch, (charCountsMap.get(ch) || 0) + 1);
+        charCountsMap.set(ch, (charCountsMap.get(ch) ?? 0) + 1);
     }
     
     for(let [key, value] of charCountsMap.entries()) {
@@ -15,9 +15,9 @@ function firstNonRepeatingCharWithMap(inputStr) {
 
 function firstNonRepeatingCharWithObj(inputStr) {
     if(inputStr.length === 0) return null;
-    let charCountsObj = {};
+    const charCountsObj = {};
     for(let ch of inputStr) {
-        charCountsObj[ch] = (charCountsObj[ch] || 0) + 1;
+        charCountsObj[ch] = (charCountsObj[ch] ?? 0) + 1;
     }
     
     for(let [key, value] of Object.entries(charCountsObj)) {

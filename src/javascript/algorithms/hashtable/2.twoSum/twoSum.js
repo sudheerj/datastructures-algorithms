@@ -1,9 +1,10 @@
+//TC: O(n), SC: O(n)
 function twoSumWithMap(nums, target) {
     if(nums.length < 2) return [];
-    let indexMap = new Map();
+    const indexMap = new Map();
 
     for(let i=0; i < nums.length; i++) {
-        let complement = target - nums[i];
+        const complement = target - nums[i];
         if(indexMap.has(complement)) {
             return [indexMap.get(complement), i];
         }
@@ -12,12 +13,13 @@ function twoSumWithMap(nums, target) {
     return [];
 }
 
+//TC: O(n), SC: O(n)
 function twoSumWithObject(nums, target) {
     if(nums.length < 2) return [];
-    let indexObj = {};
+    const indexObj = {};
 
     for(let i=0; i < nums.length; i++) {
-        let complement = target - nums[i];
+        const complement = target - nums[i];
         if(indexObj.hasOwnProperty(complement)) {
             return [indexObj[complement], i];
         }
@@ -43,7 +45,7 @@ console.log("Output: ", twoSumWithObject([7, 1, 13, 1], 10));
 
 // Negative Numbers
 console.log("Input: [-5, -4, -3, -1, -2], Target: -10");
-console.log("Output: ", twoSumWithMap([-1, -2, -3, -4, -5], -10));
+console.log("Output: ", twoSumWithMap([-5, -4, -3, -1, -2], -10));
 
 // One number Array
 console.log("Input: [3], Target: 4");

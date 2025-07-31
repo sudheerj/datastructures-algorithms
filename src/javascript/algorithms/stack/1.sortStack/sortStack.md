@@ -34,5 +34,5 @@ This problem is solved using stack push and pop operations to sort the elements.
 
 ## Complexity
 
-- **Time Complexity:** O(n²) in the worst case, due to nested stack operations.
+- **Time Complexity:** O(n²) when the input stack is sorted in descending order (i.e., completely reversed).
 - **Space Complexity:** O(n), for the auxiliary stack.

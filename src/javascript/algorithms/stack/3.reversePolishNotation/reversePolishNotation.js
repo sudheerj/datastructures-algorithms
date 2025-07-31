@@ -90,6 +90,7 @@ function reversePolishNotation2(tokens) {
                 case '-': result = a - b; break;
                 case '*': result = a * b; break;
                 case '/': result = Math.trunc(a / b); break; // Truncate toward zero
+                default: throw new Error(`Unknown operator: ${token}`);
             }
             myStack.push(result);
         }
