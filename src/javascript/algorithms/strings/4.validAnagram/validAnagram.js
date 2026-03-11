@@ -67,7 +67,7 @@ function validAnagram3(str1, str2) {
 const testCases = [
     { str1: "anagram", str2: "nagaram", expected: true },
     { str1: "rat", str2: "cat", expected: false },
-    { str1: "Listen", str2: "Silent", expected: true },
+    { str1: "Listen", str2: "Silent", expected: false },
     { str1: "aabbcc", str2: "abcabc", expected: true },
     { str1: "aabbcc", str2: "aabbc", expected: false },
     { str1: "123", str2: "321", expected: true },

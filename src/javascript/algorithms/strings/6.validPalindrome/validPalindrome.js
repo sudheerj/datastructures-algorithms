@@ -54,10 +54,15 @@ function isValidPalindrome2(str) {
     return true;
 }
 
+/**
+ * Checks if a character is alphanumeric.
+ * @param {string} char
+ * @returns {boolean}
+ */
 function isAlphanumeric2(char) {
-    return (char.toLowerCase() >= 'a' && char.toLowerCase() <= 'z')
-        || (char.toLowerCase() >= 'A' && char.toLowerCase() <= 'Z')
-        || (char >= '0' && char <= '9');
+    const ch = char.toLowerCase();
+    return (ch >= 'a' && ch <= 'z')
+        || (ch >= '0' && ch <= '9');
 }
 
 // Test cases

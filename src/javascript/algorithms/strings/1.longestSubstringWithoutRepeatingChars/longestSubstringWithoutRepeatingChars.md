@@ -38,4 +38,4 @@ This problem is efficiently solved using the **sliding window** technique with a
 **Time and Space complexity:**
 
 - **Time Complexity:** O(n), where n is the length of the string (each character is visited at most twice).
-- **Space Complexity:** O(min(n, m)), where m is the size of the character set (e.g., 26 for lowercase English letters).
+- **Space Complexity:** O(min(n, m)), where n is the length of the input string andm is the size of the character set (e.g., 26 for lowercase English letters).

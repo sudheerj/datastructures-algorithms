@@ -1,7 +1,7 @@
 **Description:**
 Given two strings `str1` and `str2`, return `true` if `str2` is an anagram of `str1`, and `false` otherwise.
 
-**Note:**An Anagram is defined as a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once.
+**Note:** An Anagram is defined as a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once.
 
 ### Examples
 Example 1:

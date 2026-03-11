@@ -6,11 +6,13 @@
  * @returns {string} The minimum window substring, or "" if no such window exists.
  */
 function minWindowSubstring(str, subStr) {
+  if (subStr.length > str.length) return "";
+  
   let windowStrCount = new Map();
   let subStrCount = new Map();
 
   let minLength = Number.MAX_VALUE;
-  let subStrboundaries = [-1, -1];
+  let bestWindow = [-1, -1];
 
   for(const ch of subStr) {
     subStrCount.set(ch, (subStrCount.get(ch) || 0) + 1);
@@ -32,8 +34,8 @@ function minWindowSubstring(str, subStr) {
     while(required === having) {
       if(minLength > right-left+1) {
         minLength = right-left+1;
-        subStrboundaries[0] = left;
-        subStrboundaries[1] = right;
+        bestWindow[0] = left;
+        bestWindow[1] = right;
       }
 
       let leftChar = str[left];
@@ -47,7 +49,7 @@ function minWindowSubstring(str, subStr) {
     }
   }
 
-  return minLength === Number.MAX_VALUE ? "" : str.substring(subStrboundaries[0], subStrboundaries[1]+1);
+  return minLength === Number.MAX_VALUE ? "" : str.substring(bestWindow[0], bestWindow[1]+1);
 }
 
 // Test cases
