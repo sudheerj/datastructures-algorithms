@@ -40,7 +40,7 @@ def max_product_subarray(nums):
 if __name__ == "__main__":
     nums1 = [6, 7, -4, 5, 8, 1]
     print(f"Input: {nums1}")
-    print(f"Output: {max_product_subarray(nums1)}")  # 840
+    print(f"Output: {max_product_subarray(nums1)}")  # 42
     
     nums2 = [2, -7, -4, 0, 3, 3]
     print(f"Input: {nums2}")

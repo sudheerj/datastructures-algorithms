@@ -58,9 +58,9 @@ def reverse(arr, start, end):
         end -= 1
 
 
-def rotate_using_array(nums, k):
+def rotate_right_list(nums, k):
     """
-    Rotate using additional array.
+    Rotate using additional list.
     TC: O(n), SC: O(n)
     """
     length = len(nums)
@@ -90,8 +90,8 @@ if __name__ == "__main__":
     print(f"Original: {nums2}, k={k2}")
     print(f"Rotated left: {rotate_left(nums2.copy(), k2)}")  # [4, 5, 6, 7, 1, 2, 3]
     
-    # Test rotate using array
+    # Test rotate using list
     nums3 = [1, 2, 3, 4, 5, 6, 7]
     k3 = 3
     print(f"Original: {nums3}, k={k3}")
-    print(f"Rotated (using array): {rotate_using_array(nums3, k3)}")
+    print(f"Rotated (using array): {rotate_right_list(nums3, k3)}")

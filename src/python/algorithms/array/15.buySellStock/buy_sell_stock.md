@@ -4,28 +4,29 @@ Given an array `prices` where `prices[i]` is the price of a given stock on the `
 ### Examples
 Example 1:
 
-Input: prices = [8, 3, 6, 4, 7, 5]
-Output: 4
+Input: prices = [7, 1, 5, 3, 6, 4]
+Output: 5 (buy at 1, sell at 6)
 
 Example 2:
-Input: prices = [7, 6, 5, 4, 3, 2, 1]
-Output: 0
+Input: prices = [7, 6, 4, 3, 1]
+Output: 0 (no profit possible)
 
 **Algorithmic Steps**
-This problem is solved with the help of sliding window approach to calculate the maximum profit (as known as **greedy algorithm**). The algorithmic approach can be summarized as follows:
+This problem is solved with a one-pass approach by tracking the minimum price seen so far (as known as **greedy algorithm**). The algorithmic approach can be summarized as follows:
 
-1. Write a preliminary case by returning profit as `0` if the number of stock prices in the array are less than 2.
+1. If the input `prices` array is empty, return `0` as no transaction is possible.
 
-2. Initialize `max_profit` variable to `0` to indicate maximum profit achieved for buying and selling the stock at different days. 
+2. Initialize `min_price` to the first element of the array (i.e, `prices[0]`), representing the lowest stock price seen so far.
 
-3. Initialize left pointer (i.e, `left`) to `0`, which denotes the buying stock index.
+3. Initialize `max_profit` variable to `0` to indicate the maximum profit achieved for buying and selling the stock at different days.
 
-4. Iterate over the input stock prices and compare the current stock price (i.e, `prices[right]`) with previous day stock price (i.e, `prices[left]`). If the current stock price is higher, calculate the maximum profit between previous max_profit and current profit.
+4. Iterate over the input stock prices starting from the second element. For each price:
+   - Update `min_price` to the minimum of the current `min_price` and the current price (i.e, `min(min_price, price)`).
+   - Calculate the current profit as the difference between the current price and `min_price` (i.e, `price - min_price`).
+   - Update `max_profit` to the maximum of the current `max_profit` and the current profit (i.e, `max(max_profit, profit)`).
 
-5. If the current stock price is lower than previous stock price, consider the current stock price as buying stock with the help of their index pointers (i.e, `left = right`). 
-
-6. Return `max_profit` which represents best time (or max profit scenario) to buy and sell stock prices.
+5. Return `max_profit` which represents the best time (or max profit scenario) to buy and sell stock prices.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of `O(n)`, where `n` is the number of stock prices. This is because we are traversing the array at most once. 
-Here, we don't use any additional datastructure other than two pointers. Hence, the space complexity will be `O(1)`.
+This algorithm has a time complexity of `O(n)`, where `n` is the number of stock prices. This is because we are traversing the array at most once.
+Here, we don't use any additional datastructure other than two variables. Hence, the space complexity will be `O(1)`.

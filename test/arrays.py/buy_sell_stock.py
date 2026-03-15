@@ -1,32 +1,13 @@
-"""
-Best Time to Buy and Sell Stock
-
-You are given an array prices where prices[i] is the price of a given stock on the ith day.
-Find the maximum profit you can achieve. You may complete at most one transaction.
-
-Time Complexity: O(n)
-Space Complexity: O(1)
-"""
-
-
 def max_profit(prices):
-    """
-    One pass solution tracking minimum price.
-    TC: O(n), SC: O(1)
-    """
-    if not prices:
-        return 0
-    
     min_price = prices[0]
     max_profit = 0
-    
+
     for price in prices[1:]:
         min_price = min(min_price, price)
         profit = price - min_price
         max_profit = max(max_profit, profit)
-    
-    return max_profit
 
+    return max_profit
 
 # Test cases
 if __name__ == "__main__":

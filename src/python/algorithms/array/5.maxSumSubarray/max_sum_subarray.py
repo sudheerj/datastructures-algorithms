@@ -14,14 +14,14 @@ def max_subarray(nums):
     Kadane's Algorithm.
     TC: O(n), SC: O(1)
     """
-    max_sum = nums[0]
-    current_sum = nums[0]
+    global_max_sum = nums[0]
+    current_max_sum = nums[0]
     
     for i in range(1, len(nums)):
-        current_sum = max(nums[i], current_sum + nums[i])
-        max_sum = max(max_sum, current_sum)
+        current_max_sum = max(nums[i], current_max_sum + nums[i])
+        global_max_sum = max(global_max_sum, current_max_sum)
     
-    return max_sum
+    return global_max_sum
 
 
 def max_subarray_with_indices(nums):
@@ -29,24 +29,24 @@ def max_subarray_with_indices(nums):
     Returns max sum along with start and end indices.
     TC: O(n), SC: O(1)
     """
-    max_sum = nums[0]
-    current_sum = nums[0]
+    global_max_sum = nums[0]
+    current_max_sum = nums[0]
     start = end = 0
     temp_start = 0
     
     for i in range(1, len(nums)):
-        if nums[i] > current_sum + nums[i]:
-            current_sum = nums[i]
+        if nums[i] > current_max_sum + nums[i]:
+            current_max_sum = nums[i]
             temp_start = i
         else:
-            current_sum = current_sum + nums[i]
+            current_max_sum = current_sum + nums[i]
         
-        if current_sum > max_sum:
-            max_sum = current_sum
+        if current_max_sum > global_max_sum:
+            global_max_sum = current_max_sum
             start = temp_start
             end = i
     
-    return max_sum, start, end
+    return global_max_sum, start, end
 
 
 # Test cases

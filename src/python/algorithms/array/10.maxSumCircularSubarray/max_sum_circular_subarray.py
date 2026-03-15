@@ -15,7 +15,7 @@ def max_sum_circular_subarray(nums):
     TC: O(n), SC: O(1)
     """
     if not nums:
-        return 0
+         raise ValueError("nums must not be empty")
     
     global_max_sum = nums[0]
     global_min_sum = nums[0]
