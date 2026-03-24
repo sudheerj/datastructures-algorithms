@@ -8,25 +8,45 @@ Time Complexity: O(n)
 Space Complexity: O(1)
 """
 
-
+"""
+One pass solution tracking minimum price.
+TC: O(n), SC: O(1)
+"""
 def max_profit(prices):
-    """
-    One pass solution tracking minimum price.
-    TC: O(n), SC: O(1)
-    """
+
     if not prices:
         return 0
     
-    min_price = prices[0]
+    min_price = float('inf')
     max_profit = 0
     
-    for price in prices[1:]:
+    for price in prices:
         min_price = min(min_price, price)
-        profit = price - min_price
-        max_profit = max(max_profit, profit)
+        current_profit = price - min_price
+        max_profit = max(max_profit, current_profit)
     
     return max_profit
 
+"""
+Two pointers solution.
+TC: O(n), SC: O(1)
+"""
+def max_profit1(prices):
+
+    if not prices:
+        return 0
+
+    left, right = 0, 1
+    max_profit = 0
+
+    while right in range(len(prices)):
+        if prices[right] > prices[left]:
+            max_profit = max(max_profit, prices[right]-prices[left])
+        else:
+            left = right // Jumpt to lower price
+        right += 1
+    return max_profit
+    
 
 # Test cases
 if __name__ == "__main__":
@@ -38,4 +58,6 @@ if __name__ == "__main__":
     for prices in test_cases:
         print(f"Prices: {prices}")
         print(f"Max profit: {max_profit(prices)}")
+        print(f"Max profit: {max_profit1(prices)}")
+
         print()

@@ -14,18 +14,19 @@ def word_break(s, word_dict):
     Dynamic programming approach.
     TC: O(n^2 * m), SC: O(n)
     """
-    word_set = set(word_dict)
-    n = len(s)
-    dp = [False] * (n + 1)
-    dp[0] = True  # Empty string
-    
-    for i in range(1, n + 1):
-        for j in range(i):
-            if dp[j] and s[j:i] in word_set:
-                dp[i] = True
-                break
-    
-    return dp[n]
+    dp = [False] * (n+1)
+    dp[n] = True # Empty string
+
+    for i in range(n-1, -1, -1):
+        for w in word_set:
+            end = i + len(w)
+
+            if end <= n and s[i:end] == w:
+                dp[i] = dp[i+len(w)]
+                if dp[i]:
+                    break
+
+    return dp[0]
 
 
 # Test cases

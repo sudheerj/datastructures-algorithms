@@ -10,48 +10,47 @@ Space Complexity: O(n)
 
 import heapq
 
-
 def most_booked(n, meetings):
     """
     Using two heaps - available rooms and busy rooms.
-    TC: O(m * log n), SC: O(n)
+    TC:O(m * log n) + O(m * log m) => O(m * log m), SC: O(n)
     """
     # Sort meetings by start time
-    meetings.sort(key=lambda x: x[0])
+    meetings.sort()
     
-    # Min heap of available rooms
+    # min-heap of available rooms (room numbers)
     available = list(range(n))
     heapq.heapify(available)
     
-    # Min heap of (end_time, room) for busy rooms
-    busy = []
+    # min-heap of occupied rooms: (end_time, room)
+    occupied = []
     
-    # Count meetings per room
-    room_count = [0] * n
+    # Count how many times each room is used
+    count = [0] * n
     
     for start, end in meetings:
-        # Free up rooms that have finished
-        while busy and busy[0][0] <= start:
-            _, room = heapq.heappop(busy)
+        duration = end - start
+        
+        # 1. Free up rooms that have finished
+        while occupied and occupied[0][0] <= start:
+            end_time, room = heapq.heappop(occupied)
             heapq.heappush(available, room)
         
+        # 2. If a room is available → assign it
         if available:
-            # Use the smallest available room
             room = heapq.heappop(available)
-            heapq.heappush(busy, (end, room))
-        else:
-            # Wait for the earliest room to be free
-            end_time, room = heapq.heappop(busy)
-            heapq.heappush(busy, (end_time + end - start, room))
+            heapq.heappush(occupied, (end, room))
         
-        room_count[room] += 1
+        else:
+            # 3. No room available → delay meeting
+            end_time, room = heapq.heappop(occupied)
+            new_end = end_time + duration
+            heapq.heappush(occupied, (new_end, room))
+        
+        count[room] += 1
     
-    # Return room with most meetings (smallest index if tie)
-    max_meetings = max(room_count)
-    for i in range(n):
-        if room_count[i] == max_meetings:
-            return i
-
+    # Return room with maximum bookings (smallest index if tie)
+    return count.index(max(count))
 
 # Test cases
 if __name__ == "__main__":

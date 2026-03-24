@@ -11,27 +11,31 @@ Space Complexity: O(1)
 
 def erase_overlap_intervals(intervals):
     """
-    Greedy approach - sort by end time.
+    Greedy approach - sort by start time.
     TC: O(n log n), SC: O(1)
     """
     if not intervals:
         return 0
     
-    # Sort by end time
-    intervals.sort(key=lambda x: x[1])
+    # Sort by start time
+    intervals.sort(key=lambda x: x[0])
     
-    count = 0
-    prev_end = float('-inf')
+    min_remove_count = 0
+    prev_end = intervals[0][1]
     
-    for start, end in intervals:
+    for i in range(1, len(intervals)):
+        start = intervals[i][0]
+        end = intervals[i][1]
+
         if start >= prev_end:
             # No overlap, keep this interval
             prev_end = end
         else:
             # Overlap, remove this interval
-            count += 1
+            min_remove_count += 1
+            prev_end = min(prev_end, end)
     
-    return count
+    return min_remove_count
 
 
 # Test cases

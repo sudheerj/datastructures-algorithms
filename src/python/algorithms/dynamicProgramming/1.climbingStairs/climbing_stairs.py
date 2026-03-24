@@ -18,14 +18,12 @@ def climb_stairs(n):
     if n <= 2:
         return n
     
-    prev2, prev1 = 1, 2
+    first, second = 1, 1
     
-    for _ in range(3, n + 1):
-        current = prev1 + prev2
-        prev2 = prev1
-        prev1 = current
+    for _ in range(n-1):
+        first, second = second, first+second
     
-    return prev1
+    return second
 
 
 def climb_stairs_dp(n):
@@ -37,13 +35,25 @@ def climb_stairs_dp(n):
         return n
     
     dp = [0] * (n + 1)
+    dp[0] = 1
     dp[1] = 1
-    dp[2] = 2
     
-    for i in range(3, n + 1):
+    for i in range(2, n+1):
         dp[i] = dp[i - 1] + dp[i - 2]
     
     return dp[n]
+
+def climb_stairs_recursive(n):
+    memo = {}
+    def helper(k):
+        if k <= 2:
+            return k
+        if k in memo:
+            return memo[k]
+        memo[k] = helper(k-1) + helper(k-2)
+        return memo[k]
+
+    return helper(n)
 
 
 # Test cases
@@ -53,4 +63,7 @@ if __name__ == "__main__":
     for n in test_cases:
         print(f"n = {n}")
         print(f"Ways to climb: {climb_stairs(n)}")
+        print(f"Ways to climb: {climb_stairs_dp(n)}")
+        print(f"Ways to climb: {climb_stairs_recursive(n)}")
+
         print()

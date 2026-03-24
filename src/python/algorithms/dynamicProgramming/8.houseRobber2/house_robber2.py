@@ -22,12 +22,12 @@ def rob(nums):
         return max(nums)
     
     def rob_linear(houses):
-        prev2, prev1 = 0, 0
+        rob1, rob2 = 0, 0
         for num in houses:
             current = max(prev1, prev2 + num)
-            prev2 = prev1
-            prev1 = current
-        return prev1
+            rob1 = rob2
+            rob2 = current
+        return rob2
     
     # Either rob houses[0:n-1] or houses[1:n]
     return max(rob_linear(nums[:-1]), rob_linear(nums[1:]))

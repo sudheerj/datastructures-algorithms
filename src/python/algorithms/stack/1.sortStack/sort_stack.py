@@ -18,7 +18,7 @@ def sort_stack(stack):
     while stack:
         temp = stack.pop()
         
-        while aux_stack and aux_stack[-1] > temp:
+        while aux_stack and aux_stack[-1] < temp:
             stack.append(aux_stack.pop())
         
         aux_stack.append(temp)

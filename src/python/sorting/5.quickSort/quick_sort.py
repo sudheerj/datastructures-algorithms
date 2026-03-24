@@ -8,55 +8,37 @@ Quick sort is a divide-and-conquer algorithm that selects a pivot element
 and partitions the array around the pivot, then recursively sorts the partitions.
 """
 
-
-def swap(array, first_index, second_index):
-    """Swaps two elements in an array."""
-    array[first_index], array[second_index] = array[second_index], array[first_index]
+import random
 
 
-def pivot(array, pivot_index=0, end_index=None):
-    """
-    Partitions the array around a pivot element.
-    
-    Args:
-        array: List of comparable elements
-        pivot_index: Starting index (default 0)
-        end_index: Ending index (default array length - 1)
-    
-    Returns:
-        Final position of the pivot element
-    """
-    if end_index is None:
-        end_index = len(array) - 1
-    
-    swap_index = pivot_index
-    
-    for i in range(pivot_index + 1, end_index + 1):
-        if array[i] < array[pivot_index]:
+def swap(arr, i, j):
+    arr[i], arr[j] = arr[j], arr[i]
+
+
+def partition(arr, left, right):
+    pivot_index = random.randint(left, right)
+    swap(arr, left, pivot_index)
+
+    pivot = arr[left]
+    swap_index = left
+
+    for i in range(left + 1, right + 1):
+        if arr[i] < pivot:
             swap_index += 1
-            swap(array, swap_index, i)
-    
-    swap(array, pivot_index, swap_index)
-    
+            swap(arr, swap_index, i)
+
+    swap(arr, left, swap_index)
     return swap_index
 
 
-def quick_sort(array, left=0, right=None):
-    """
-    Sorts an array using quick sort algorithm.
-    
-    Args:
-        array: List of comparable elements
-        left: Starting index (default 0)
-        right: Ending index (default array length - 1)
-    """
+def quick_sort(arr, left=0, right=None):
     if right is None:
-        right = len(array) - 1
-    
+        right = len(arr) - 1
+
     if left < right:
-        pivot_index = pivot(array, left, right)
-        quick_sort(array, left, pivot_index - 1)
-        quick_sort(array, pivot_index + 1, right)
+        pivot_index = partition(arr, left, right)
+        quick_sort(arr, left, pivot_index - 1)
+        quick_sort(arr, pivot_index + 1, right)
 
 
 # Usage example

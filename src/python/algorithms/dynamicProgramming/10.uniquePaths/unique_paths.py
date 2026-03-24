@@ -17,11 +17,11 @@ def unique_paths(m, n):
     """
     row = [1] * n
     
-    for _ in range(1, m):
-        for j in range(1, n):
-            row[j] += row[j - 1]
+    for _ in range(m-1):
+        for j in range(n-2, -1, -1):
+            row[j] += row[j + 1]
     
-    return row[n - 1]
+    return row[0]
 
 
 def unique_paths_math(m, n):

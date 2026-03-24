@@ -20,14 +20,14 @@ def rob(nums):
     if len(nums) == 1:
         return nums[0]
     
-    prev2, prev1 = 0, 0
+    rob1, rob2 = 0, 0
     
     for num in nums:
-        current = max(prev1, prev2 + num)
-        prev2 = prev1
-        prev1 = current
+        current = max(rob2, rob1 + num)
+        rob1 = rob2
+        rob2 = current
     
-    return prev1
+    return rob2
 
 
 # Test cases

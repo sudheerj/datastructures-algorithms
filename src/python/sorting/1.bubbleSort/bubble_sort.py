@@ -9,7 +9,7 @@ and swaps them if they are in the wrong order.
 """
 
 
-def bubble_sort(array):
+def bubble_sort(nums):
     """
     Sorts an array using bubble sort algorithm.
     
@@ -19,30 +19,30 @@ def bubble_sort(array):
     Returns:
         Sorted array
     """
-    n = len(array)
+    n = len(nums)
     
     for i in range(n - 1):
         swapped = False
         
         for j in range(n - i - 1):
-            if array[j] > array[j + 1]:
-                swap(array, j, j + 1)
+            if nums[j] > nums[j + 1]:
+                swap(nums, j, j + 1)
                 swapped = True
         
-        # Early exit if no swaps were made (array is sorted)
+        # Early exit if no swaps were made (list is sorted)
         if not swapped:
             break
     
-    return array
+    return nums
 
 
-def swap(array, first_index, second_index):
+def swap(nums, first_index, second_index):
     """Swaps two elements in an array."""
-    array[first_index], array[second_index] = array[second_index], array[first_index]
+    nums[first_index], nums[second_index] = nums[second_index], nums[first_index]
 
 
 # Usage example
 if __name__ == "__main__":
-    test_array = [40, 50, 20, 0, -10, 30, 10]
-    print(f"Original: {test_array}")
-    print(f"Sorted: {bubble_sort(test_array)}")
+    test_nums = [40, 50, 20, 0, -10, 30, 10]
+    print(f"Original: {test_nums}")
+    print(f"Sorted: {bubble_sort(test_nums)}")

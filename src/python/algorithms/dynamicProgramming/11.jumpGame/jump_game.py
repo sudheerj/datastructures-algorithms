@@ -9,6 +9,18 @@ Time Complexity: O(n)
 Space Complexity: O(1)
 """
 
+def can_jump_backward(nums):
+    """
+    Greedy approach from the end.
+    TC: O(n), SC: O(1)
+    """
+    goal = len(nums) - 1
+    
+    for i in range(len(nums) - 2, -1, -1):
+        if i + nums[i] >= goal:
+            goal = i
+    
+    return goal == 0
 
 def can_jump(nums):
     """
@@ -25,20 +37,6 @@ def can_jump(nums):
             return True
     
     return True
-
-
-def can_jump_backward(nums):
-    """
-    Greedy approach from the end.
-    TC: O(n), SC: O(1)
-    """
-    goal = len(nums) - 1
-    
-    for i in range(len(nums) - 2, -1, -1):
-        if i + nums[i] >= goal:
-            goal = i
-    
-    return goal == 0
 
 
 # Test cases
