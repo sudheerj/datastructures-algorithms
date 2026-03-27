@@ -39,7 +39,7 @@ def max_subarray_with_indices(nums):
             current_max_sum = nums[i]
             temp_start = i
         else:
-            current_max_sum = current_sum + nums[i]
+            current_max_sum = current_max_sum + nums[i]
         
         if current_max_sum > global_max_sum:
             global_max_sum = current_max_sum
@@ -53,8 +53,8 @@ def max_subarray_with_indices(nums):
 if __name__ == "__main__":
     test_cases = [
         [-2, 1, -3, 4, -1, 2, 1, -5, 4],  # 6 (subarray [4,-1,2,1])
-        [1],                               # 1
-        [5, 4, -1, 7, 8],                  # 23
+        [1],                               # 1, []
+        [5, 4, -1, 7, 8],                  # 23 [5, 4, -1, 7, 8]
     ]
     
     for nums in test_cases:

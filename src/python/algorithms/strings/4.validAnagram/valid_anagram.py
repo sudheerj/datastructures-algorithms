@@ -7,18 +7,7 @@ Time Complexity: O(n)
 Space Complexity: O(1) - fixed 26 characters
 """
 
-from collections import Counter
-
-
 def is_anagram(s, t):
-    """
-    Using Counter.
-    TC: O(n), SC: O(1)
-    """
-    return Counter(s) == Counter(t)
-
-
-def is_anagram_array(s, t):
     """
     Using character count array.
     TC: O(n), SC: O(1)
@@ -33,6 +22,15 @@ def is_anagram_array(s, t):
         count[ord(t[i]) - ord('a')] -= 1
     
     return all(c == 0 for c in count)
+
+from collections import Counter
+
+def is_anagram_counter(s, t):
+    """
+    Using Counter.
+    TC: O(n), SC: O(1)
+    """
+    return Counter(s) == Counter(t)
 
 
 def is_anagram_sort(s, t):
@@ -53,4 +51,6 @@ if __name__ == "__main__":
     for test in test_cases:
         print(f"s: '{test['s']}', t: '{test['t']}'")
         print(f"Is anagram: {is_anagram(test['s'], test['t'])}")
+        print(f"Is anagram: {is_anagram_counter(test['s'], test['t'])}")
+        print(f"Is anagram: {is_anagram_sort(test['s'], test['t'])}")
         print()

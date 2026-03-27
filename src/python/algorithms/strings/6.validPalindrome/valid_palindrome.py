@@ -31,7 +31,7 @@ def is_palindrome(s):
     return True
 
 
-def is_palindrome_simple(s):
+def is_palindrome_reverse(s):
     """
     Using string operations.
     TC: O(n), SC: O(n)
@@ -51,4 +51,5 @@ if __name__ == "__main__":
     for s in test_cases:
         print(f"String: '{s}'")
         print(f"Is palindrome: {is_palindrome(s)}")
+        print(f"Is palindrome: {is_palindrome_reverse(s)}")
         print()

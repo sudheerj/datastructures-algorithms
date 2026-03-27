@@ -19,37 +19,39 @@ def min_window(s, t):
     if not s or not t or len(s) < len(t):
         return ""
     
-    t_count = Counter(t)
-    required = len(t_count)
+    substr_count = Counter(t)
+    window_str_count = {}
+
+    having = 0
+    required = len(substr_count)
     
     left = 0
-    formed = 0
-    window_counts = {}
     
-    min_len = float('inf')
-    min_left = 0
+    min_length = float('inf')
+    best_window = [-1, -1]
     
     for right in range(len(s)):
-        char = s[right]
-        window_counts[char] = window_counts.get(char, 0) + 1
+        right_char = s[right]
+        window_str_count[right_char] = 1 + window_str_count.get(right_char, 0)
         
-        if char in t_count and window_counts[char] == t_count[char]:
-            formed += 1
+        if right_char in substr_count and window_str_count[right_char] == substr_count[right_char]:
+            having += 1
         
-        while formed == required:
-            if right - left + 1 < min_len:
-                min_len = right - left + 1
-                min_left = left
+        while having == required:
+            if right - left + 1 < min_length:
+                min_length = right - left + 1
+                best_window[0] = left
+                best_window[1] = right
             
             left_char = s[left]
-            window_counts[left_char] -= 1
+            window_str_count[left_char] -= 1
             
-            if left_char in t_count and window_counts[left_char] < t_count[left_char]:
-                formed -= 1
+            if left_char in substr_count and window_str_count[left_char] < substr_count[left_char]:
+                having -= 1
             
             left += 1
     
-    return "" if min_len == float('inf') else s[min_left:min_left + min_len]
+    return "" if min_length == float('inf') else s[best_window[0]:best_window[1]+1]
 
 
 # Test cases

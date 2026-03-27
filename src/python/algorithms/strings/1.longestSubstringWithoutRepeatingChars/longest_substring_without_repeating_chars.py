@@ -58,4 +58,5 @@ if __name__ == "__main__":
     for s in test_cases:
         print(f"String: '{s}'")
         print(f"Longest substring length: {length_of_longest_substring(s)}")
+        print(f"Longest substring length: {length_of_longest_substring_optimized(s)}")
         print()

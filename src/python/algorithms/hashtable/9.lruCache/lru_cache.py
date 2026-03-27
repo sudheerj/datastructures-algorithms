@@ -61,11 +61,15 @@ class LRUCacheManual:
     def _remove(self, node):
         node.prev.next = node.next
         node.next.prev = node.prev
+        node.next = node.prev = None
     
     def _add_to_end(self, node):
-        node.prev = self.tail.prev
+        prev = self.tail.prev   # save old last node
+    
+        prev.next = node
+        node.prev = prev
+        
         node.next = self.tail
-        self.tail.prev.next = node
         self.tail.prev = node
     
     def get(self, key):
@@ -79,7 +83,11 @@ class LRUCacheManual:
     
     def put(self, key, value):
         if key in self.cache:
-            self._remove(self.cache[key])
+            node = self.cache[key]
+            node.value = value
+            self._remove(node)
+            self._add_to_end(node)
+            return
         
         node = self.Node(key, value)
         self._add_to_end(node)
@@ -93,6 +101,7 @@ class LRUCacheManual:
 
 # Test case
 if __name__ == "__main__":
+    print("--- LRUCache (OrderedDict) ---")
     cache = LRUCache(2)
     
     cache.put(1, 1)
@@ -106,3 +115,18 @@ if __name__ == "__main__":
     print(f"get(1): {cache.get(1)}")  # -1
     print(f"get(3): {cache.get(3)}")  # 3
     print(f"get(4): {cache.get(4)}")  # 4
+
+    print("\n--- LRUCacheManual (Doubly Linked List + HashMap) ---")
+    cache2 = LRUCacheManual(2)
+    
+    cache2.put(1, 1)
+    cache2.put(2, 2)
+    print(f"get(1): {cache2.get(1)}")  # 1
+    
+    cache2.put(3, 3)  # Evicts key 2
+    print(f"get(2): {cache2.get(2)}")  # -1
+    
+    cache2.put(4, 4)  # Evicts key 1
+    print(f"get(1): {cache2.get(1)}")  # -1
+    print(f"get(3): {cache2.get(3)}")  # 3
+    print(f"get(4): {cache2.get(4)}")  # 4
