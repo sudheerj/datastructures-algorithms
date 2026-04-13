@@ -2,6 +2,7 @@ package java1.algorithms.strings.validAnagram;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ValidAnagram {
     
@@ -10,16 +11,16 @@ public class ValidAnagram {
     private static boolean validAnagram1(String str1, String str2) {
         if(str1.length() != str2.length()) return false;
 
-        int[] chars = new int[26];
+        int[] charCount = new int[26];
 
         for(int i=0; i< str1.length(); i++) {
             char ch1 = str1.charAt(i);
             char ch2 = str2.charAt(i);
-            chars[ch1 - 'a']++;
-            chars[ch2 - 'a']--;
+            charCount[ch1 - 'a']++;
+            charCount[ch2 - 'a']--;
         }
 
-        for(int ch: chars) {
+        for(int ch: charCount) {
             if(ch !=0) return false;
         }
 
@@ -32,7 +33,7 @@ public class ValidAnagram {
             return false;
         }
 
-        HashMap<Character, Integer> hashMap = new HashMap<>();
+        Map<Character, Integer> hashMap = new HashMap<>();
 
         for(char ch: str1.toCharArray()) {
             hashMap.put(ch, hashMap.getOrDefault(ch, 0) + 1);

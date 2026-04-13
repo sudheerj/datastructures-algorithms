@@ -2,16 +2,20 @@ package maxProductSubarray;
 
 public class MaxProductSubarray {
     private static int maxProductSubArray(int[] nums) {
-        int result = nums[0];
-        int currentMax = 1, currentMin = 1;
-        for(int num: nums) {
-            int tempMaxProduct = currentMax * num;
-            int tempMinProduct = currentMin * num;
-            currentMax = Math.max(Math.max(tempMaxProduct, tempMinProduct), num);
-            currentMin = Math.min(Math.min(tempMaxProduct, tempMinProduct), num);
-            result = Math.max(currentMax, result);
+        int currentMaxProduct = nums[0], currentMinProduct = nums[0], globalMaxProduct = nums[0];
+        for(int i=1; i< nums.length; i++) {
+            int num = nums[i];
+            if(num <0) {
+                int temp = currentMinProduct;
+                currentMinProduct = currentMaxProduct;
+                currentMaxProduct = temp;
+            }
+
+            currentMinProduct = Math.min(num, currentMinProduct * num);
+            currentMaxProduct = Math.max(num, currentMaxProduct * num);
+            globalMaxProduct = Math.max(globalMaxProduct, currentMaxProduct);
         }
-        return result;
+        return globalMaxProduct;
     }
 
     public static void main(String[] args) {

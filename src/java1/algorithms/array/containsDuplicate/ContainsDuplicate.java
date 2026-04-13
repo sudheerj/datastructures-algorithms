@@ -3,7 +3,7 @@ import java.util.*;
 
 class ContainsDuplicate {
     private static boolean containsDuplicate(int[] nums) {
-        HashSet<Integer> set = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
 
         for (int num : nums) {
             if (set.contains(num)) {
@@ -15,7 +15,7 @@ class ContainsDuplicate {
     }
 
     private static boolean containsDuplicateUsingMap(int[] nums) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
 
         for (int num : nums) {
             if (map.containsKey(num)) {

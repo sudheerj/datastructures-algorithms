@@ -4,7 +4,8 @@ def move_zeros(nums):
 
     for right in range(len(nums)):
         if nums[right]:
-            nums[left], nums[right] = nums[right], nums[left]
+            if left != right:
+                nums[left], nums[right] = nums[right], nums[left]
             left +=1
     return nums
 

@@ -69,15 +69,25 @@ def level_order_dfs(root):
     return result
 
 
-# Test case
+# Test cases
 if __name__ == "__main__":
-    #     3
-    #    / \
-    #   9  20
-    #     /  \
-    #    15   7
-    root = TreeNode(3)
-    root.left = TreeNode(9)
-    root.right = TreeNode(20, TreeNode(15), TreeNode(7))
-    
-    print(f"Level order: {level_order(root)}")  # [[3], [9, 20], [15, 7]]
+    #       1
+    #      / \
+    #     2   3
+    #    / \ / \
+    #   4  5 6  7
+    root1 = TreeNode(1)
+    root1.left = TreeNode(2, TreeNode(4), TreeNode(5))
+    root1.right = TreeNode(3, TreeNode(6), TreeNode(7))
+
+    root2 = TreeNode(3)
+
+    # BFS tests
+    print(f"BFS Test 1: {level_order(root1)}")  # [[1], [2, 3], [4, 5, 6, 7]]
+    print(f"BFS Test 2: {level_order(root2)}")  # [[3]]
+    print(f"BFS Test 3: {level_order(None)}")  # []
+
+    # DFS tests
+    print(f"DFS Test 1: {level_order_dfs(root1)}")  # [[1], [2, 3], [4, 5, 6, 7]]
+    print(f"DFS Test 2: {level_order_dfs(root2)}")  # [[3]]
+    print(f"DFS Test 3: {level_order_dfs(None)}")  # []

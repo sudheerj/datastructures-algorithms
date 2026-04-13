@@ -6,13 +6,13 @@ public class ValidateBST {
 
     // DFS: TC:O(n) SC: O(n)
     private boolean isValidBST(TreeNode root) {
-        return dfs(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return dfs(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private boolean dfs(TreeNode node, int min, int max) {
+    private boolean dfs(TreeNode node, long min, long max) {
         if(node == null) return true;
 
-        if(!(min < node.value && node.value < max)) return false;
+        if(node.value <=min || node.value >= max) return false;
 
         return dfs(node.left, min, node.value) && dfs(node.right, node.value, max);
     }

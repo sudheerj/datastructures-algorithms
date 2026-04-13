@@ -4,8 +4,8 @@ import java.util.*;
 public class ThreeSum {
     // Two pointer approach:- TC: O(n logn) + O(n*2) => O(n * 2), SC: O(1)
     private static List<List<Integer>> threeSum(int[] nums, int target) {
-        Arrays.sort(nums);
         List<List<Integer>> triplets = new ArrayList<>();
+        Arrays.sort(nums);
 
         for(int i=0; i < nums.length-2; i++) {
                 if(i > 0 && nums[i] == nums[i-1]) continue;
@@ -22,8 +22,10 @@ public class ThreeSum {
                     else {
 
                         triplets.add(List.of(nums[i], nums[left], nums[right]));
+                        while(left < right && nums[left] == nums[left + 1]) left++;
+                        while(left < right && nums[right] == nums[right-1]) right--;
                         left++;
-                        while(left < right && nums[left] == nums[left-1]) left++;
+                        right--;
                     } 
                 }
         }

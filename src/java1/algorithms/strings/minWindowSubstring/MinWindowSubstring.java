@@ -2,25 +2,30 @@ package java1.algorithms.strings.minWindowSubstring;
 // Sliding window: TC: O(m) + O(n), SC: O(m) + O(n)
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class MinWindowSubstring {
 
     private static String minWindowSubstring(String windowStr, String subStr) {
 
-        if (subStr == "") return "";
+        if (windowStr.isEmpty() || subStr.isEmpty() || windowStr.length() < subStr.length()) return "";
 
-        HashMap<Character, Integer> subStrCount = new HashMap<>();
-        HashMap<Character, Integer> windowStrCount = new HashMap<>();
+        Map<Character, Integer> subStrCount = new HashMap<>();
+        Map<Character, Integer> windowStrCount = new HashMap<>();
 
-        int minLength = Integer.MAX_VALUE;
-        int[] subStrBoundaries = new int[]{-1, -1};
-
+        //Step1: Build frequency map of target substring
         for(char ch: subStr.toCharArray()) {
             subStrCount.put(ch, subStrCount.getOrDefault(ch, 0) + 1);
         }
 
+        //Step2: Initialize sliding window
+        int minLength = Integer.MAX_VALUE;
+        int[] bestWindow = new int[]{-1, -1};
+
         int having = 0, required = subStrCount.size();
         int left = 0;
+
+        //Step3: Expand window and update counts
         for(int right = 0; right < windowStr.length(); right++) {
             char rightChar = windowStr.charAt(right);
             
@@ -31,11 +36,12 @@ public class MinWindowSubstring {
                 } 
             }
 
+            //Step4: Shrink window to find minimized substring
             while(required == having) {
                 if(minLength > right-left+1) {
                     minLength = right-left+1;
-                    subStrBoundaries[0] = left;
-                    subStrBoundaries[1] = right;
+                    bestWindow[0] = left;
+                    bestWindow[1] = right;
                 }
                 
                 char leftChar = windowStr.charAt(left);
@@ -49,7 +55,7 @@ public class MinWindowSubstring {
             }
         }
 
-        return minLength == Integer.MAX_VALUE ? "" : windowStr.substring(subStrBoundaries[0], subStrBoundaries[1]+1);
+        return minLength == Integer.MAX_VALUE ? "" : windowStr.substring(bestWindow[0], bestWindow[1]+1);
     }
 
     public static void main(String[] args) {

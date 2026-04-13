@@ -5,3 +5,6 @@
 *.ipr
 out
 output/
+
+### Java ###
+*.class

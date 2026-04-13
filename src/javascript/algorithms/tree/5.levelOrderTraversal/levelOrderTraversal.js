@@ -39,6 +39,11 @@ class TreeNode {
   }
 }
 
+//       1
+//      / \
+//     2   3
+//    / \ / \
+//   4  5 6  7
 let root1 = new TreeNode(1);
 root1.left = new TreeNode(2);
 root1.right = new TreeNode(3);
@@ -49,9 +54,12 @@ root1.right.right = new TreeNode(7);
 
 let root2 = new TreeNode(3);
 
-console.log(levelOrder(root1));
-console.log(levelOrder(root2));
-console.log(levelOrder(null));
-console.log(levelOrderRecursive(root1));
-console.log(levelOrderRecursive(root2));
-console.log(levelOrderRecursive(null));
+// BFS tests
+console.log("BFS Test 1:", levelOrder(root1)); // [[1], [2, 3], [4, 5, 6, 7]]
+console.log("BFS Test 2:", levelOrder(root2)); // [[3]]
+console.log("BFS Test 3:", levelOrder(null)); // []
+
+// Recursive tests
+console.log("DFS Test 1:", levelOrderRecursive(root1)); // [[1], [2, 3], [4, 5, 6, 7]]
+console.log("DFS Test 2:", levelOrderRecursive(root2)); // [[3]]
+console.log("DFS Test 3:", levelOrderRecursive(null)); // []

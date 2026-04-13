@@ -25,19 +25,19 @@ def clone_graph_dfs(node):
     if not node:
         return None
     
-    cloned = {}
+    visited = {}
     
     def dfs(node):
-        if node in cloned:
-            return cloned[node]
+        if node in visited:
+            return visited[node]
         
-        clone = Node(node.val)
-        cloned[node] = clone
+        copy = Node(node.val)
+        visited[node] = copy
         
         for neighbor in node.neighbors:
-            clone.neighbors.append(dfs(neighbor))
+            copy.neighbors.append(dfs(neighbor))
         
-        return clone
+        return copy
     
     return dfs(node)
 
@@ -50,19 +50,19 @@ def clone_graph_bfs(node):
     if not node:
         return None
     
-    cloned = {node: Node(node.val)}
+    visited = {node: Node(node.val)}
     queue = deque([node])
     
     while queue:
         current = queue.popleft()
         
         for neighbor in current.neighbors:
-            if neighbor not in cloned:
-                cloned[neighbor] = Node(neighbor.val)
+            if neighbor not in visited:
+                visited[neighbor] = Node(neighbor.val)
                 queue.append(neighbor)
-            cloned[current].neighbors.append(cloned[neighbor])
+            visited[current].neighbors.append(visited[neighbor])
     
-    return cloned[node]
+    return visited[node]
 
 
 # Test case

@@ -1,4 +1,6 @@
 package containerWithMostWater;
+
+//TC:O(n) SC: O(1)
 public class ContainerWithMostWater {
     private static int mostWater(int[] heights) {
         int maxCapacity = 0;

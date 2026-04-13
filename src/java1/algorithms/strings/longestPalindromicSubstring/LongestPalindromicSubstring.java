@@ -2,33 +2,31 @@
 package java1.algorithms.strings.longestPalindromicSubstring;
 
 public class LongestPalindromicSubstring {
-
+    //TC: O(n**2)  SC:O(1)
     private static String longestPalindromicSubstring1(String str) {
-        if(str.length() <= 1) return str;
+        int start = 0, end = 0;
 
-        String maxPalindromicSubstr = str.substring(0, 1);
+        for(int i=0; i< str.length(); i++) {
+            int len1 = expandAroundCenter(str, i, i); //odd palindromes
+            int len2 = expandAroundCenter(str, i, i+1); //even palindromes
 
-        for (int i = 0; i < str.length(); i++) {
-            String maxOddPalindromicSubstr = expandAroundCenter(str, i, i);
-            String maxEvenPalindromicSubstr = expandAroundCenter(str, i, i+1);
+            int len = Math.max(len1, len2);
 
-            if(maxOddPalindromicSubstr.length() > maxPalindromicSubstr.length()) {
-                maxPalindromicSubstr = maxOddPalindromicSubstr;
-            }
-            if(maxEvenPalindromicSubstr.length() > maxPalindromicSubstr.length()) {
-                maxPalindromicSubstr = maxEvenPalindromicSubstr;
+            if(len > end-start) {
+                start = i- (len-1)/2;
+                end = i + len/2;
             }
         }
-
-        return maxPalindromicSubstr;
+        return str.substring(start, end+1);
     }
 
-    private static String expandAroundCenter(String str, int left, int right) {
-        while(left >=0 && right < str.length() && str.charAt(left) == str.charAt(right)) {
-            left--;
-            right++;
+    private static int expandAroundCenter(String str, int start, int end) {
+        while(start >=0 && end < str.length() && str.charAt(start) == str.charAt(end)) {
+            start--;
+            end++;
         }
-        return str.substring(left+1, right);
+
+        return end-start-1;
     }
 
     private static String longestPalindromicSubstring2(String str){
@@ -59,6 +57,34 @@ public class LongestPalindromicSubstring {
             }
         }
         return longestSubstr;
+    }
+
+        private static String longestPalindromicSubstring3(String str) {
+        if(str.length() <= 1) return str;
+
+        String maxPalindromicSubstr = str.substring(0, 1);
+
+        for (int i = 0; i < str.length(); i++) {
+            String maxOddPalindromicSubstr = expandAroundCenter2(str, i, i);
+            String maxEvenPalindromicSubstr = expandAroundCenter2(str, i, i+1);
+
+            if(maxOddPalindromicSubstr.length() > maxPalindromicSubstr.length()) {
+                maxPalindromicSubstr = maxOddPalindromicSubstr;
+            }
+            if(maxEvenPalindromicSubstr.length() > maxPalindromicSubstr.length()) {
+                maxPalindromicSubstr = maxEvenPalindromicSubstr;
+            }
+        }
+
+        return maxPalindromicSubstr;
+    }
+
+    private static String expandAroundCenter2(String str, int left, int right) {
+        while(left >=0 && right < str.length() && str.charAt(left) == str.charAt(right)) {
+            left--;
+            right++;
+        }
+        return str.substring(left+1, right);
     }
 
     public static void main(String[] args) {

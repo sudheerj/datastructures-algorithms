@@ -4,6 +4,16 @@ import java.util.*;
 
 import java1.algorithms.tree.TreeNode;
 
+class Pair {
+    TreeNode node;
+    int depth;
+
+    Pair(TreeNode node, int depth) {
+        this.node = node;
+        this.depth = depth;
+    }
+}
+
 public class MaxDepthBinaryTree {
 
     // Recursive DFS(InOrder traversal):- TC: O(n) SC: O(n)
@@ -17,24 +27,21 @@ public class MaxDepthBinaryTree {
     private static int maxDepth2(TreeNode root) {
         if(root == null) return 0;
 
-        Stack<TreeNode> stack = new Stack<>();
-        Stack<Integer> depth = new Stack<>();
-        stack.push(root);
-        depth.push(1);
+        Stack<Pair> stack = new Stack<>();
+        stack.push(new Pair(root, 1));
         int maxDepth = 0;
 
         while(!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            int temp = depth.pop();
-            maxDepth = Math.max(maxDepth, temp);
+            Pair current = stack.pop();
+            TreeNode node = current.node;
+            int depth = current.depth;
+            maxDepth = Math.max(maxDepth, depth);
 
             if(node.left != null) {
-                stack.push(node.left);
-                depth.push(temp + 1);
+                stack.push(new Pair(node.left, depth+1));
             } 
             if(node.right != null) {
-                stack.push(node.right);
-                depth.push(temp + 1);
+                stack.push(new Pair(node.right, depth+1));
             }
         }
 
@@ -52,6 +59,7 @@ public class MaxDepthBinaryTree {
 
         while (!queue.isEmpty()) {
             int size = queue.size();
+            maxDepth++;
 
             //Traverse the tree by layer
             for(int i=0; i<size; i++) {
@@ -60,7 +68,6 @@ public class MaxDepthBinaryTree {
                 if(node.left != null) queue.offer(node.left);
                 if(node.right != null) queue.offer(node.right);
             }
-            maxDepth++;
         }
 
         return maxDepth;

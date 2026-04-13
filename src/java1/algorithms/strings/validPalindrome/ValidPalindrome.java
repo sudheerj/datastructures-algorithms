@@ -7,20 +7,22 @@ public class ValidPalindrome {
         if(str.length() <=1) return true;
 
         int left=0, right= str.length()-1;
-        while(left <= right) {
+        while(left < right) {
 
             char ch1 = str.charAt(left);
             char ch2 = str.charAt(right);
 
-            if(!Character.isLetterOrDigit(ch1)) left++;
-            else if(!Character.isLetterOrDigit(ch2)) right--;
-            else {
-                if(Character.toLowerCase(ch1) != Character.toLowerCase(ch2)) {
+            while(left < right && !Character.isLetterOrDigit(ch1)) left++;
+            while(left < right && !Character.isLetterOrDigit(ch2)) right--;
+
+            ch1= str.charAt(left);
+            ch2= str.charAt(right);
+
+            if(Character.toLowerCase(ch1) != Character.toLowerCase(ch2)) {
                     return false;
-                }
-                left++;
-                right--;
             }
+            left++;
+            right--;
         }
         return true;
     }
@@ -46,8 +48,8 @@ public class ValidPalindrome {
         return true;
     }
 
-    private static boolean isAlphanumeric(int codePoint) {
-        return (codePoint >=48 && codePoint <= 57) || (codePoint >= 65 && codePoint <=90) || (codePoint >=97 && codePoint <=122);
+    private static boolean isAlphanumeric(int ch) {
+        return (ch >=48 && ch <= 57) || (ch >= 65 && ch <=90) || (ch >=97 && ch <=122);
     }
 
     public static void main(String[] args) {

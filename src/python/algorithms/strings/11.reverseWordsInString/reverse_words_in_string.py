@@ -37,12 +37,12 @@ def reverse_words_in_string_iteration(s):
     TC: O(n), SC: O(n)
     """
     words = s.split()
-    result = ""
+    result = []
 
     for i in range(len(words) - 1, -1, -1):
-        result += words[i] + " "
+        result.append(words[i])
 
-    return result[:-1] if result else ""
+    return "".join(result) if result else ""
 
 
 # Test cases

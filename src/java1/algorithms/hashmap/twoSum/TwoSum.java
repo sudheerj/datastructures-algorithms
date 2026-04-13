@@ -5,7 +5,7 @@ class TwoSum {
 
     private static int[] twoSum(int[] nums, int target) {
         if(nums.length < 2) return new int[]{};
-        HashMap<Integer, Integer> indexMap = new HashMap<>();
+        Map<Integer, Integer> indexMap = new HashMap<>();
 
         for(int i=0; i< nums.length; i++) {
             int compliment = target - nums[i];

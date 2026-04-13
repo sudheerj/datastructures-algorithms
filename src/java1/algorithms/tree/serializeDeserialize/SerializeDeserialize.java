@@ -66,6 +66,7 @@ public class SerializeDeserialize {
         String serializedString = serializeDeserializeObj.serialize(root);
         System.out.println(serializedString);
         printTree(serializeDeserializeObj.deserialize(serializedString));
+        System.out.println();
 
         serializeDeserializeObj.i = 0;
         String serializedString1 = serializeDeserializeObj.serialize(null);

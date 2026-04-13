@@ -15,15 +15,13 @@ public class GroupAnagrams {
                     charsCount[ch - 'a']++;
                 }
     
-                StringBuilder sb = new StringBuilder();
+                StringBuilder key = new StringBuilder();
                 for(int num: charsCount) {
-                    sb.append("*");
-                    sb.append(num);
+                    key.append(num).append("#");
                 }
     
-                String key = sb.toString();
-                groupAnagramMap.putIfAbsent(key, new ArrayList<>());
-                groupAnagramMap.get(key).add(str);
+                groupAnagramMap.putIfAbsent(key.toString(), new ArrayList<>());
+                groupAnagramMap.get(key.toString()).add(str);
             }
             return new ArrayList<>(groupAnagramMap.values());
         }

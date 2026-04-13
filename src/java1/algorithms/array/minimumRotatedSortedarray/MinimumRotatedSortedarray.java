@@ -3,19 +3,16 @@ package minimumRotatedSortedarray;
 
 public class MinimumRotatedSortedarray {
     private static int minRotatedSortedArray(int[] nums) {
-        int result = nums[0];
-
         if (nums.length == 1)
-            return result;
+            return nums[0];
         if (nums.length == 2)
             return Math.min(nums[0], nums[1]);
 
         int left = 0, right = nums.length - 1;
 
-        while (left <= right) {
-            if (nums[left] <= nums[right]) {
-                result = nums[left];
-                break;
+        while (left < right) {
+            if (nums[left] < nums[right]) {
+                return nums[left];
             }
 
             int mid = left + (right - left) / 2;
@@ -26,7 +23,7 @@ public class MinimumRotatedSortedarray {
                 right = mid;
             }
         }
-        return result;
+        return nums[left];
     }
 
     public static void main(String[] args) {

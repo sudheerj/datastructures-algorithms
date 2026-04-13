@@ -2,12 +2,12 @@ package java1.algorithms.strings.reverseWordsInString;
 
 public class ReverseWordsInString {
 
-    // TC: O(n) SC: O(n)
+    //Two pointer array reversal TC: O(n) SC: O(n)
     private static String reverseWordsInString1(String str) {
-        String[] words = str.split("\\s+");
+        String[] words = str.trim().split("\\s+");
         int i = 0, j = words.length - 1;
 
-        while (i <= j) {
+        while (i < j) {
             String temp = words[i];
             words[i] = words[j];
             words[j] = temp;
@@ -17,19 +17,19 @@ public class ReverseWordsInString {
         return String.join(" ", words);
     }
 
-    // TC: O(n) SC: O(n)
+    //String builder array reversal TC: O(n) SC: O(n)
     private static String reverseWordsInString2(String str) {
-        String[] arr = str.split("\\s+");
+        String[] words = str.trim().split("\\s+");
 
-        String res = "";
-        for (int i = arr.length - 1; i >= 0; i--) {
-            res += arr[i];
+        StringBuilder sb = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            sb.append(words[i]);
             if(i != 0){
-                res += " ";               
+                sb.append(" ");               
             }
         }
 
-        return res.substring(0, res.length());
+        return sb.toString();
     }
 
     public static void main(String[] args) {

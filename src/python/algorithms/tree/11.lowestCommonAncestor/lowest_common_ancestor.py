@@ -44,21 +44,37 @@ def lowest_common_ancestor_iterative(root, p, q):
     return None
 
 
-# Test case
+# Test cases
 if __name__ == "__main__":
-    #         6
-    #        / \
-    #       2   8
-    #      / \ / \
-    #     0  4 7  9
-    #       / \
-    #      3   5
-    root = TreeNode(6)
-    root.left = TreeNode(2, TreeNode(0), TreeNode(4, TreeNode(3), TreeNode(5)))
+    #       5
+    #      / \
+    #     1   8
+    #    / \ / \
+    #   0  2 7  9
+    root = TreeNode(5)
+    root.left = TreeNode(1, TreeNode(0), TreeNode(2))
     root.right = TreeNode(8, TreeNode(7), TreeNode(9))
-    
-    p = root.left  # node 2
-    q = root.right  # node 8
-    
-    lca = lowest_common_ancestor_iterative(root, p, q)
-    print(f"LCA of {p.val} and {q.val}: {lca.val}")  # 6
+
+    # Test 1: Nodes in left subtree
+    result1 = lowest_common_ancestor_recursive(root, root.left.left, root.left.right)
+    print(f"Test 1 (Recursive): LCA of 0 and 2 = {result1.val}")  # 1
+
+    # Test 2: Nodes on opposite sides
+    result2 = lowest_common_ancestor_iterative(root, root.left, root.right)
+    print(f"Test 2 (Iterative): LCA of 1 and 8 = {result2.val}")  # 5
+
+    # Test 3: One node is ancestor of the other
+    result3 = lowest_common_ancestor_recursive(root, root.right, root.right.right)
+    print(f"Test 3 (Recursive): LCA of 8 and 9 = {result3.val}")  # 8
+
+    # Test 4: Nodes in right subtree
+    result4 = lowest_common_ancestor_iterative(root, root.right.left, root.right.right)
+    print(f"Test 4 (Iterative): LCA of 7 and 9 = {result4.val}")  # 8
+
+    # Test 5: Root is the LCA
+    result5 = lowest_common_ancestor_recursive(root, root.left.left, root.right.right)
+    print(f"Test 5 (Recursive): LCA of 0 and 9 = {result5.val}")  # 5
+
+    # Test 6: Node with itself
+    result6 = lowest_common_ancestor_iterative(root, root.left, root.left)
+    print(f"Test 6 (Iterative): LCA of 1 and 1 = {result6.val}")  # 1

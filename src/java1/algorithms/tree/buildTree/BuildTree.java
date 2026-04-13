@@ -1,30 +1,45 @@
 package java1.algorithms.tree.buildTree;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import java1.algorithms.tree.TreeNode;
 
 public class BuildTree {
+    private int preIndex = 0;
+    private Map<Integer, Integer> inorderMap = new HashMap<>();
+    
     //TC: O(n) SC: O(n)
     private TreeNode buildTree(int[] preorder, int[] inorder){
         if(preorder.length == 0 || inorder.length == 0) {
             return null;
         }
 
-        TreeNode root = new TreeNode(preorder[0]);
-        int mid = 0;
+        //Build value-> index map
         for(int i=0; i<inorder.length; i++) {
-            if(inorder[i] == preorder[0]) {
-                mid = i;
-                break;
-            }
+            inorderMap.put(inorder[i], i);
         }
 
-        root.left = buildTree(Arrays.copyOfRange(preorder, 1, mid+1), Arrays.copyOfRange(inorder, 0, mid));
-        root.right = buildTree(Arrays.copyOfRange(preorder, mid+1, preorder.length), Arrays.copyOfRange(inorder, mid+1, inorder.length));
-        
+        return dfs(preorder, 0, inorder.length-1);
+    }
+
+    private TreeNode dfs(int[] preorder, int inStart, int inEnd) {
+        if(inStart > inEnd) return null;
+
+        //Get root from preorder
+        int rootVal = preorder[preIndex++];
+        TreeNode root = new TreeNode(rootVal);
+
+        //Get split position in O(1)
+        int inIndex = inorderMap.get(rootVal);
+
+        //Build left and right subtrees
+        root.left = dfs(preorder, inStart, inIndex-1);
+        root.right = dfs(preorder, inIndex+1, inEnd);
+
         return root;
     }
+        
 
     private static void printTree(TreeNode root) {
         if(root == null) return;
