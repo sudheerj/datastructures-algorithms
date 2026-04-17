@@ -16,10 +16,10 @@ class Node {
 }
 
 public class LRUCache {
-    int capacity;
-    Map<Integer, Node> cache;
-    Node head;
-    Node tail;
+    private int capacity;
+    private Map<Integer, Node> cache;
+    private Node head;
+    private Node tail;
     
     LRUCache(int capacity){
         this.capacity = capacity;
@@ -41,7 +41,7 @@ public class LRUCache {
         return -1;
     }
 
-    public void set(int key, int value){
+    public void put(int key, int value){
         if(this.cache.containsKey(key)) {
             this._remove(this.cache.get(key));
         }
@@ -60,6 +60,7 @@ public class LRUCache {
     private void _remove(Node node){
         node.prev.next = node.next;
         node.next.prev = node.prev;
+        node.prev = node.next = null;
     }
 
     private void _insert(Node node) {
@@ -71,12 +72,12 @@ public class LRUCache {
 
     public static void main(String[] args) {
         LRUCache lruCache = new LRUCache(2);
-        lruCache.set(1, 5);
+        lruCache.put(1, 5);
         System.out.println(lruCache.get(1));
-        lruCache.set(2, 10);
-        lruCache.set(3, 15);
+        lruCache.put(2, 10);
+        lruCache.put(3, 15);
         System.out.println(lruCache.get(2));
-        lruCache.set(4, 20);
+        lruCache.put(4, 20);
         System.out.println(lruCache.get(1));
     }
 }

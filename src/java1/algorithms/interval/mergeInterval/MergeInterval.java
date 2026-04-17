@@ -6,7 +6,7 @@ public class MergeInterval {
     // TC: O(n log n) + O(n) => O(n log n) SC: O(n)
     private static int[][] mergeInterval(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> a[0]-b[0]);
-        ArrayList<int[]> mergedIntervals = new ArrayList<>();
+        List<int[]> mergedIntervals = new ArrayList<>();
         mergedIntervals.add(intervals[0]);
 
         for(int i=1; i< intervals.length; i++) {

@@ -7,16 +7,16 @@ public class UniquePaths {
         int[] row = new int[n];
         Arrays.fill(row, 1);
 
-        for(int i=1; i<m; i++){
+        for(int i=m-2; i >=0; i--) {
             int[] newRow = new int[n];
-            newRow[0] = 1;
-            for(int j=1; j<n; j++) {
-                newRow[j] = row[j] + newRow[j-1];
+            Arrays.fill(newRow, 1);
+            for(int j=n-2; j>=0; j--) {
+                newRow[j] = newRow[j+1] + row[j];
             }
             row = newRow;
         }
-        return row[n-1];
-    }
+
+        return row[0];
 
     //Dynamic programming:- TC:O(m*n) OC:O(m*n)
     private static int uniquePaths1(int m, int n) {

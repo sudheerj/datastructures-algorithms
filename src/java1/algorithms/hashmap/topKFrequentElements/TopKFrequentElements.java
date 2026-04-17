@@ -1,3 +1,7 @@
+
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+// n = length of nums
 package java1.algorithms.hashmap.topKFrequentElements;
 
 import java.util.ArrayList;

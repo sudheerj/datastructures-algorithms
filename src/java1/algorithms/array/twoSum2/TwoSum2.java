@@ -1,3 +1,7 @@
+/**
+ * Time Complexity: O(n) - Each element is visited at most once by the two pointers.
+ * Space Complexity: O(1) - Only a constant amount of extra space is used.
+ */
 package twoSum2;
 import java.util.*;
 

@@ -3,14 +3,16 @@ package java1.algorithms.stack.dailyTemperatures;
 import java.util.Arrays;
 import java.util.Stack;
 
+//Monotonic decreasing stack: TC:O(n) SC:O(n)
 public class DailyTemperatures {
 
     private static int[] dailyTemperatures(int[] temperatures) {
         int[] days = new int[temperatures.length];
+        //Store indices of temperature array
         Stack<Integer> stack = new Stack<>();
 
         for(int currDay = 0; currDay < temperatures.length; currDay++) {
-            while (!stack.empty() && temperatures[stack.peek()] < temperatures[currDay]) {
+            while (!stack.empty() && temperatures[currDay] > temperatures[stack.peek()]) {
                 int prevDay = stack.pop();
                 days[prevDay] = currDay - prevDay;
             }

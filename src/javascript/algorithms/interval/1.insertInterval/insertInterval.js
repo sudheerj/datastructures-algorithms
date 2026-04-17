@@ -8,7 +8,7 @@
         if(newEnd < currStart) {
             // If the new interval ends before the current interval starts
             if(!isIntervalInserted) {
-                result.push(newInterval);
+                result.push([newStart, newEnd]);
                 isIntervalInserted = true;
             }
             result.push([currStart, currEnd]);
@@ -23,7 +23,7 @@
     }
 
      if(!isIntervalInserted) {
-         result.push(newInterval);
+         result.push([newStart, newEnd]);
      }
      return result;
  }
