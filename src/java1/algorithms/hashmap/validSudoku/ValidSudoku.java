@@ -6,26 +6,80 @@ import java.util.Map;
 import java.util.Set;
 
 public class ValidSudoku {
-    private static boolean isValidSuduko(char[][] board){
+    private static boolean isValidSuduko1(char[][] board){
+        int rows = board.length, cols = board[0].length;
+        int k = (int)Math.sqrt(rows);
+
+        Set<String> seen = new HashSet<>();
+
+        for(int r=0; r<rows; r++) {
+            for(int c=0; c<cols; c++) {
+                char cell = board[r][c];
+
+                if(cell == '.') continue;
+                if(!seen.add(cell +" in row " + r)
+                   || !seen.add(cell +" in col " + c)
+                   || !seen.add(cell +" in row-" + r/k + " col-"+c/k)) return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static boolean isValidSuduko2(char[][] board) {
+        int n = board.length;
+        int k = (int)Math.sqrt(n);
+
+        boolean[][] rows = new boolean[n][n];
+        boolean[][] cols = new boolean[n][n];
+        boolean[][] boxes = new boolean[n][n];
+
+        for(int r=0; r<n; r++) {
+            for(int c=0; c<n; c++) {
+                char cell = board[r][c];
+                if(cell == '.') continue;
+
+                int num = cell - '1'; //map 1-9 to 0-8
+                int boxIndex = (r/k)*k+(c/k);
+
+                if(rows[r][num] || cols[c][num] || boxes[boxIndex][num]) {
+                    return false;
+                }
+
+                rows[r][num] = cols[c][num] = boxes[boxIndex][num] = true;
+
+            }
+        }
+        return true;
+    }
+
+    private static boolean isValidSuduko3(char[][] board){
         Map<Integer, Set<Character>> rowsMap = new HashMap<>();
         Map<Integer, Set<Character>> colsMap = new HashMap<>();
         Map<Integer, Set<Character>> squaresMap = new HashMap<>();
 
-        for (int r = 0; r < board.length; r++) {
-            for (int c = 0; c < board[r].length; c++) {
+        int rows = board.length, cols = board[0].length;
+        int k = (int)Math.sqrt(rows);
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
                 Character cell = board[r][c];
                 if(cell == '.') {
                     continue;
                 }
-                if(rowsMap.getOrDefault(r, new HashSet<>()).contains(cell) 
-                || colsMap.getOrDefault(c, new HashSet<>()).contains(cell)
-                || squaresMap.getOrDefault((r/3)*3+c/3, new HashSet<>()).contains(cell)) {
+                rowsMap.putIfAbsent(r, new HashSet<>());
+                colsMap.putIfAbsent(c, new HashSet<>());
+                squaresMap.putIfAbsent((r/k)*k+c/k, new HashSet<>());
+
+                if(rowsMap.get(r).contains(cell) 
+                || colsMap.get(c).contains(cell)
+                || squaresMap.get((r/k)*k+c/k).contains(cell)) {
                     return false;
                 }
 
-                rowsMap.computeIfAbsent(r, k -> new HashSet<>()).add(cell);
-                colsMap.computeIfAbsent(c, k -> new HashSet<>()).add(cell);
-                squaresMap.computeIfAbsent((r/3)*3+c/3, k -> new HashSet<>()).add(cell);
+                rowsMap.get(r).add(cell);
+                colsMap.get(c).add(cell);
+                squaresMap.get((r/k)*k+c/k).add(cell);
             }
         }
 
@@ -55,9 +109,11 @@ public class ValidSudoku {
         {'.','.','.','4','1','9','.','.','8'},
         {'.','.','.','.','8','.','.','7','1'}};
 
-        System.out.println(isValidSuduko(board1));
-        System.out.println(isValidSuduko(board2));
-
-        
+        System.out.println(isValidSuduko1(board1));
+        System.out.println(isValidSuduko1(board2));
+        System.out.println(isValidSuduko2(board1));
+        System.out.println(isValidSuduko2(board2));
+        System.out.println(isValidSuduko3(board1));
+        System.out.println(isValidSuduko3(board2));
     }
 }
