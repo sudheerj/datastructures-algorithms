@@ -13,8 +13,8 @@ import java.util.Map;
 public class RomanToInteger {
     public static void main(String[] args) {
         // Example test cases
-        String[] tests = {"III", "IV", "IX", "LVIII", "MCMXCIV", "XL", "XC", "CD", "CM"};
-        int[] expected = {3, 4, 9, 58, 1994, 40, 90, 400, 900};
+        String[] tests = { "III", "IV", "IX", "LVIII", "MCMXCIV", "XL", "XC", "CD", "CM" };
+        int[] expected = { 3, 4, 9, 58, 1994, 40, 90, 400, 900 };
         for (int i = 0; i < tests.length; i++) {
             int result = romanToInteger(tests[i]);
             System.out.println("romanToInteger('" + tests[i] + "') = " + result + " | Expected: " + expected[i]);
@@ -33,10 +33,10 @@ public class RomanToInteger {
 
         int result = 0;
 
-        for(int i=0; i<str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             int current = map.get(str.charAt(i));
 
-            if(i<str.length()-1 && current < map.get(str.charAt(i +1))){
+            if (i < str.length() - 1 && current < map.get(str.charAt(i + 1))) {
                 result -= current;
             } else {
                 result += current;
