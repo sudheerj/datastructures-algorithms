@@ -1,6 +1,7 @@
 package java1.algorithms.hashmap.lruCache;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 class Node {
@@ -73,12 +74,36 @@ public class LRUCache {
     public static void main(String[] args) {
         LRUCache lruCache = new LRUCache(2);
         lruCache.put(1, 5);
-        System.out.println(lruCache.get(1));
+        System.out.println(lruCache.get(1)); // 5
         lruCache.put(2, 10);
         lruCache.put(3, 15);
-        System.out.println(lruCache.get(2));
+        System.out.println(lruCache.get(2)); // -1 (evicted)
         lruCache.put(4, 20);
-        System.out.println(lruCache.get(1));
+        System.out.println(lruCache.get(1)); // -1 (evicted)
+
+        // LRUCache2 (LRUCache1) test cases
+        LRUCache1<Integer, Integer> lruCache2 = new LRUCache1<>(2);
+        lruCache2.put(1, 5);
+        System.out.println(lruCache2.get(1)); // 5
+        lruCache2.put(2, 10);
+        lruCache2.put(3, 15);
+        System.out.println(lruCache2.get(2)); // null (evicted)
+        lruCache2.put(4, 20);
+        System.out.println(lruCache2.get(1)); // null (evicted)
+    }
+}
+
+class LRUCache1<K, V> extends LinkedHashMap<K, V> {
+    private final int capacity;
+
+    LRUCache1(int capacity) {
+        super(capacity, 0.75f, true);
+        this.capacity = capacity;
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
+        return size() > capacity;
     }
 }
 
