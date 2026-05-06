@@ -4,7 +4,7 @@ import java.util.*;
 
 public class GroupAnagrams {
 
-        //HashMap and char array:- TC:O(n * m) SC:O(n)
+        //HashMap and char frequency array:- TC:O(n * m) SC:O(n)
         private static List<List<String>> groupAnagram1(String[] strs) {
             Map<String, List<String>> groupAnagramMap = new HashMap<>();
     
