@@ -1,4 +1,4 @@
-package java1.algorithms.binarySearch;
+package java1.algorithms.binarySearch.binarySearch;
 
 public class BinarySearch {
     //Binary search TC: O(logn) SC: O(1)
