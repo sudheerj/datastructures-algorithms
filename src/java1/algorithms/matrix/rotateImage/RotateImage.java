@@ -3,7 +3,7 @@ package java1.algorithms.matrix.rotateImage;
 import java.util.Arrays;
 
 public class RotateImage {
-    // TC: O(n^2) SC: O(1)
+    //Rotate every element(i.e, n^2) in anti-clockwise-> TC: O(n^2) SC: O(1)
     private static void rotate(int[][] matrix) {
         int left =0, right = matrix[0].length-1;
 

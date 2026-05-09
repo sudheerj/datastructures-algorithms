@@ -39,7 +39,7 @@ public class meetingRooms2 {
         return minMeetingRooms;
     }
 
-    //Priority Queue + sorting:- TC: O(n logn + n) SC: O(n)
+    //Priority Queue + sorting:- TC: O(n logn) + O(n log n) => O(n log n) SC: O(n)
     private static int minMeetingRooms2(List<Interval> intervals) {
         Collections.sort(intervals, (a, b) -> a.start - b.start);
         PriorityQueue<Interval> priorityQueue = new PriorityQueue<>((a, b) -> a.end-b.end);

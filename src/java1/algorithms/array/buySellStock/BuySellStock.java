@@ -8,7 +8,8 @@ class BuySellStock {
         int maxProfit = 0, left=0, right = 1;
         while(right< stockPrices.length) {
             if(stockPrices[right]>stockPrices[left]) {
-                maxProfit = Math.max(maxProfit, stockPrices[right]-stockPrices[left]);
+                int currProfilt = stockPrices[right]-stockPrices[left];
+                maxProfit = Math.max(maxProfit, currProfilt);
             } else {
                 left = right;
             }

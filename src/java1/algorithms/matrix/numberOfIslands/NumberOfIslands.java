@@ -86,8 +86,9 @@ public class NumberOfIslands {
         int cols = grid[0].length;
         java.util.Queue<int[]> queue = new java.util.LinkedList<>();
         queue.offer(new int[]{r, c});
-        grid[r][c] = '0';
+        grid[r][c] = '0'; //mark as visited
 
+        //Visist all 4 directions
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
         while (!queue.isEmpty()) {

@@ -22,6 +22,7 @@ public class LongestCommonPrefix {
         }
     }
 
+    //TC: O(n * m) SC: O(n)
     private String longestCommonPrefix(String[] strs) {
 
         for(int i=0; i< strs[0].length(); i++) {

@@ -25,7 +25,7 @@ class Node {
 public class CloneGraph {
     private Map<Integer, Node> visitedMap = new HashMap<>();
 
-    //DFS: TC:O(V+E) SC:O(n)
+    //DFS: TC:O(V+E) SC:O(V)
     private Node cloneGraph1(Node node) {
         if (node == null) return null;
 
@@ -43,7 +43,7 @@ public class CloneGraph {
         }
     }
 
-    //BFS: TC:O(V+E) SC:O(n)
+    //BFS: TC:O(V+E) SC:O(V)
     private Node cloneGraph2(Node node) {
         if(node == null) return null;
         Node clonedNode = new Node(node.val);

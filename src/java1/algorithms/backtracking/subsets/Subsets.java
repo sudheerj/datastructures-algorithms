@@ -1,4 +1,4 @@
-package subsets;
+package java1.algorithms.backtracking.subsets;
 
 import java.util.ArrayList;
 import java.util.List;
