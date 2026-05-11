@@ -57,14 +57,14 @@ max_gap = 3 ✓
 
 ## Test Cases
 
-| nums             | output  | notes                        |
-|------------------|---------|------------------------------|
-| [3, 6, 9, 1]     | 3       | LeetCode example 1           |
-| [10]             | 0       | single element               |
-| [1, 1, 1, 1]     | 0       | all elements equal           |
-| [1, 10000000]    | 9999999 | two elements, large gap      |
-| [1, 3, 6, 10]    | 4       | gap between 6 and 10         |
-| [5, 1]           | 4       | two elements, unsorted input |
+| nums          | output  | notes                        |
+| ------------- | ------- | ---------------------------- |
+| [3, 6, 9, 1]  | 3       | LeetCode example 1           |
+| [10]          | 0       | single element               |
+| [1, 1, 1, 1]  | 0       | all elements equal           |
+| [1, 10000000] | 9999999 | two elements, large gap      |
+| [1, 3, 6, 10] | 4       | gap between 6 and 10         |
+| [5, 1]        | 4       | two elements, unsorted input |
 
 ### Walkthrough — `[1, 3, 6, 10]`
 
@@ -92,8 +92,8 @@ max_gap = 4 ✓
 
 ## Complexity
 
-| | Time | Space |
-|-|------|-------|
-| Bucket Sort | O(n) | O(n) |
+|             | Time | Space |
+| ----------- | ---- | ----- |
+| Bucket Sort | O(n) | O(n)  |
 
 > The pigeonhole principle guarantees the maximum gap crosses bucket boundaries, so intra-bucket comparisons are unnecessary.

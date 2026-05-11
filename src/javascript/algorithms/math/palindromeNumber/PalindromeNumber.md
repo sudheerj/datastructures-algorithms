@@ -42,20 +42,20 @@ Step 3: reverse=121, num=0
 
 ## Test Cases
 
-| input  | output | notes                   |
-|--------|--------|-------------------------|
-| 121    | true   | 3-digit palindrome      |
-| -121   | false  | negative number         |
-| 10     | false  | trailing zero           |
-| 0      | true   | zero                    |
-| 12321  | true   | 5-digit odd palindrome  |
-| 1221   | true   | 4-digit even palindrome |
-| 123    | false  | not a palindrome        |
+| input | output | notes                   |
+| ----- | ------ | ----------------------- |
+| 121   | true   | 3-digit palindrome      |
+| -121  | false  | negative number         |
+| 10    | false  | trailing zero           |
+| 0     | true   | zero                    |
+| 12321 | true   | 5-digit odd palindrome  |
+| 1221  | true   | 4-digit even palindrome |
+| 123   | false  | not a palindrome        |
 
 ---
 
 ## Complexity
 
-| | Time | Space |
-|-|------|-------|
-| Digit reversal | O(log₁₀ n) | O(1) |
+|                | Time       | Space |
+| -------------- | ---------- | ----- |
+| Digit reversal | O(log₁₀ n) | O(1)  |

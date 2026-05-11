@@ -50,15 +50,15 @@ left (5) > right (4) → return 5
 
 ## Test Cases
 
-| nums                  | threshold | output | notes                          |
-|-----------------------|-----------|--------|--------------------------------|
-| [1, 2, 5, 9]          | 6         | 5      | LeetCode example 1             |
-| [2, 3, 5, 7, 11]      | 11        | 3      | LeetCode example 2             |
-| [19]                  | 5         | 4      | single element: ceil(19/4)=5   |
-| [1, 2, 3]             | 6         | 1      | divisor=1 already satisfies    |
-| [44, 22, 33, 11, 1]   | 5         | 44     | needs maximum element as divisor |
-| [1]                   | 1         | 1      | smallest possible input        |
-| [1000000]             | 1         | 1000000| max value edge case            |
+| nums                | threshold | output  | notes                            |
+| ------------------- | --------- | ------- | -------------------------------- |
+| [1, 2, 5, 9]        | 6         | 5       | LeetCode example 1               |
+| [2, 3, 5, 7, 11]    | 11        | 3       | LeetCode example 2               |
+| [19]                | 5         | 4       | single element: ceil(19/4)=5     |
+| [1, 2, 3]           | 6         | 1       | divisor=1 already satisfies      |
+| [44, 22, 33, 11, 1] | 5         | 44      | needs maximum element as divisor |
+| [1]                 | 1         | 1       | smallest possible input          |
+| [1000000]           | 1         | 1000000 | max value edge case              |
 
 ### Walkthrough — `nums = [2, 3, 5, 7, 11]`, `threshold = 11`
 
@@ -91,9 +91,9 @@ left (4) > right (3) → return 4
 
 ## Complexity
 
-|                | Time          | Space |
-|----------------|---------------|-------|
-| Binary Search  | O(n log m)    | O(1)  |
-| Brute Force    | O(n * m)      | O(1)  |
+|               | Time       | Space |
+| ------------- | ---------- | ----- |
+| Binary Search | O(n log m) | O(1)  |
+| Brute Force   | O(n * m)   | O(1)  |
 
 > `n` = length of nums, `m` = max element in nums

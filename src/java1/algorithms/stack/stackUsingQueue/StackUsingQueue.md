@@ -11,12 +11,12 @@ LeetCode: https://leetcode.com/problems/implement-stack-using-queues/
 
 After each `push`, rotate all previously enqueued elements to the back so the newest element is always at the front of the queue. This makes `pop` and `top` O(1) at the cost of O(n) per `push`.
 
-| Operation | Time  | Space |
-|-----------|-------|-------|
-| `push`    | O(n)  | O(1)  |
-| `pop`     | O(1)  | O(1)  |
-| `top`     | O(1)  | O(1)  |
-| `isEmpty` | O(1)  | O(1)  |
+| Operation | Time | Space |
+| --------- | ---- | ----- |
+| `push`    | O(n) | O(1)  |
+| `pop`     | O(1) | O(1)  |
+| `top`     | O(1) | O(1)  |
+| `isEmpty` | O(1) | O(1)  |
 
 ---
 
@@ -41,15 +41,15 @@ top() → peeks  2   (LIFO ✓)
 
 ## Test Cases
 
-| Operations                                  | Expected Output       |
-|---------------------------------------------|-----------------------|
-| push(1), push(2), push(3), top()            | 3                     |
-| push(1), push(2), push(3), isEmpty()        | false                 |
-| push(1), push(2), push(3), pop()            | 3                     |
-| push(1), push(2), push(3), pop(), top()     | 2                     |
-| push(1), pop(), isEmpty()                   | true                  |
-| push(10), push(20), top()                   | 20                    |
-| push(10), push(20), pop(), top()            | 10                    |
+| Operations                              | Expected Output |
+| --------------------------------------- | --------------- |
+| push(1), push(2), push(3), top()        | 3               |
+| push(1), push(2), push(3), isEmpty()    | false           |
+| push(1), push(2), push(3), pop()        | 3               |
+| push(1), push(2), push(3), pop(), top() | 2               |
+| push(1), pop(), isEmpty()               | true            |
+| push(10), push(20), top()               | 20              |
+| push(10), push(20), pop(), top()        | 10              |
 
 ### Walkthrough
 

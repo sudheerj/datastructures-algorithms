@@ -46,19 +46,19 @@ Result: True
 
 ## Test Cases
 
-| input           | output | notes                  |
-|-----------------|--------|------------------------|
-| [1,2,2,1]       | True   | even-length palindrome |
-| [1,2,3,2,1]     | True   | odd-length palindrome  |
-| [7]             | True   | single node            |
-| [5,5]           | True   | two equal nodes        |
-| [1,2]           | False  | two different nodes    |
-| [1,2,3,4,5]     | False  | longer non-palindrome  |
+| input       | output | notes                  |
+| ----------- | ------ | ---------------------- |
+| [1,2,2,1]   | True   | even-length palindrome |
+| [1,2,3,2,1] | True   | odd-length palindrome  |
+| [7]         | True   | single node            |
+| [5,5]       | True   | two equal nodes        |
+| [1,2]       | False  | two different nodes    |
+| [1,2,3,4,5] | False  | longer non-palindrome  |
 
 ---
 
 ## Complexity
 
-| | Time | Space |
-|-|------|-------|
-| Slow/Fast + reverse | O(n) | O(1) |
+|                     | Time | Space |
+| ------------------- | ---- | ----- |
+| Slow/Fast + reverse | O(n) | O(1)  |

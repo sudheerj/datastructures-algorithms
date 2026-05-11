@@ -52,13 +52,13 @@ Same key → 1 distinct island
 
 ## Test Cases
 
-| grid                                                      | output | notes                                  |
-|-----------------------------------------------------------|--------|----------------------------------------|
-| [[1,1,0,0],[1,1,0,0],[0,0,1,1],[0,0,1,1]]                | 1      | two identical 2×2 blocks               |
-| [[1,1,0,1,1],[1,0,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]        | 3      | L-shape + pair + 2×2 → 3 distinct      |
-| [[1,1,0,0,0],[1,0,0,1,1],[0,0,0,1,0]]                    | 1      | two identical L-shapes (translation)   |
-| [[0,0,0],[0,0,0]]                                         | 0      | no islands                             |
-| [[1,0,1],[0,0,0],[1,0,0]]                                 | 1      | three single-cell islands, same shape  |
+| grid                                              | output | notes                                 |
+| ------------------------------------------------- | ------ | ------------------------------------- |
+| [[1,1,0,0],[1,1,0,0],[0,0,1,1],[0,0,1,1]]         | 1      | two identical 2×2 blocks              |
+| [[1,1,0,1,1],[1,0,0,0,0],[0,0,0,1,1],[0,0,0,1,1]] | 3      | L-shape + pair + 2×2 → 3 distinct     |
+| [[1,1,0,0,0],[1,0,0,1,1],[0,0,0,1,0]]             | 1      | two identical L-shapes (translation)  |
+| [[0,0,0],[0,0,0]]                                 | 0      | no islands                            |
+| [[1,0,1],[0,0,0],[1,0,0]]                         | 1      | three single-cell islands, same shape |
 
 ### Why mirror images are different
 
@@ -75,6 +75,6 @@ DFS path B = "0:0|0:1|1:1"   ← different
 
 ## Complexity
 
-| | Time | Space |
-|-|------|-------|
+|           | Time     | Space    |
+| --------- | -------- | -------- |
 | DFS + Set | O(m × n) | O(m × n) |

@@ -12,28 +12,28 @@
  */
 
 class MyStack {
-    constructor() {
-        this.queue = [];
-    }
+  constructor() {
+    this.queue = [];
+  }
 
-    push(x) {
-        this.queue.push(x);
-        for (let i = 0; i < this.queue.length - 1; i++) {
-            this.queue.push(this.queue.shift());
-        }
+  push(x) {
+    this.queue.push(x);
+    for (let i = 0; i < this.queue.length - 1; i++) {
+      this.queue.push(this.queue.shift());
     }
+  }
 
-    pop() {
-        return this.queue.shift();
-    }
+  pop() {
+    return this.queue.shift();
+  }
 
-    top() {
-        return this.queue[0];
-    }
+  top() {
+    return this.queue[0];
+  }
 
-    isEmpty() {
-        return this.queue.length === 0;
-    }
+  isEmpty() {
+    return this.queue.length === 0;
+  }
 }
 
 const stack = new MyStack();
@@ -42,20 +42,20 @@ const stack = new MyStack();
 stack.push(1);
 stack.push(2);
 stack.push(3);
-console.log(stack.top());      // 3
-console.log(stack.isEmpty());  // false
+console.log(stack.top()); // 3
+console.log(stack.isEmpty()); // false
 
 // Test pop
-console.log(stack.pop());      // 3
-console.log(stack.top());      // 2
+console.log(stack.pop()); // 3
+console.log(stack.top()); // 2
 
-console.log(stack.pop());      // 2
-console.log(stack.pop());      // 1
-console.log(stack.isEmpty());  // true
+console.log(stack.pop()); // 2
+console.log(stack.pop()); // 1
+console.log(stack.isEmpty()); // true
 
 // Test push after pop
 stack.push(10);
 stack.push(20);
-console.log(stack.top());      // 20
-console.log(stack.pop());      // 20
-console.log(stack.top());      // 10
+console.log(stack.top()); // 20
+console.log(stack.pop()); // 20
+console.log(stack.top()); // 10

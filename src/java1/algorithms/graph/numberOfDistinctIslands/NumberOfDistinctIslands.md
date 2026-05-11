@@ -100,18 +100,18 @@ All three distinct → answer 3 for Test 1. The comment in the code saying "expe
 
 ## Test Cases
 
-| grid                                                      | output | notes                              |
-|-----------------------------------------------------------|--------|------------------------------------|
-| [[1,1,0,1,1],[1,0,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]        | 3      | 3 distinct shapes                  |
-| [[1,1,0,0,0],[1,0,0,0,0],[0,0,0,1,1],[0,0,0,0,1]]        | 1      | two L-shapes, same relative path   |
-| [[0,0,0],[0,0,0]]                                         | 0      | no islands                         |
-| [[1,1],[1,1]]                                             | 1      | single 2×2 block                   |
-| [[1,0,1],[0,0,0],[1,0,0]]                                 | 1      | three single cells, same shape     |
+| grid                                              | output | notes                            |
+| ------------------------------------------------- | ------ | -------------------------------- |
+| [[1,1,0,1,1],[1,0,0,0,0],[0,0,0,1,1],[0,0,0,1,1]] | 3      | 3 distinct shapes                |
+| [[1,1,0,0,0],[1,0,0,0,0],[0,0,0,1,1],[0,0,0,0,1]] | 1      | two L-shapes, same relative path |
+| [[0,0,0],[0,0,0]]                                 | 0      | no islands                       |
+| [[1,1],[1,1]]                                     | 1      | single 2×2 block                 |
+| [[1,0,1],[0,0,0],[1,0,0]]                         | 1      | three single cells, same shape   |
 
 ---
 
 ## Complexity
 
-| | Time | Space |
-|-|------|-------|
+|               | Time     | Space    |
+| ------------- | -------- | -------- |
 | DFS + HashSet | O(m × n) | O(m × n) |

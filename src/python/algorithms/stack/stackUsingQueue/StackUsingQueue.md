@@ -13,12 +13,12 @@ After each `push`, rotate all previously enqueued elements to the back so the ne
 
 Uses Python's `collections.deque` for efficient O(1) `append` and `popleft`.
 
-| Operation  | Time  | Space |
-|------------|-------|-------|
-| `push`     | O(n)  | O(1)  |
-| `pop`      | O(1)  | O(1)  |
-| `top`      | O(1)  | O(1)  |
-| `is_empty` | O(1)  | O(1)  |
+| Operation  | Time | Space |
+| ---------- | ---- | ----- |
+| `push`     | O(n) | O(1)  |
+| `pop`      | O(1) | O(1)  |
+| `top`      | O(1) | O(1)  |
+| `is_empty` | O(1) | O(1)  |
 
 ---
 
@@ -43,15 +43,15 @@ top() → queue[0]  = 2  (LIFO ✓)
 
 ## Test Cases
 
-| Operations                                  | Expected Output |
-|---------------------------------------------|-----------------|
-| push(1), push(2), push(3), top()            | 3               |
-| push(1), push(2), push(3), is_empty()       | False           |
-| push(1), push(2), push(3), pop()            | 3               |
-| push(1), push(2), push(3), pop(), top()     | 2               |
-| push(1), pop(), is_empty()                  | True            |
-| push(10), push(20), top()                   | 20              |
-| push(10), push(20), pop(), top()            | 10              |
+| Operations                              | Expected Output |
+| --------------------------------------- | --------------- |
+| push(1), push(2), push(3), top()        | 3               |
+| push(1), push(2), push(3), is_empty()   | False           |
+| push(1), push(2), push(3), pop()        | 3               |
+| push(1), push(2), push(3), pop(), top() | 2               |
+| push(1), pop(), is_empty()              | True            |
+| push(10), push(20), top()               | 20              |
+| push(10), push(20), pop(), top()        | 10              |
 
 ### Walkthrough
 

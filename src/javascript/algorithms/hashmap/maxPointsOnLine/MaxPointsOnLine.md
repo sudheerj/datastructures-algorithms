@@ -53,19 +53,19 @@ Answer: 4
 
 ## Test Cases
 
-| input                                    | output | notes                    |
-|------------------------------------------|--------|--------------------------|
-| [[1,1],[2,2],[3,3]]                      | 3      | all collinear (slope 1)  |
-| [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]    | 4      | diagonal anti-slope line |
-| [[0,0]]                                  | 1      | single point             |
-| [[0,0],[1,0],[2,0]]                      | 3      | horizontal line          |
-| [[0,0],[0,1],[0,2]]                      | 3      | vertical line            |
-| [[0,0],[0,0],[1,1]]                      | 3      | duplicate counts as +1   |
+| input                                 | output | notes                    |
+| ------------------------------------- | ------ | ------------------------ |
+| [[1,1],[2,2],[3,3]]                   | 3      | all collinear (slope 1)  |
+| [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] | 4      | diagonal anti-slope line |
+| [[0,0]]                               | 1      | single point             |
+| [[0,0],[1,0],[2,0]]                   | 3      | horizontal line          |
+| [[0,0],[0,1],[0,2]]                   | 3      | vertical line            |
+| [[0,0],[0,0],[1,1]]                   | 3      | duplicate counts as +1   |
 
 ---
 
 ## Complexity
 
-| | Time | Space |
-|-|------|-------|
-| Map per anchor | O(n²) | O(n) |
+|                | Time  | Space |
+| -------------- | ----- | ----- |
+| Map per anchor | O(n²) | O(n)  |
