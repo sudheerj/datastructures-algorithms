@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.removeKthNodeFromEnd;
+package java1.algorithms.linkedlist.basics.removeKthNodeFromEnd;
 
 import java1.algorithms.linkedlist.Node;
 
@@ -7,24 +7,26 @@ public class RemoveKthNodeFromEnd {
     private static Node removeKthNode(Node head, int n) {
         Node dummy = new Node(-1);
         dummy.next = head;
-        Node first = dummy;
-        Node second = head;
 
-        while(n > 0 && second != null) {
-            second = second.next;
-            n--;
+        Node fast = dummy;
+        Node slow = dummy;
+
+        for(int i=0; i<=n; i++) {
+            if(fast == null) return head;
+            fast = fast.next;
         }
 
-        while (second != null) {
-            first = first.next;
-            second = second.next;
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
         }
 
-        first.next = first.next.next;
+        slow.next = slow.next.next;
         return dummy.next;
     }
 
     private static void printLinkedlist(Node head) {
+        System.out.println("---------");
         while(head != null) {
             System.out.println(head.value + " ");
             head = head.next;

@@ -1,9 +1,11 @@
-package java1.algorithms.linkedlist.findKthNodeFromEnd;
+package java1.algorithms.linkedlist.basics.findKthNodeFromEnd;
 
 import java1.algorithms.linkedlist.Node;
 
 public class FindKthNodeFromEnd {
     private static Node findKthNodeFromEnd(Node head, int k) {
+        if(head == null) return null;
+
         Node first = head;
         Node second = head;
 

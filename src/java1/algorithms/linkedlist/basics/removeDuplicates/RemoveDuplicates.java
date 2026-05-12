@@ -1,11 +1,15 @@
-package java1.algorithms.linkedlist.removeDuplicates;
+package java1.algorithms.linkedlist.basics.removeDuplicates;
 
 import java.util.HashSet;
 
 import java1.algorithms.linkedlist.Node;
 
 public class RemoveDuplicates {
+    //Using two pointers TC: O(n) SC: O(1)
     private static Node removeDuplicates(Node head){
+        if(head == null) return null;
+
+        //Store unique values
         HashSet<Integer> noDuplicates = new HashSet<>();
         Node current = head;
         Node prev = null;
