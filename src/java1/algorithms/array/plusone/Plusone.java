@@ -1,6 +1,32 @@
 package plusone;
 
 public class Plusone {
+
+    private static int[] plusOne(int[] digits) {
+        for (int i = digits.length - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits;
+            }
+            digits[i] = 0; // carry over
+        }
+
+        // Incase of all 9's
+        int[] result = new int[digits.length + 1];
+        result[0] = 1;
+        return result;
+    }
+
+    private static void printArray(int[] arr) {
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1)
+                System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+
     public static void main(String[] args) {
         // Example 1: No carry
         int[] digits1 = { 1, 2, 3 };
@@ -36,30 +62,5 @@ public class Plusone {
         int[] digits7 = {};
         System.out.print("Input: [] -> Output: ");
         printArray(plusOne(digits7));
-    }
-
-    private static void printArray(int[] arr) {
-        System.out.print("[");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-            if (i < arr.length - 1)
-                System.out.print(", ");
-        }
-        System.out.println("]");
-    }
-
-    private static int[] plusOne(int[] digits) {
-        for (int i = digits.length - 1; i >= 0; i--) {
-            if (digits[i] < 9) {
-                digits[i]++;
-                return digits;
-            }
-            digits[i] = 0; // carry over
-        }
-
-        // Incase of all 9's
-        int[] result = new int[digits.length + 1];
-        result[0] = 1;
-        return result;
     }
 }
