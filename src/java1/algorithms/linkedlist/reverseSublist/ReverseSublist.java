@@ -27,7 +27,7 @@ public class ReverseSublist {
             head = newNode;
             tail = newNode;
         } else {
-            newNode.next = tail;
+            tail.next = newNode;
             tail = newNode;
         }
 
