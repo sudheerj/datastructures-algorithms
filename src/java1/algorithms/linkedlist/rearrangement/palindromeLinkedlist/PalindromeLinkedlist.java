@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.palindromeLinkedlist;
+package java1.algorithms.linkedlist.rearrangement.palindromeLinkedlist;
 
 import java1.algorithms.linkedlist.Node;
 

@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.mergeTwoSortedLists;
+package java1.algorithms.linkedlist.merging.mergeTwoSortedLists;
 
 import java1.algorithms.linkedlist.Node;
 

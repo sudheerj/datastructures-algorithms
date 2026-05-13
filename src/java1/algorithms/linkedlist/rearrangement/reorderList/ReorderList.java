@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.reversal.reorderList;
+package java1.algorithms.linkedlist.rearrangement.reorderList;
 
 import java1.algorithms.linkedlist.Node;
 
@@ -7,15 +7,17 @@ public class ReorderList {
     private static void reorderList(Node head) {
         if(head == null) return;
 
+        //Step1: Find middle node
         Node slow = head, fast = head;
         while(fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
 
+        //Step2: Split and Reverse the second partition
         Node secondHalf = slow.next;
         Node prev = slow.next = null;
-        //Reverse the second partition
+
         while(secondHalf != null) {
             Node temp = secondHalf.next;
             secondHalf.next = prev;
@@ -23,9 +25,10 @@ public class ReorderList {
             secondHalf = temp;
         }
 
+        //Step3: Re-order the list
         Node firstHalf = head;
         secondHalf = prev;
-        //Re-order the list
+
         while(secondHalf != null) {
             Node temp1 = firstHalf.next, temp2 = secondHalf.next;
             firstHalf.next = secondHalf;

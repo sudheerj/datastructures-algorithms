@@ -1,32 +1,37 @@
-package java1.algorithms.linkedlist.reversal.partitionList;
+package java1.algorithms.linkedlist.rearrangement.partitionList;
 
 import java1.algorithms.linkedlist.Node;
 
 public class PartitionList {
-
+    //Split into 2 separate lists(smaller and greater), then join them. TC:O(n), SC: O(1)
     private static Node partitionList(Node head, int x){
-        Node leftDummy = new Node(0);
-        Node rightDummy = new Node(0);
-        Node leftTrail = leftDummy;
-        Node rightTrail = rightDummy;
+        //dummy nodes
+        Node smallerDummy = new Node(0);
+        Node greaterDummy = new Node(0);
+
+        //pointers
+        Node smallerTrail = smallerDummy;
+        Node greaterTrail = greaterDummy;
 
         Node current = head;
 
         while (current != null) {
             if(current.value < x){
-                leftTrail.next = current;
-                leftTrail = current;
+                smallerTrail.next = current;
+                smallerTrail = current;
             } else {
-                rightTrail.next = current;
-                rightTrail = current;
+                greaterTrail.next = current;
+                greaterTrail = current;
             }
             current = current.next;
         }
 
-        leftTrail.next = rightDummy.next;
-        rightTrail.next = null;
+        //connect lists
+        smallerTrail.next = greaterDummy.next;
+        //avoid cycle
+        greaterTrail.next = null;
 
-        return leftDummy.next;
+        return smallerDummy.next;
     }
 
     private static void printLinkedlist(Node head) {

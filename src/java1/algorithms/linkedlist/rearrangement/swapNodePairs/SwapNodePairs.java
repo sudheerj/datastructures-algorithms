@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.reversal.swapNodePairs;
+package java1.algorithms.linkedlist.rearrangement.swapNodePairs;
 
 public class SwapNodePairs {
 
