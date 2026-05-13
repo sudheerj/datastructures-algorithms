@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.reverseSublist;
+package java1.algorithms.linkedlist.reversal.reverseSublist;
 
 class Node {
     public int value;
