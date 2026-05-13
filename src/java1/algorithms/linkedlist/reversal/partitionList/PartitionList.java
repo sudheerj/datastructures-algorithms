@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.partitionList;
+package java1.algorithms.linkedlist.reversal.partitionList;
 
 import java1.algorithms.linkedlist.Node;
 

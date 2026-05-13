@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.reorderList;
+package java1.algorithms.linkedlist.reversal.reorderList;
 
 import java1.algorithms.linkedlist.Node;
 

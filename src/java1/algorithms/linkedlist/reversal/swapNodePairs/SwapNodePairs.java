@@ -4,19 +4,18 @@ public class SwapNodePairs {
 
     private static ListNode swapNodePairs(ListNode head) {
         ListNode dummy = new ListNode(0, head);
-        ListNode prev = dummy, curr = head;
+        ListNode prev = dummy;
 
-        while(curr != null && curr.next !=null) {
+        while(prev.next != null && prev.next.next !=null) {
             //Save the pointers
-            ListNode nextPair = curr.next.next;
-            ListNode second = curr.next;
+            ListNode first = prev.next;
+            ListNode second = prev.next.next;
 
-            second.next = curr;
-            curr.next = nextPair;
+            first.next = second.next;
+            second.next = first;
             prev.next = second;
 
-            prev = curr;
-            curr = nextPair;
+            prev = first;
         }
 
         return dummy.next;
