@@ -29,9 +29,20 @@ function longestSubstringWithKDistinctChars(str, k) {
 }
 
 // Test cases
-const inputs   = ["araaci", "araaci", "cbbebi", "aabbcc", "abc", "abc", "", "aaa", "a", "abaccc"];
-const ks       = [2,        1,        3,        2,        3,     1,    2,  0,   1,   2];
-const expected = [4,        2,        5,        4,        3,     1,    0,  0,   1,   4];
+const inputs = [
+  "araaci",
+  "araaci",
+  "cbbebi",
+  "aabbcc",
+  "abc",
+  "abc",
+  "",
+  "aaa",
+  "a",
+  "abaccc",
+];
+const ks = [2, 1, 3, 2, 3, 1, 2, 0, 1, 2];
+const expected = [4, 2, 5, 4, 3, 1, 0, 0, 1, 4];
 
 for (let i = 0; i < inputs.length; i++) {
   const result = longestSubstringWithKDistinctChars(inputs[i], ks[i]);
