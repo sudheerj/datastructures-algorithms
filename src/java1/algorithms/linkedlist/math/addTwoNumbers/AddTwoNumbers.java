@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.addTwoNumbers;
+package java1.algorithms.linkedlist.math.addTwoNumbers;
 
 import java1.algorithms.linkedlist.Node;
 

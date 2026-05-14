@@ -1,4 +1,4 @@
-package java1.algorithms.linkedlist.binaryToDecimal;
+package java1.algorithms.linkedlist.math.binaryToDecimal;
 
 import java1.algorithms.linkedlist.Node;
 
