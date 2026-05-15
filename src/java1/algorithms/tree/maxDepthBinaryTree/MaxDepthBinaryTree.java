@@ -16,14 +16,14 @@ class Pair {
 
 public class MaxDepthBinaryTree {
 
-    // Recursive DFS(InOrder traversal):- TC: O(n) SC: O(n)
+    // Recursive DFS(PostOrder traversal):- TC: O(n) SC: O(h) 
     private static int maxDepth1(TreeNode root) {
         if(root == null) return 0;
 
         return 1 + Math.max(maxDepth1(root.left), maxDepth1(root.right));
     }
 
-    // Iterative DFS using two stacks(PreOrder traversal):- TC: O(n) SC: O(n)
+    // Iterative DFS using two stacks(PreOrder traversal):- TC: O(n) SC: O(h)
     private static int maxDepth2(TreeNode root) {
         if(root == null) return 0;
 
@@ -59,7 +59,6 @@ public class MaxDepthBinaryTree {
 
         while (!queue.isEmpty()) {
             int size = queue.size();
-            maxDepth++;
 
             //Traverse the tree by layer
             for(int i=0; i<size; i++) {
@@ -68,6 +67,8 @@ public class MaxDepthBinaryTree {
                 if(node.left != null) queue.offer(node.left);
                 if(node.right != null) queue.offer(node.right);
             }
+            maxDepth++;
+
         }
 
         return maxDepth;

@@ -56,22 +56,76 @@ def is_same_tree_iterative(p, q):
     return True
 
 
+def is_same_tree_iterative_dfs(p, q):
+    """
+    Iterative DFS approach using stack.
+    TC: O(n), SC: O(h)
+    """
+    stack = [(p, q)]
+    while stack:
+        node1, node2 = stack.pop()
+        if not node1 and not node2:
+            continue
+        if not node1 or not node2:
+            return False
+        if node1.val != node2.val:
+            return False
+        stack.append((node1.left, node2.left))
+        stack.append((node1.right, node2.right))
+    return True
+
+
 # Test cases
 if __name__ == "__main__":
-    # Example 1: p = [1,2,3], q = [1,2,3] -> True
-    p1 = TreeNode(1, TreeNode(2), TreeNode(3))
-    q1 = TreeNode(1, TreeNode(2), TreeNode(3))
-    print(f"Same trees [1,2,3] & [1,2,3]: {is_same_tree_recursive(p1, q1)}")  # True
+    # Test 1: Identical trees [0,1,2,3,4,5,6]
+    p1 = TreeNode(0, TreeNode(1, TreeNode(3), TreeNode(4)), TreeNode(2, TreeNode(5), TreeNode(6)))
+    q1 = TreeNode(0, TreeNode(1, TreeNode(3), TreeNode(4)), TreeNode(2, TreeNode(5), TreeNode(6)))
+    print("Test 1 - Identical trees [0,1,2,3,4,5,6]:")
+    print(f"  Recursive DFS: {is_same_tree_recursive(p1, q1)}")        # True
+    print(f"  Iterative BFS: {is_same_tree_iterative(p1, q1)}")        # True
+    print(f"  Iterative DFS: {is_same_tree_iterative_dfs(p1, q1)}")    # True
 
-    # Example 2: p = [1,2], q = [1,null,2] -> False
-    p2 = TreeNode(1, TreeNode(2))
-    q2 = TreeNode(1, None, TreeNode(2))
-    print(f"Different structure: {is_same_tree_recursive(p2, q2)}")  # False
+    # Test 2: Different values [1,2,3] vs [1,3,2]
+    p2 = TreeNode(1, TreeNode(2), TreeNode(3))
+    q2 = TreeNode(1, TreeNode(3), TreeNode(2))
+    print("\nTest 2 - Different values [1,2,3] vs [1,3,2]:")
+    print(f"  Recursive DFS: {is_same_tree_recursive(p2, q2)}")        # False
+    print(f"  Iterative BFS: {is_same_tree_iterative(p2, q2)}")        # False
+    print(f"  Iterative DFS: {is_same_tree_iterative_dfs(p2, q2)}")    # False
 
-    # Example 3: p = [1,2,1], q = [1,1,2] -> False
-    p3 = TreeNode(1, TreeNode(2), TreeNode(1))
-    q3 = TreeNode(1, TreeNode(1), TreeNode(2))
-    print(f"Different values: {is_same_tree_iterative(p3, q3)}")  # False
+    # Test 3: Different structure [1,2] vs [1,null,2]
+    p3 = TreeNode(1, TreeNode(2))
+    q3 = TreeNode(1, None, TreeNode(2))
+    print("\nTest 3 - Different structure [1,2] vs [1,null,2]:")
+    print(f"  Recursive DFS: {is_same_tree_recursive(p3, q3)}")        # False
+    print(f"  Iterative BFS: {is_same_tree_iterative(p3, q3)}")        # False
+    print(f"  Iterative DFS: {is_same_tree_iterative_dfs(p3, q3)}")    # False
 
-    # Example 4: Both empty -> True
-    print(f"Both empty: {is_same_tree_recursive(None, None)}")  # True
+    # Test 4: Both empty
+    print("\nTest 4 - Both empty (None, None):")
+    print(f"  Recursive DFS: {is_same_tree_recursive(None, None)}")    # True
+    print(f"  Iterative BFS: {is_same_tree_iterative(None, None)}")    # True
+    print(f"  Iterative DFS: {is_same_tree_iterative_dfs(None, None)}")  # True
+
+    # Test 5: One empty, one not
+    p5 = TreeNode(1)
+    print("\nTest 5 - One empty, one not:")
+    print(f"  Recursive DFS: {is_same_tree_recursive(p5, None)}")      # False
+    print(f"  Iterative BFS: {is_same_tree_iterative(p5, None)}")      # False
+    print(f"  Iterative DFS: {is_same_tree_iterative_dfs(p5, None)}")  # False
+
+    # Test 6: Single node, same value
+    p6 = TreeNode(5)
+    q6 = TreeNode(5)
+    print("\nTest 6 - Single node, same value:")
+    print(f"  Recursive DFS: {is_same_tree_recursive(p6, q6)}")        # True
+    print(f"  Iterative BFS: {is_same_tree_iterative(p6, q6)}")        # True
+    print(f"  Iterative DFS: {is_same_tree_iterative_dfs(p6, q6)}")    # True
+
+    # Test 7: Single node, different values
+    p7 = TreeNode(1)
+    q7 = TreeNode(2)
+    print("\nTest 7 - Single node, different values:")
+    print(f"  Recursive DFS: {is_same_tree_recursive(p7, q7)}")        # False
+    print(f"  Iterative BFS: {is_same_tree_iterative(p7, q7)}")        # False
+    print(f"  Iterative DFS: {is_same_tree_iterative_dfs(p7, q7)}")    # False
