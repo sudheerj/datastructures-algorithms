@@ -5,37 +5,48 @@ import java.util.*;
 import java1.algorithms.tree.TreeNode;
 
 public class KthSmallestBST {
+    int count = 0;
+    int result = -1;
 
-    //Iterative Inorder BST: TC: O(n) SC: O(n)
+    //Iterative Inorder BST: TC: O(h+k) SC: O(n), h= length of tree and k= number of poped elements from stack
     private int kthSmallest1(TreeNode root, int k){
         Stack<TreeNode> stack = new Stack<>();
         TreeNode currNode = root;
 
         while(currNode != null || !stack.empty()) {
-            while(root != null) {
-                stack.push(root);
-                root = root.left;
+            while(currNode != null) {
+                stack.push(currNode);
+                currNode = currNode.left;
             }
-            root = stack.pop();
+            currNode = stack.pop();
             k--;
-            if(k == 0) return root.value;
-            root = root.right;
+            if(k == 0) return currNode.value;
+            currNode = currNode.right;
         }
-        return 0;
+        return -1;
     }
 
-    //Recursive Inorder BST: TC: O(n) SC: O(n)
+    //Recursive Inorder BST: TC: O(n) SC: O(h)
     private int kthSmallest2(TreeNode root, int k){
-        List<Integer> list = new ArrayList<>();
-        inorderTraversal(root, list);
-        return list.get(k-1);
+        inorderTraversal(root, k);
+        return result;
     }
 
-    private void inorderTraversal(TreeNode root, List<Integer> list) {
+    private void inorderTraversal(TreeNode root, int k) {
         if(root == null) return;
-        inorderTraversal(root.left, list);
-        list.add(root.value);
-        inorderTraversal(root.right, list);
+
+        //Process left subtree
+        inorderTraversal(root.left, k);
+
+        //Process current node
+        count++;
+        if(count == k) {
+            result = root.value;
+            return;
+        }
+
+        //Process right subtree
+        inorderTraversal(root.right, k);
     }
 
     public static void main(String[] args) {

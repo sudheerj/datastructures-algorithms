@@ -1,22 +1,23 @@
-package java1.algorithms.heap;
+package java1.algorithms.heap.medianFinder;
 
+import java.util.Collections;
 import java.util.PriorityQueue;
 
-// TC: O(log n) SC: O(log n)
-public class MedianFinder {
+// Using two heaps: add/remove -> O(log n), findMedian -> O(1), space -> O(n)
+ public class MedianFinder {
 
-    //Contains big elements
-    PriorityQueue<Integer> minHeap;
     //Contains small elements
     PriorityQueue<Integer> maxHeap;
+    //Contains big elements
+    PriorityQueue<Integer> minHeap;
 
     MedianFinder() {
-        minHeap = new PriorityQueue<>((a, b) -> a-b );
-        maxHeap = new PriorityQueue<>((a, b) -> b-a);
+        maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        minHeap = new PriorityQueue<>();
     }
 
     private void addNum(int num) {
-        minHeap.add(num);
+        maxHeap.add(num);
         maxHeap.add(minHeap.poll());
         if(minHeap.size() < maxHeap.size()) {
             minHeap.add(maxHeap.poll());
