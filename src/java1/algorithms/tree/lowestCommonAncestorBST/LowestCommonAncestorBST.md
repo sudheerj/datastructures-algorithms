@@ -18,22 +18,22 @@ Example2:
 Input: root = [5,1,8,0,2,7,9], p=8, q=9
 Output: 2
 
-**Algorithmic Steps**
-This problem is solved by iterative tree traversal. The algorithmic approach can be summarized as follows: 
+## Approaches
 
-1. Create a function(`lowestCommonAncestor`) to find the lowest common ancestor of two nodes in a binary search tree. It accepts root node along with two nodes as input parameters. 
+### 1. Iterative BST (`lowestCommonAncestorBST1`) — TC: O(h), SC: O(1)
 
-2. Create a current node(`currNode`) pointing to root node. This is because the tree iteration starts from the root node.
-   
-3. Iterate over the BST nodes until the current node is not null.
-   
-   1. If the current node's value is greater than both node values, move to left subtree to find the ancestor.
-   2. If the current node's value is less than both node values, move to right subtree to find the ancestor.
-   3. Otherwise, return the current node as lowest common ancestor. It indicates that there is a split at the current node where the two nodes exists in different branches.
+1. Start at `curr = root`.
+2. While `curr != null`:
+   - If both `p.value` and `q.value` are less than `curr.value`, move left.
+   - If both are greater than `curr.value`, move right.
+   - Otherwise (split point), `curr` is the LCA — return it.
+3. Return `null` if no LCA found.
 
-4. Return `null` if you pass any of the nodes which doesn't exist in the BST.
+### 2. Recursive BST (`lowestCommonAncestorBST2`) — TC: O(h), SC: O(h)
+
+1. If both `p.value` and `q.value` are less than `root.value`, recurse into the left subtree.
+2. If both are greater than `root.value`, recurse into the right subtree.
+3. Otherwise, `root` is the split point — return it as the LCA.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of `O(h)`, where `h` is the height of the binary tree. This is because each time we visit exactly one node from each level. In case of unbalanced tree, all nodes exists in one side and `h` equals to number of nodes `n` in the tree, so the time complexity is going to be `O(n)` .  
-
-It requires a space complexity of `O(1)` because only one pointer variable is used to track the current node.
+Both approaches visit at most one node per level, giving `O(h)` time. The iterative approach uses `O(1)` space; the recursive approach uses `O(h)` call stack space. In a balanced BST `h = O(log n)`; in a skewed tree `h = O(n)`.

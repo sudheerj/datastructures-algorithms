@@ -20,24 +20,24 @@ Example2:
 Input: root = [2,1,3], k=2
 Output: 2
 
-**Algorithmic Steps**
-This problem is solved by iterative inorder traversal using stack. The algorithmic approach can be summarized as follows: 
+## Approaches
 
-1. Create a function(`kthSmallestBST`) to find the kth smallest element in the binary search tree. It accepts root node and an integer index as input parameters. 
+### 1. Iterative Inorder with Stack (`kthSmallest1`) — TC: O(h+k), SC: O(n)
 
-2. Create an array based empty stack(`stack`) to hold the tree nodes. Also, assign the root node to current node(`currNode`) for traversal.
-   
-3. Iterate over the BST nodes until either the current node is not null or stack is empty.
-   
-   1. Visit all the left most nodes and add them to a stack using a nested while loop.
-   2. Once the left most node is reached, process the last node by popping out the node from stack.
-   3. Decrement the index `k` as the node is processed.
-   4. Return the current node's value if the index is equals to 0.
-   5. Move the current node to right subtree as per inorder traversal.
+1. Initialize an empty stack and set `currNode = root`.
+2. Outer loop: continue while `currNode != null` or stack is not empty.
+3. Inner loop: push all left-side nodes onto the stack until `currNode` is `null`.
+4. Pop a node from the stack and decrement `k`.
+5. If `k == 0`, return the node's value — it is the k-th smallest.
+6. Move `currNode` to the right child and repeat.
 
-4. Since index `k` exists between the range of nodes, the outloop exits once the index is equals to zero. To cover the usecase of invalid index `k`, return `0` at the end.
+### 2. Recursive Inorder (`kthSmallest2`) — TC: O(n), SC: O(h)
+
+1. Perform an inorder traversal (left → root → right).
+2. Maintain a `count` variable incremented at each visited node.
+3. When `count == k`, store the current node's value in `result` and return.
+4. Return `result` after traversal.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of `O(n)`, where `n` is the number of nodes in the binary tree. This is because each node is visited atmost once to find kth smallest element. 
-
-It requires a space complexity of `O(n)` because stack can hold maximum of `n` nodes(skewed tree).
+- Iterative: `O(h+k)` time (traverses at most h left edges plus k nodes), `O(n)` space (stack).
+- Recursive: `O(n)` time (visits all nodes in the worst case), `O(h)` space (call stack).

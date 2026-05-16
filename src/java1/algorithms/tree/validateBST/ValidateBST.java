@@ -4,7 +4,7 @@ import java1.algorithms.tree.TreeNode;
 
 public class ValidateBST {
 
-    // DFS: TC:O(n) SC: O(n)
+    //Recursive DFS: TC:O(n) SC: O(h)
     private boolean isValidBST(TreeNode root) {
         return dfs(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }

@@ -16,16 +16,30 @@ Example2:
 Input: root = [0, null, 1]
 Output: 2
 
-**Algorithmic Steps**
-This problem is solved by Depth-First-Search(DFS) recursive traversal. The algorithmic approach can be summarized as follows: 
+## Approaches
 
-1. Add an edge case returing 0 for empty root node.
+### 1. Recursive DFS — Post-Order (`maxDepth1`) — TC: O(n), SC: O(h)
 
-2. If root is not null, include root's depth as 1 to the sum of maximum depth between left subtree and right subtree.
+1. Return `0` if root is `null` (base case).
+2. Recursively compute the max depth of the left and right subtrees.
+3. Return `1 + max(leftDepth, rightDepth)`.
 
-3. Return the calculated value from step2 as maximum depth of binary tree.
+### 2. Iterative DFS — Pre-Order with Stack (`maxDepth2`) — TC: O(n), SC: O(h)
+
+1. Return `0` if root is `null`.
+2. Push `(root, depth=1)` onto a stack. Initialize `maxDepth = 0`.
+3. While the stack is not empty, pop a `(node, depth)` pair and update `maxDepth`.
+4. Push left child with `depth+1` and right child with `depth+1` if they exist.
+5. Return `maxDepth`.
+
+### 3. BFS — Level-Order (`maxDepth3`) — TC: O(n), SC: O(n)
+
+1. Return `0` if root is `null`.
+2. Enqueue `root`. Initialize `maxDepth = 0`.
+3. While the queue is not empty, process all nodes at the current level (one full for-loop pass).
+4. Enqueue non-null children of each processed node.
+5. Increment `maxDepth` after each level completes.
+6. Return `maxDepth`.
 
 **Time and Space complexity:**
-This algorithm has a time complexity of `O(n)`, where `n` is the number of nodes in tree. This is because the algorithm visits each node exactly once to calculate the maximum depth. 
-
-When the tree is unbalanced, all the nodes appear on one side. In this case, the recursive call stack requires `O(n)` to calculate the maximum depth . Hence, the space complexity will be `O(n)`.
+All three approaches visit every node exactly once, giving `O(n)` time. Space is `O(h)` (call stack / explicit stack) for DFS approaches, and `O(n)` for BFS (queue can hold an entire level).
