@@ -115,6 +115,29 @@ class BinarySearchTree {
         traverse(this.root);
         return output;
     }
+
+    delete(value) {
+        this.root = this._deleteNode(this.root, value);
+    }
+
+    _deleteNode(node, value) {
+        if (!node) return null;
+
+        if (value < node.value) {
+            node.left = this._deleteNode(node.left, value);
+        } else if (value > node.value) {
+            node.right = this._deleteNode(node.right, value);
+        } else {
+            if (!node.left) return node.right;
+            if (!node.right) return node.left;
+
+            // Two children: replace with in-order successor (min of right subtree)
+            const successor = this.minValueNode(node.right);
+            node.value = successor.value;
+            node.right = this._deleteNode(node.right, successor.value);
+        }
+        return node;
+    }
 }
 
 // Usage example
@@ -134,3 +157,23 @@ console.log(tree.bfs());
 console.log(tree.dfsPreOrder());
 console.log(tree.dfsPostOrder());
 console.log(tree.dfsInOrder());
+
+// Delete leaf node (no children): remove 10
+tree.delete(10);
+console.log('After deleting leaf 10:', tree.dfsInOrder()); // [12, 14, 15, 16, 20, 22, 25, 28, 30, 35]
+
+// Delete node with one child: remove 12 (only has right child 14)
+tree.delete(12);
+console.log('After deleting 12 (one child):', tree.dfsInOrder()); // [14, 15, 16, 20, 22, 25, 28, 30, 35]
+
+// Delete node with two children: remove 25 (in-order successor 28 replaces it)
+tree.delete(25);
+console.log('After deleting 25 (two children):', tree.dfsInOrder()); // [14, 15, 16, 20, 22, 28, 30, 35]
+
+// Delete root node: remove 20
+tree.delete(20);
+console.log('After deleting root 20:', tree.dfsInOrder()); // [14, 15, 16, 22, 28, 30, 35]
+
+// Delete non-existent value: no change
+tree.delete(99);
+console.log('After deleting non-existent 99:', tree.dfsInOrder()); // [14, 15, 16, 22, 28, 30, 35]

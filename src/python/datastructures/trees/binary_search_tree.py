@@ -132,6 +132,28 @@ class BinarySearchTree:
         traverse(self.root)
         return output
 
+    def delete(self, value):
+        """Deletes a value from the BST."""
+        self.root = self._delete_node(self.root, value)
+
+    def _delete_node(self, node, value):
+        if not node:
+            return None
+        if value < node.value:
+            node.left = self._delete_node(node.left, value)
+        elif value > node.value:
+            node.right = self._delete_node(node.right, value)
+        else:
+            if not node.left:
+                return node.right
+            if not node.right:
+                return node.left
+            # Two children: replace with in-order successor (min of right subtree)
+            successor = self.min_value_node(node.right)
+            node.value = successor.value
+            node.right = self._delete_node(node.right, successor.value)
+        return node
+
 
 # Usage example
 if __name__ == "__main__":
@@ -153,3 +175,23 @@ if __name__ == "__main__":
     print(f"DFS Pre-Order: {tree.dfs_pre_order()}")
     print(f"DFS Post-Order: {tree.dfs_post_order()}")
     print(f"DFS In-Order: {tree.dfs_in_order()}")
+
+    # Delete leaf node (no children): remove 10
+    tree.delete(10)
+    print(f"After deleting leaf 10: {tree.dfs_in_order()}")  # [12, 14, 15, 16, 20, 22, 25, 28, 30, 35]
+
+    # Delete node with one child: remove 12 (only has right child 14)
+    tree.delete(12)
+    print(f"After deleting 12 (one child): {tree.dfs_in_order()}")  # [14, 15, 16, 20, 22, 25, 28, 30, 35]
+
+    # Delete node with two children: remove 25 (in-order successor 28 replaces it)
+    tree.delete(25)
+    print(f"After deleting 25 (two children): {tree.dfs_in_order()}")  # [14, 15, 16, 20, 22, 28, 30, 35]
+
+    # Delete root node: remove 20
+    tree.delete(20)
+    print(f"After deleting root 20: {tree.dfs_in_order()}")  # [14, 15, 16, 22, 28, 30, 35]
+
+    # Delete non-existent value: no change
+    tree.delete(99)
+    print(f"After deleting non-existent 99: {tree.dfs_in_order()}")  # [14, 15, 16, 22, 28, 30, 35]
