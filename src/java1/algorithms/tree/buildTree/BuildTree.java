@@ -9,7 +9,7 @@ public class BuildTree {
     private int preIndex = 0;
     private Map<Integer, Integer> inorderMap = new HashMap<>();
     
-    //TC: O(n) SC: O(n)
+    //Recursive DFS TC: O(n) SC: O(n)
     private TreeNode buildTree(int[] preorder, int[] inorder){
         if(preorder.length == 0 || inorder.length == 0) {
             return null;

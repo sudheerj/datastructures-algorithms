@@ -12,12 +12,13 @@ public class MaxPathSum {
 
     private static int dfs(TreeNode node) {
         if(node == null) return 0;
+        //Ignore negative paths
         int leftMax = Math.max(0, dfs(node.left));
         int rightMax = Math.max(0, dfs(node.right));
 
         //Max path sum with split
         maxSum = Math.max(maxSum, node.value + leftMax + rightMax);
-        //Max path sum without split
+        //Max path sum without split, return to parent
         return node.value + Math.max(leftMax, rightMax);
     }
 

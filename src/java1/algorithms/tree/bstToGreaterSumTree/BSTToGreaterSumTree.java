@@ -5,7 +5,7 @@ import java1.algorithms.tree.TreeNode;
 public class BSTToGreaterSumTree {
     int sum = 0;
 
-    // Recursive DFS(reverse in-orde traversal) TC: O(n) SC: O(n)
+    // Recursive DFS(reverse in-orde traversal) TC: O(n) SC: O(h); h: Recursion stack 
     private TreeNode convertBSTToGreaterSumTree(TreeNode root) {
         dfs(root);
         return root;

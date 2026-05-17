@@ -1,8 +1,26 @@
-package java1.algorithms.tree.pathSum;
+package java1.algorithms.tree.pathSum1;
 
 import java1.algorithms.tree.TreeNode;
 
-public class PathSum {
+public class PathSum1 {
+    //Recursive DFS TC: O(n), SC: O(h)
+    private static boolean hasPathSum(TreeNode root, int targetSum) {
+        return dfs(root, 0, targetSum);
+    }
+
+    private static boolean dfs(TreeNode node, int currSum, int targetSum) {
+        if(node == null) {
+            return false;
+        }
+
+        currSum += node.value;
+        if(node.left == null && node.right == null) {
+            return targetSum == currSum;
+        }
+
+        return dfs(node.left, currSum, targetSum) || dfs(node.right, currSum, targetSum);
+    }
+
     public static void main(String[] args) {
         // Test 1: Normal tree with valid path sum
         //       5
@@ -64,23 +82,6 @@ public class PathSum {
         // 2   3
         System.out.println("Test 8 (targetSum=3): " + hasPathSum(root2, 3)); // true (1->2)
         System.out.println("Test 9 (targetSum=4): " + hasPathSum(root2, 4)); // true (1->3)
-    }
-
-    private static boolean hasPathSum(TreeNode root, int targetSum) {
-        return dfs(root, 0, targetSum);
-    }
-
-    private static boolean dfs(TreeNode node, int currSum, int targetSum) {
-        if(node == null) {
-            return false;
-        }
-
-        currSum += node.value;
-        if(node.left == null && node.right == null) {
-            return targetSum == currSum;
-        }
-
-        return dfs(node.left, currSum, targetSum) || dfs(node.right, currSum, targetSum);
     }
 }
  

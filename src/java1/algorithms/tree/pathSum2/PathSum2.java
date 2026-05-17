@@ -5,8 +5,36 @@ import java.util.List;
 
 import java1.algorithms.tree.TreeNode;
 
-//DFS: Preorder traversal TC:O(n * h) SC: O(k * h). K is number of valid paths
+//DFS: Preorder traversal + Backtracking TC:O(n * h) SC: O(k * h). K is number of valid paths
 public class PathSum2 {
+    private static List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        List<List<Integer>> pathSumList = new ArrayList<>();
+        dfs(root, 0, targetSum, new ArrayList<>(), pathSumList);
+        return pathSumList;
+    }
+
+    private static void dfs(TreeNode node, int currentSum, int targetSum, List<Integer> currPath,
+            List<List<Integer>> pathSumList) {
+        if (node == null)
+            return;
+
+        // Add to current path
+        currPath.add(node.value);
+        currentSum += node.value;
+
+        // Check if its a leaf node and equals to target sum
+        if (node.left == null && node.right == null && targetSum == currentSum) {
+            pathSumList.add(new ArrayList<>(currPath));
+        }
+
+        // Traverse over children
+        dfs(node.left, currentSum, targetSum, currPath, pathSumList);
+        dfs(node.right, currentSum, targetSum, currPath, pathSumList);
+
+        // Backtrack for different branches
+        currPath.remove(currPath.size() - 1);
+    }
+    
     public static void main(String[] args) {
         // Test 1: Normal tree with multiple valid paths
         // 5
@@ -57,33 +85,5 @@ public class PathSum2 {
         root8.left = new TreeNode(2);
         root8.right = new TreeNode(2);
         System.out.println("Test 8 (targetSum=3): " + pathSum(root8, 3)); // [[1,2],[1,2]]
-    }
-
-    private static List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        List<List<Integer>> pathSumList = new ArrayList<>();
-        dfs(root, 0, targetSum, new ArrayList<>(), pathSumList);
-        return pathSumList;
-    }
-
-    private static void dfs(TreeNode node, int currentSum, int targetSum, List<Integer> currPath,
-            List<List<Integer>> pathSumList) {
-        if (node == null)
-            return;
-
-        // Add to current path
-        currPath.add(node.value);
-        currentSum += node.value;
-
-        // Check if its a leaf node and equals to target sum
-        if (node.left == null && node.right == null && targetSum == currentSum) {
-            pathSumList.add(new ArrayList<>(currPath));
-        }
-
-        // Traverse over children
-        dfs(node.left, currentSum, targetSum, currPath, pathSumList);
-        dfs(node.right, currentSum, targetSum, currPath, pathSumList);
-
-        // Backtrack for different branches
-        currPath.remove(currPath.size() - 1);
     }
 }

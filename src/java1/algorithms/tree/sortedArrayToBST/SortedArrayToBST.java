@@ -3,7 +3,7 @@ package java1.algorithms.tree.sortedArrayToBST;
 import java1.algorithms.tree.TreeNode;
 
 public class SortedArrayToBST {
-    // DFS divide and conquer TC: O(n) SC: O(log n) for recursion stack & O(n) for output tree
+    // DFS divide and conquer TC: O(n) SC: O(log n) for recursion stack + O(n) for output tree
     public static TreeNode sortedArrayToBST(int[] nums) {
         return buildBST(nums, 0, nums.length - 1);
     }

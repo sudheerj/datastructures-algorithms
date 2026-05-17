@@ -22,13 +22,14 @@ public class VerticalBinaryTreeTraversal {
         }
     }
 
+    // BFS + Map => TC: O(n log n) SC: O(n)
     private static List<List<Integer>> verticalBinaryTreeTraversal(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
 
-        // Add column -> list of row and values
+        // Add column -> list of row and node values
         Map<Integer, List<int[]>> map = new TreeMap<>();
 
         Queue<Pair> queue = new LinkedList<>();

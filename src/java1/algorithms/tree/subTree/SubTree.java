@@ -4,7 +4,7 @@ import java1.algorithms.tree.TreeNode;
 
 public class SubTree {
 
-    //DFS: TC:O(m * n) SC: O(m)
+    //Recursive DFS: TC:O(m * n) SC: O(h); m = nodes in root, n = nodes in subRoot, h= height of tree
     private boolean isSubtree(TreeNode root, TreeNode subRoot) {
         if(subRoot == null) return true;
         if(root == null) return false;
@@ -15,11 +15,11 @@ public class SubTree {
     private boolean isSametree(TreeNode root1, TreeNode root2) {
         if(root1 == null && root2 == null) return true;
 
-        if(root1 != null && root2 != null && root1.value == root2.value) {
-            return isSametree(root1.left, root2.left) && isSametree(root1.right, root2.right);
+        if(root1 == null || root2 == null || root1.value != root2.value) {
+            return false;
         }
 
-        return false;
+        return isSametree(root1.left, root2.left) && isSametree(root1.right, root2.right);
     }
 
     public static void main(String[] args) {

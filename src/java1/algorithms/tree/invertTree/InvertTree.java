@@ -4,14 +4,16 @@ import java1.algorithms.tree.TreeNode;
 
 public class InvertTree {
 
-    //TC: O(n) SC: O(n)
+    //Recursive DFS TC: O(n) SC: O(h)
     private static TreeNode invertTree(TreeNode root) {
         if(root == null) return null;
 
+        //swap children
         TreeNode temp = root.left;
         root.left =  root.right;
         root.right = temp;
 
+        //invert subtrees
         invertTree(root.left);
         invertTree(root.right);
 

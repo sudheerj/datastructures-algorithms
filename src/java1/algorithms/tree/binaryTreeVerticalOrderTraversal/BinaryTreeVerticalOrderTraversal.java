@@ -20,7 +20,7 @@ public class BinaryTreeVerticalOrderTraversal {
         }
     }
 
-    //TC: BFS -> O(n) SC: Queue -> O(n) + Map -> O(n) ~= O(n)
+    // BFS + Map => TC: O(n) SC: (Queue -> O(n)) + (Map -> O(n)) ~= O(n)
     private static List<List<Integer>> binaryTreeVerticalOrderTraversal(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if(root == null) {

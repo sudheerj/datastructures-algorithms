@@ -23,7 +23,7 @@ public class MaxDepthBinaryTree {
         return 1 + Math.max(maxDepth1(root.left), maxDepth1(root.right));
     }
 
-    // Iterative DFS using two stacks(PreOrder traversal):- TC: O(n) SC: O(h)
+    // Iterative DFS using stack(PreOrder traversal):- TC: O(n) SC: O(h)
     private static int maxDepth2(TreeNode root) {
         if(root == null) return 0;
 

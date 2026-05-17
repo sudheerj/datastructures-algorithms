@@ -1,9 +1,10 @@
 package java1.algorithms.tree.trie;
 
 import java.util.HashMap;
+import java.util.Map;
 
 class Node {
-    HashMap<Character, Node> children = new HashMap<>();
+    Map<Character, Node> children = new HashMap<>();
     boolean isEndOfWord = false;
 }
 
