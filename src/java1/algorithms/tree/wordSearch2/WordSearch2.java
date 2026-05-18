@@ -3,7 +3,7 @@ package java1.algorithms.tree.wordSearch2;
 import java.util.*;
 
 class Node {
-    HashMap<Character, Node> children;
+    Map<Character, Node> children;
     String fullword;
 
     Node() {
@@ -20,7 +20,7 @@ public class WordSearch2 {
         this.root = new Node();
     }
 
-    //TC: O(RC * 4^RC) SC: O(n * l) n = number of words, l= longest word
+    //Trie + DFS recursion -> TC: O(RC * 4^RC) SC: O(n * l) n = number of words, l= longest word
     public List<String> findWords(char[][] board, String[] words) {
         List<String> list = new ArrayList<>();
         Node root = buildTrie(words);
@@ -35,7 +35,7 @@ public class WordSearch2 {
     }
 
     public void dfs(char[][] board, List<String> list, Node curr, int r, int c) {
-        if(r < 0 || c < 0 || r >= board.length | c >= board[0].length) return;
+        if(r < 0 || c < 0 || r >= board.length || c >= board[0].length) return;
 
         char ch = board[r][c];
 
@@ -43,7 +43,7 @@ public class WordSearch2 {
         curr = curr.children.get(ch);
         if(curr.fullword != null) {
             list.add(curr.fullword);
-            curr.fullword = null;
+            curr.fullword = null; //deduplication trick
         }
 
         board[r][c] = '#';

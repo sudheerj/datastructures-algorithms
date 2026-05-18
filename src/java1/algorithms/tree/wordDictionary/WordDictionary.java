@@ -14,6 +14,7 @@ public class WordDictionary {
         this.root = new Node();
     }
 
+    // TC: O(n) SC: O(n)
     public void addWord(String word) {
         Node curr = this.root;
 
@@ -26,22 +27,28 @@ public class WordDictionary {
         curr.isEndOfWord = true;
     }
 
+    //TC: O(26^n) SC: O(n)
     public boolean searchWord(String word) {
         return dfs(word, 0, root);
     }
 
     public boolean dfs(String word, int index, Node node){
         if(node == null) return false;
+        //Reached end of word
         if(index == word.length()) return node.isEndOfWord;
-        if(word.charAt(index) == '.') {
-            for(char ch: node.children.keySet()) {
-                if(dfs(word, index+1, node.children.get(ch))) return true;
+
+        char ch = word.charAt(index);
+
+        //wildcard case
+        if(ch == '.') {
+            for(Node child: node.children.values()) {
+                if(dfs(word, index+1, child)) return true;
             }
             return false;
-        } else {
-            if(node.children.get(word.charAt(index)) == null) return false;
-            return dfs(word, index+1, node.children.get(word.charAt(index)));
         }
+
+        //normal character case
+        return dfs(word, index+1, node.children.get(ch));
     }
 
     public static void main(String[] args) {
