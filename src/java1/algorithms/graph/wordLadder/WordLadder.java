@@ -7,30 +7,31 @@ import java.util.Queue;
 import java.util.Set;
 
 public class WordLadder {
-    //Using BFS TC: O(N * L * 26) SC: O(N). Where N = Number of words in dictionary and L = Length of the word
+    //Using BFS TC: O(N * M^2) SC: O(N * M). Where N = Number of words in dictionary and M = Length of the word
     private static int wordLadder(String beginWord, String endWord, List<String> wordList) {
-        Set<String> set = new HashSet<>(wordList);
+        Set<String> wordSet = new HashSet<>(wordList);
 
         //End word must exist
-        if (!set.contains(endWord)) {
+        if (!wordSet.contains(endWord)) {
             return 0;
         }
 
         Queue<String> queue = new LinkedList<>();
         queue.offer(beginWord);
 
-        int steps = 1;
+        // starting level
+        int level = 1;
 
         while (!queue.isEmpty()) {
             int size = queue.size();
 
-            // process one BFS level
+            // process current BFS level
             for (int i = 0; i < size; i++) {
                 String word = queue.poll();
 
                 //Reached target
-                if (word.equalsIgnoreCase(endWord)) {
-                    return steps;
+                if (word.equals(endWord)) { //word ladder is case-sensitive
+                    return level;
                 }
 
                 char[] arr = word.toCharArray();
@@ -46,18 +47,18 @@ public class WordLadder {
                         String next = new String(arr);
 
                         //valid next word
-                        if (set.contains(next)) {
+                        if (wordSet.contains(next)) {
                             queue.offer(next);
 
                             //mark as visited
-                            set.remove(next);
+                            wordSet.remove(next);
                         }
                     }
                     //restore original character
                     arr[j] = original;
                 }
             }
-            steps++;
+            level++;
         }
 
         return 0;

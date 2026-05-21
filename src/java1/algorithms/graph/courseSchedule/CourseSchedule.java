@@ -25,29 +25,29 @@ public class CourseSchedule {
     }
 
     private static boolean dfs(int course, Map<Integer, List<Integer>> prereqMap, Set<Integer> visitSet){
-            if(visitSet.contains(course)) return false;
-            if(prereqMap.get(course).size() == 0) return true;
+        if(visitSet.contains(course)) return false;
+        if(prereqMap.get(course).size() == 0) return true;
 
-            visitSet.add(course);
-            for (Integer pre : prereqMap.get(course)) {
-                if(!dfs(pre, prereqMap, visitSet)) return false;
-            }
-            visitSet.remove(course);
-            prereqMap.put(course, new ArrayList<>());
-            return true;
+        visitSet.add(course);
+        for (Integer pre : prereqMap.get(course)) {
+            if(!dfs(pre, prereqMap, visitSet)) return false;
+        }
+        visitSet.remove(course);
+        prereqMap.put(course, new ArrayList<>());
+        return true;
 
     }
-    //BFS:==> TC: O(V+E) SC: O(V+E)
+    //BFS Topological sort(or Kahn's algorithm) ==> TC: O(V+E) SC: O(V+E)
     private static boolean canFinish2(int numCourses, int[][] prerequisites){
-        Map<Integer, List<Integer>> adjacenyMap = new HashMap<>(); 
+        Map<Integer, List<Integer>> graph = new HashMap<>(); //adjacency list
         int[] indegree = new int[numCourses];
 
         for(int i=0; i< numCourses; i++) {
-            adjacenyMap.put(i, new ArrayList<Integer>());
+            graph.put(i, new ArrayList<Integer>());
         }
 
         for(int i=0; i< prerequisites.length; i++) {
-            adjacenyMap.get(prerequisites[i][1]).add(prerequisites[i][0]);
+            graph.get(prerequisites[i][1]).add(prerequisites[i][0]);
             indegree[prerequisites[i][0]]++;
         }
 
@@ -62,7 +62,7 @@ public class CourseSchedule {
 
         while(!queue.isEmpty()) {
             int currCourse = queue.poll();
-            for(int neighbour: adjacenyMap.get(currCourse)) {
+            for(int neighbour: graph.get(currCourse)) {
                 indegree[neighbour]--;
                 if(indegree[neighbour] == 0) {
                     queue.add(neighbour);

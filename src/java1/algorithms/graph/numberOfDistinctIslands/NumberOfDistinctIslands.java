@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class NumberOfDistinctIslands {
+    // Recursive DFS + HashSet TC: O(m × n) — SC: O(m × n)
     private static int numberOfDistinctIslands(char[][] grid) {
         Set<String> distinctIslands = new HashSet<>();
 
@@ -21,6 +22,7 @@ public class NumberOfDistinctIslands {
     }
 
     private static void dfs(char[][] grid, int row, int col, int baseRow, int baseCol, StringBuilder islandPattern) {
+        //Out of bounds or water or already visted checks
         if (row < 0 || row >= grid.length || col < 0 || col >= grid[0].length || grid[row][col] == '0')
             return;
         grid[row][col] = '0';

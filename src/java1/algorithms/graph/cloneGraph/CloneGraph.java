@@ -23,58 +23,76 @@ class Node {
 }
 
 public class CloneGraph {
-    private Map<Integer, Node> visitedMap = new HashMap<>();
 
-    //DFS: TC:O(V+E) SC:O(V)
+    //Recursive DFS + visited HashMap => TC:O(V+E) SC:O(V)
     private Node cloneGraph1(Node node) {
-        if (node == null) return null;
-
-        if (visitedMap.containsKey(node.val)) {
-            return visitedMap.get(node.val);
-        }
-        else {
-            Node copyNode = new Node(node.val);
-            visitedMap.put(node.val, copyNode);
-    
-            for (Node neighbour : node.neighbours) {
-                copyNode.neighbours.add(cloneGraph1(neighbour));
-            }
-            return copyNode;
-        }
+        return dfs(node, new HashMap<>());
     }
+
+    private Node dfs(Node node, Map<Node, Node> visitedMap) {
+        if(node == null) return null;
+
+        if(visitedMap.containsKey(node)) {
+            return visitedMap.get(node);
+        }
+
+        Node cloneNode = new Node(node.val);
+        visitedMap.put(node, cloneNode);
+
+        for(Node neighbour: node.neighbours) {
+            cloneNode.neighbours.add(cloneGraph1(neighbour));
+        }
+
+        return cloneNode;
+    }
+
 
     //BFS: TC:O(V+E) SC:O(V)
     private Node cloneGraph2(Node node) {
         if(node == null) return null;
+
+        Map<Node, Node> visitedMap = new HashMap<>();
         Node clonedNode = new Node(node.val);
-        visitedMap.put(node.val, clonedNode);
+        visitedMap.put(node, clonedNode);
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
 
         while(!queue.isEmpty()) {
             Node currNode = queue.poll();
-            List<Node> newNeighbours = currNode.neighbours;
-            for(Node neighbour: newNeighbours) {
-                if(!visitedMap.containsKey(neighbour.val)) {
-                    Node temp = new Node(neighbour.val);
-                    visitedMap.put(neighbour.val, temp);
+            for(Node neighbour: currNode.neighbours) {
+                if(!visitedMap.containsKey(neighbour)) {
+                    visitedMap.put(neighbour, new Node(neighbour.val));
                     queue.add(neighbour);
                 } 
-                visitedMap.get(currNode.val).neighbours.add(visitedMap.get(neighbour.val));
+                visitedMap.get(currNode).neighbours.add(visitedMap.get(neighbour));
             }
         }
         return clonedNode;
     }
 
-    public void showConnections() {
-        Set<Integer> allVertices = visitedMap.keySet();
-        for (int vertex : allVertices) {
-            List<Node> allConnections = visitedMap.get(vertex).neighbours;
-            String connectionStr = "";
-            for (Node connection : allConnections) {
-                connectionStr += connection.val + " ";
+    public void showConnections(Node node) {
+        if (node == null) return;
+
+        Set<Node> visited = new HashSet<>();
+        Queue<Node> queue = new LinkedList<>();
+
+        queue.add(node);
+        visited.add(node);
+
+        while (!queue.isEmpty()) {
+            Node curr = queue.poll();
+
+            StringBuilder sb = new StringBuilder();
+            for (Node neighbour : curr.neighbours) {
+                sb.append(neighbour.val).append(" ");
+
+                if (!visited.contains(neighbour)) {
+                    visited.add(neighbour);
+                    queue.add(neighbour);
+                }
             }
-            System.out.println(vertex + " --> " + connectionStr);
+
+            System.out.println(curr.val + " --> " + sb.toString());
         }
     }
 
@@ -109,28 +127,28 @@ public class CloneGraph {
 
         CloneGraph graph1 = new CloneGraph();
         graph1.cloneGraph1(node1);
-        graph1.showConnections();
+        graph1.showConnections(node1);
         System.out.println("---------------");
         CloneGraph graph2 = new CloneGraph();
         graph2.cloneGraph1(node5);
-        graph2.showConnections();
+        graph2.showConnections(node5);
         System.out.println("---------------");
         CloneGraph graph3 = new CloneGraph();
         graph3.cloneGraph1(node6);
-        graph3.showConnections();
+        graph3.showConnections(node6);
         System.out.println("---------------");
 
         CloneGraph graph4 = new CloneGraph();
         graph4.cloneGraph2(node11);
-        graph4.showConnections();
+        graph4.showConnections(node11);
         System.out.println("---------------");
         CloneGraph graph5 = new CloneGraph();
         graph5.cloneGraph2(node51);
-        graph5.showConnections();
+        graph5.showConnections(node51);
         System.out.println("---------------");
         CloneGraph graph6 = new CloneGraph();
         graph6.cloneGraph2(node61);
-        graph6.showConnections();
+        graph6.showConnections(node61);
         System.out.println("---------------");
     }
 }
