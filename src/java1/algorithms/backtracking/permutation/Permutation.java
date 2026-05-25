@@ -2,6 +2,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Permutation {
+    //Backtracking TC: O(n * n!) SC: O(n * n!)
+    private static List<List<Integer>> permutations(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(nums, new ArrayList<>(), result, new boolean[nums.length]);
+        return result;
+    }
+
+    private static void backtrack(int[] nums, List<Integer> current, List<List<Integer>> result, boolean[] used) {
+        if (nums.length == current.size()) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (int i=0; i<nums.length; i++) {
+            if(used[i]){
+                continue;
+            }
+
+            used[i] = true;
+            current.add(nums[i]);
+            backtrack(nums, current, result, used);
+            current.remove(current.size() - 1);
+            used[i] = false;
+        }
+    }
+
     public static void main(String[] args) {
         // Example 1: Standard case
         int[] nums1 = { 1, 2, 3 };
@@ -29,26 +55,5 @@ public class Permutation {
         System.out.println("Output: " + permutations(nums5));
     }
 
-    private static List<List<Integer>> permutations(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        backtrack(nums, new ArrayList<>(), result);
-        return result;
-    }
-
-    private static void backtrack(int[] nums, List<Integer> current, List<List<Integer>> result) {
-        if (nums.length == current.size()) {
-            result.add(new ArrayList<>(current));
-            return;
-        }
-
-        for (int num : nums) {
-            if (current.contains(num)) {
-                continue;
-            }
-
-            current.add(num);
-            backtrack(nums, current, result);
-            current.remove(current.size() - 1);
-        }
-    }
+    
 }

@@ -43,7 +43,7 @@ public class WordLadder2 {
                 for(int j=0; j<arr.length; j++) {
                     char original = arr[j];
 
-                    for(char ch='a'; ch< 'z'; ch++) {
+                    for(char ch='a'; ch<= 'z'; ch++) {
                         arr[j] = ch;
 
                         String nextWord = new String(arr);

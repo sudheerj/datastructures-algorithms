@@ -1,6 +1,8 @@
 public class MoveZeros {
+    //Two pointers TC: O(n) SC: O(1)
     private static int[] moveZeros(int[] nums) {
         int left = 0;
+        //Move non-zero elements forward
         for (int right = 0; right < nums.length; right++) {
             if (nums[right] != 0) {
                 if (left != right) {

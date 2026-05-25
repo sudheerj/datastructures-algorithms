@@ -1,6 +1,7 @@
 package maxSumCircularSubarray;
 
 public class MaxSumCircularSubarray {
+    //Using Kadane's algorithm TC: O(n) SC: O(1)
     private static int maxSumCircularSubarray(int[] nums) {
         if (nums.length == 0)
             return 0;
@@ -11,15 +12,15 @@ public class MaxSumCircularSubarray {
 
         for (int i = 1; i < nums.length; i++) {
             int num = nums[i];
-            currMaxSum = Math.max(currMaxSum + num, num);
-            currMinSum = Math.min(currMinSum + num, num);
+            currMaxSum = Math.max(num, currMaxSum + num);
+            currMinSum = Math.min(num, currMinSum + num);
 
             totalSum += num;
             globalMaxSum = Math.max(globalMaxSum, currMaxSum);
             globalMinSum = Math.min(globalMinSum, currMinSum);
         }
 
-        //If all values are negative, totalSum == globalMinsum. That means globalMax will have incorrect value 0.
+        //If all values are negative, totalSum == globalMinSum. That means globalMaxSum will have incorrect value of 0.
         return globalMaxSum > 0 ? Math.max(globalMaxSum, totalSum - globalMinSum) : globalMaxSum;
     }
 

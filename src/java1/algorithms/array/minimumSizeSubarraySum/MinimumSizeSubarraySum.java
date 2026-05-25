@@ -1,8 +1,7 @@
-// Sliding window: TC: O(n), SC: O(1)
 package minimumSizeSubarraySum;
 
 public class MinimumSizeSubarraySum {
-
+    // Sliding window: TC: O(n), SC: O(1)
     private static int minSizeSubarraySum(int[] nums, int target) {
         int left = 0, right = 0, total = 0, result = Integer.MAX_VALUE;
 

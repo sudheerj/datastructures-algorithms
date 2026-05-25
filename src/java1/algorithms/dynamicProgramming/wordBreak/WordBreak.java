@@ -1,7 +1,7 @@
 package java1.algorithms.dynamicProgramming.wordBreak;
 import java.util.*;
 
-//TC: O(n*2 *m) SC:O(n)
+//1D Bottom-up DP with reverse iteration => TC: O(n * m * k) SC:O(n) n=number of chars in string, m = number of words in dict, k=Avg word length
 public class WordBreak {
     private static boolean wordBreak(String str, List<String> wordDict) {
             boolean[] dp = new boolean[str.length()+1];
@@ -9,9 +9,11 @@ public class WordBreak {
             for(int i = str.length()-1; i>=0; i--) {
                 for(String word: wordDict) {
                     if((i+ word.length() <= str.length()) && str.startsWith(word, i)) {
-                        dp[i] = dp[i+ word.length()];
+                        if(dp[i+ word.length()]) {
+                            dp[i] = dp[i+ word.length()];
+                            break;
+                        }
                     }
-                    if(dp[i]) break;
                 }
             }
             return dp[0];

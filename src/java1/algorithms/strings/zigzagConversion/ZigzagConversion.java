@@ -1,6 +1,7 @@
 package java1.algorithms.strings.zigzagConversion;
 
 public class ZigzagConversion {
+    //Simulation with direction switching TC: O(n) SC: O(n)
     private static String zigzagConversion(String s, int numRows) {
         //edge case
         if(numRows <= 1 || numRows >= s.length()) return s;
@@ -12,15 +13,15 @@ public class ZigzagConversion {
         }
 
         int currRow = 0;
-        boolean goingDown = false;
+        int dir = 1;
 
         for(char ch: s.toCharArray()) {
             rows[currRow].append(ch);
             //Change direction at top or bottom
             if(currRow == 0 || currRow == numRows-1) {
-                goingDown = !goingDown;
+                dir *= -1;
             }
-            currRow += goingDown ? 1 : -1;
+            currRow += dir;
         }
 
         //Combine rows

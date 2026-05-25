@@ -3,14 +3,15 @@ package java1.algorithms.strings.palindromicSubstrings;
 
 public class PalindromicSubstrings {
 
+    //Expand around center TC: O(n ^ 2) SC: O(1)
     private static int countSubstrings(String str) {
 
         if(str.length() < 2) return str.length();
 
         int count = 0;
         for(int i=0; i < str.length(); i++) {
-            count += countPalindromes(str, i, i);
-            count += countPalindromes(str, i, i+1);
+            count += countPalindromes(str, i, i); //odd length
+            count += countPalindromes(str, i, i+1); //even length
         }
         return count;
     }

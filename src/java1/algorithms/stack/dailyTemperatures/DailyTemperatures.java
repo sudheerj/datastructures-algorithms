@@ -8,15 +8,16 @@ public class DailyTemperatures {
 
     private static int[] dailyTemperatures(int[] temperatures) {
         int[] days = new int[temperatures.length];
-        //Store indices of temperature array
-        Stack<Integer> stack = new Stack<>();
+        //Store pair of temp and index of temperature array
+        Stack<int[]> stack = new Stack<>();
 
         for(int currDay = 0; currDay < temperatures.length; currDay++) {
-            while (!stack.empty() && temperatures[currDay] > temperatures[stack.peek()]) {
-                int prevDay = stack.pop();
-                days[prevDay] = currDay - prevDay;
+            int currTemp = temperatures[currDay];
+            while (!stack.empty() &&  currTemp > stack.peek()[0]) {
+                int[] pair = stack.pop();
+                days[pair[1]] = currDay - pair[1];
             }
-            stack.push(currDay);
+            stack.push(new int[]{currTemp, currDay});
         }
 
         return days;

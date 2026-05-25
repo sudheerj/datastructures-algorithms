@@ -1,5 +1,5 @@
-// TC: O(n) SC: O(1)
-function removeDuplicates(nums) {
+// Two pointers TC: O(n) SC: O(1)
+function removeDuplicates1(nums) {
     let left = 0;
 
     for (let j = 1; j < nums.length; j++) {
@@ -12,38 +12,38 @@ function removeDuplicates(nums) {
     return left + 1;
 }
 
-// Test cases
-// Test 1: General case with duplicates
-let nums1 = [1, 1, 2];
-let count1 = removeDuplicates(nums1);
-console.log("Test 1:", nums1.slice(0, count1)); // [1, 2]
+// Two pointers (previous element comparison) TC: O(n) SC: O(1)
+function removeDuplicates2(nums) {
+    let left = 1;
 
-// Test 2: Multiple duplicates
-let nums2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
-let count2 = removeDuplicates(nums2);
-console.log("Test 2:", nums2.slice(0, count2)); // [0, 1, 2, 3, 4]
+    for (let right = 1; right < nums.length; right++) {
+        if (nums[right] !== nums[right - 1]) {
+            nums[left++] = nums[right];
+        }
+    }
 
-// Test 3: No duplicates
-let nums3 = [1, 2, 3, 4, 5];
-let count3 = removeDuplicates(nums3);
-console.log("Test 3:", nums3.slice(0, count3)); // [1, 2, 3, 4, 5]
+    return left;
+}
 
-// Test 4: Single element
-let nums4 = [1];
-let count4 = removeDuplicates(nums4);
-console.log("Test 4:", nums4.slice(0, count4)); // [1]
+const testCases = [
+    { nums: [1, 1, 2],                     expectedK: 2, expectedArr: [1, 2] },
+    { nums: [0, 0, 1, 1, 1, 2, 2, 3, 3, 4], expectedK: 5, expectedArr: [0, 1, 2, 3, 4] },
+    { nums: [1, 2, 3, 4, 5],               expectedK: 5, expectedArr: [1, 2, 3, 4, 5] },
+    { nums: [1],                            expectedK: 1, expectedArr: [1] },
+    { nums: [7, 7, 7, 7],                  expectedK: 1, expectedArr: [7] },
+];
 
-// Test 5: All same elements
-let nums5 = [7, 7, 7, 7];
-let count5 = removeDuplicates(nums5);
-console.log("Test 5:", nums5.slice(0, count5)); // [7]
+function runTests(fn, label) {
+    console.log(`--- ${label} ---`);
+    for (const { nums, expectedK, expectedArr } of testCases) {
+        const arr = [...nums];
+        const k = fn(arr);
+        const resultArr = arr.slice(0, k);
+        const pass = k === expectedK && resultArr.every((v, i) => v === expectedArr[i]);
+        console.log(`[${pass ? "PASS" : "FAIL"}] k=${k} array=[${resultArr}]`);
+    }
+}
 
-// Test 6: Negative numbers
-let nums6 = [-3, -1, -1, 0, 0, 2];
-let count6 = removeDuplicates(nums6);
-console.log("Test 6:", nums6.slice(0, count6)); // [-3, -1, 0, 2]
+runTests(removeDuplicates1, "removeDuplicates1 (left pointer)");
+runTests(removeDuplicates2, "removeDuplicates2 (prev element comparison)");
 
-// Test 7: Two elements - duplicates
-let nums7 = [5, 5];
-let count7 = removeDuplicates(nums7);
-console.log("Test 7:", nums7.slice(0, count7)); // [5]

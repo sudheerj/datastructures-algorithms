@@ -2,7 +2,7 @@ package java1.algorithms.dynamicProgramming.coinsChange;
 import java.util.*;
 
 public class CoinsChange {
-    // TC: O(amount * numberOfCoins) SC: O(amount)
+    //DP Array => TC: O(amount * numberOfCoins) SC: O(amount)
     private static int coinsChange(int[] coins, int amount) {
         int[] dp = new int[amount+1];
         Arrays.fill(dp, amount+1);

@@ -1,37 +1,46 @@
-# TrappingRainWater.java
+**Problem statement:**
+Given an array of non-negative integers `height` representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
 
-Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
+## Examples:
 
-## Approaches
-- **Two Pointer:** O(n) time, O(1) space
-- **DP (Prefix & Suffix Arrays):** O(n) time, O(n) space
+**Example 1:**
+Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+Output: 6
 
-## Example
-**Input:** [0,1,0,2,1,0,1,3,2,1,2,1]  
-**Output:** 6
+**Example 2:**
+Input: height = [4,2,0,3,2,5]
+Output: 9
 
-## Steps
-### Two Pointer Approach
-1. Initialize two pointers at the start and end of the array.
-2. Track the maximum height seen from the left and right.
-3. Move the pointer with the smaller max inward, updating max and adding trapped water at each step.
-4. Continue until pointers meet.
+**Example 3:**
+Input: height = [3,0,0,2,0,4]
+Output: 10
 
-### DP (Prefix & Suffix Arrays)
-1. Create arrays to store the max height to the left and right of each index.
-2. For each index, calculate the minimum of left and right max heights.
-3. The trapped water at each index is the min of left/right max minus the height at that index.
-4. Sum for all indices to get total trapped water.
+**Algorithmic Steps**
 
-## Test Cases
-- [0,1,0,2,1,0,1,3,2,1,2,1] → 6
-- [4,2,0,3,2,5] → 9
-- [1,1] → 0
-- [] → 0
-- [3,0,0,2,0,4] → 10
+**Approach 1: Two Pointers — O(n) time, O(1) space**
+1. Initialize `left=0`, `right=n-1`, `leftMax=height[0]`, `rightMax=height[right]`, `res=0`.
+2. While `left < right`:
+   - If `leftMax <= rightMax`: advance `left`, update `leftMax = max(leftMax, height[left])`, add `leftMax - height[left]` to `res`.
+   - Else: retreat `right`, update `rightMax = max(rightMax, height[right])`, add `rightMax - height[right]` to `res`.
+3. Return `res`.
 
-## Usage
-```java
-System.out.println(trappingRainWater(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1})); // 6
-System.out.println(trappingRainWater2(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1})); // 6
-```
+**Approach 2: Prefix/Suffix Arrays — O(n) time, O(n) space**
+1. Build `leftMax[i]` = max of `height[0..i]` by scanning left to right.
+2. Build `rightMax[i]` = max of `height[i..n-1]` by scanning right to left.
+3. For each index `i`, water trapped = `min(leftMax[i], rightMax[i]) - height[i]`.
+4. Sum and return total water.
+
+**Approach 3: Brute Force — O(n²) time, O(1) space**
+1. For each index `i`:
+   - Find `leftMax` = max of `height[0..i]`.
+   - Find `rightMax` = max of `height[i..n-1]`.
+   - Water at `i` = `min(leftMax, rightMax) - height[i]`.
+2. Sum water for all indices and return.
+
+**Time and Space complexity:**
+
+| Approach | Time | Space |
+|---|---|---|
+| Two Pointers | O(n) | O(1) |
+| Prefix/Suffix Arrays | O(n) | O(n) |
+| Brute Force | O(n²) | O(1) |

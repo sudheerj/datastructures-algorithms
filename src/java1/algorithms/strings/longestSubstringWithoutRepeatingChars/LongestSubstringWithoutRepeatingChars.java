@@ -9,17 +9,17 @@ public class LongestSubstringWithoutRepeatingChars {
 
     private static int longestSubstringLengthWithoutRepeatingChar(String str) {
 
-        HashSet<Character> hashset = new HashSet<>();
+        HashSet<Character> charSet = new HashSet<>();
         int left = 0, right = 0, maxLength = 0;
 
         while (right < str.length()) {
-            while (hashset.contains(str.charAt(right))) {
-                hashset.remove(str.charAt(left));
+            while (charSet.contains(str.charAt(right))) {
+                charSet.remove(str.charAt(left));
                 left++;
             }
-            hashset.add(str.charAt(right));
+            charSet.add(str.charAt(right));
             right++;
-            maxLength = Math.max(maxLength, hashset.size());
+            maxLength = Math.max(maxLength, charSet.size());
         }
         return maxLength;
     }

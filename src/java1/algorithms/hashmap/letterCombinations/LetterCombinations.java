@@ -6,35 +6,44 @@ import java.util.List;
 import java.util.Map;
 
 class LetterCombinations {
+        private static final Map<Character, String> phoneMap = new HashMap<>();
 
+        static {
+            phoneMap.put('2', "abc");
+            phoneMap.put('3', "def");
+            phoneMap.put('4', "ghi");
+            phoneMap.put('5', "jkl");
+            phoneMap.put('6', "mno");
+            phoneMap.put('7', "pqrs");
+            phoneMap.put('8', "tuv");
+            phoneMap.put('9', "wxyz");
+        }
+
+
+    //TC: O(n 4^n) SC: O(n 4^n)
     private static List<String> letterCombinations(String digits){
         List<String> combinations = new ArrayList<>();
-        if(digits.isEmpty()) {
+        if(digits == null || digits.isEmpty()) {
             return combinations;
         }
 
-        Map<Character, String> digitToChar = new HashMap<>();
-        digitToChar.put('2', "abc");
-        digitToChar.put('3', "def");
-        digitToChar.put('4', "ghi");
-        digitToChar.put('5', "jkl");
-        digitToChar.put('6', "mno");
-        digitToChar.put('7', "pqrs");
-        digitToChar.put('8', "tuv");
-        digitToChar.put('9', "wxyz");
-
-        backtrack(0, "", digits, digitToChar, combinations);
+        backtrack(0, new StringBuilder(), digits, combinations);
         return combinations;
     }
 
-    private static void backtrack(int i, String currStr, String digits, Map<Character, String> digitToChar, List<String> combinations) {
+    private static void backtrack(int index, StringBuilder currStr, String digits, List<String> combinations) {
         if(digits.length() == currStr.length()) {
-            combinations.add(currStr);
+            combinations.add(currStr.toString());
             return;
         }
 
-        for (char ch : digitToChar.get(digits.charAt(i)).toCharArray()) {
-            backtrack(i+1, currStr+ch, digits, digitToChar, combinations);
+        for (char ch : phoneMap.get(digits.charAt(index)).toCharArray()) {
+            //choose
+            currStr.append(ch);
+            //explore
+            backtrack(index+1, currStr, digits, combinations);
+            //unchoose
+            currStr.deleteCharAt(currStr.length()-1);
         }
     }
     public static void main(String[] args) {

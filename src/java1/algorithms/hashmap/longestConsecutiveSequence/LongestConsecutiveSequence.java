@@ -5,6 +5,7 @@ import java.util.HashSet;
 public class LongestConsecutiveSequence {
     // TC: O(2n) ~ O(n) SC: O(n)
     private static int longestConsecutiveSequence(int[]  nums) {
+        //store all numbers in set for O(1) lookup
         HashSet<Integer> numSet = new HashSet<>();
         int longestStreak = 0;
 
@@ -12,13 +13,17 @@ public class LongestConsecutiveSequence {
             numSet.add(num);
         }
 
+        //only start if its a beginning of sequence
         for(int num: numSet) {
             //Check if left element exists to find the sequence
             if(!numSet.contains(num-1)) {
                 int currentStreak = 1;
-                while(numSet.contains(num+1)) {
+                int currentNum = num;
+
+                //expand the sequence
+                while(numSet.contains(currentNum+1)) {
                     currentStreak++;
-                    num++;
+                    currentNum++;
                 }
                 longestStreak = Math.max(currentStreak, longestStreak);
             }

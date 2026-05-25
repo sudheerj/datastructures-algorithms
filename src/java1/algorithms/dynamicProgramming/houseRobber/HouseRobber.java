@@ -1,7 +1,7 @@
 package java1.algorithms.dynamicProgramming.houseRobber;
 
 public class HouseRobber {
-    // TC:O(n) SC:O(1)
+    //DP Two pointers TC:O(n) SC:O(1)
     private static int robber1(int[] nums) {
         int rob1 = 0, rob2 = 0;
         for(int num: nums) {
@@ -12,7 +12,7 @@ public class HouseRobber {
         return rob2;
     } 
 
-    // TC:O(n) SC:O(n)
+    //DP TC:O(n) SC:O(n)
     private static int robber2(int[] nums) {
         int[] dp = new int[nums.length];
         dp[0] = nums[0];

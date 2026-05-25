@@ -1,32 +1,36 @@
-**Description:**
-Given an array `nums`, find a single missing number in an array that contains `n` unique numbers from the range `[0, n]`.
+**Problem statement:**
+Given an array `nums` containing `n` distinct numbers in the range `[0, n]`, return the one number missing from the array.
 
-## Example:
-Example 1:
-Input: nums = [3, 1, 0]
+## Examples:
+Input: nums = [3,1,0]
 Output: 2
 
-Example 2:
-Input: nums = [5, 9, 7, 1, 2, 4, 0, 6, 8, 3]
+Input: nums = [5,9,7,1,2,4,0,6,8,3]
 Output: 10
 
-**Algorithmic Steps:**
-This problem is solved with the help of **Bitwise XOR** operation. The XOR operation between matching indices of input array and values from the range [0, n] resulting into missing number. This is because the XOR operation between same numbers results into 0. The algorithmic approach can be summarized as follows: 
+**Algorithmic Steps**
 
-1. Get the number array `nums` as input parameter. This array is missing one number.
+Approach 1 — Sum Difference O(1) space:
+1. Initialize `missing = n` (accounts for the largest possible missing value).
+2. For each index `i`, add `i - nums[i]` to `missing`.
+3. This accumulates `(0+1+...+(n-1)) - sum(nums)`, which equals the missing number.
+4. Return `missing`.
 
-2. Initialize the missing number with the last element(i.e, length of input `nums` array) since an array is 0-indexed.
-   
-3. Iterate over each element until the end of input array.
-   
-4. Calculate the XOR operation between the current index and the element at that index. This calculated result needs to be XORed with current result. Since XOR operation with same number results into zero and a number XORed with zero is the number itself, it will leave us with missing number only.
-   
-5. Repeat the above step until the end of an array.
-   
-6. Return the missing number as output.
+Approach 2 — XOR O(1) space:
+1. Initialize `missing = n`.
+2. For each index `i`, XOR `missing` with both `i` and `nums[i]`.
+3. Every number that appears in both `[0..n]` and `nums` cancels out; only the missing number remains.
+4. Return `missing`.
 
+Approach 3 — HashSet O(n) space:
+1. Add all elements of `nums` to a HashSet.
+2. Iterate `i` from `0` to `n`; return the first `i` not in the set.
 
 **Time and Space complexity:**
-This algorithm takes a time complexity of `O(n)`, where `n` is the length of an array. This is because we are iterating through each element of an array exactly once..
+| | Time | Space |
+|---|---|---|
+| Approach 1 (sum) | O(n) | O(1) |
+| Approach 2 (XOR) | O(n) | O(1) |
+| Approach 3 (set) | O(n) | O(n) |
 
 Here, we don't use any additional datastructure other than variable to store missing number. Hence, the space complexity will be `O(1)`.

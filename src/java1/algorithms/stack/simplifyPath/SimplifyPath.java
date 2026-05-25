@@ -3,16 +3,18 @@ package java1.algorithms.stack.simplifyPath;
 import java.util.Stack;
 
 public class SimplifyPath {
-    //Stack TC:O(n),SC:O(n)
+    //Stack based path normalization TC:O(n),SC:O(n)
     private static String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
         String[] paths = path.split("/");
 
-        for(String curr: paths) {
-            if(curr.equals("..")) {
+        for(String currPath: paths) {
+            if(currPath.equals("") || currPath.equals(".")) {
+                continue;
+            } else if(currPath.equals("..")) {
                 if(!stack.isEmpty()) stack.pop();
-            } else if(!curr.equals("") && !curr.equals(".")) {
-                stack.push(curr);
+            }else {
+                stack.push(currPath);
             }
         }
 

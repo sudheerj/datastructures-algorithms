@@ -4,9 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SubArrayEqualsK {
+    //Using prefix sum map TC: O(n) SC: O(n)
     private static int subArrayEqualsK(int[] nums, int k) {
         Map<Integer, Integer> prefixSumMap = new HashMap<>();
-        prefixSumMap.put(0, 1); // empty prefix has sum 0
+        prefixSumMap.put(0, 1); // empty prefix has sum 0 and 1 instance
 
         int sum = 0, count = 0;
 

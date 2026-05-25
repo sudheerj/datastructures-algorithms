@@ -1,6 +1,7 @@
 package maxProductSubarray;
 
 public class MaxProductSubarray {
+    //Using Kadane's algorithm TC: O(n) SC: O(1)
     private static int maxProductSubArray(int[] nums) {
         int currentMaxProduct = nums[0], currentMinProduct = nums[0], globalMaxProduct = nums[0];
         for(int i=1; i< nums.length; i++) {

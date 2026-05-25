@@ -12,7 +12,7 @@ public class LongestPalindromicSubstring {
 
             int len = Math.max(len1, len2);
 
-            if(len > end-start) {
+            if(len > end-start+1) {
                 start = i- (len-1)/2;
                 end = i + len/2;
             }
@@ -59,7 +59,7 @@ public class LongestPalindromicSubstring {
         return longestSubstr;
     }
 
-        private static String longestPalindromicSubstring3(String str) {
+    private static String longestPalindromicSubstring3(String str) {
         if(str.length() <= 1) return str;
 
         String maxPalindromicSubstr = str.substring(0, 1);

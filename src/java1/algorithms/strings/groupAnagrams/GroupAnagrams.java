@@ -26,7 +26,7 @@ public class GroupAnagrams {
             return new ArrayList<>(groupAnagramMap.values());
         }
         
-    //HashMap using sorted strings:- TC:O(n * mlogn) SC:O(n)
+    //HashMap using sorted strings:- TC:O(n * mlog m) SC:O(n)
     private static List<List<String>> groupAnagram2(String[] strs) {
         Map<String, List<String>> groupAnagramMap = new HashMap<>();
 

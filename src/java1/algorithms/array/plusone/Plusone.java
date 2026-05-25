@@ -1,14 +1,16 @@
 package plusone;
 
 public class Plusone {
-
+    //TC: O(n) SC: O(n)
     private static int[] plusOne(int[] digits) {
+        //Traverse from last digit
         for (int i = digits.length - 1; i >= 0; i--) {
+            //if digit is less than 9, add 1
             if (digits[i] < 9) {
                 digits[i]++;
                 return digits;
             }
-            digits[i] = 0; // carry over
+            digits[i] = 0; // if digit is 9, make it 0 and continue zero
         }
 
         // Incase of all 9's
