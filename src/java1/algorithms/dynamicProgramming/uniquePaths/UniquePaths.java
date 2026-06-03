@@ -2,7 +2,7 @@ package java1.algorithms.dynamicProgramming.uniquePaths;
 import java.util.*;
 
 public class UniquePaths {
-    //Dynamic programming:- TC:O(m*n) OC:O(n)
+    //Dynamic programming space optimized(reversal):- TC:O(m*n) OC:O(n)
     private static int uniquePaths2(int m, int n) {
         int[] row = new int[n];
         Arrays.fill(row, 1);
@@ -17,6 +17,7 @@ public class UniquePaths {
         }
 
         return row[0];
+    }
 
     //Dynamic programming:- TC:O(m*n) OC:O(m*n)
     private static int uniquePaths1(int m, int n) {

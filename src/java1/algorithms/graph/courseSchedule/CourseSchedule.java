@@ -3,7 +3,7 @@ package java1.algorithms.graph.courseSchedule;
 import java.util.*;
 
 public class CourseSchedule {
-    //DFS:==> TC: O(V+E) SC: O(V+E)
+    //Recursive DFS:==> TC: O(V+E) SC: O(V+E)
     private static boolean canFinish1(int numCourses, int[][] prerequisites){
         Map<Integer, List<Integer>> prereqMap = new HashMap<>();
         for(int i=0; i<numCourses; i++){

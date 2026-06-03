@@ -1,7 +1,7 @@
 package java1.algorithms.dynamicProgramming.climbingStairs;
 
 public class ClimbingStairs {
-    // TC: O(n) SC: O(1)
+    //DP Two variables TC: O(n) SC: O(1)
     private static int climbStairs1(int n) {
         if(n <= 2) return n;
 
@@ -14,7 +14,7 @@ public class ClimbingStairs {
         return second;
     }
 
-    // TC:O(n) SC: O(n)
+    //Bottom-up DP  TC:O(n) SC: O(n)
     private static int climbStairs2(int n) {
         if(n <= 2) return n;
 

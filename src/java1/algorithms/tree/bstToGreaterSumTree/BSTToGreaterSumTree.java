@@ -11,10 +11,10 @@ public class BSTToGreaterSumTree {
         return root;
     }
 
-    private TreeNode dfs(TreeNode node) {
+    private void dfs(TreeNode node) {
         // base case
         if (node == null)
-            return node;
+            return;
 
         // go to larger values
         dfs(node.right);
@@ -26,7 +26,6 @@ public class BSTToGreaterSumTree {
         // go to smaller values
         dfs(node.left);
 
-        return node;
     }
 
     private static String inorder(TreeNode node) {

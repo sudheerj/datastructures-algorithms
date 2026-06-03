@@ -3,7 +3,7 @@ package java1.algorithms.tree.rangeSumBST;
 import java1.algorithms.dynamicProgramming.TreeNode;
 
 public class RangeSumBST {
-    //Recursive DFS TC: O(n) SC: O(n)
+    //Recursive DFS TC: O(n) SC: O(h)
     private static int rangeSum(TreeNode root, int low, int high) {
         if(root == null) {
             return 0;

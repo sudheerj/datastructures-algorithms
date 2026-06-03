@@ -26,7 +26,7 @@ Use intermediate states to store both original and new state:
 - 3: live → live
 
 1. First pass: Encode new states based on neighbor count.
-2. Second pass: Decode to final binary state (>= 2 becomes 1).
+2. Second pass: Decode to final binary state (= 2 becomes 1, 3 becomes 1, 0 becomes 0, 1 becomes 0).
 
 ---
 

@@ -27,7 +27,7 @@ public class EditDistance {
         if(w1.charAt(r) == w2.charAt(c)) {
             memo[r][c] = dfs(r+1, c+1, w1, w2, memo, m, n);
         } else {
-            memo[r][c] = Math.min(Math.min(dfs(r, c+1, w1, w2, memo, m, n), dfs(r+1, c, w1, w2, memo, m, n)), dfs(r+1, c+1, w1,w2, memo, m,n));
+            memo[r][c] = 1+Math.min(Math.min(dfs(r, c+1, w1, w2, memo, m, n), dfs(r+1, c, w1, w2, memo, m, n)), dfs(r+1, c+1, w1,w2, memo, m,n));
         }
 
         return memo[r][c];

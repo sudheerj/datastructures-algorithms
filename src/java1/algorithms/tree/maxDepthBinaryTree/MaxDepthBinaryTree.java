@@ -48,7 +48,7 @@ public class MaxDepthBinaryTree {
         return maxDepth;
     }
 
-    //BFS:- TC: O(n) SC: O(n)
+    //BFS:- TC: O(n) SC: O(w)
     private static int maxDepth3(TreeNode root) {
         if(root == null) return 0;
         int maxDepth = 0;

@@ -12,7 +12,7 @@ public class StringCompression {
             char current = chars[read];
             int count = 0;
 
-            // count how many times current repeats
+            // count how many times current char repeats
             while (read < chars.length && chars[read] == current) {
                 read++;
                 count++;

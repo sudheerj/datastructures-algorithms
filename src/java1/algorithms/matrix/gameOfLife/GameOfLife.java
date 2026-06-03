@@ -1,4 +1,4 @@
-package matrix;
+package java1.algorithms.matrix.gameOfLife;
 
 /**
  * Game of Life
@@ -32,53 +32,49 @@ public class GameOfLife {
         int rows = board.length;
         int cols = board[0].length;
 
-        // First pass: encode new state
+        int[] dr = {-1, -1, -1, 0, 0, 1, 1, 1};
+        int[] dc = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+        // First pass: mark transitions
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                int liveNeighbors = countLiveNeighbors(board, r, c);
 
-                if (board[r][c] == 1) {
-                    // Currently alive
-                    if (liveNeighbors == 2 || liveNeighbors == 3) {
-                        board[r][c] = 3; // Stays alive
-                    }
-                    // else stays 1 (will die)
-                } else {
-                    // Currently dead
-                    if (liveNeighbors == 3) {
-                        board[r][c] = 2; // Becomes alive
+                int liveNeighbors = 0;
+
+                //count neighbors
+                for(int k=0; k<8; k++) {
+                    int nr = r + dr[k];
+                    int nc = c + dc[k];
+
+                    //boundary check
+                    if(nr < 0 || nr >= rows || nc < 0 || nc >= cols) continue; 
+
+                    if(board[nr][nc] == 1 || board[nr][nc] == 2) {
+                        liveNeighbors++;
                     }
                 }
+                
+                //Rule 1 & 3: Live cells become dead
+                if(board[r][c] == 1 && (liveNeighbors < 2 || liveNeighbors >3))  board[r][c] =2;
+
+                //Rule 4: Dead cells become alive
+                if(board[r][c] == 0 && liveNeighbors ==3) board[r][c] = 3;
+
             }
         }
 
         // Second pass: decode final state
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                board[r][c] = board[r][c] >= 2 ? 1 : 0;
-            }
-        }
-    }
+                if(board[r][c] == 2) {
+                    board[r][c] = 0;
+                }
 
-    private int countLiveNeighbors(int[][] board, int r, int c) {
-        int rows = board.length;
-        int cols = board[0].length;
-        int count = 0;
-
-        for (int dr = -1; dr <= 1; dr++) {
-            for (int dc = -1; dc <= 1; dc++) {
-                if (dr == 0 && dc == 0) continue;
-                int nr = r + dr;
-                int nc = c + dc;
-                if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
-                    // Check original state (1 or 3 means originally alive)
-                    if (board[nr][nc] == 1 || board[nr][nc] == 3) {
-                        count++;
-                    }
+                if(board[r][c] == 3) {
+                    board[r][c] = 1;
                 }
             }
         }
-        return count;
     }
 
     public static void main(String[] args) {
