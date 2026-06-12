@@ -6,7 +6,7 @@ import java.util.Queue;
 import java1.algorithms.tree.TreeNode;
 
 public class CousinsBinaryTree {
-    // BFS TC: O(n) SC: O(n)
+    // BFS level order traversal with siblings and equal checks  TC: O(n) SC: O(n)
     public static boolean isCousins(TreeNode root, int x, int y) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
@@ -44,7 +44,7 @@ public class CousinsBinaryTree {
         return false;
     }
 
-    // DFS TC: O(n) SC: O(h)
+    // Recursive DFS with depths and parents TC: O(n) SC: O(h)
     public static boolean isCousins2(TreeNode root, int x, int y) {
         int[] depths = { -1, -1 };
         TreeNode[] parents = { null, null };

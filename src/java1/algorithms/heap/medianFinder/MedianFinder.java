@@ -6,9 +6,9 @@ import java.util.PriorityQueue;
 // Using two heaps: add/remove -> O(log n), findMedian -> O(1), space -> O(n)
  public class MedianFinder {
 
-    //Contains small elements
+    //Contains small elements(lower half)
     PriorityQueue<Integer> maxHeap;
-    //Contains big elements
+    //Contains big elements(higher half)
     PriorityQueue<Integer> minHeap;
 
     MedianFinder() {
@@ -17,18 +17,22 @@ import java.util.PriorityQueue;
     }
 
     private void addNum(int num) {
+        //1.Push into maxHeap
         maxHeap.add(num);
-        maxHeap.add(minHeap.poll());
-        if(minHeap.size() < maxHeap.size()) {
-            minHeap.add(maxHeap.poll());
+        //2. balance -> move larger element from maxHeap to minHeap
+        minHeap.add(maxHeap.poll());
+        //3. Ensure size property
+        if(minHeap.size() > maxHeap.size()) {
+            maxHeap.add(minHeap.poll());
         }
     }
 
     private double findMedian() {
-        if(minHeap.size() == maxHeap.size()) {
-            return (minHeap.peek() + maxHeap.peek())/2.0;
+        if(maxHeap.size() > minHeap.size()) {
+            return maxHeap.peek();
         }
-        return minHeap.peek();
+
+        return (maxHeap.peek() + minHeap.peek())/2.0;
     }
 
     public static void main(String[] args) {

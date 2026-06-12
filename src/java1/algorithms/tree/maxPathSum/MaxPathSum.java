@@ -5,6 +5,7 @@ import java1.algorithms.tree.TreeNode;
 public class MaxPathSum {
     static int maxSum = Integer.MIN_VALUE;
 
+    //Recursive DFS TC: O(n) SC: O(h)
     private static int maxPathSum(TreeNode root) {
         dfs(root);
         return maxSum;

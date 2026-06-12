@@ -2,7 +2,7 @@ package java1.algorithms.dynamicProgramming.jumpGame;
 
 public class JumpGame {
 
-    //Greedy:- TC:O(n) SC:O(1)
+    //Reverse greedy:- TC:O(n) SC:O(1)
     private static boolean canJump1(int[] nums) {
         int goalPost = nums.length-1;
 

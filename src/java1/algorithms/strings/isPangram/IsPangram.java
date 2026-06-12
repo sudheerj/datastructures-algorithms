@@ -25,10 +25,10 @@ public class IsPangram {
     private boolean checkIfPangram2(String sentence) {
         int mask = 0;
         for(char ch: sentence.toCharArray()) {
-            mask |= mask ^ (1 << ch -'a');
+            mask |= (1 << ch -'a');
         }
 
-        return mask == 1 << 26 -1; //25 1's in binary format
+        return mask == (1 << 26) -1; //25 1's in binary format
     }
 
     //HashSet TC: O(n) SC: O(26) ~= O(1)

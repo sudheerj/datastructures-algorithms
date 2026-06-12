@@ -11,6 +11,41 @@ import java.util.List;
 import java.util.Map;
 
 public class TopKFrequentElements {
+
+    private static int[] topKFrequentElements(int[] nums, int k) {
+        Map<Integer, Integer> freqMap = new HashMap<>();
+
+        // step1: Prepare count frequency map
+        for (int num : nums) {
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+        }
+
+        // Step2: Bucket sort using count as index and list of numbers as value
+        List<Integer>[] buckets = new ArrayList[nums.length + 1];
+        for (int num : freqMap.keySet()) {
+            int freq = freqMap.get(num);
+            if (buckets[freq] == null) {
+                buckets[freq] = new ArrayList<>();
+            }
+            buckets[freq].add(num);
+        }
+
+        // Step3: Collect top k elements
+        int[] topKElements = new int[k];
+        int idx = 0;
+        for (int i = buckets.length - 1; i >= 0 && idx < k; i--) {
+            if (buckets[i] != null) {
+                for(int num: buckets[i]) {
+                    topKElements[idx++] = num;
+
+                    if(idx == k) return topKElements;
+                }
+            }
+        }
+
+        return topKElements;
+    }
+
     public static void main(String[] args) {
         // Test 1: General case
         System.out.println("Test 1: " + Arrays.toString(topKFrequentElements(new int[] { 1, 1, 1, 2, 2, 3 }, 2))); // [1,2]                                                                                                         // 2]
@@ -33,34 +68,5 @@ public class TopKFrequentElements {
 
         // Test 7: Two elements
         System.out.println("Test 7: " + Arrays.toString(topKFrequentElements(new int[] { 4, 4, 1, 1, 1 }, 1))); // [1]
-    }
-
-    private static int[] topKFrequentElements(int[] nums, int k) {
-        Map<Integer, Integer> freqMap = new HashMap<>();
-
-        // step1: Prepare count frequency map
-        for (int num : nums) {
-            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
-        }
-
-        // Step2: Bucket sort with count value as index
-        List<Integer>[] buckets = new List[nums.length + 1];
-        for (int key : freqMap.keySet()) {
-            int freq = freqMap.get(key);
-            if (buckets[freq] == null) {
-                buckets[freq] = new ArrayList<>();
-            }
-            buckets[freq].add(key);
-        }
-
-        // Step3: Collect top k elements
-        List<Integer> result = new ArrayList<>();
-        for (int i = buckets.length - 1; i >= 0 && result.size() < k; i--) {
-            if (buckets[i] != null) {
-                result.addAll(buckets[i]);
-            }
-        }
-
-        return result.stream().mapToInt(i -> i).limit(k).toArray();
     }
 }

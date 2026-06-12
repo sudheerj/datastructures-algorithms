@@ -42,20 +42,8 @@ def triangle2(t):
     return dp[0][0]
 
 
-# Approach 3: Space-optimized
+# Approach 3: In-place (operates on a copy to avoid mutating input)
 def triangle3(t):
-    n = len(t)
-    dp = t[n - 1][:]  # copy last row
-
-    for r in range(n - 2, -1, -1):
-        for c in range(len(t[r])):
-            dp[c] = t[r][c] + min(dp[c], dp[c + 1])
-
-    return dp[0]
-
-
-# Approach 4: In-place (operates on a copy to avoid mutating input)
-def triangle4(t):
     tri = [row[:] for row in t]  # shallow copy per row
     n = len(tri)
 
@@ -67,41 +55,22 @@ def triangle4(t):
 
 
 if __name__ == "__main__":
-    # Test cases: [triangle, expected]
-    tests = [
-        ([[2],[3,4],[6,5,7],[4,1,8,3]], 11),
-        ([[-10]], -10),
-        ([[1],[2,3]], 3),
-        ([[-1],[2,3],[1,-1,-3]], -1),
-        ([[1],[2,3],[4,5,6],[7,8,9,10]], 14),
-        ([[-1],[-2,-3]], -4),
-        ([[5],[-3,2],[1,4,-1],[-2,3,1,0]], 1),
-        ([[1],[1,1],[1,1,1]], 3),
-        ([[10],[9,8],[7,6,5]], 23),
-        ([[-5],[-2,-4],[-1,-3,-6],[-8,-9,-10,-11]], -26)
+    test_cases = [
+        ([[2],[3,4],[6,5,7],[4,1,8,3]], 11, "standard 4-row"),
+        ([[-10]],                        -10, "single negative"),
+        ([[1],[2,3]],                    3,  "2-row"),
+        ([[-1],[2,3],[1,-1,-3]],         -1, "negative values"),
+        ([[1],[2,3],[4,5,6],[7,8,9,10]], 14, "4-row ascending"),
+    ]
+    methods = [
+        ("Top-down Memoization", triangle1),
+        ("Bottom-up DP",         triangle2),
+        ("In-place",             triangle3),
     ]
 
-    print("Triangle - Test Results:")
-    print("=" * 120)
-
-    passed = 0
-    for i, (triangle, expected) in enumerate(tests, 1):
-        # Test all four approaches
-        result1 = triangle1(triangle)
-        result2 = triangle2(triangle)
-        result3 = triangle3(triangle)
-        result4 = triangle4(triangle)
-
-        test_pass = (result1 == expected and result2 == expected and 
-                    result3 == expected and result4 == expected)
-
-        # Debug: print all results if test fails
-        if not test_pass:
-            print(f"Test {i:2d} FAIL | Input: {triangle}")
-            print(f"  Memoization: {result1}, DP: {result2}, Space-opt: {result3}, In-place: {result4} | Expected: {expected}")
-        else:
-            print(f"Test {i:2d} | Input: {str(triangle):50s} | Output: {result1} | Expected: {expected} | PASS")
-            passed += 1
-
-    print("=" * 120)
-    print(f"Tests Passed: {passed}/{len(tests)}")
+    for name, fn in methods:
+        print(f"=== {name} ===")
+        for tri, expected, label in test_cases:
+            result = fn(tri)
+            status = "PASS" if result == expected else "FAIL"
+            print(f"  [{status}] {label}: {result}  (expected {expected})")

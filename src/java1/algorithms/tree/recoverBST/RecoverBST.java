@@ -7,10 +7,10 @@ import java1.algorithms.tree.TreeNode;
 
 public class RecoverBST {
     static TreeNode prev = null;
-    static TreeNode first = null;
-    static TreeNode second = null;
+    static TreeNode first = null; //very first wrong large value
+    static TreeNode second = null; // last wrong small value
 
-    // Inorder traversal TC: O(n) SC: O(h)
+    // Inorder traversal to find BST violation TC: O(n) SC: O(h)
     public static void recoverTree(TreeNode root) {
         inorder(root);
 
@@ -25,7 +25,7 @@ public class RecoverBST {
 
         inorder(node.left);
 
-        if (prev != null && prev.value > node.value) {
+        if (prev != null && prev.value > node.value) { //BST voilation
             if (first == null)
                 first = prev;
             second = node;

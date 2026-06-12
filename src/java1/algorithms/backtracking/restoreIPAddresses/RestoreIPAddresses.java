@@ -7,25 +7,29 @@ import java.util.List;
 public class RestoreIPAddresses {
     private static List<String> restoreIPAddresses(String s) {
         List<String> result = new ArrayList<>();
-        if (s.length() > 12)
+        //early pruning
+        if (s.length() < 4 || s.length() > 12)
             return result;
+
         backtrack(0, 0, "", s, result);
         return result;
     }
 
-    private static void backtrack(int i, int dots, String currIp, String s, List<String> result) {
-        if (dots == 4 && i == s.length()) {
+    private static void backtrack(int i, int segments, String currIp, String s, List<String> result) {
+        if (segments == 4 && i == s.length()) {
             result.add(currIp.substring(0, currIp.length() - 1));
             return;
         }
 
-        if (dots > 4)
+        if (segments > 4)
             return;
+
+        //try 1->3 digits
         for (int j = i; j < Math.min(i + 3, s.length()); j++) {
             if (i != j && s.charAt(i) == '0')
                 continue;
             if (Integer.parseInt(s.substring(i, j + 1)) < 256) {
-                backtrack(j + 1, dots + 1, currIp + s.substring(i, j + 1) + ".", s, result);
+                backtrack(j + 1, segments + 1, currIp + s.substring(i, j + 1) + ".", s, result);
             }
         }
     }

@@ -4,6 +4,21 @@ import java.util.Stack;
 
 //Monotonic increasing stack: TC:O(n) SC:O(n)
 public class LargestRectangle {
+    private static int largestRectangle(int[] heights) {
+        Stack<Integer> stack = new Stack<>();
+        int maxArea = 0;
+        for (int i = 0; i <= heights.length; i++) {
+            int currHeight = (i == heights.length) ? 0 : heights[i];
+            while (!stack.isEmpty() && currHeight < heights[stack.peek()]) {
+                int height = heights[stack.pop()];
+                int width = stack.isEmpty() ? i : i - stack.peek() - 1;
+                maxArea = Math.max(maxArea, width * height);
+            }
+            stack.push(i);
+        }
+        return maxArea;
+    }
+    
     public static void main(String[] args) {
         int[][] testCases = {
                 { 2, 1, 5, 6, 2, 3 }, // 10
@@ -21,20 +36,5 @@ public class LargestRectangle {
             System.out.println(java.util.Arrays.toString(testCases[i]) + " => " + result
                     + (result == expected[i] ? " ✓" : " ✗ (expected " + expected[i] + ")"));
         }
-    }
-
-    private static int largestRectangle(int[] heights) {
-        Stack<Integer> stack = new Stack<>();
-        int maxArea = 0;
-        for (int i = 0; i <= heights.length; i++) {
-            int currHeight = (i == heights.length) ? 0 : heights[i];
-            while (!stack.isEmpty() && currHeight < heights[stack.peek()]) {
-                int height = heights[stack.pop()];
-                int width = stack.isEmpty() ? i : i - stack.peek() - 1;
-                maxArea = Math.max(maxArea, width * height);
-            }
-            stack.push(i);
-        }
-        return maxArea;
     }
 }

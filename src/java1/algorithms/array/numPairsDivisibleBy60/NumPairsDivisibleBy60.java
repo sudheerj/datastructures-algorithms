@@ -1,7 +1,7 @@
 package numPairsDivisibleBy60;
 
 public class NumPairsDivisibleBy60 {
-    //Remainder or compliment hashing TC: O(n) SC: O(1)
+    //Remainder or compliment hashing with fixed bucket size TC: O(n) SC: O(1)
     private int numPairsDivisibleBy60(int[] time) {
         int[] countRemainders = new int[60];
         int pairs = 0;

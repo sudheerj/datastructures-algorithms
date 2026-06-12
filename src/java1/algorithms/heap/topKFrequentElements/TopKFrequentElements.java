@@ -5,6 +5,7 @@ import java.util.*;
 public class TopKFrequentElements {
     // TC: O(n logk) SC: O(n)
     private int[] topKFrequent(int[] nums, int k) {
+        
         // Step1: Create FrequencyMap
         HashMap<Integer, Integer> freqMap = new HashMap<>();
         for (int num : nums) {
@@ -34,8 +35,8 @@ public class TopKFrequentElements {
         TopKFrequentElements elements = new TopKFrequentElements();
 
         // Test 1: General case
-        System.out.println("Test 1: " + Arrays.toString(elements.topKFrequent(new int[] { 1, 1, 1, 2, 2, 3 }, 2))); // [2,
-                                                                                                                    // 1]
+        System.out.println("Test 1: " + Arrays.toString(elements.topKFrequent(new int[] { 1, 1, 1, 2, 2, 3 }, 2))); // [1,
+                                                                                                                    // 2]
 
         // Test 2: Single element
         System.out.println("Test 2: " + Arrays.toString(elements.topKFrequent(new int[] { 1 }, 1))); // [1]

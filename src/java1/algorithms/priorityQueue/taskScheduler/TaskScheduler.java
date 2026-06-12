@@ -1,12 +1,12 @@
 package java1.algorithms.priorityQueue.taskScheduler;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
 public class TaskScheduler {
+    //Greedy scheduling with cooling window using MaxHeap
     private static int leastIntervals(char[] tasks, int n) {
         int[] charFrequency = new int[26];
 
@@ -25,7 +25,7 @@ public class TaskScheduler {
         int time = 0;
 
         while (!pq.isEmpty()) {
-            List<Integer> temp = new ArrayList<>();
+            List<Integer> remainingTasks = new ArrayList<>();
             int cycle = n+1;
 
             //fill one cycle
@@ -33,7 +33,7 @@ public class TaskScheduler {
                 int curr = pq.poll();
 
                 if(curr>1) {
-                    temp.add(curr-1);
+                    remainingTasks.add(curr-1);
                 }
 
                 time++;
@@ -41,7 +41,7 @@ public class TaskScheduler {
             }
 
             //Push remaining tasks back
-            pq.addAll(temp);
+            pq.addAll(remainingTasks);
 
             //Add idle time if tasks remain
             if(!pq.isEmpty()) {

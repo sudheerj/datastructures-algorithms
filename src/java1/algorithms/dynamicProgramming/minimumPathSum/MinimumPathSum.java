@@ -1,5 +1,7 @@
 package java1.algorithms.dynamicProgramming.minimumPathSum;
 
+import java.util.Arrays;
+
 public class MinimumPathSum {
     //Top down memoization TC: O(m*n) SC: O(m*n)
     private static int minPathSum1(int[][] grid) {
@@ -30,7 +32,7 @@ public class MinimumPathSum {
         return memo[r][c] = grid[r][c] + Math.min(down, right);
     }
 
-    //Bottom-up DP(reversal) TC: O(m * n) SC: O(m * n)
+    //Bottom-up DP TC: O(m * n) SC: O(m * n)
     private static int minPathSum2(int[][] grid) {
         int rows = grid.length, cols = grid[0].length;
 
@@ -53,8 +55,8 @@ public class MinimumPathSum {
         return dp[0][0];
     }
 
-    //Bottom-up space optimized(reversal) TC: O(m * n) SC: O(m)
-    private static int minPathSum3(int[][] grid) {
+    //Bottom-up optimized(1D array) TC: O(m * n) SC: O(1)
+    private static int maxPathSum3(int[][] grid) {
         int rows = grid.length, cols = grid[0].length;
         int[] dp = new int[cols+1];
         for(int c=0; c<=cols; c++) {
@@ -108,7 +110,7 @@ public class MinimumPathSum {
 
         System.out.println("=== Space-Optimized DP ===");
         for (int i = 0; i < tests.length; i++) {
-            int result = minPathSum3(tests[i][0]);
+            int result = maxPathSum3(tests[i][0]);
             int expected = tests[i][1][0][0];
             System.out.println("  [" + pass(result == expected) + "] " + labels[i]
                 + ": " + result + "  (expected " + expected + ")");

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LargestOutlier {
-   //Try all candidates + validates remaing structure TC: O(n) SC: O(n)
+   //Try all candidates + validates remaining structure TC: O(n) SC: O(n)
    private int getLargestOutlier(int[] nums) {
         Map<Integer, Integer> freqMap = new HashMap<>();
         int sum = 0;

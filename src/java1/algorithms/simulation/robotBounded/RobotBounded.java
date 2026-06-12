@@ -3,7 +3,7 @@ package java1.algorithms.simulation.robotBounded;
 public class RobotBounded {
     //Simulation for cyclic detection TC: O(n) SC: O(1)
     public static boolean isRobotBounded(String instructions) {
-        int[][] dirs = {{0,1}, {1, 0}, {0, -1}, {-1, 0}}; //North, east, south and west
+        int[][] dirs = {{0,1}, {1, 0}, {0, -1}, {-1, 0}}; //North-0, east-1, south-2 and west-3
         int dir = 0; //Facing north direction
         int x =0, y=0;
 

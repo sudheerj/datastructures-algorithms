@@ -23,12 +23,12 @@ public class FindTheDuplicateNumber {
         return slow;
     }
 
-    //Binary search on value range TC: O(n) SC: O(1)
+    //Binary search on value range TC: O(log n) SC: O(1)
     private int findDuplicate2(int[] nums) {
         int low = 1, high = nums.length-1;
 
-        int count = 0;
         while(low < high) {
+            int count = 0;
             int mid = low + (high-low)/2;
 
             for(int num: nums) {

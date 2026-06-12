@@ -11,10 +11,10 @@ public class SetMatrixZeroes {
         for(int r=0; r< rows; r++) {
             for(int c=0; c<cols; c++) {
                 if(matrix[r][c] == 0) {
-                    matrix[0][c] = 0;
+                    matrix[0][c] = 0; //column marking in first row
 
                     if(r >0) {
-                        matrix[r][0] = 0;
+                        matrix[r][0] = 0; //row marking in first column
                     } else {
                         rowZero = true;
                     }

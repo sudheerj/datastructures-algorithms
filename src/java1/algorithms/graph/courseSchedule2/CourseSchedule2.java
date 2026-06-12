@@ -63,7 +63,7 @@ public class CourseSchedule2 {
         }
     }
 
-    //Recursive DFS TC: O(V+E) SC: O(V+E)
+    //DFS TC: O(V+E) SC: O(V+E)
     private int[] findOrderDFS(int numCourses, int[][] prerequisites) {
         Map<Integer, List<Integer>> prereqMap = new HashMap<>();
         List<Integer> coursesOrder = new ArrayList<>();

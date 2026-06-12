@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FractionToDecimal {
-    //Cycle detection TC: O(q)/O(denominator) SC: O(q)/O(denominator); q = number of digits in decimal part or number of unique remainders. Since minimum unique remainders(d-1) < denominator(d), complexity can be O(Denominator) 
+    //Cycle detection TC: O(n) SC: O(n); n = number of unique remainders
     private static String fractionToDecimal(int numerator, int denominator) {
         if(numerator == 0) return "0";
 

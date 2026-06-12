@@ -4,6 +4,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class IsomorphicStrings {
+    private static boolean isIsomorphic1(String s, String t) {
+        int[] countS = new int[256]; //256 ASCII Chars
+        int[] countT = new int[256];
+        
+        for(int i=0; i<s.length(); i++) {
+            char ch1 = s.charAt(i);
+            char ch2 = s.charAt(i);
+
+            if(countS[ch1] != countT[ch2]) return false;
+
+            countS[ch1]++;
+            countT[ch2]++;
+        }
+
+        return true;
+    }
     private static boolean isIsomorphic(String s, String t){
         if(s.length() != t.length()) {
             return false;

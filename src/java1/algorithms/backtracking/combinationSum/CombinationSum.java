@@ -24,7 +24,7 @@ public class CombinationSum {
         if (target < 0 || i == candidates.length)
             return;
 
-        // includate candidate number
+        // include candidate number
         current.add(candidates[i]);
         dfs(i, candidates, target - candidates[i], current, result);
         current.remove(current.size() - 1);

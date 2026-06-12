@@ -2,6 +2,7 @@ import java.util.*;
 
 public class ThirdLargestElement {
 
+    //Use 3 variables to represent first 3 maximum elements TC: O(n) SC: O(1)
     private static String thirdLargestElement1(int[] arr) {
         int first = Integer.MIN_VALUE, second = Integer.MIN_VALUE, third = Integer.MIN_VALUE;
 
@@ -25,6 +26,7 @@ public class ThirdLargestElement {
         return third == Integer.MIN_VALUE ? "There are no 3 unique elements in an array" : String.valueOf(third);
     }
 
+    //Using TreeSet to sort elements in descending order TC: O(n log n) SC: O(n)
     private static String thirdLargestElement2(int[] arr){
         Set<Integer> uniqueArr = new TreeSet<>(Collections.reverseOrder());
 
