@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class SurroundedRegions {
-    //DFS recursive traversal TC: O(m * n) SC: O(1)
+    //DFS recursive traversal TC: O(m * n) SC: O(m * n)
     //Find all non-surrounded O's, mark them and flip surrounded O's
     private static char[][] solve1(char[][] board) {
         if(board == null || board.length == 0)  return board;
@@ -53,6 +53,7 @@ public class SurroundedRegions {
         dfs(board, r, c-1);
     }
 
+    //BFS: TC: O(m * n) SC: O(m * n)
     private static char[][] solve2(char[][] board) {
         if(board == null || board.length == 0)  return board;
 
@@ -101,11 +102,48 @@ public class SurroundedRegions {
                 int nr = cell[0] + dir[0];
                 int nc = cell[1] + dir[1];
 
-                if(nr >= 0 || nr < board.length || nc >= 0 || nc < board[0].length || board[nr][nc] == 'O') {
-                    queue.offer(new int[]{nr, nc});
+                if(nr >= 0 && nr < board.length && nc >= 0 && nc < board[0].length && board[nr][nc] == 'O') {
                     board[nr][nc] = 'T';
+                    queue.offer(new int[]{nr, nc});
                 }
             }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        char[][] dfsBoard = {
+                {'X', 'X', 'X', 'X'},
+                {'X', 'O', 'O', 'X'},
+                {'X', 'X', 'O', 'X'},
+                {'X', 'O', 'X', 'X'}
+        };
+
+        char[][] bfsBoard = {
+                {'X', 'X', 'X', 'X'},
+                {'X', 'O', 'O', 'X'},
+                {'X', 'X', 'O', 'X'},
+                {'X', 'O', 'X', 'X'}
+        };
+
+        solve1(dfsBoard);
+
+        System.out.println("DFS Result:");
+        for (char[] row : dfsBoard) {
+            for (char ch : row) {
+                System.out.print(ch + " ");
+            }
+            System.out.println();
+        }
+
+        solve2(bfsBoard);
+
+        System.out.println("\nBFS Result:");
+        for (char[] row : bfsBoard) {
+            for (char ch : row) {
+                System.out.print(ch + " ");
+            }
+            System.out.println();
         }
     }
 }
