@@ -1,7 +1,7 @@
 package java1.algorithms.greedy.minTimeToType;
 
 public class MinTimeToType {
-    //Simulation + Greedy(minimum circular distance)
+    //Simulation + Greedy(minimum circular distance) TC: O(n) SC: O(1)
     private static int minTimeToType(String word) {
         char currentChar = 'a';
         int time = 0;
