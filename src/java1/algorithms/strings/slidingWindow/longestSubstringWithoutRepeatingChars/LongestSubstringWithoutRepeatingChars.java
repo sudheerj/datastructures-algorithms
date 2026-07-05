@@ -1,5 +1,5 @@
 // Sliding window: TC: O(n), SC: O(n)
-package java1.algorithms.strings.longestSubstringWithoutRepeatingChars;
+package java1.algorithms.strings.slidingWindow.longestSubstringWithoutRepeatingChars;
 
 import java.util.HashMap;
 import java.util.HashSet;

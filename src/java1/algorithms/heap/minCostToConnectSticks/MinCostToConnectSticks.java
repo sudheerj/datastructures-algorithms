@@ -5,6 +5,8 @@ import java.util.PriorityQueue;
 public class MinCostToConnectSticks {
     //Greedy + minHeap TC: O(n log n) SC: O(n)
     private static int connectSticks(int[] sticks) {
+        if(sticks.length <= 1) return 0;
+        
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         int minCost = 0;
 

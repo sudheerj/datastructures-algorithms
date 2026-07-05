@@ -1,14 +1,14 @@
-package java1.algorithms.array.intersectionOfArrays;
+package intersectionOfArrays;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class IntersectionOfArrays {
-    private static List<Integer> intersection(int[] nums1, int[] nums2){
+    //Using two sets and linear scan TC: O(n + m) SC: O(n + k) = Intersection size
+    private static int[] intersection(int[] nums1, int[] nums2){
         Set<Integer> set = new HashSet<>();
-        List<Integer> result = new ArrayList<>();
+        Set<Integer> result = new HashSet<>();
 
         for (Integer num : nums1) {
             set.add(num);
@@ -17,17 +17,16 @@ public class IntersectionOfArrays {
         for (Integer num : nums2) {
             if(set.contains(num)) {
                 result.add(num);
-                set.remove(num);
             }
         }
 
-        return result;    
+        return result.stream().mapToInt(i -> i).toArray();    
     }
 
     public static void main(String[] args) {
         int[] nums1 = new int[]{5,3,3,5}, nums2 = new int[]{5,3};
         int[] nums3 = new int[]{1, 3, 5}, nums4 = new int[]{2,4};
-        System.out.println(intersection(nums1, nums2));
-        System.out.println(intersection(nums3, nums4));
+        System.out.println(Arrays.toString(intersection(nums1, nums2)));
+        System.out.println(Arrays.toString(intersection(nums3, nums4)));
     }
 }
