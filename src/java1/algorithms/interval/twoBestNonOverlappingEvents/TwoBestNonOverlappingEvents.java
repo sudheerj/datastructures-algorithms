@@ -3,7 +3,7 @@ package java1.algorithms.interval.twoBestNonOverlappingEvents;
 import java.util.Arrays;
 
 public class TwoBestNonOverlappingEvents {
-    //Sort + Binary search + suffix maximum sum TC: O(n log n) for sorting + O(n log n) for binary search -> O(n log n) SC: O(n)
+    //Sort + Binary search + suffix maximum  TC: O(n log n) for sorting + O(n log n) for binary search -> O(n log n) SC: O(n)
     private static int maxTwoEvents(int[][] events) {
         Arrays.sort(events, (a, b) -> a[0]-b[0]);
 

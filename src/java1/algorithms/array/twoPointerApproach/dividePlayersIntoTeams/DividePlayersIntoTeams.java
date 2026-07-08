@@ -62,7 +62,7 @@ public class DividePlayersIntoTeams {
 
         }
 
-        return chemistry; //every pair counted twice
+        return chemistry;
     }
 
     public static void main(String[] args) {

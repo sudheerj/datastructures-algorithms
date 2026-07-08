@@ -3,16 +3,16 @@ package java1.algorithms.greedy.minSuffixFlips;
 public class MinSuffixFlips {
     //Greedy + state tracking TC: O(n) SC: O(1)
     private static int minFlips(String s) {
-        int flips = 0, effectiveBit = 0;
+        int minFlips = 0, effectiveBit = '0';
 
         for(char ch: s.toCharArray()) {
             if(ch != effectiveBit) {
-                flips++;
+                minFlips++;
                 effectiveBit = ch;
             }
         }
 
-        return flips;
+        return minFlips;
     }
 
     public static void main(String[] args) {

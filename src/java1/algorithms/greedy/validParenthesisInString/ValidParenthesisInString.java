@@ -36,9 +36,9 @@ public class ValidParenthesisInString {
 
         for(char ch: s.toCharArray()) {
             if(ch == '(') {
-                openStack.push(i);
+                openStack.push(ch);
             } else if(ch == '*') {
-                starStack.push(i);
+                starStack.push(ch);
             } else { // )
                 if(!openStack.isEmpty()) {
                     openStack.pop();

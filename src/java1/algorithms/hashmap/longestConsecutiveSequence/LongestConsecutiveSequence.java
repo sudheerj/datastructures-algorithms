@@ -27,7 +27,6 @@ public class LongestConsecutiveSequence {
                 }
                 longestStreak = Math.max(currentStreak, longestStreak);
             }
-            if(longestStreak > nums.length/2) break;
         }
         return longestStreak;
     }
