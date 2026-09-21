@@ -2,7 +2,7 @@
  function canFinish1(numCourses, prerequisites) {
      let prerequisiteMap = Array(numCourses).fill(0).map(()=> []);
      for(const pre of prerequisites){
-        prerequisiteMap[pre[0]]=[pre[1]];
+        prerequisiteMap[pre[0]].push(pre[1]);
      }
 
      let visitSet = new Set();

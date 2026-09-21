@@ -21,7 +21,10 @@ Given a string `pattern` consisting of only 'I' (increase) and 'D' (decrease), c
 | "I"       | 12        | Only one increase         |
 | "DDI"     | 3214      | 3>2>1<4                   |
 | "IDID"    | 13254     | 1<3>2<5>4                 |
-| ""        | 1         | Single number             |
+| ""        | 1         | 
+
+
+             |
 
 ## Code Links
 - [Java](ConstructSmallestNumDIString.java)

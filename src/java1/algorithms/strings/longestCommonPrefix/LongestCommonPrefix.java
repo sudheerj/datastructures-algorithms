@@ -1,6 +1,21 @@
 package java1.algorithms.strings.longestCommonPrefix;
 
 public class LongestCommonPrefix {
+    //TC: O(n * m) SC: O(n)
+    private String longestCommonPrefix(String[] strs) {
+
+        for(int i=0; i< strs[0].length(); i++) {
+            char ch = strs[0].charAt(i);
+            for(int j=1; j< strs.length; j++) {
+                if(i >= strs[j].length() || strs[j].charAt(i) != ch) {
+                    return strs[0].substring(0, i);
+                }
+            }
+        }
+
+        return strs[0];
+    }
+
     public static void main(String[] args) {
         LongestCommonPrefix obj = new LongestCommonPrefix();
 
@@ -20,20 +35,5 @@ public class LongestCommonPrefix {
             String result = obj.longestCommonPrefix(testCases[i]);
             System.out.println(java.util.Arrays.toString(testCases[i]) + " => \"" + result + "\"" + (result.equals(expected[i]) ? " ✓" : " ✗ (expected \"" + expected[i] + "\")"));
         }
-    }
-
-    //TC: O(n * m) SC: O(n)
-    private String longestCommonPrefix(String[] strs) {
-
-        for(int i=0; i< strs[0].length(); i++) {
-            char ch = strs[0].charAt(i);
-            for(int j=1; j< strs.length; j++) {
-                if(i >= strs[j].length() || strs[j].charAt(i) != ch) {
-                    return strs[0].substring(0, i);
-                }
-            }
-        }
-
-        return strs[0];
     }
 }
