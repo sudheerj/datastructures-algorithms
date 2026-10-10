@@ -1,3 +1,5 @@
+package java1.algorithms.hashmap.twoSum;
+
 // TC: O(n), SC: O(n)
 import java.util.*;
 

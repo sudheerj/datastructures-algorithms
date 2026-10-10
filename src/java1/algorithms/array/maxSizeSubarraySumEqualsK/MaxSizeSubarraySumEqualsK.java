@@ -1,4 +1,4 @@
-package maxSizeSubarraySumEqualsK;
+package java1.algorithms.array.maxSizeSubarraySumEqualsK;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -3,7 +3,7 @@ package threeSum;
 import java.util.*;
 
 public class ThreeSum {
-    // Two pointer approach:- TC: O(n logn) + O(n*2) => O(n * 2), SC: O(1)
+    // Two pointer approach:- TC: O(n logn) + O(n^2) => O(n^2), SC: O(1)
     private static List<List<Integer>> threeSum(int[] nums, int target) {
         List<List<Integer>> triplets = new ArrayList<>();
         Arrays.sort(nums);

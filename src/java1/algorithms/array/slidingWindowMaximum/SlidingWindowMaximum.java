@@ -1,4 +1,4 @@
-package slidingWindowMaximum;
+package java1.algorithms.array.slidingWindowMaximum;
 
 import java.util.Deque;
 import java.util.LinkedList;

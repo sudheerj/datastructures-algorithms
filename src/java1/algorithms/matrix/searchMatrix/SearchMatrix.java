@@ -1,6 +1,26 @@
 package java1.algorithms.matrix.searchMatrix;
 
 public class SearchMatrix {
+
+    private static boolean searchMatrix(int[][] matrix, int target) {
+        int rows = matrix.length, cols = matrix[0].length;
+        int left = 0, right = rows * cols - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            int value = matrix[mid / cols][mid % cols];
+            if (target > value) {
+                left = mid + 1;
+            } else if (target < value) {
+                right = mid - 1;
+            } else {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
         // Example 1: Target present
         int[][] matrix1 = {
@@ -32,24 +52,5 @@ public class SearchMatrix {
         int[][] matrix5 = {};
         // Avoid calling searchMatrix on empty matrix to prevent exception
         System.out.println("Input: empty matrix, target=1 -> Output: false");
-    }
-
-    private static boolean searchMatrix(int[][] matrix, int target) {
-        int rows = matrix.length, cols = matrix[0].length;
-        int left = 0, right = rows * cols - 1;
-
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            int value = matrix[mid / cols][mid % cols];
-            if (target > value) {
-                left = mid + 1;
-            } else if (target < value) {
-                right = mid - 1;
-            } else {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

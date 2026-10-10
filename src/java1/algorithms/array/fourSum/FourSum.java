@@ -5,37 +5,7 @@ import java.util.List;
 // TC:O(n**3) SC: O(1)
 // K-sum recursion + two sum(two pointer) base approach
 public class FourSum {
-    public static void main(String[] args) {
-        // Test case 1: General case
-        System.out.println("Test 1: " + fourSum(new int[] { 1, 0, -1, 0, -2, 2 }, 0));
-        // Expected: [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
-
-        // Test case 2: All same elements
-        System.out.println("Test 2: " + fourSum(new int[] { 2, 2, 2, 2, 2 }, 8));
-        // Expected: [[2, 2, 2, 2]]
-
-        // Test case 3: No valid quadruplets
-        System.out.println("Test 3: " + fourSum(new int[] { 1, 2, 3, 4 }, 100));
-        // Expected: []
-
-        // Test case 4: Negative numbers
-        System.out.println("Test 4: " + fourSum(new int[] { -3, -2, -1, 0, 0, 1, 2, 3 }, 0));
-        // Expected: [[-3, -2, 2, 3], [-3, -1, 1, 3], [-3, 0, 0, 3], [-3, 0, 1, 2], [-2,
-        // -1, 0, 3], [-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
-
-        // Test case 5: Exactly four elements
-        System.out.println("Test 5: " + fourSum(new int[] { 1, 2, 3, 4 }, 10));
-        // Expected: [[1, 2, 3, 4]]
-
-        // Test case 6: Less than four elements
-        System.out.println("Test 6: " + fourSum(new int[] { 1, 2 }, 3));
-        // Expected: []
-
-        // Test case 7: Empty array
-        System.out.println("Test 7: " + fourSum(new int[] {}, 0));
-        // Expected: []
-    }
-
+    
     private static List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> quadrets = new ArrayList<>();
         Arrays.sort(nums);
@@ -82,5 +52,36 @@ public class FourSum {
                 right--;
             }
         }
+    }
+
+    public static void main(String[] args) {
+        // Test case 1: General case
+        System.out.println("Test 1: " + fourSum(new int[] { 1, 0, -1, 0, -2, 2 }, 0));
+        // Expected: [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
+
+        // Test case 2: All same elements
+        System.out.println("Test 2: " + fourSum(new int[] { 2, 2, 2, 2, 2 }, 8));
+        // Expected: [[2, 2, 2, 2]]
+
+        // Test case 3: No valid quadruplets
+        System.out.println("Test 3: " + fourSum(new int[] { 1, 2, 3, 4 }, 100));
+        // Expected: []
+
+        // Test case 4: Negative numbers
+        System.out.println("Test 4: " + fourSum(new int[] { -3, -2, -1, 0, 0, 1, 2, 3 }, 0));
+        // Expected: [[-3, -2, 2, 3], [-3, -1, 1, 3], [-3, 0, 0, 3], [-3, 0, 1, 2], [-2,
+        // -1, 0, 3], [-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
+
+        // Test case 5: Exactly four elements
+        System.out.println("Test 5: " + fourSum(new int[] { 1, 2, 3, 4 }, 10));
+        // Expected: [[1, 2, 3, 4]]
+
+        // Test case 6: Less than four elements
+        System.out.println("Test 6: " + fourSum(new int[] { 1, 2 }, 3));
+        // Expected: []
+
+        // Test case 7: Empty array
+        System.out.println("Test 7: " + fourSum(new int[] {}, 0));
+        // Expected: []
     }
 }

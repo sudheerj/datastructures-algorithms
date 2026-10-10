@@ -1,4 +1,4 @@
-package buySellStock;
+package java1.algorithms.array.buySellStock;
 //Greedy approach/Sliding window: TC:O(n), SC:O(1)
 
 class BuySellStock {

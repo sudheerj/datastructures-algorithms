@@ -7,7 +7,7 @@ public class TopKFrequentElements {
     private int[] topKFrequent(int[] nums, int k) {
         
         // Step1: Create FrequencyMap
-        HashMap<Integer, Integer> freqMap = new HashMap<>();
+        Map<Integer, Integer> freqMap = new HashMap<>();
         for (int num : nums) {
             freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
         }

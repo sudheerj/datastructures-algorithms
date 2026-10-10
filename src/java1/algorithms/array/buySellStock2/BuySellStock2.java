@@ -1,4 +1,4 @@
-package buySellStock2;
+package java1.algorithms.array.buySellStock2;
 
 public class BuySellStock2 {
     // Using greedy (accumulate positive daily gains) TC: O(n) SC: O(1)

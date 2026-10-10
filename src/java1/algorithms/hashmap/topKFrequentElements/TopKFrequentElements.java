@@ -21,24 +21,29 @@ public class TopKFrequentElements {
         }
 
         // Step2: Bucket sort using count as index and list of numbers as value
-        List<Integer>[] buckets = new ArrayList[nums.length + 1];
+        List<List<Integer>> buckets = new ArrayList<>();
+        for (int i = 0; i <= nums.length; i++) {
+            buckets.add(null);
+        }
+
         for (int num : freqMap.keySet()) {
             int freq = freqMap.get(num);
-            if (buckets[freq] == null) {
-                buckets[freq] = new ArrayList<>();
+            if (buckets.get(freq) == null) {
+                buckets.set(freq, new ArrayList<>());
             }
-            buckets[freq].add(num);
+            buckets.get(freq).add(num);
         }
 
         // Step3: Collect top k elements
         int[] topKElements = new int[k];
         int idx = 0;
-        for (int i = buckets.length - 1; i >= 0 && idx < k; i--) {
-            if (buckets[i] != null) {
-                for(int num: buckets[i]) {
+        for (int i = buckets.size() - 1; i >= 0 && idx < k; i--) {
+            if (buckets.get(i) != null) {
+                for (int num : buckets.get(i)) {
                     topKElements[idx++] = num;
 
-                    if(idx == k) return topKElements;
+                    if (idx == k)
+                        return topKElements;
                 }
             }
         }
@@ -48,7 +53,9 @@ public class TopKFrequentElements {
 
     public static void main(String[] args) {
         // Test 1: General case
-        System.out.println("Test 1: " + Arrays.toString(topKFrequentElements(new int[] { 1, 1, 1, 2, 2, 3 }, 2))); // [1,2]                                                                                                         // 2]
+        System.out.println("Test 1: " + Arrays.toString(topKFrequentElements(new int[] { 1, 1, 1, 2, 2, 3 }, 2))); // [1,2]
+                                                                                                                   // //
+                                                                                                                   // 2]
 
         // Test 2: k equals unique elements
         System.out.println("Test 2: " + Arrays.toString(topKFrequentElements(new int[] { 1, 2, 3 }, 3))); // [1, 2, 3]
@@ -64,7 +71,8 @@ public class TopKFrequentElements {
                 "Test 5: " + Arrays.toString(topKFrequentElements(new int[] { 1, 1, 1, 2, 2, 3, 3, 3, 3 }, 1))); // [3]
 
         // Test 6: Negative numbers
-        System.out.println("Test 6: " + Arrays.toString(topKFrequentElements(new int[] { -1, -1, 2, 2, 2, 3 }, 2))); // [2,// -1]
+        System.out.println("Test 6: " + Arrays.toString(topKFrequentElements(new int[] { -1, -1, 2, 2, 2, 3 }, 2))); // [2,//
+                                                                                                                     // -1]
 
         // Test 7: Two elements
         System.out.println("Test 7: " + Arrays.toString(topKFrequentElements(new int[] { 4, 4, 1, 1, 1 }, 1))); // [1]

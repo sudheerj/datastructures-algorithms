@@ -1,4 +1,4 @@
-package searchRotatedSortedArray;
+package java1.algorithms.array.searchRotatedSortedArray;
 // TC: O(log n), SC: O(1)
 public class SearchRotatedSortedArray {
     private static int searchRotatedSortedArray(int[] nums, int target) {

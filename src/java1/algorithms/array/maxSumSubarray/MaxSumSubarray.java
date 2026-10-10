@@ -1,4 +1,4 @@
-package maxSumSubarray;
+package java1.algorithms.array.maxSumSubarray;
 
 public class MaxSumSubarray {
     //Using Kadane's algorithm TC: O(n) SC: O(1)
